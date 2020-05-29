@@ -18,7 +18,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Xcpretty Install
-      run: gem install xcpretty || gem install xcpretty-json-formatter
+      run: |
+        gem install xcpretty 
+        gem install xcpretty-json-formatter
     - name: Brew Upgrade
       run: |
         brew update
