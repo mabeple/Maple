@@ -15,6 +15,7 @@
 		0174DFC72480FCC800258824 /* Maple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0174DF1C2480EC7D00258824 /* Maple.framework */; };
 		0174DFCD2480FD6C00258824 /* UIViewMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0174DF7E2480F61600258824 /* UIViewMPTests.swift */; };
 		0174DFCF2480FDA900258824 /* UITextField+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0174DFCE2480FDA900258824 /* UITextField+Maple.swift */; };
+		0174DFD12481034F00258824 /* UITextFieldMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0174DFD02481034F00258824 /* UITextFieldMPTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		0174DF7E2480F61600258824 /* UIViewMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewMPTests.swift; sourceTree = "<group>"; };
 		0174DFC22480FCC700258824 /* Maple-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Maple-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0174DFCE2480FDA900258824 /* UITextField+Maple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Maple.swift"; sourceTree = "<group>"; };
+		0174DFD02481034F00258824 /* UITextFieldMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldMPTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			children = (
 				0174DF5F2480EF5F00258824 /* Info.plist */,
 				0174DF7E2480F61600258824 /* UIViewMPTests.swift */,
+				0174DFD02481034F00258824 /* UITextFieldMPTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0174DFD12481034F00258824 /* UITextFieldMPTests.swift in Sources */,
 				0174DFCD2480FD6C00258824 /* UIViewMPTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
