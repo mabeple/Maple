@@ -17,8 +17,10 @@ jobs:
       DEVELOPER_DIR: /Applications/Xcode_11.4.app/Contents/Developer
     steps:
     - uses: actions/checkout@v1
-    - name: Bundle Install
-      run: bundle install
+    - name: Xcpretty Install
+      run: |
+        gem install xcpretty 
+        gem install xcpretty-json-formatter
     - name: Brew Upgrade
       run: |
         brew update
@@ -37,11 +39,3 @@ jobs:
       env:
           SCHEME: Maple-macOS
           DESTINATION: platform=OS X
-      
-  Linux:
-    runs-on: [ubuntu-16.04] 
-    container: swift:5.2.3
-    steps:
-      - uses: actions/checkout@v1
-      - name: Linux
-        run: swift test --enable-test-discovery --parallel
