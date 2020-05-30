@@ -16,6 +16,9 @@
 		0174DFCD2480FD6C00258824 /* UIViewMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0174DF7E2480F61600258824 /* UIViewMPTests.swift */; };
 		0174DFCF2480FDA900258824 /* UITextField+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0174DFCE2480FDA900258824 /* UITextField+Maple.swift */; };
 		0174DFD12481034F00258824 /* UITextFieldMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0174DFD02481034F00258824 /* UITextFieldMPTests.swift */; };
+		01CEC2E92481F54200CF21B9 /* NSView+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CEC2E82481F54200CF21B9 /* NSView+Maple.swift */; };
+		01CEC2F32481F58200CF21B9 /* Maple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0174DF382480ECAD00258824 /* Maple.framework */; };
+		01CEC2FA2481F62100CF21B9 /* NSViewMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CEC2F92481F62100CF21B9 /* NSViewMPTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +28,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 0174DF1B2480EC7D00258824;
 			remoteInfo = "Maple-iOS";
+		};
+		01CEC2F42481F58200CF21B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0174DF032480EC1800258824 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0174DF372480ECAD00258824;
+			remoteInfo = "Maple-macOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -41,6 +51,9 @@
 		0174DFC22480FCC700258824 /* Maple-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Maple-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0174DFCE2480FDA900258824 /* UITextField+Maple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Maple.swift"; sourceTree = "<group>"; };
 		0174DFD02481034F00258824 /* UITextFieldMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldMPTests.swift; sourceTree = "<group>"; };
+		01CEC2E82481F54200CF21B9 /* NSView+Maple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+Maple.swift"; sourceTree = "<group>"; };
+		01CEC2EE2481F58200CF21B9 /* Maple-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Maple-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		01CEC2F92481F62100CF21B9 /* NSViewMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewMPTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +79,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		01CEC2EB2481F58200CF21B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01CEC2F32481F58200CF21B9 /* Maple.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -84,6 +105,7 @@
 				0174DF1C2480EC7D00258824 /* Maple.framework */,
 				0174DF382480ECAD00258824 /* Maple.framework */,
 				0174DFC22480FCC700258824 /* Maple-iOSTests.xctest */,
+				01CEC2EE2481F58200CF21B9 /* Maple-macOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,6 +115,7 @@
 			children = (
 				0174DF0F2480EC1800258824 /* Maple.h */,
 				0174DF502480EDC800258824 /* Maple.swift */,
+				01CEC2E72481F53100CF21B9 /* AppKit */,
 				0174DF7D2480F5A800258824 /* UIKit */,
 				0174DF532480EF0800258824 /* Extensions+Maple */,
 				0174DF102480EC1800258824 /* Info.plist */,
@@ -114,6 +137,7 @@
 				0174DF5F2480EF5F00258824 /* Info.plist */,
 				0174DF7E2480F61600258824 /* UIViewMPTests.swift */,
 				0174DFD02481034F00258824 /* UITextFieldMPTests.swift */,
+				01CEC2F92481F62100CF21B9 /* NSViewMPTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -125,6 +149,14 @@
 				0174DF7B2480F5A100258824 /* UIView+Maple.swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		01CEC2E72481F53100CF21B9 /* AppKit */ = {
+			isa = PBXGroup;
+			children = (
+				01CEC2E82481F54200CF21B9 /* NSView+Maple.swift */,
+			);
+			path = AppKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +233,24 @@
 			productReference = 0174DFC22480FCC700258824 /* Maple-iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		01CEC2ED2481F58200CF21B9 /* Maple-macOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01CEC2F62481F58200CF21B9 /* Build configuration list for PBXNativeTarget "Maple-macOSTests" */;
+			buildPhases = (
+				01CEC2EA2481F58200CF21B9 /* Sources */,
+				01CEC2EB2481F58200CF21B9 /* Frameworks */,
+				01CEC2EC2481F58200CF21B9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				01CEC2F52481F58200CF21B9 /* PBXTargetDependency */,
+			);
+			name = "Maple-macOSTests";
+			productName = "Maple-macOSTests";
+			productReference = 01CEC2EE2481F58200CF21B9 /* Maple-macOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -222,6 +272,10 @@
 					0174DFC12480FCC700258824 = {
 						CreatedOnToolsVersion = 11.5;
 					};
+					01CEC2ED2481F58200CF21B9 = {
+						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
+					};
 				};
 			};
 			buildConfigurationList = 0174DF062480EC1800258824 /* Build configuration list for PBXProject "Maple" */;
@@ -240,6 +294,7 @@
 				0174DF1B2480EC7D00258824 /* Maple-iOS */,
 				0174DF372480ECAD00258824 /* Maple-macOS */,
 				0174DFC12480FCC700258824 /* Maple-iOSTests */,
+				01CEC2ED2481F58200CF21B9 /* Maple-macOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -266,6 +321,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		01CEC2EC2481F58200CF21B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -286,6 +348,7 @@
 			files = (
 				0174DF522480EDC800258824 /* Maple.swift in Sources */,
 				0174DF562480EF1300258824 /* Bundle+Maple.swift in Sources */,
+				01CEC2E92481F54200CF21B9 /* NSView+Maple.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +361,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		01CEC2EA2481F58200CF21B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01CEC2FA2481F62100CF21B9 /* NSViewMPTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -305,6 +376,11 @@
 			isa = PBXTargetDependency;
 			target = 0174DF1B2480EC7D00258824 /* Maple-iOS */;
 			targetProxy = 0174DFC82480FCC800258824 /* PBXContainerItemProxy */;
+		};
+		01CEC2F52481F58200CF21B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0174DF372480ECAD00258824 /* Maple-macOS */;
+			targetProxy = 01CEC2F42481F58200CF21B9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -573,6 +649,49 @@
 			};
 			name = Release;
 		};
+		01CEC2F72481F58200CF21B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cmapu.Maple-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		01CEC2F82481F58200CF21B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cmapu.Maple-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -608,6 +727,15 @@
 			buildConfigurations = (
 				0174DFCB2480FCC800258824 /* Debug */,
 				0174DFCC2480FCC800258824 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01CEC2F62481F58200CF21B9 /* Build configuration list for PBXNativeTarget "Maple-macOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01CEC2F72481F58200CF21B9 /* Debug */,
+				01CEC2F82481F58200CF21B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
