@@ -8,11 +8,7 @@
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
-
-extension MabpleWrapper where Base == UITableView {
-    
-    
-    // MARK: - Properties
+public extension MabpleWrapper where Base == UITableView {
     
     /// Index path of last row in tableView.
     var indexPathForLastRow: IndexPath? {

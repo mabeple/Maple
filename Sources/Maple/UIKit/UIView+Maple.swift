@@ -9,8 +9,7 @@
 #if canImport(UIKit)
 import UIKit
 extension UIView: MabpleCompatible { }
-
-extension MabpleWrapper where Base: UIView {
+public extension MabpleWrapper where Base: UIView {
     
     /// Corner radius of view;
     var cornerRadius: CGFloat {
@@ -80,7 +79,7 @@ extension MabpleWrapper where Base: UIView {
     /// - Parameters:
     ///   - corners: array of corners to change (example: [.bottomLeft, .topRight]).
     ///   - radius: radius for selected corners.
-    public func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
         let maskPath = UIBezierPath(
             roundedRect: base.bounds,
             byRoundingCorners: corners,

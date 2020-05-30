@@ -13,7 +13,7 @@ import UIKit
 public typealias MPCrossPlatformColor = UIColor
 #endif
 
-#if canImport(AppKit)
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
 import AppKit
 public typealias MPCrossPlatformColor = NSColor
 #endif
@@ -23,7 +23,7 @@ import CoreImage
 #endif
 // MARK: - Maple
 extension MPCrossPlatformColor: MabpleCompatibleValue { }
-extension MabpleWrapper where Base == MPCrossPlatformColor {
+public extension MabpleWrapper where Base == MPCrossPlatformColor {
     
     /// RGB components for a Color (between 0 and 255).
     ///
@@ -167,7 +167,7 @@ extension MabpleWrapper where Base == MPCrossPlatformColor {
 }
 
 // MARK: - Initializers
-extension MPCrossPlatformColor {
+public extension MPCrossPlatformColor {
     
     /// Create Color from RGB values with optional transparency.
     ///
@@ -237,7 +237,7 @@ extension MPCrossPlatformColor {
         self.init(red: red, green: green, blue: blue, transparency: trans)
     }
     
-    #if canImport(AppKit)
+    #if canImport(AppKit) && !targetEnvironment(macCatalyst)
     /// Create an NSColor with different colors for light and dark mode.
     ///
     /// - Parameters:

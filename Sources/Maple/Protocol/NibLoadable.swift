@@ -6,21 +6,21 @@
 //  Copyright © 2020 cy. All rights reserved.
 //
 
-protocol NibLoadable {}
+public protocol NibLoadable {}
 
 #if canImport(UIKit)
 import UIKit
 extension UIView: NibLoadable {}
 extension UIViewController: NibLoadable {}
 
-extension NibLoadable where Self : UIView {
+public extension NibLoadable where Self : UIView {
     static func loadFromNib(_ name : String? = nil) -> Self {
         let loadName = name == nil ? "\(self)" : name!
         return Bundle.main.loadNibNamed(loadName, owner: nil, options: nil)?.first as! Self
     }
 }
 
-extension NibLoadable where Self : UIViewController {
+public extension NibLoadable where Self : UIViewController {
     static func loadFromStoryboard(_ name: String? = nil, with identifier: String? = nil) -> Self {
         
         let loadName = name == nil ? "\(self)" : name!
@@ -33,10 +33,10 @@ extension NibLoadable where Self : UIViewController {
 }
 #endif
 
-#if canImport(AppKit)
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
 import AppKit
 extension NSView: NibLoadable {}
-extension NibLoadable where Self : NSView {
+public extension NibLoadable where Self : NSView {
     static var nibName: String {
         return String(describing: Self.self)
     }

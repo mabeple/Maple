@@ -42,7 +42,7 @@ extension NSEdgeInsets: Equatable {
 #if os(iOS) || os(tvOS) || os(watchOS) || os(macOS)
 // MARK: - Maple
 extension EdgeInsets: MabpleCompatibleValue { }
-extension MabpleWrapper where Base == EdgeInsets {
+public extension MabpleWrapper where Base == EdgeInsets {
     /// Return the vertical insets. The vertical insets is composed by top + bottom.
     ///
     var vertical: CGFloat {
@@ -159,8 +159,6 @@ public extension EdgeInsets {
         lhs.bottom += rhs.bottom
         lhs.right += rhs.right
     }
-    
 }
-
 #endif
 

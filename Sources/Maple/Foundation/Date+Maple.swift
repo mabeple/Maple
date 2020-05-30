@@ -9,16 +9,15 @@
 #if canImport(Foundation)
 import Foundation
 extension Date: MabpleCompatibleValue { }
-
-// MARK: - Properties
-extension MabpleWrapper where Base == Date {
+// MARK: - Maple
+public extension MabpleWrapper where Base == Date {
     
     /// User’s current calendar.
     var calendar: Calendar {
         return Calendar(identifier: Calendar.current.identifier) // Workaround to segfault on corelibs foundation https://bugs.swift.org/browse/SR-10147
     }
     
-    ///  Era.
+    /// Era.
     ///
     ///        Date().era -> 1
     ///
@@ -27,7 +26,7 @@ extension MabpleWrapper where Base == Date {
     }
     
     #if !os(Linux)
-    ///  Quarter.
+    /// Quarter.
     ///
     ///        Date().quarter -> 3 // date in third quarter of the year.
     ///
@@ -39,7 +38,7 @@ extension MabpleWrapper where Base == Date {
     }
     #endif
     
-    ///  Week of year.
+    /// Week of year.
     ///
     ///        Date().weekOfYear -> 2 // second week in the year.
     ///
@@ -47,7 +46,7 @@ extension MabpleWrapper where Base == Date {
         return calendar.component(.weekOfYear, from: base)
     }
     
-    ///  Week of month.
+    /// Week of month.
     ///
     ///        Date().weekOfMonth -> 3 // date is in third week of the month.
     ///
@@ -55,7 +54,7 @@ extension MabpleWrapper where Base == Date {
         return calendar.component(.weekOfMonth, from: base)
     }
     
-    ///  Year.
+    /// Year.
     ///
     ///        Date().year -> 2017
     ///
@@ -63,7 +62,7 @@ extension MabpleWrapper where Base == Date {
         return calendar.component(.year, from: base)
     }
     
-    ///  Month.
+    /// Month.
     ///
     ///     Date().month -> 1
     ///
@@ -85,7 +84,7 @@ extension MabpleWrapper where Base == Date {
         return calendar.component(.day, from: base)
     }
     
-    ///  Check if date is within today.
+    /// Check if date is within today.
     ///
     ///     Date().isInToday -> true
     ///
@@ -93,7 +92,7 @@ extension MabpleWrapper where Base == Date {
         return calendar.isDateInToday(base)
     }
 
-    ///  Check if date is within yesterday.
+    /// Check if date is within yesterday.
     ///
     ///     Date().isInYesterday -> false
     ///
@@ -101,7 +100,7 @@ extension MabpleWrapper where Base == Date {
         return calendar.isDateInYesterday(base)
     }
 
-    ///  Check if date is within tomorrow.
+    /// Check if date is within tomorrow.
     ///
     ///     Date().isInTomorrow -> false
     ///
@@ -109,32 +108,32 @@ extension MabpleWrapper where Base == Date {
         return calendar.isDateInTomorrow(base)
     }
 
-    ///  Check if date is within a weekend period.
+    /// Check if date is within a weekend period.
     var isInWeekend: Bool {
         return calendar.isDateInWeekend(base)
     }
 
-    ///  Check if date is within a weekday period.
+    /// Check if date is within a weekday period.
     var isWorkday: Bool {
         return !calendar.isDateInWeekend(base)
     }
 
-    ///  Check if date is within the current week.
+    /// Check if date is within the current week.
     var isInCurrentWeek: Bool {
         return calendar.isDate(base, equalTo: Date(), toGranularity: .weekOfYear)
     }
 
-    ///  Check if date is within the current month.
+    /// Check if date is within the current month.
     var isInCurrentMonth: Bool {
         return calendar.isDate(base, equalTo: Date(), toGranularity: .month)
     }
 
-    ///  Check if date is within the current year.
+    /// Check if date is within the current year.
     var isInCurrentYear: Bool {
         return calendar.isDate(base, equalTo: Date(), toGranularity: .year)
     }
     
-    ///  Yesterday date.
+    /// Yesterday date.
     ///
     ///     let date = Date() // "Oct 3, 2018, 10:57:11"
     ///     let yesterday = date.yesterday // "Oct 2, 2018, 10:57:11"
@@ -143,7 +142,7 @@ extension MabpleWrapper where Base == Date {
         return calendar.date(byAdding: .day, value: -1, to: base)
     }
 
-    ///  Tomorrow's date.
+    /// Tomorrow's date.
     ///
     ///     let date = Date() // "Oct 3, 2018, 10:57:11"
     ///     let tomorrow = date.tomorrow // "Oct 4, 2018, 10:57:11"
@@ -152,7 +151,7 @@ extension MabpleWrapper where Base == Date {
         return calendar.date(byAdding: .day, value: 1, to: base)
     }
     
-    ///  UNIX timestamp from date.
+    /// UNIX timestamp from date.
     ///
     ///        Date().unixTimestamp -> 1484233862.826291
     ///
@@ -162,9 +161,9 @@ extension MabpleWrapper where Base == Date {
 }
 
 // MARK: - Methods
-extension MabpleWrapper where Base == Date {
+public extension MabpleWrapper where Base == Date {
     
-    ///  Date by adding multiples of calendar component.
+    /// Date by adding multiples of calendar component.
     ///
     ///     let date = Date() // "Jan 12, 2017, 7:07 PM"
     ///     let date2 = date.adding(.minute, value: -10) // "Jan 12, 2017, 6:57 PM"
@@ -180,7 +179,7 @@ extension MabpleWrapper where Base == Date {
         return calendar.date(byAdding: component, value: value, to: base)!
     }
     
-    ///  Date string from date.
+    /// Date string from date.
     ///
     ///     Date().string(withFormat: "dd/MM/yyyy") -> "1/12/17"
     ///     Date().string(withFormat: "HH:mm") -> "23:50"
