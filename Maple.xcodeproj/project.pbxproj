@@ -159,6 +159,27 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		013DDEC924826AC80095E201 /* Maple */ = {
+			isa = PBXGroup;
+			children = (
+				013DDECA248270BB0095E201 /* General */,
+				013DDEB524824A4B0095E201 /* Shared */,
+				013DDEAA248247EA0095E201 /* Protocol */,
+				013DDE9D248206DD0095E201 /* Foundation */,
+				01CEC2E72481F53100CF21B9 /* AppKit */,
+				0174DF7D2480F5A800258824 /* UIKit */,
+			);
+			path = Maple;
+			sourceTree = "<group>";
+		};
+		013DDECA248270BB0095E201 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				0174DF502480EDC800258824 /* Maple.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
 		0174DF022480EC1800258824 = {
 			isa = PBXGroup;
 			children = (
@@ -182,14 +203,9 @@
 		0174DF4F2480ED9500258824 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				0174DF0F2480EC1800258824 /* Maple.h */,
-				0174DF502480EDC800258824 /* Maple.swift */,
-				013DDEB524824A4B0095E201 /* Shared */,
-				013DDEAA248247EA0095E201 /* Protocol */,
-				013DDE9D248206DD0095E201 /* Foundation */,
-				01CEC2E72481F53100CF21B9 /* AppKit */,
-				0174DF7D2480F5A800258824 /* UIKit */,
 				0174DF102480EC1800258824 /* Info.plist */,
+				0174DF0F2480EC1800258824 /* Maple.h */,
+				013DDEC924826AC80095E201 /* Maple */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
