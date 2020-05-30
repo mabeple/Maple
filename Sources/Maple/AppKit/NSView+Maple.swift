@@ -6,11 +6,10 @@
 //  Copyright © 2020 cy. All rights reserved.
 //
 
-#if canImport(AppKit) && !targetEnvironment(macCatalyst)
+#if canImport(AppKit)
 import AppKit
 extension NSView: MabpleCompatible { }
-
-extension MabpleWrapper where Base: NSView {
+public extension MabpleWrapper where Base: NSView {
     
     /// Corner radius of view; also inspectable from Storyboard.
     var cornerRadius: CGFloat {

@@ -8,8 +8,7 @@
 
 #if canImport(UIKit)
 import UIKit
-//extension UITextField: MabpleCompatible { }
-extension MabpleWrapper where Base == UITextField {
+public extension MabpleWrapper where Base == UITextField {
     
     /// Check if text field is empty.
     var isEmpty: Bool {

@@ -18,7 +18,7 @@ import AppKit
 #endif
 
 extension String: MabpleCompatibleValue { }
-extension MabpleWrapper where Base == String {
+public extension MabpleWrapper where Base == String {
     
     // MARK: - Properties
     #if canImport(Foundation)
@@ -480,7 +480,7 @@ public extension MabpleWrapper where Base == String {
 import CryptoKit
 import Foundation
 
-extension MabpleWrapper where Base == String {
+public extension MabpleWrapper where Base == String {
     
     /// crypto md5
     @available(iOS 13.0, OSX 10.15, watchOS 6.0, tvOS 13.0, *)

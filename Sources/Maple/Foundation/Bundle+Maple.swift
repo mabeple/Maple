@@ -8,10 +8,8 @@
 
 #if canImport(Foundation)
 import Foundation
-
 extension Bundle: MabpleCompatible { }
-
-extension MabpleWrapper where Base: Bundle {
+public extension MabpleWrapper where Base: Bundle {
     
     /// Application name (if applicable).
     var displayName: String? {
