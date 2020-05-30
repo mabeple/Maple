@@ -1,6 +1,6 @@
 //
 //  NSView+Maple.swift
-//  Dashboard
+//  Maple
 //
 //  Created by cy on 2020/5/10.
 //  Copyright © 2020 cy. All rights reserved.

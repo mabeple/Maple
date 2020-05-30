@@ -1,6 +1,6 @@
 //
 //  UITextField+Maple.swift
-//  Dashboard
+//  Maple
 //
 //  Created by cy on 2020/5/6.
 //  Copyright © 2020 cy. All rights reserved.
@@ -70,7 +70,7 @@ extension MabpleWrapper where Base == UITextField {
         base.leftViewMode = .always
     }
     
-    /// SwifterSwift: Add padding to the left of the textfield rect.
+    /// Add padding to the left of the textfield rect.
     ///
     /// - Parameters:
     ///   - image: left image
