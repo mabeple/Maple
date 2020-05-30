@@ -11,6 +11,10 @@
 		013DDEA0248206F40095E201 /* Date+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013DDE9E248206F40095E201 /* Date+Maple.swift */; };
 		013DDEA22482075F0095E201 /* DateMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013DDEA12482075F0095E201 /* DateMPTests.swift */; };
 		013DDEA32482075F0095E201 /* DateMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013DDEA12482075F0095E201 /* DateMPTests.swift */; };
+		013DDEA5248240160095E201 /* String+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013DDEA4248240160095E201 /* String+Maple.swift */; };
+		013DDEA6248240160095E201 /* String+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013DDEA4248240160095E201 /* String+Maple.swift */; };
+		013DDEA8248240DC0095E201 /* StringMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013DDEA7248240DC0095E201 /* StringMPTests.swift */; };
+		013DDEA9248240DC0095E201 /* StringMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013DDEA7248240DC0095E201 /* StringMPTests.swift */; };
 		0174DF512480EDC800258824 /* Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0174DF502480EDC800258824 /* Maple.swift */; };
 		0174DF522480EDC800258824 /* Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0174DF502480EDC800258824 /* Maple.swift */; };
 		0174DF552480EF1300258824 /* Bundle+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0174DF542480EF1300258824 /* Bundle+Maple.swift */; };
@@ -49,6 +53,8 @@
 /* Begin PBXFileReference section */
 		013DDE9E248206F40095E201 /* Date+Maple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Maple.swift"; sourceTree = "<group>"; };
 		013DDEA12482075F0095E201 /* DateMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateMPTests.swift; sourceTree = "<group>"; };
+		013DDEA4248240160095E201 /* String+Maple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Maple.swift"; sourceTree = "<group>"; };
+		013DDEA7248240DC0095E201 /* StringMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringMPTests.swift; sourceTree = "<group>"; };
 		0174DF0F2480EC1800258824 /* Maple.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Maple.h; sourceTree = "<group>"; };
 		0174DF102480EC1800258824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0174DF1C2480EC7D00258824 /* Maple.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Maple.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +113,7 @@
 		013DDE9D248206DD0095E201 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				013DDEA4248240160095E201 /* String+Maple.swift */,
 				013DDE9E248206F40095E201 /* Date+Maple.swift */,
 			);
 			path = Foundation;
@@ -163,6 +170,7 @@
 				01CEC2F92481F62100CF21B9 /* NSViewMPTests.swift */,
 				01CEC2FD2481FFCE00CF21B9 /* UITableViewMPTests.swift */,
 				013DDEA12482075F0095E201 /* DateMPTests.swift */,
+				013DDEA7248240DC0095E201 /* StringMPTests.swift */,
 				01CEC2FF248202CC00CF21B9 /* Resources */,
 			);
 			path = Tests;
@@ -378,6 +386,7 @@
 				0174DF552480EF1300258824 /* Bundle+Maple.swift in Sources */,
 				0174DFCF2480FDA900258824 /* UITextField+Maple.swift in Sources */,
 				01CEC2FC2481FF0D00CF21B9 /* UITableView+Maple.swift in Sources */,
+				013DDEA5248240160095E201 /* String+Maple.swift in Sources */,
 				013DDE9F248206F40095E201 /* Date+Maple.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,6 +398,7 @@
 				0174DF522480EDC800258824 /* Maple.swift in Sources */,
 				0174DF562480EF1300258824 /* Bundle+Maple.swift in Sources */,
 				01CEC2E92481F54200CF21B9 /* NSView+Maple.swift in Sources */,
+				013DDEA6248240160095E201 /* String+Maple.swift in Sources */,
 				013DDEA0248206F40095E201 /* Date+Maple.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0174DFD12481034F00258824 /* UITextFieldMPTests.swift in Sources */,
+				013DDEA8248240DC0095E201 /* StringMPTests.swift in Sources */,
 				0174DFCD2480FD6C00258824 /* UIViewMPTests.swift in Sources */,
 				013DDEA22482075F0095E201 /* DateMPTests.swift in Sources */,
 				01CEC2FE2481FFCE00CF21B9 /* UITableViewMPTests.swift in Sources */,
@@ -409,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				013DDEA32482075F0095E201 /* DateMPTests.swift in Sources */,
+				013DDEA9248240DC0095E201 /* StringMPTests.swift in Sources */,
 				01CEC2FA2481F62100CF21B9 /* NSViewMPTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
