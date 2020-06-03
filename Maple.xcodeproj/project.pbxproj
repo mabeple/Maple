@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		011A004E24873C6400D18027 /* BundleMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011A004D24873C6400D18027 /* BundleMPTests.swift */; };
 		011A004F24873C6400D18027 /* BundleMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011A004D24873C6400D18027 /* BundleMPTests.swift */; };
+		011A0051248740F900D18027 /* UICollectionView+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011A0050248740F900D18027 /* UICollectionView+Maple.swift */; };
+		011A00532487482100D18027 /* UICollectionViewMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011A00522487482100D18027 /* UICollectionViewMPTests.swift */; };
+		011A00552487499800D18027 /* UICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 011A00542487499700D18027 /* UICollectionViewCell.xib */; };
 		013DDE9F248206F40095E201 /* Date+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013DDE9E248206F40095E201 /* Date+Maple.swift */; };
 		013DDEA0248206F40095E201 /* Date+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013DDE9E248206F40095E201 /* Date+Maple.swift */; };
 		013DDEA22482075F0095E201 /* DateMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013DDEA12482075F0095E201 /* DateMPTests.swift */; };
@@ -68,6 +71,9 @@
 
 /* Begin PBXFileReference section */
 		011A004D24873C6400D18027 /* BundleMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleMPTests.swift; sourceTree = "<group>"; };
+		011A0050248740F900D18027 /* UICollectionView+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Maple.swift"; sourceTree = "<group>"; };
+		011A00522487482100D18027 /* UICollectionViewMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewMPTests.swift; sourceTree = "<group>"; };
+		011A00542487499700D18027 /* UICollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UICollectionViewCell.xib; sourceTree = "<group>"; };
 		013DDE9E248206F40095E201 /* Date+Maple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Maple.swift"; sourceTree = "<group>"; };
 		013DDEA12482075F0095E201 /* DateMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateMPTests.swift; sourceTree = "<group>"; };
 		013DDEA4248240160095E201 /* String+Maple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Maple.swift"; sourceTree = "<group>"; };
@@ -221,6 +227,7 @@
 				0174DFD02481034F00258824 /* UITextFieldMPTests.swift */,
 				01CEC2F92481F62100CF21B9 /* NSViewMPTests.swift */,
 				01CEC2FD2481FFCE00CF21B9 /* UITableViewMPTests.swift */,
+				011A00522487482100D18027 /* UICollectionViewMPTests.swift */,
 				011A004D24873C6400D18027 /* BundleMPTests.swift */,
 				013DDEA12482075F0095E201 /* DateMPTests.swift */,
 				013DDEA7248240DC0095E201 /* StringMPTests.swift */,
@@ -238,6 +245,7 @@
 				01CEC2FB2481FF0D00CF21B9 /* UITableView+Maple.swift */,
 				0174DFCE2480FDA900258824 /* UITextField+Maple.swift */,
 				0174DF7B2480F5A100258824 /* UIView+Maple.swift */,
+				011A0050248740F900D18027 /* UICollectionView+Maple.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -257,6 +265,7 @@
 				013DDEC6248265960095E201 /* TestImage.png */,
 				01CEC302248204E100CF21B9 /* UITableViewCell.xib */,
 				01CEC300248202E000CF21B9 /* UITableViewHeaderFooterView.xib */,
+				011A00542487499700D18027 /* UICollectionViewCell.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -422,6 +431,7 @@
 			files = (
 				01CEC301248202E000CF21B9 /* UITableViewHeaderFooterView.xib in Resources */,
 				013DDEC7248265960095E201 /* TestImage.png in Resources */,
+				011A00552487499800D18027 /* UICollectionViewCell.xib in Resources */,
 				01CEC303248204E100CF21B9 /* UITableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,6 +453,7 @@
 			files = (
 				0174DF512480EDC800258824 /* Maple.swift in Sources */,
 				013DDEBD248250240095E201 /* ColorExtensions.swift in Sources */,
+				011A0051248740F900D18027 /* UICollectionView+Maple.swift in Sources */,
 				013DDEAC248248050095E201 /* NibLoadable.swift in Sources */,
 				0174DF7C2480F5A100258824 /* UIView+Maple.swift in Sources */,
 				0174DF552480EF1300258824 /* Bundle+Maple.swift in Sources */,
@@ -478,6 +489,7 @@
 				013DDEBA24824E240095E201 /* EdgeInsetsExtensionsTests.swift in Sources */,
 				0174DFD12481034F00258824 /* UITextFieldMPTests.swift in Sources */,
 				013DDEA8248240DC0095E201 /* StringMPTests.swift in Sources */,
+				011A00532487482100D18027 /* UICollectionViewMPTests.swift in Sources */,
 				0174DFCD2480FD6C00258824 /* UIViewMPTests.swift in Sources */,
 				013DDEA22482075F0095E201 /* DateMPTests.swift in Sources */,
 				01CEC2FE2481FFCE00CF21B9 /* UITableViewMPTests.swift in Sources */,
