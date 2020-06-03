@@ -14,25 +14,30 @@ public extension MabpleWrapper where Base: Bundle {
     /// Application name (if applicable).
     var displayName: String? {
         #if os(iOS)
-        return Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
+        return info(for: "CFBundleDisplayName") ?? info(for: "CFBundleName")
         #elseif os(macOS)
-        return Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String
+        return info(for: "CFBundleName")
         #endif
     }
     
     /// App current build identifier (if applicable).
     var bundleIdentifier: String? {
-        return Bundle.main.object(forInfoDictionaryKey: kCFBundleIdentifierKey as String) as? String
+        return info(for: kCFBundleIdentifierKey as String)
     }
     
     /// App current build number (if applicable).
     var build: String? {
-        return Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
+        return info(for: kCFBundleVersionKey as String)
     }
     
     /// App's current version number (if applicable).
     var version: String? {
-        return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+        return info(for: "CFBundleShortVersionString")
+    }
+    
+    private func info<T>(for key: String) -> T? {
+        (base.localizedInfoDictionary?[key] as? T)
+            ?? (base.infoDictionary?[key] as? T)
     }
 }
 #endif

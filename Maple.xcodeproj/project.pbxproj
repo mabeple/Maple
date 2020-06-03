@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		011A004E24873C6400D18027 /* BundleMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011A004D24873C6400D18027 /* BundleMPTests.swift */; };
+		011A004F24873C6400D18027 /* BundleMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011A004D24873C6400D18027 /* BundleMPTests.swift */; };
 		013DDE9F248206F40095E201 /* Date+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013DDE9E248206F40095E201 /* Date+Maple.swift */; };
 		013DDEA0248206F40095E201 /* Date+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013DDE9E248206F40095E201 /* Date+Maple.swift */; };
 		013DDEA22482075F0095E201 /* DateMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013DDEA12482075F0095E201 /* DateMPTests.swift */; };
@@ -65,6 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		011A004D24873C6400D18027 /* BundleMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleMPTests.swift; sourceTree = "<group>"; };
 		013DDE9E248206F40095E201 /* Date+Maple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Maple.swift"; sourceTree = "<group>"; };
 		013DDEA12482075F0095E201 /* DateMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateMPTests.swift; sourceTree = "<group>"; };
 		013DDEA4248240160095E201 /* String+Maple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Maple.swift"; sourceTree = "<group>"; };
@@ -218,6 +221,7 @@
 				0174DFD02481034F00258824 /* UITextFieldMPTests.swift */,
 				01CEC2F92481F62100CF21B9 /* NSViewMPTests.swift */,
 				01CEC2FD2481FFCE00CF21B9 /* UITableViewMPTests.swift */,
+				011A004D24873C6400D18027 /* BundleMPTests.swift */,
 				013DDEA12482075F0095E201 /* DateMPTests.swift */,
 				013DDEA7248240DC0095E201 /* StringMPTests.swift */,
 				013DDEB924824E240095E201 /* EdgeInsetsExtensionsTests.swift */,
@@ -470,6 +474,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				011A004E24873C6400D18027 /* BundleMPTests.swift in Sources */,
 				013DDEBA24824E240095E201 /* EdgeInsetsExtensionsTests.swift in Sources */,
 				0174DFD12481034F00258824 /* UITextFieldMPTests.swift in Sources */,
 				013DDEA8248240DC0095E201 /* StringMPTests.swift in Sources */,
@@ -490,6 +495,7 @@
 				013DDEA9248240DC0095E201 /* StringMPTests.swift in Sources */,
 				01CEC2FA2481F62100CF21B9 /* NSViewMPTests.swift in Sources */,
 				013DDEC52482653B0095E201 /* NSImageMPTests.swift in Sources */,
+				011A004F24873C6400D18027 /* BundleMPTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
