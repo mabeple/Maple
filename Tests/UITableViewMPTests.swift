@@ -131,6 +131,12 @@ class UITableViewMPTests: XCTestCase {
         XCTAssertNotNil(cell)
     }
     
+    func testRegisterReusableHeaderFooterViewWithNibUsingClass() {
+        tableView.mp.register(nibWithHeaderFooterViewClass: UITableViewHeaderFooterView.self, at: UITableViewMPTests.self)
+        let cell = tableView.mp.dequeueReusableHeaderFooterView(withClass: UITableViewHeaderFooterView.self)
+        XCTAssertNotNil(cell)
+    }
+    
     func testIsValidIndexPath() {
         let validIndexPath = IndexPath(row: 0, section: 0)
         XCTAssertTrue(tableView.mp.isValidIndexPath(validIndexPath))

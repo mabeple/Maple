@@ -169,6 +169,23 @@ public extension MabpleWrapper where Base == UITableView {
         base.register(UINib(nibName: identifier, bundle: bundle), forCellReuseIdentifier: identifier)
     }
     
+    /// Register UITableViewHeaderFooterView with .xib file using only its corresponding class.
+    ///               Assumes that the .xib filename and cell class has the same name.
+    ///
+    /// - Parameters:
+    ///   - name: UITableViewHeaderFooterView type.
+    ///   - bundleClass: Class in which the Bundle instance will be based on.
+    func register<T: UITableViewHeaderFooterView>(nibWithHeaderFooterViewClass name: T.Type, at bundleClass: AnyClass? = nil) {
+        let identifier = String(describing: name)
+        var bundle: Bundle?
+        
+        if let bundleName = bundleClass {
+            bundle = Bundle(for: bundleName)
+        }
+        
+        base.register(UINib(nibName: identifier, bundle: bundle), forHeaderFooterViewReuseIdentifier: identifier)
+    }
+    
     /// Check whether IndexPath is valid within the tableView
     ///
     /// - Parameter indexPath: An IndexPath to check
