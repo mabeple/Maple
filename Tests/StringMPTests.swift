@@ -294,11 +294,22 @@ class StringMPTests: XCTestCase {
     
     func testMD5() {
         if #available(iOS 13.0, OSX 10.15, *) {
-            // ed076287532e86365e841e92bfc50d8c Hello World!
-            let hash = helloWorld.mp.md5
+            let hash = helloWorld.mp.md5()
             XCTAssertNotEqual(hash, helloWorld)
             XCTAssertNotNil(hash)
             XCTAssertEqual(hash, "ed076287532e86365e841e92bfc50d8c")
+            
+            let test1 = "“测试MD5....测试md5”"
+            let hash1 = test1.mp.md5()
+            XCTAssertNotEqual(hash1, test1)
+            XCTAssertNotNil(hash1)
+            XCTAssertEqual(hash1, "333edda46829a042e36a6fef3321fea0")
+            
+            let test2 = "//../%¥$.@.测试md5"
+            let hash2 = test2.mp.md5()
+            XCTAssertNotEqual(hash2, test2)
+            XCTAssertNotNil(hash2)
+            XCTAssertEqual(hash2, "ae369b15d90c9689801e772c67ea3388")
         }
     }
 }
