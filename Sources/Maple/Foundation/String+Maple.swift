@@ -484,11 +484,8 @@ public extension MabpleWrapper where Base == String {
     
     /// crypto md5
     @available(iOS 13.0, OSX 10.15, watchOS 6.0, tvOS 13.0, *)
-    var md5: String {
-        guard let data = base.data(using: .utf8) else {
-            return base
-        }
-        let hash = Insecure.MD5.hash(data: data)
+    func md5() -> String {
+        let hash = Insecure.MD5.hash(data: Data(base.utf8))
         return hash
             .map { String(format: "%02hhx", $0) }
             .joined()
