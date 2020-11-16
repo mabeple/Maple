@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'Maple'
-  s.version = '1.1.1'
+  s.version = '1.1.2'
   s.summary = 'native Swift extensions'
   s.description = <<-DESC
   native Swift extensions.
@@ -15,7 +15,6 @@ Pod::Spec.new do |s|
 
   s.swift_version = '5.1'
   s.requires_arc = true
-  s.source = { git: 'https://github.com/Mabeple/Maple.git', tag: s.version.to_s }
   s.source_files = ["Sources/Maple/**/*.swift", "Sources/Maple.h"]
 
 end
