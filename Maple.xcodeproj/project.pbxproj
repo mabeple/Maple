@@ -14,6 +14,8 @@
 		011A00552487499800D18027 /* UICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 011A00542487499700D18027 /* UICollectionViewCell.xib */; };
 		012C4BD725622AD700A1A5AE /* UIImageMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C4BD625622AD700A1A5AE /* UIImageMPTests.swift */; };
 		012C4BE225622D6D00A1A5AE /* UIImage+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C4BE125622D6D00A1A5AE /* UIImage+Maple.swift */; };
+		012C4BF82562620100A1A5AE /* UIAlertAction+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C4BF72562620100A1A5AE /* UIAlertAction+Maple.swift */; };
+		012C4BFE256262C400A1A5AE /* UIAlertActionMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C4BFD256262C400A1A5AE /* UIAlertActionMPTests.swift */; };
 		013DDE9F248206F40095E201 /* Date+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013DDE9E248206F40095E201 /* Date+Maple.swift */; };
 		013DDEA0248206F40095E201 /* Date+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013DDE9E248206F40095E201 /* Date+Maple.swift */; };
 		013DDEA22482075F0095E201 /* DateMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013DDEA12482075F0095E201 /* DateMPTests.swift */; };
@@ -78,6 +80,8 @@
 		011A00542487499700D18027 /* UICollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UICollectionViewCell.xib; sourceTree = "<group>"; };
 		012C4BD625622AD700A1A5AE /* UIImageMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageMPTests.swift; sourceTree = "<group>"; };
 		012C4BE125622D6D00A1A5AE /* UIImage+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Maple.swift"; sourceTree = "<group>"; };
+		012C4BF72562620100A1A5AE /* UIAlertAction+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Maple.swift"; sourceTree = "<group>"; };
+		012C4BFD256262C400A1A5AE /* UIAlertActionMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertActionMPTests.swift; sourceTree = "<group>"; };
 		013DDE9E248206F40095E201 /* Date+Maple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Maple.swift"; sourceTree = "<group>"; };
 		013DDEA12482075F0095E201 /* DateMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateMPTests.swift; sourceTree = "<group>"; };
 		013DDEA4248240160095E201 /* String+Maple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Maple.swift"; sourceTree = "<group>"; };
@@ -239,6 +243,7 @@
 				013DDEBF248254A60095E201 /* ColorExtensionsTests.swift */,
 				013DDEC42482653B0095E201 /* NSImageMPTests.swift */,
 				012C4BD625622AD700A1A5AE /* UIImageMPTests.swift */,
+				012C4BFD256262C400A1A5AE /* UIAlertActionMPTests.swift */,
 				01CEC2FF248202CC00CF21B9 /* Resources */,
 			);
 			path = Tests;
@@ -252,6 +257,7 @@
 				0174DF7B2480F5A100258824 /* UIView+Maple.swift */,
 				011A0050248740F900D18027 /* UICollectionView+Maple.swift */,
 				012C4BE125622D6D00A1A5AE /* UIImage+Maple.swift */,
+				012C4BF72562620100A1A5AE /* UIAlertAction+Maple.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -459,6 +465,7 @@
 			files = (
 				012C4BE225622D6D00A1A5AE /* UIImage+Maple.swift in Sources */,
 				0174DF512480EDC800258824 /* Maple.swift in Sources */,
+				012C4BF82562620100A1A5AE /* UIAlertAction+Maple.swift in Sources */,
 				013DDEBD248250240095E201 /* ColorExtensions.swift in Sources */,
 				011A0051248740F900D18027 /* UICollectionView+Maple.swift in Sources */,
 				013DDEAC248248050095E201 /* NibLoadable.swift in Sources */,
@@ -493,6 +500,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				011A004E24873C6400D18027 /* BundleMPTests.swift in Sources */,
+				012C4BFE256262C400A1A5AE /* UIAlertActionMPTests.swift in Sources */,
 				013DDEBA24824E240095E201 /* EdgeInsetsExtensionsTests.swift in Sources */,
 				0174DFD12481034F00258824 /* UITextFieldMPTests.swift in Sources */,
 				013DDEA8248240DC0095E201 /* StringMPTests.swift in Sources */,
