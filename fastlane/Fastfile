@@ -1,0 +1,53 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc 'Maple 用来自动化升级维护库'
+  lane :pod_repo_push do |options|
+    version = options[:version] 
+
+    ensure_git_status_clean
+    ensure_git_branch
+    
+    # 修改 podspec 中版本
+    version_bump_podspec(path: "Maple.podspec", version_number: version) 
+
+    # 验证podspec
+    pod_lib_lint(allow_warnings: true)
+
+    # 提交本地仓库代码至远程仓库
+    git_add(path: ".")
+    git_commit(path: ".", message: "bump version to #{version}") 
+    # commit
+    push_to_git_remote
+
+    # 打标签，并提交至远程
+    add_git_tag(tag: version)
+    push_git_tags
+
+    pod_push(path: "Maple.podspec", repo: "Maple", allow_warnings: true)
+
+    set_github_release(
+      repository_name: "Mabeple/Maple",
+      api_token: ENV["GITHUB_TOKEN"],
+      name: "Release #{version}",
+      tag_name: version,
+      description: (File.read("changelog") rescue "#{version}"),
+      commitish: "master",
+    )
+  end
+end
