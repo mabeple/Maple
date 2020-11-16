@@ -21,8 +21,10 @@ public typealias MPCrossPlatformColor = NSColor
 #if !os(watchOS)
 import CoreImage
 #endif
-// MARK: - Maple
+
 extension MPCrossPlatformColor: MabpleCompatibleValue { }
+
+// MARK: - Properties
 public extension MabpleWrapper where Base == MPCrossPlatformColor {
     
     /// RGB components for a Color (between 0 and 255).
