@@ -16,6 +16,8 @@
 		012C4BE225622D6D00A1A5AE /* UIImage+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C4BE125622D6D00A1A5AE /* UIImage+Maple.swift */; };
 		012C4BF82562620100A1A5AE /* UIAlertAction+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C4BF72562620100A1A5AE /* UIAlertAction+Maple.swift */; };
 		012C4BFE256262C400A1A5AE /* UIAlertActionMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C4BFD256262C400A1A5AE /* UIAlertActionMPTests.swift */; };
+		012C4C042562671200A1A5AE /* UIImageView+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C4C032562671200A1A5AE /* UIImageView+Maple.swift */; };
+		012C4C0A2562689900A1A5AE /* UIImageViewMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C4C092562689900A1A5AE /* UIImageViewMPTests.swift */; };
 		013DDE9F248206F40095E201 /* Date+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013DDE9E248206F40095E201 /* Date+Maple.swift */; };
 		013DDEA0248206F40095E201 /* Date+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013DDE9E248206F40095E201 /* Date+Maple.swift */; };
 		013DDEA22482075F0095E201 /* DateMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013DDEA12482075F0095E201 /* DateMPTests.swift */; };
@@ -82,6 +84,8 @@
 		012C4BE125622D6D00A1A5AE /* UIImage+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Maple.swift"; sourceTree = "<group>"; };
 		012C4BF72562620100A1A5AE /* UIAlertAction+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Maple.swift"; sourceTree = "<group>"; };
 		012C4BFD256262C400A1A5AE /* UIAlertActionMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertActionMPTests.swift; sourceTree = "<group>"; };
+		012C4C032562671200A1A5AE /* UIImageView+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Maple.swift"; sourceTree = "<group>"; };
+		012C4C092562689900A1A5AE /* UIImageViewMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewMPTests.swift; sourceTree = "<group>"; };
 		013DDE9E248206F40095E201 /* Date+Maple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Maple.swift"; sourceTree = "<group>"; };
 		013DDEA12482075F0095E201 /* DateMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateMPTests.swift; sourceTree = "<group>"; };
 		013DDEA4248240160095E201 /* String+Maple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Maple.swift"; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 				013DDEC42482653B0095E201 /* NSImageMPTests.swift */,
 				012C4BD625622AD700A1A5AE /* UIImageMPTests.swift */,
 				012C4BFD256262C400A1A5AE /* UIAlertActionMPTests.swift */,
+				012C4C092562689900A1A5AE /* UIImageViewMPTests.swift */,
 				01CEC2FF248202CC00CF21B9 /* Resources */,
 			);
 			path = Tests;
@@ -258,6 +263,7 @@
 				011A0050248740F900D18027 /* UICollectionView+Maple.swift */,
 				012C4BE125622D6D00A1A5AE /* UIImage+Maple.swift */,
 				012C4BF72562620100A1A5AE /* UIAlertAction+Maple.swift */,
+				012C4C032562671200A1A5AE /* UIImageView+Maple.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -473,6 +479,7 @@
 				0174DF552480EF1300258824 /* Bundle+Maple.swift in Sources */,
 				0174DFCF2480FDA900258824 /* UITextField+Maple.swift in Sources */,
 				013DDEB724824A600095E201 /* EdgeInsetsExtensions.swift in Sources */,
+				012C4C042562671200A1A5AE /* UIImageView+Maple.swift in Sources */,
 				01CEC2FC2481FF0D00CF21B9 /* UITableView+Maple.swift in Sources */,
 				013DDEA5248240160095E201 /* String+Maple.swift in Sources */,
 				013DDE9F248206F40095E201 /* Date+Maple.swift in Sources */,
@@ -506,6 +513,7 @@
 				013DDEA8248240DC0095E201 /* StringMPTests.swift in Sources */,
 				011A00532487482100D18027 /* UICollectionViewMPTests.swift in Sources */,
 				0174DFCD2480FD6C00258824 /* UIViewMPTests.swift in Sources */,
+				012C4C0A2562689900A1A5AE /* UIImageViewMPTests.swift in Sources */,
 				013DDEA22482075F0095E201 /* DateMPTests.swift in Sources */,
 				01CEC2FE2481FFCE00CF21B9 /* UITableViewMPTests.swift in Sources */,
 				013DDEC0248254A60095E201 /* ColorExtensionsTests.swift in Sources */,

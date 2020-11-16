@@ -40,8 +40,9 @@ extension NSEdgeInsets: Equatable {
 #endif
 
 #if os(iOS) || os(tvOS) || os(watchOS) || os(macOS)
-// MARK: - Maple
 extension EdgeInsets: MabpleCompatibleValue { }
+
+// MARK: - Properties
 public extension MabpleWrapper where Base == EdgeInsets {
     /// Return the vertical insets. The vertical insets is composed by top + bottom.
     ///
