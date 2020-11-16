@@ -16,11 +16,11 @@ import UIKit
 #if canImport(AppKit)
 import AppKit
 #endif
-
 extension String: MabpleCompatibleValue { }
+
+// MARK: - Properties
 public extension MabpleWrapper where Base == String {
     
-    // MARK: - Properties
     #if canImport(Foundation)
     /// String decoded from base64 (if applicable).
     ///
@@ -91,7 +91,7 @@ public extension MabpleWrapper where Base == String {
     ///        "https://google.com".isValidUrl -> true
     ///
     var isValidUrl: Bool {
-        return URL(string: base) != nil
+        URL(string: base) != nil
     }
     #endif
     
@@ -154,7 +154,7 @@ public extension MabpleWrapper where Base == String {
     ///        "file://Documents/file.txt".isValidFileUrl -> true
     ///
     var isValidFileUrl: Bool {
-        return URL(string: base)?.isFileURL ?? false
+        URL(string: base)?.isFileURL ?? false
     }
     #endif
     
@@ -167,7 +167,7 @@ public extension MabpleWrapper where Base == String {
     ///     "abc".isDigits -> false
     ///
     var isDigits: Bool {
-        return CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: base))
+        CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: base))
     }
     #endif
     
@@ -199,7 +199,7 @@ public extension MabpleWrapper where Base == String {
     ///        "101".int -> 101
     ///
     var int: Int? {
-        return Int(base)
+        Int(base)
     }
     #endif
     
@@ -211,7 +211,7 @@ public extension MabpleWrapper where Base == String {
     ///        "not url".url -> nil
     ///
     var url: URL? {
-        return URL(string: base)
+        URL(string: base)
     }
     #endif
     
@@ -222,7 +222,7 @@ public extension MabpleWrapper where Base == String {
     ///        "   hello  \n".trimmed -> "hello"
     ///
     var trimmed: String {
-        return base.trimmingCharacters(in: .whitespacesAndNewlines)
+        base.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     #endif
     
@@ -233,7 +233,7 @@ public extension MabpleWrapper where Base == String {
     ///        "it's%20easy%20to%20decode%20strings".urlDecoded -> "it's easy to decode strings"
     ///
     var urlDecoded: String {
-        return base.removingPercentEncoding ?? base
+        base.removingPercentEncoding ?? base
     }
     #endif
     
@@ -244,7 +244,7 @@ public extension MabpleWrapper where Base == String {
     ///        "it's easy to encode strings".urlEncoded -> "it's%20easy%20to%20encode%20strings"
     ///
     var urlEncoded: String {
-        return base.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        base.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
     }
     #endif
     
@@ -255,7 +255,7 @@ public extension MabpleWrapper where Base == String {
     ///        "   \n Swifter   \n  Swift  ".withoutSpacesAndNewLines -> "SwifterSwift"
     ///
     var withoutSpacesAndNewLines: String {
-        return base.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "")
+        base.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "")
     }
     #endif
     
@@ -263,7 +263,7 @@ public extension MabpleWrapper where Base == String {
     #if canImport(Foundation)
     /// Check if the given string contains only white spaces
     var isWhitespace: Bool {
-        return base.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        base.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
     #endif
     
@@ -419,49 +419,48 @@ public extension MabpleWrapper where Base == String {
     }
 }
 
-#if canImport(Foundation)
-
 // MARK: - NSString extensions
+#if canImport(Foundation)
 public extension MabpleWrapper where Base == String {
     
     /// NSString from a string.
     var nsString: NSString {
-        return NSString(string: base)
+        NSString(string: base)
     }
     
     /// NSString lastPathComponent.
     var lastPathComponent: String {
-        return (base as NSString).lastPathComponent
+        (base as NSString).lastPathComponent
     }
     
     /// NSString pathExtension.
     var pathExtension: String {
-        return (base as NSString).pathExtension
+        (base as NSString).pathExtension
     }
     
     /// NSString deletingLastPathComponent.
     var deletingLastPathComponent: String {
-        return (base as NSString).deletingLastPathComponent
+        (base as NSString).deletingLastPathComponent
     }
     
     /// NSString deletingPathExtension.
     var deletingPathExtension: String {
-        return (base as NSString).deletingPathExtension
+        (base as NSString).deletingPathExtension
     }
     
     /// NSString pathComponents.
     var pathComponents: [String] {
-        return (base as NSString).pathComponents
+        (base as NSString).pathComponents
     }
     
-    /// SNSString appendingPathComponent(str: String)
+    /// NSString appendingPathComponent(str: String)
     ///
     /// - Note: This method only works with file paths (not, for example, string representations of URLs.
     ///   See NSString [appendingPathComponent(_:)](https://developer.apple.com/documentation/foundation/nsstring/1417069-appendingpathcomponent)
     /// - Parameter str: the path component to append to the receiver.
     /// - Returns: a new string made by appending aString to the receiver, preceded if necessary by a path separator.
     func appendingPathComponent(_ str: String) -> String {
-        return (base as NSString).appendingPathComponent(str)
+        (base as NSString).appendingPathComponent(str)
     }
     
     /// NSString appendingPathExtension(str: String)
@@ -469,7 +468,7 @@ public extension MabpleWrapper where Base == String {
     /// - Parameter str: The extension to append to the receiver.
     /// - Returns: a new string made by appending to the receiver an extension separator followed by ext (if applicable).
     func appendingPathExtension(_ str: String) -> String? {
-        return (base as NSString).appendingPathExtension(str)
+        (base as NSString).appendingPathExtension(str)
     }
 }
 #endif

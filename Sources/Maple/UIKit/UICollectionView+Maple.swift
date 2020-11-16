@@ -8,6 +8,8 @@
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
+
+// MARK: - Properties
 public extension MabpleWrapper where Base == UICollectionView {
     
     /// Index path of last item in collectionView.
@@ -20,9 +22,11 @@ public extension MabpleWrapper where Base == UICollectionView {
     var lastSection: Int? {
         return base.numberOfSections > 0 ? base.numberOfSections - 1 : nil
     }
+}
+
+// MARK: - Methods
+public extension MabpleWrapper where Base == UICollectionView {
     
-    
-    // MARK: - Methods
     
     /// Number of all items in all sections of collectionView.
     ///

@@ -9,6 +9,8 @@
 #if canImport(AppKit)
 import AppKit
 extension NSImage: MabpleCompatible { }
+
+// MARK: - Methods
 public extension MabpleWrapper where Base == NSImage {
     
     // NSImage scaled to maximum size with respect to aspect ratio

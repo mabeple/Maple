@@ -8,6 +8,8 @@
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
+
+// MARK: - Properties
 public extension MabpleWrapper where Base == UITableView {
     
     /// Index path of last row in tableView.
@@ -18,11 +20,12 @@ public extension MabpleWrapper where Base == UITableView {
     
     /// Index of last section in tableView.
     var lastSection: Int? {
-        return base.numberOfSections > 0 ? base.numberOfSections - 1 : nil
+        base.numberOfSections > 0 ? base.numberOfSections - 1 : nil
     }
-    
-    
-    // MARK: - Methods
+}
+
+// MARK: - Methods
+public extension MabpleWrapper where Base == UITableView {
     
     /// Number of all rows in all sections of tableView.
     ///
@@ -209,6 +212,5 @@ public extension MabpleWrapper where Base == UITableView {
         base.scrollToRow(at: indexPath, at: scrollPosition, animated: animated)
     }
 }
-
 #endif
 

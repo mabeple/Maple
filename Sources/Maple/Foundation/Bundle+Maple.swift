@@ -9,6 +9,8 @@
 #if canImport(Foundation)
 import Foundation
 extension Bundle: MabpleCompatible { }
+
+// MARK: - Properties
 public extension MabpleWrapper where Base: Bundle {
     
     /// Application name (if applicable).
@@ -22,18 +24,23 @@ public extension MabpleWrapper where Base: Bundle {
     
     /// App current build identifier (if applicable).
     var bundleIdentifier: String? {
-        return info(for: kCFBundleIdentifierKey as String)
+        info(for: kCFBundleIdentifierKey as String)
     }
     
     /// App current build number (if applicable).
     var build: String? {
-        return info(for: kCFBundleVersionKey as String)
+        info(for: kCFBundleVersionKey as String)
     }
     
     /// App's current version number (if applicable).
     var version: String? {
-        return info(for: "CFBundleShortVersionString")
+        info(for: "CFBundleShortVersionString")
     }
+    
+}
+
+// MARK: - Methods
+public extension MabpleWrapper where Base: Bundle {
     
     private func info<T>(for key: String) -> T? {
         (base.localizedInfoDictionary?[key] as? T)
