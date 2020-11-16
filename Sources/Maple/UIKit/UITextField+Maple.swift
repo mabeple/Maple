@@ -8,16 +8,18 @@
 
 #if canImport(UIKit)
 import UIKit
+
+// MARK: - Properties
 public extension MabpleWrapper where Base == UITextField {
     
     /// Check if text field is empty.
     var isEmpty: Bool {
-        return base.text?.isEmpty == true
+        base.text?.isEmpty == true
     }
     
     /// Return text with no spaces or new lines in beginning and end.
     var trimmedText: String? {
-        return base.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        base.text?.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
     /// Left view tint color.
@@ -45,6 +47,10 @@ public extension MabpleWrapper where Base == UITextField {
             iconView.tintColor = newValue
         }
     }
+}
+
+// MARK: - Methods
+public extension MabpleWrapper where Base == UITextField {
     
     /// Clear text.
     func clear() {

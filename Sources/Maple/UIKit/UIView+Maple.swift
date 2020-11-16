@@ -9,6 +9,8 @@
 #if canImport(UIKit)
 import UIKit
 extension UIView: MabpleCompatible { }
+
+// MARK: - Properties
 public extension MabpleWrapper where Base: UIView {
     
     /// Corner radius of view;
@@ -44,6 +46,10 @@ public extension MabpleWrapper where Base: UIView {
         base.layer.render(in: context)
         return UIGraphicsGetImageFromCurrentImageContext()
     }
+}
+
+// MARK: - Methods
+public extension MabpleWrapper where Base: UIView {
     
     /// Recursively find the first responder.
     func firstResponder() -> UIView? {

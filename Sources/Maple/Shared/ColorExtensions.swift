@@ -106,13 +106,13 @@ public extension MabpleWrapper where Base == MPCrossPlatformColor {
     
     /// Alpha of Color (read-only)
     var alpha: CGFloat {
-        return base.cgColor.alpha
+        base.cgColor.alpha
     }
     
     #if !os(watchOS)
     /// CoreImage.CIColor (read-only).
     var coreImageColor: CoreImage.CIColor? {
-        return CoreImage.CIColor(color: base)
+        CoreImage.CIColor(color: base)
     }
     #endif
     
@@ -169,23 +169,22 @@ public extension MabpleWrapper where Base == MPCrossPlatformColor {
 // MARK: - Initializers
 public extension MPCrossPlatformColor {
     
-    /// Create Color from RGB values with optional transparency.
+    /// Create Color from RGB values with optional transparency. Default r:255 g: 255: b 255
     ///
     /// - Parameters:
     ///   - red: red component.
     ///   - green: green component.
     ///   - blue: blue component.
     ///   - transparency: optional transparency value (default is 1).
-    convenience init?(red: Int, green: Int, blue: Int, transparency: CGFloat = 1) {
-        guard red >= 0 && red <= 255 else { return nil }
-        guard green >= 0 && green <= 255 else { return nil }
-        guard blue >= 0 && blue <= 255 else { return nil }
-        
+    convenience init(red: Int, green: Int, blue: Int, transparency: CGFloat = 1) {
+        let newRed = (red >= 0 && red <= 255) ? red : 255
+        let newGreen = (red >= 0 && red <= 255) ? green : 255
+        let newBlue = (red >= 0 && red <= 255) ? blue : 255
         var trans = transparency
         if trans < 0 { trans = 0 }
         if trans > 1 { trans = 1 }
         
-        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: trans)
+        self.init(red: CGFloat(newRed) / 255.0, green: CGFloat(newGreen) / 255.0, blue: CGFloat(newBlue) / 255.0, alpha: trans)
     }
     
     /// Create Color from hexadecimal value with optional transparency.
@@ -193,7 +192,7 @@ public extension MPCrossPlatformColor {
     /// - Parameters:
     ///   - hex: hex Int (example: 0xDECEB5).
     ///   - transparency: optional transparency value (default is 1).
-    convenience init?(hex: Int, transparency: CGFloat = 1) {
+    convenience init(hex: Int, transparency: CGFloat = 1) {
         var trans = transparency
         if trans < 0 { trans = 0 }
         if trans > 1 { trans = 1 }
@@ -254,7 +253,7 @@ public extension MPCrossPlatformColor {
         let red = Int.random(in: 0...255)
         let green = Int.random(in: 0...255)
         let blue = Int.random(in: 0...255)
-        return MPCrossPlatformColor(red: red, green: green, blue: blue)!
+        return MPCrossPlatformColor(red: red, green: green, blue: blue)
     }
     
 }

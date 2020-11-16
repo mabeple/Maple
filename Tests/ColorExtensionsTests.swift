@@ -31,7 +31,7 @@ class ColorExtensionsTests: XCTestCase {
         XCTAssertEqual(MPCrossPlatformColor.white.mp.rgbComponents.green, 255)
         XCTAssertEqual(MPCrossPlatformColor.white.mp.rgbComponents.blue, 255)
         
-        XCTAssertEqual(MPCrossPlatformColor(hex: 0x12FFFF)?.mp.rgbComponents.red, 0x12)
+        XCTAssertEqual(MPCrossPlatformColor(hex: 0x12FFFF).mp.rgbComponents.red, 0x12)
     }
     
     func testCGFloatComponents() {
@@ -55,41 +55,41 @@ class ColorExtensionsTests: XCTestCase {
         XCTAssertEqual(MPCrossPlatformColor.white.mp.cgFloatComponents.green, 1.0)
         XCTAssertEqual(MPCrossPlatformColor.white.mp.cgFloatComponents.blue, 1.0)
         
-        XCTAssertEqual(Int(MPCrossPlatformColor(hex: 0x12FFFF)!.mp.cgFloatComponents.red * 255.0), 0x12)
+        XCTAssertEqual(Int(MPCrossPlatformColor(hex: 0x12FFFF).mp.cgFloatComponents.red * 255.0), 0x12)
     }
     
     func testHsbaComponents() {
-        var color = MPCrossPlatformColor(hex: 0x00FF00, transparency: 1.0)!
+        var color = MPCrossPlatformColor(hex: 0x00FF00, transparency: 1.0)
         XCTAssertEqual(CGFloat(round(1000 * color.mp.hsbaComponents.hue) / 1000), CGFloat(round(1000 * (120/360)) / 1000))
         XCTAssertEqual(color.mp.hsbaComponents.saturation, 1.0)
         XCTAssertEqual(color.mp.hsbaComponents.brightness, 1.0)
         
-        color = MPCrossPlatformColor(hex: 0x0000FF, transparency: 1.0)!
+        color = MPCrossPlatformColor(hex: 0x0000FF, transparency: 1.0)
         XCTAssertEqual(CGFloat(round(1000 * color.mp.hsbaComponents.hue) / 1000), CGFloat(round(1000 * (240/360)) / 1000))
         XCTAssertEqual(color.mp.hsbaComponents.saturation, 1.0)
         XCTAssertEqual(color.mp.hsbaComponents.brightness, 1.0)
         
-        color = MPCrossPlatformColor(hex: 0x000000, transparency: 1.0)!
+        color = MPCrossPlatformColor(hex: 0x000000, transparency: 1.0)
         XCTAssertEqual(color.mp.hsbaComponents.hue, 0.0)
         XCTAssertEqual(color.mp.hsbaComponents.saturation, 0.0)
         XCTAssertEqual(color.mp.hsbaComponents.brightness, 0.0)
         
-        color = MPCrossPlatformColor(hex: 0xFFFFFF, transparency: 1.0)!
+        color = MPCrossPlatformColor(hex: 0xFFFFFF, transparency: 1.0)
         XCTAssertEqual(color.mp.hsbaComponents.hue, 0.0)
         XCTAssertEqual(color.mp.hsbaComponents.saturation, 0.0)
         XCTAssertEqual(color.mp.hsbaComponents.brightness, 1.0)
         
-        color = MPCrossPlatformColor(hex: 0x123456, transparency: 1.0)!
+        color = MPCrossPlatformColor(hex: 0x123456, transparency: 1.0)
         XCTAssertEqual(CGFloat(round(1000 * color.mp.hsbaComponents.hue) / 1000), CGFloat(round(1000 * (210/360)) / 1000))
         XCTAssertEqual((color.mp.hsbaComponents.saturation * 100).rounded(), 79)
         XCTAssertEqual((color.mp.hsbaComponents.brightness * 100).rounded(), 34)
         
-        color = MPCrossPlatformColor(hex: 0xFCA864, transparency: 1.0)!
+        color = MPCrossPlatformColor(hex: 0xFCA864, transparency: 1.0)
         XCTAssertEqual(CGFloat(round(1000 * color.mp.hsbaComponents.hue) / 1000), CGFloat(round(1000 * (27/360)) / 1000))
         XCTAssertEqual((color.mp.hsbaComponents.saturation * 100).rounded(), 60)
         XCTAssertEqual((color.mp.hsbaComponents.brightness * 100).rounded(), 99)
         
-        color = MPCrossPlatformColor(hex: 0x1F2D3C, transparency: 1.0)!
+        color = MPCrossPlatformColor(hex: 0x1F2D3C, transparency: 1.0)
         XCTAssertEqual(CGFloat(round(1000 * color.mp.hsbaComponents.hue) / 1000), CGFloat(round(1000 * (211/360)) / 1000))
         XCTAssertEqual((color.mp.hsbaComponents.saturation * 100).rounded(), 48)
         XCTAssertEqual((color.mp.hsbaComponents.brightness * 100).rounded(), 24)
@@ -102,10 +102,10 @@ class ColorExtensionsTests: XCTestCase {
         color = MPCrossPlatformColor.blue
         XCTAssertEqual(color?.mp.hexString, "#0000FF")
         
-        color = MPCrossPlatformColor(hex: 0xABCDEF)!
+        color = MPCrossPlatformColor(hex: 0xABCDEF)
         XCTAssertEqual(color?.mp.hexString, "#ABCDEF")
         
-        color = MPCrossPlatformColor(hex: 0xABC)!
+        color = MPCrossPlatformColor(hex: 0xABC)
         XCTAssertEqual(color?.mp.hexString, "#000ABC")
         
         color = MPCrossPlatformColor.black
@@ -147,10 +147,10 @@ class ColorExtensionsTests: XCTestCase {
         color = MPCrossPlatformColor.white.withAlphaComponent(0.5)
         XCTAssertEqual(color.mp.alpha, 0.5)
         
-        color = MPCrossPlatformColor(red: 0, green: 0, blue: 0, transparency: 0.7)!
+        color = MPCrossPlatformColor(red: 0, green: 0, blue: 0, transparency: 0.7)
         XCTAssertEqual(color.mp.alpha, 0.7)
         
-        color = MPCrossPlatformColor(red: 0, green: 0, blue: 0, transparency: 1.1)!
+        color = MPCrossPlatformColor(red: 0, green: 0, blue: 0, transparency: 1.1)
         XCTAssertEqual(color.mp.alpha, 1.0)
     }
     
@@ -165,31 +165,31 @@ class ColorExtensionsTests: XCTestCase {
     
     func testUInt() {
         var color = MPCrossPlatformColor(hex: 0xFF0000, transparency: 1.0)
-        XCTAssertEqual(color?.mp.uInt, 0xFF0000)
+        XCTAssertEqual(color.mp.uInt, 0xFF0000)
         
         color = MPCrossPlatformColor(hex: 0x00FF00, transparency: 1.0)
-        XCTAssertEqual(color?.mp.uInt, 0x00FF00)
+        XCTAssertEqual(color.mp.uInt, 0x00FF00)
         
         color = MPCrossPlatformColor(hex: 0x0000FF, transparency: 1.0)
-        XCTAssertEqual(color?.mp.uInt, 0x0000FF)
+        XCTAssertEqual(color.mp.uInt, 0x0000FF)
         
         color = MPCrossPlatformColor(hex: 0x000000, transparency: 1.0)
-        XCTAssertEqual(color?.mp.uInt, 0x000000)
+        XCTAssertEqual(color.mp.uInt, 0x000000)
         
         color = MPCrossPlatformColor(hex: 0xFFFFFF, transparency: 1.0)
-        XCTAssertEqual(color?.mp.uInt, 0xFFFFFF)
+        XCTAssertEqual(color.mp.uInt, 0xFFFFFF)
         
         color = MPCrossPlatformColor(hex: 0x123456, transparency: 1.0)
-        XCTAssertEqual(color?.mp.uInt, 0x123456)
+        XCTAssertEqual(color.mp.uInt, 0x123456)
         
         color = MPCrossPlatformColor(hex: 0xFCA864, transparency: 1.0)
-        XCTAssertEqual(color?.mp.uInt, 0xFCA864)
+        XCTAssertEqual(color.mp.uInt, 0xFCA864)
         
         color = MPCrossPlatformColor(hex: 0xFCA864, transparency: 1.0)
-        XCTAssertEqual(color?.mp.uInt, 0xFCA864)
+        XCTAssertEqual(color.mp.uInt, 0xFCA864)
         
         color = MPCrossPlatformColor(hex: 0x1F2D3C, transparency: 1.0)
-        XCTAssertEqual(color?.mp.uInt, 0x1F2D3C)
+        XCTAssertEqual(color.mp.uInt, 0x1F2D3C)
     }
     
     func testLighten() {
@@ -232,7 +232,7 @@ class ColorExtensionsTests: XCTestCase {
         
         var color1 = MPCrossPlatformColor(red: 255, green: 244, blue: 255, transparency: 2.0)
         var color2 = MPCrossPlatformColor(red: 1.0, green: 244.0 / 255.0, blue: 1.0, alpha: 1.0)
-        color1?.getRed(&red1, green: &green1, blue: &blue1, alpha: &alpha1)
+        color1.getRed(&red1, green: &green1, blue: &blue1, alpha: &alpha1)
         color2.getRed(&red2, green: &green2, blue: &blue2, alpha: &alpha2)
         XCTAssertEqual(red1, red2)
         XCTAssertEqual(green1, green2)
@@ -241,7 +241,7 @@ class ColorExtensionsTests: XCTestCase {
         
         color1 = MPCrossPlatformColor(red: 25, green: 244, blue: 55, transparency: -1.0)
         color2 = MPCrossPlatformColor(red: 25.0 / 255.0, green: 244.0 / 255.0, blue: 55.0 / 255.0, alpha: 0.0)
-        color1?.getRed(&red1, green: &green1, blue: &blue1, alpha: &alpha1)
+        color1.getRed(&red1, green: &green1, blue: &blue1, alpha: &alpha1)
         color2.getRed(&red2, green: &green2, blue: &blue2, alpha: &alpha2)
         XCTAssertEqual(red1, red2)
         XCTAssertEqual(green1, green2)
@@ -250,7 +250,7 @@ class ColorExtensionsTests: XCTestCase {
         
         color1 = MPCrossPlatformColor(red: 2, green: 4, blue: 5)
         color2 = MPCrossPlatformColor(red: 2.0 / 255.0, green: 4.0 / 255.0, blue: 5.0 / 255.0, alpha: 1.0)
-        color1?.getRed(&red1, green: &green1, blue: &blue1, alpha: &alpha1)
+        color1.getRed(&red1, green: &green1, blue: &blue1, alpha: &alpha1)
         color2.getRed(&red2, green: &green2, blue: &blue2, alpha: &alpha2)
         XCTAssertEqual(red1, red2)
         XCTAssertEqual(green1, green2)
@@ -260,55 +260,55 @@ class ColorExtensionsTests: XCTestCase {
     
     func testFailableInitWithComponents() {
         let color1 = MPCrossPlatformColor(red: 258, green: 0, blue: 0)
-        XCTAssertNil(color1)
+        XCTAssertNotNil(color1)
         
         let color2 = MPCrossPlatformColor(red: 0, green: 258, blue: 0)
-        XCTAssertNil(color2)
+        XCTAssertNotNil(color2)
         
         let color3 = MPCrossPlatformColor(red: 0, green: 0, blue: 258)
-        XCTAssertNil(color3)
+        XCTAssertNotNil(color3)
         
         let color4 = MPCrossPlatformColor(red: 258, green: 258, blue: 258)
-        XCTAssertNil(color4)
+        XCTAssertNotNil(color4)
         
     }
     
     func testInit() {
         var color = MPCrossPlatformColor(hex: 0xFFF)
-        XCTAssertEqual(color?.mp.rgbComponents.red, 0)
-        XCTAssertEqual(color?.mp.rgbComponents.green, 0xf)
-        XCTAssertEqual(color?.mp.rgbComponents.blue, 0xff)
-        XCTAssertEqual(color?.mp.alpha, 1.0)
+        XCTAssertEqual(color.mp.rgbComponents.red, 0)
+        XCTAssertEqual(color.mp.rgbComponents.green, 0xf)
+        XCTAssertEqual(color.mp.rgbComponents.blue, 0xff)
+        XCTAssertEqual(color.mp.alpha, 1.0)
         
         color = MPCrossPlatformColor(hex: 0xFFFFFFF)
-        XCTAssertEqual(color?.mp.rgbComponents.red, 0xff)
-        XCTAssertEqual(color?.mp.rgbComponents.green, 0xff)
-        XCTAssertEqual(color?.mp.rgbComponents.blue, 0xff)
-        XCTAssertEqual(color?.mp.alpha, 1.0)
+        XCTAssertEqual(color.mp.rgbComponents.red, 0xff)
+        XCTAssertEqual(color.mp.rgbComponents.green, 0xff)
+        XCTAssertEqual(color.mp.rgbComponents.blue, 0xff)
+        XCTAssertEqual(color.mp.alpha, 1.0)
         
         color = MPCrossPlatformColor(hex: 0x123456, transparency: 1.0)
-        XCTAssertEqual(color?.mp.rgbComponents.red, 0x12)
-        XCTAssertEqual(color?.mp.rgbComponents.green, 0x34)
-        XCTAssertEqual(color?.mp.rgbComponents.blue, 0x56)
-        XCTAssertEqual(color?.mp.alpha, 1.0)
+        XCTAssertEqual(color.mp.rgbComponents.red, 0x12)
+        XCTAssertEqual(color.mp.rgbComponents.green, 0x34)
+        XCTAssertEqual(color.mp.rgbComponents.blue, 0x56)
+        XCTAssertEqual(color.mp.alpha, 1.0)
         
         color = MPCrossPlatformColor(hex: 0x999, transparency: 21.0)
-        XCTAssertEqual(color?.mp.rgbComponents.red, 0)
-        XCTAssertEqual(color?.mp.rgbComponents.green, 0x09)
-        XCTAssertEqual(color?.mp.rgbComponents.blue, 0x99)
-        XCTAssertEqual(color?.mp.alpha, 1.0)
+        XCTAssertEqual(color.mp.rgbComponents.red, 0)
+        XCTAssertEqual(color.mp.rgbComponents.green, 0x09)
+        XCTAssertEqual(color.mp.rgbComponents.blue, 0x99)
+        XCTAssertEqual(color.mp.alpha, 1.0)
         
         color = MPCrossPlatformColor(hex: 0xaabbcc, transparency: 0.0)
-        XCTAssertEqual(color?.mp.rgbComponents.red, 0xaa)
-        XCTAssertEqual(color?.mp.rgbComponents.green, 0xbb)
-        XCTAssertEqual(color?.mp.rgbComponents.blue, 0xcc)
-        XCTAssertEqual(color?.mp.alpha, 0.0)
+        XCTAssertEqual(color.mp.rgbComponents.red, 0xaa)
+        XCTAssertEqual(color.mp.rgbComponents.green, 0xbb)
+        XCTAssertEqual(color.mp.rgbComponents.blue, 0xcc)
+        XCTAssertEqual(color.mp.alpha, 0.0)
         
         color = MPCrossPlatformColor(hex: 0x1, transparency: 0.5)
-        XCTAssertEqual(color?.mp.rgbComponents.red, 0)
-        XCTAssertEqual(color?.mp.rgbComponents.green, 0)
-        XCTAssertEqual(color?.mp.rgbComponents.blue, 1)
-        XCTAssertEqual(color?.mp.alpha, 0.5)
+        XCTAssertEqual(color.mp.rgbComponents.red, 0)
+        XCTAssertEqual(color.mp.rgbComponents.green, 0)
+        XCTAssertEqual(color.mp.rgbComponents.blue, 1)
+        XCTAssertEqual(color.mp.alpha, 0.5)
         let color1 = MPCrossPlatformColor(hex: 0xFFF, transparency: -0.4)
         let color2 = MPCrossPlatformColor(hex: 0xFFF, transparency: 0)
         XCTAssertEqual(color1, color2)

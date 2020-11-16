@@ -9,6 +9,8 @@
 #if canImport(AppKit)
 import AppKit
 extension NSView: MabpleCompatible { }
+
+// MARK: - Properties
 public extension MabpleWrapper where Base: NSView {
     
     /// Corner radius of view; also inspectable from Storyboard.
@@ -37,6 +39,10 @@ public extension MabpleWrapper where Base: NSView {
             base.layer?.backgroundColor = newValue?.cgColor
         }
     }
+}
+
+// MARK: - Methods
+public extension MabpleWrapper where Base: NSView {
     
     /// Add shadow to view.
     /// - Parameters:
