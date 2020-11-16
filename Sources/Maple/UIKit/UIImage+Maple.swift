@@ -1,6 +1,6 @@
 //
 //  UIImage+Maple.swift
-//  Maple-iOS
+//  Maple
 //
 //  Created by cy on 2020/11/16.
 //  Copyright © 2020 cy. All rights reserved.
@@ -15,22 +15,22 @@ public extension MabpleWrapper where Base == UIImage {
     
     /// Size in bytes of UIImage
     var bytesSize: Int {
-        return base.jpegData(compressionQuality: 1)?.count ?? 0
+        base.jpegData(compressionQuality: 1)?.count ?? 0
     }
 
     /// Size in kilo bytes of UIImage
     var kilobytesSize: Int {
-        return (base.jpegData(compressionQuality: 1)?.count ?? 0) / 1024
+        (base.jpegData(compressionQuality: 1)?.count ?? 0) / 1024
     }
 
     /// UIImage with .alwaysOriginal rendering mode.
     var original: UIImage {
-        return base.withRenderingMode(.alwaysOriginal)
+        base.withRenderingMode(.alwaysOriginal)
     }
 
     /// UIImage with .alwaysTemplate rendering mode.
     var template: UIImage {
-        return base.withRenderingMode(.alwaysTemplate)
+        base.withRenderingMode(.alwaysTemplate)
     }
 }
 

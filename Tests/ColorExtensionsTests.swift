@@ -360,6 +360,21 @@ class ColorExtensionsTests: XCTestCase {
     }
     #endif
     
+    #if canImport(UIKit) && !os(watchOS)
+    func testInitLightDark() {
+        let lightModeColor = UIColor.red
+        let darkModeColor = UIColor.blue
+        let color = UIColor(light: lightModeColor, dark: darkModeColor)
+
+        if #available(iOS 13.0, tvOS 13.0, *) {
+            XCTAssertEqual(color.resolvedColor(with: UITraitCollection(userInterfaceStyle: .light)), lightModeColor)
+            XCTAssertEqual(color.resolvedColor(with: UITraitCollection(userInterfaceStyle: .dark)), darkModeColor)
+        } else {
+            XCTAssertEqual(color, lightModeColor)
+        }
+    }
+    #endif
+    
     func testRandom() {
         let color1 = MPCrossPlatformColor.random
         let color2 = MPCrossPlatformColor.random
