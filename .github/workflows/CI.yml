@@ -1,4 +1,4 @@
-name: Maple
+name: CI
 
 on: 
   push:
