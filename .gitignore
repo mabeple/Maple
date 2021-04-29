@@ -48,3 +48,6 @@ fastlane/test_output
 
 # Mac OS X Finder and whatnot
 .DS_Store
+
+# Env file
+.env
