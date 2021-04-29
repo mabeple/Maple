@@ -10,7 +10,7 @@
 import UIKit
 
 // MARK: - Properties
-public extension MabpleWrapper where Base == UITextField {
+public extension MabpleWrapper where Base: UITextField {
     
     /// Check if text field is empty.
     var isEmpty: Bool {
@@ -50,7 +50,7 @@ public extension MabpleWrapper where Base == UITextField {
 }
 
 // MARK: - Methods
-public extension MabpleWrapper where Base == UITextField {
+public extension MabpleWrapper where Base: UITextField {
     
     /// Clear text.
     func clear() {

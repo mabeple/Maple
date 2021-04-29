@@ -19,14 +19,14 @@ public protocol MabpleCompatibleValue { }
 
 extension MabpleCompatible {
     public var mp: MabpleWrapper<Self> {
-        get { return MabpleWrapper(self) }
+        get { MabpleWrapper(self) }
         set { }
     }
 }
 
 extension MabpleCompatibleValue {
     public var mp: MabpleWrapper<Self> {
-        get { return MabpleWrapper(self) }
+        get { MabpleWrapper(self) }
         set { }
     }
 }

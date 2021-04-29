@@ -10,7 +10,7 @@
 import UIKit
 
 // MARK: - Properties
-public extension MabpleWrapper where Base == UITableView {
+public extension MabpleWrapper where Base: UITableView {
     
     /// Index path of last row in tableView.
     var indexPathForLastRow: IndexPath? {
@@ -25,7 +25,7 @@ public extension MabpleWrapper where Base == UITableView {
 }
 
 // MARK: - Methods
-public extension MabpleWrapper where Base == UITableView {
+public extension MabpleWrapper where Base: UITableView {
     
     /// Number of all rows in all sections of tableView.
     ///

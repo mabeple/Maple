@@ -6,7 +6,7 @@
 //  Copyright © 2020 cy. All rights reserved.
 //
 
-#if canImport(UIKit) && !os(watchOS)
+#if canImport(UIKit)
 import UIKit
 
 // MARK: - Methods
@@ -23,7 +23,7 @@ public extension MabpleWrapper where Base == UIImageView {
         base.addSubview(blurEffectView)
         base.clipsToBounds = true
     }
-
+    
     /// Blurred version of an image view
     ///
     /// - Parameter style: UIBlurEffectStyle (default is .light).
