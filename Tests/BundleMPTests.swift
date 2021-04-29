@@ -19,7 +19,6 @@ class BundleMPTests: XCTestCase {
         XCTAssertEqual(displayName, "Maple")
         #elseif os(macOS)
         let displayName = macOSBundle?.mp.displayName
-        print(displayName)
         XCTAssertNotNil(displayName)
         XCTAssertEqual(displayName, "Maple")
         #endif
