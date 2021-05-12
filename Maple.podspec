@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name = 'Maple'
   s.version = '1.1.3'
-  s.summary = 'native Swift extensions'
+  s.summary = 'Native Swift extensions'
   s.description = <<-DESC
   native Swift extensions.
                    DESC
@@ -19,3 +19,5 @@ Pod::Spec.new do |s|
   s.source_files = ["Sources/Maple/**/*.swift", "Sources/Maple.h"]
 
 end
+
+pod trunk register cymapu@gmail.com 'Mabeple'
