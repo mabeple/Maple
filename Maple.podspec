@@ -19,5 +19,3 @@ Pod::Spec.new do |s|
   s.source_files = ["Sources/Maple/**/*.swift", "Sources/Maple.h"]
 
 end
-
-pod trunk register cymapu@gmail.com 'Mabeple'
