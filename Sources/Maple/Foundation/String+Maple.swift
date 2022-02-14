@@ -481,7 +481,7 @@ import Foundation
 
 public extension MabpleWrapper where Base == String {
     
-    /// crypto md5
+    /// Crypto md5
     @available(iOS 13.0, OSX 10.15, watchOS 6.0, tvOS 13.0, *)
     func md5() -> String {
         let hash = Insecure.MD5.hash(data: Data(base.utf8))

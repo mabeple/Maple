@@ -171,6 +171,13 @@ class UITableViewMPTests: XCTestCase {
         tableView.mp.safeScrollToRow(at: invalidIndexPath, at: .bottom, animated: false)
         XCTAssertEqual(tableView.contentOffset, .zero)
     }
+    
+    func testAddPaddingTop() {
+        let offset = CGPoint(x: 0, y: 20)
+        tableView.mp.addPaddingTop(20)
+        XCTAssertEqual(-offset.y, tableView.contentOffset.y)
+        XCTAssertEqual(offset.y, tableView.contentInset.top)
+    }
 }
 
 extension UITableViewMPTests: UITableViewDataSource {
