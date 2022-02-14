@@ -16,6 +16,38 @@ Pod::Spec.new do |s|
   s.swift_version = '5.1'
   s.requires_arc = true
   s.source = { git: 'https://github.com/Mabeple/Maple.git', tag: s.version.to_s }
-  s.source_files = ["Sources/Maple/**/*.swift", "Sources/Maple.h"]
+  s.default_subspecs = 'Core'
+  
+  s.subspec "Core" do |sp|
+      sp.source_files = 'Sources/Maple/General/*.swift'
+      sp.dependency 'Maple/Protocol'
+      sp.dependency 'Maple/Shared'
+      sp.dependency 'Maple/Foundation'
+      sp.dependency 'Maple/UIKit'
+  end
+  
+  # Protocol
+  s.subspec 'Protocol' do |sp|
+    sp.source_files  = 'Sources/Maple/General/*.swift', 'Sources/Maple/Protocol/*.swift'
+  end
+  
+  # Shared
+  s.subspec 'Shared' do |sp|
+    sp.source_files  = 'Sources/Maple/General/*.swift', 'Sources/Maple/Shared/*.swift'
+  end
+  
+  # Foundation Extensions
+  s.subspec 'Foundation' do |sp|
+    sp.source_files  = 'Sources/Maple/General/*.swift', 'Sources/General/Foundation/*.swift'
+  end
+  
+  # UIKit Extensions
+  s.subspec 'UIKit' do |sp|
+    sp.source_files  = 'Sources/Maple/General/*.swift', 'Sources/Maple/UIKit/*.swift'
+  end
 
+  # AppKit Extensions
+  s.subspec 'AppKit' do |sp|
+    sp.source_files  = 'Sources/Maple/General/*.swift', 'Sources/Maple/AppKit/*.swift'
+  end
 end

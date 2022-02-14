@@ -84,6 +84,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0107D37727BA092400D52DCB /* Maple.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Maple.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		011A004D24873C6400D18027 /* BundleMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleMPTests.swift; sourceTree = "<group>"; };
 		011A0050248740F900D18027 /* UICollectionView+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Maple.swift"; sourceTree = "<group>"; };
 		011A00522487482100D18027 /* UICollectionViewMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewMPTests.swift; sourceTree = "<group>"; };
@@ -219,6 +220,7 @@
 		0174DF022480EC1800258824 = {
 			isa = PBXGroup;
 			children = (
+				0107D37727BA092400D52DCB /* Maple.podspec */,
 				0174DF4F2480ED9500258824 /* Sources */,
 				0174DF5C2480EF5F00258824 /* Tests */,
 				0174DF0D2480EC1800258824 /* Products */,
