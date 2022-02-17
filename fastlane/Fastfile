@@ -28,8 +28,6 @@ platform :ios do
 
     # 验证podspec
     pod_lib_lint(allow_warnings: true)
-	
-    pod_push(path: "Maple.podspec", allow_warnings: true)
 
     # 提交本地仓库代码至远程仓库
     git_add(path: ".")
@@ -40,6 +38,8 @@ platform :ios do
     # 打标签，并提交至远程
     add_git_tag(tag: version)
     push_git_tags
+
+    pod_push(path: "Maple.podspec", allow_warnings: true)
 
     set_github_release(
       repository_name: "Mabeple/Maple",
