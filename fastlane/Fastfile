@@ -27,7 +27,7 @@ platform :ios do
     version_bump_podspec(path: "Maple.podspec", version_number: version) 
 
     # 验证podspec
-    pod_lib_lint(use_bundle_exec: false, allow_warnings: true)
+    pod_lib_lint(allow_warnings: true)
 
     # 提交本地仓库代码至远程仓库
     git_add(path: ".")
