@@ -38,7 +38,7 @@ Pod::Spec.new do |s|
   
   # Foundation Extensions
   s.subspec 'Foundation' do |sp|
-    sp.source_files  = 'Sources/Maple/General/*.swift', 'Sources/General/Foundation/*.swift'
+    sp.source_files  = 'Sources/Maple/General/*.swift', 'Sources/Maple/Foundation/*.swift'
   end
   
   # UIKit Extensions
