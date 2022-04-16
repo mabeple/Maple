@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'Maple'
-  s.version = '1.1.5'
+  s.version = '1.1.6'
   s.summary = 'Native Swift extensions'
   s.description = <<-DESC
   native Swift extensions.
