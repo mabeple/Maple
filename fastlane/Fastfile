@@ -23,15 +23,18 @@ platform :ios do
     ensure_git_status_clean
     ensure_git_branch
     
+    # 修改版本
+    increment_version_number(version_number: version)
+
     # 修改 podspec 中版本
-    version_bump_podspec(path: "Maple.podspec", version_number: version) 
+    version_bump_podspec(path: "Maple.podspec", version_number: version)
 
     # 验证podspec
     pod_lib_lint(allow_warnings: true)
 
     # 提交本地仓库代码至远程仓库
     git_add(path: ".")
-    git_commit(path: ".", message: "bump version to #{version}") 
+    git_commit(path: ".", message: "bump version to #{version}")
     # commit
     push_to_git_remote
 
