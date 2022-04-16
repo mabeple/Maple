@@ -108,5 +108,14 @@ public extension MabpleWrapper where Base: UIScrollView {
         let x = min(maxX, base.contentOffset.x + base.bounds.width)
         base.setContentOffset(CGPoint(x: x, y: base.contentOffset.y), animated: animated)
     }
+    
+    /// Add padding to the top of the scroll view rect.
+    /// - Parameters:
+    ///   - top: amount of padding to apply to the top of the tableView rect.
+    ///   - animated: set true to animate scroll (default is false).
+    func addPaddingTop(_ padding: CGFloat, animated: Bool  = false) {
+        base.contentInset = UIEdgeInsets(top: padding, left: 0, bottom: 0, right: 0)
+        base.setContentOffset(CGPoint(x: 0, y: -padding), animated: animated)
+    }
 }
 #endif

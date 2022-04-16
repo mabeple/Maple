@@ -26,7 +26,7 @@ public extension MabpleWrapper where Base == Date {
         calendar.component(.era, from: base)
     }
     
-    #if !os(Linux)
+#if !os(Linux)
     /// Quarter.
     ///
     ///        Date().quarter -> 3 // date in third quarter of the year.
@@ -37,7 +37,7 @@ public extension MabpleWrapper where Base == Date {
         let numberOfMonthsInQuarter = numberOfMonths / 4
         return Int(ceil(month/numberOfMonthsInQuarter))
     }
-    #endif
+#endif
     
     /// Week of year.
     ///
@@ -85,6 +85,77 @@ public extension MabpleWrapper where Base == Date {
         calendar.component(.day, from: base)
     }
     
+    /// Hour.
+    ///
+    ///     Date().hour -> 17 // 5 pm
+    ///
+    ///     var someDate = Date()
+    ///     someDate.hour = 13 // sets someDate's hour to 1 pm.
+    ///
+    var hour: Int {
+        calendar.component(.hour, from: base)
+    }
+    
+    /// Minutes.
+    ///
+    ///     Date().minute -> 39
+    ///
+    ///     var someDate = Date()
+    ///     someDate.minute = 10 // sets someDate's minutes to 10.
+    ///
+    var minute: Int {
+        calendar.component(.minute, from: base)
+    }
+    
+    /// Seconds.
+    ///
+    ///     Date().second -> 55
+    ///
+    ///     var someDate = Date()
+    ///     someDate.second = 15 // sets someDate's seconds to 15.
+    ///
+    var second: Int {
+        calendar.component(.second, from: base)
+    }
+    
+    /// SwifterSwift: Nanoseconds.
+    ///
+    ///     Date().nanosecond -> 981379985
+    ///
+    ///     var someDate = Date()
+    ///     someDate.nanosecond = 981379985 // sets someDate's seconds to 981379985.
+    ///
+    var nanosecond: Int {
+        calendar.component(.nanosecond, from: base)
+    }
+    
+    /// Milliseconds.
+    ///
+    ///     Date().millisecond -> 68
+    ///
+    ///     var someDate = Date()
+    ///     someDate.millisecond = 68 // sets someDate's nanosecond to 68000000.
+    ///
+    var millisecond: Int {
+        calendar.component(.nanosecond, from: base) / 1_000_000
+    }
+    
+    /// Check if date is in future.
+    ///
+    ///     Date(timeInterval: 100, since: Date()).isInFuture -> true
+    ///
+    var isInFuture: Bool {
+        base > Date()
+    }
+
+    /// Check if date is in past.
+    ///
+    ///     Date(timeInterval: -100, since: Date()).isInPast -> true
+    ///
+    var isInPast: Bool {
+        base < Date()
+    }
+    
     /// Check if date is within today.
     ///
     ///     Date().isInToday -> true
@@ -92,7 +163,7 @@ public extension MabpleWrapper where Base == Date {
     var isInToday: Bool {
         calendar.isDateInToday(base)
     }
-
+    
     /// Check if date is within yesterday.
     ///
     ///     Date().isInYesterday -> false
@@ -100,7 +171,7 @@ public extension MabpleWrapper where Base == Date {
     var isInYesterday: Bool {
         calendar.isDateInYesterday(base)
     }
-
+    
     /// Check if date is within tomorrow.
     ///
     ///     Date().isInTomorrow -> false
@@ -108,27 +179,27 @@ public extension MabpleWrapper where Base == Date {
     var isInTomorrow: Bool {
         calendar.isDateInTomorrow(base)
     }
-
+    
     /// Check if date is within a weekend period.
     var isInWeekend: Bool {
         calendar.isDateInWeekend(base)
     }
-
+    
     /// Check if date is within a weekday period.
     var isWorkday: Bool {
         !calendar.isDateInWeekend(base)
     }
-
+    
     /// Check if date is within the current week.
     var isInCurrentWeek: Bool {
         calendar.isDate(base, equalTo: Date(), toGranularity: .weekOfYear)
     }
-
+    
     /// Check if date is within the current month.
     var isInCurrentMonth: Bool {
         calendar.isDate(base, equalTo: Date(), toGranularity: .month)
     }
-
+    
     /// Check if date is within the current year.
     var isInCurrentYear: Bool {
         calendar.isDate(base, equalTo: Date(), toGranularity: .year)
@@ -142,7 +213,7 @@ public extension MabpleWrapper where Base == Date {
     var yesterday: Date? {
         calendar.date(byAdding: .day, value: -1, to: base)
     }
-
+    
     /// Tomorrow's date.
     ///
     ///     let date = Date() // "Oct 3, 2018, 10:57:11"
@@ -192,6 +263,33 @@ public extension MabpleWrapper where Base == Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: base)
+    }
+    
+    /// check if a date is between two other dates.
+    ///
+    /// - Parameters:
+    ///   - startDate: start date to compare self to.
+    ///   - endDate: endDate date to compare self to.
+    ///   - includeBounds: true if the start and end date should be included (default is false).
+    /// - Returns: true if the date is between the two given dates.
+    func isBetween(_ startDate: Date, _ endDate: Date, includeBounds: Bool = false) -> Bool {
+        if includeBounds {
+            return startDate.compare(base).rawValue * base.compare(endDate).rawValue >= 0
+        }
+        return startDate.compare(base).rawValue * base.compare(endDate).rawValue > 0
+    }
+    
+    /// check if a date is a number of date components of another date.
+    ///
+    /// - Parameters:
+    ///   - value: number of times component is used in creating range.
+    ///   - component: Calendar.Component to use.
+    ///   - date: Date to compare self to.
+    /// - Returns: true if the date is within a number of components of another date.
+    func isWithin(_ value: UInt, _ component: Calendar.Component, of date: Date) -> Bool {
+        let components = calendar.dateComponents([component], from: base, to: date)
+        let componentValue = components.value(for: component)!
+        return abs(componentValue) <= value
     }
 }
 #endif
