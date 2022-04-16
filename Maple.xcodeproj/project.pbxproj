@@ -119,7 +119,8 @@
 		0174DFC22480FCC700258824 /* Maple-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Maple-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0174DFCE2480FDA900258824 /* UITextField+Maple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Maple.swift"; sourceTree = "<group>"; };
 		0174DFD02481034F00258824 /* UITextFieldMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldMPTests.swift; sourceTree = "<group>"; };
-		01CC65B5280AB16D005FC548 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = ../fastlane/Fastfile; sourceTree = "<group>"; };
+		01CC65B6280AB2F1005FC548 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
+		01CC65B7280AB312005FC548 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		01CEC2E82481F54200CF21B9 /* NSView+Maple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+Maple.swift"; sourceTree = "<group>"; };
 		01CEC2EE2481F58200CF21B9 /* Maple-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Maple-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01CEC2F92481F62100CF21B9 /* NSViewMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewMPTests.swift; sourceTree = "<group>"; };
@@ -295,9 +296,10 @@
 			isa = PBXGroup;
 			children = (
 				0107D37727BA092400D52DCB /* Maple.podspec */,
-				01CC65B5280AB16D005FC548 /* Fastfile */,
+				01CC65B6280AB2F1005FC548 /* Fastfile */,
+				01CC65B7280AB312005FC548 /* README.md */,
 			);
-			path = Deployment;
+			name = Deployment;
 			sourceTree = "<group>";
 		};
 		01CEC2E72481F53100CF21B9 /* AppKit */ = {

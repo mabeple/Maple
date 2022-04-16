@@ -18,7 +18,7 @@ default_platform(:ios)
 platform :ios do
   desc 'Maple 用来自动化升级维护库'
   lane :pod_repo_push do |options|
-    version = options[:version] 
+    version = options[:version]
 
     ensure_git_status_clean
     ensure_git_branch
