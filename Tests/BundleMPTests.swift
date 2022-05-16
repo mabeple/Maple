@@ -40,23 +40,31 @@ class BundleMPTests: XCTestCase {
         #if os(iOS)
         let build = iosBundle?.mp.build
         XCTAssertNotNil(build)
-        XCTAssertEqual(build, "1")
+        let main = Bundle(for: type(of: self)).mp.build
+        XCTAssertNotNil(main)
+        XCTAssertEqual(build, main)
         #elseif os(macOS)
         let build = macOSBundle?.mp.build
         XCTAssertNotNil(build)
-        XCTAssertEqual(build, "1")
+        let main = Bundle(for: type(of: self)).mp.build
+        XCTAssertNotNil(main)
+        XCTAssertEqual(build, main)
         #endif
     }
     
     func testVersion() {
         #if os(iOS)
-        let build = iosBundle?.mp.version
-        XCTAssertNotNil(build)
-        XCTAssertEqual(build, "1.0")
+        let version = iosBundle?.mp.version
+        XCTAssertNotNil(version)
+        let main = Bundle(for: type(of: self)).mp.version
+        XCTAssertNotNil(main)
+        XCTAssertEqual(version, main)
         #elseif os(macOS)
-        let build = macOSBundle?.mp.version
-        XCTAssertNotNil(build)
-        XCTAssertEqual(build, "1.0")
+        let version = macOSBundle?.mp.version
+        XCTAssertNotNil(version)
+        let main = Bundle(for: type(of: self)).mp.version
+        XCTAssertNotNil(main)
+        XCTAssertEqual(version, main)
         #endif
     }
 }

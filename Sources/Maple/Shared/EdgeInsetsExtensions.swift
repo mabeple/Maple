@@ -17,7 +17,7 @@ public typealias EdgeInsets = NSEdgeInsets
 
 public extension NSEdgeInsets {
     /// An edge insets struct whose top, left, bottom, and right fields are all set to 0.
-    static let zero = NSEdgeInsets()
+    static let zero = EdgeInsets()
 }
 
 
@@ -122,14 +122,30 @@ public extension EdgeInsets {
         self.init(top: inset, left: inset, bottom: inset, right: inset)
     }
     
-    /// Creates an `EdgeInsets` with the horizontal value equally divided and applied to right and left.
-    ///               And the vertical value equally divided and applied to top and bottom.
+    /// Creates an `EdgeInsets` with the horizontal value equally and applied to right and left.
+    ///
+    ///
+    /// - Parameter horizontal: Inset to be applied to right and left.
+    init(horizontal: CGFloat) {
+        self.init(horizontal: horizontal, vertical: 0)
+    }
+    
+    /// Creates an `EdgeInsets` with the vertical value equally and applied to top and bottom.
+    ///
+    ///
+    /// - Parameter vertical: Inset to be applied to top and bottom.
+    init(vertical: CGFloat) {
+        self.init(horizontal: 0, vertical: vertical)
+    }
+    
+    /// Creates an `EdgeInsets` with the horizontal value equally and applied to right and left.
+    /// And the vertical value equally and applied to top and bottom.
     ///
     ///
     /// - Parameter horizontal: Inset to be applied to right and left.
     /// - Parameter vertical: Inset to be applied to top and bottom.
     init(horizontal: CGFloat, vertical: CGFloat) {
-        self.init(top: vertical / 2, left: horizontal / 2, bottom: vertical / 2, right: horizontal / 2)
+        self.init(top: vertical, left: horizontal, bottom: vertical, right: horizontal)
     }
 }
 

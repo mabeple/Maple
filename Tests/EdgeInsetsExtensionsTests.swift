@@ -131,10 +131,10 @@ class EdgeInsetsExtensionsTests: XCTestCase {
     
     func testInitVerticalHorizontal() {
         let inset = EdgeInsets(horizontal: 20.0, vertical: 10.0)
-        XCTAssertEqual(inset.top, 5.0)
-        XCTAssertEqual(inset.bottom, 5.0)
-        XCTAssertEqual(inset.right, 10.0)
-        XCTAssertEqual(inset.left, 10.0)
+        XCTAssertEqual(inset.top, 10.0)
+        XCTAssertEqual(inset.bottom, 10.0)
+        XCTAssertEqual(inset.right, 20.0)
+        XCTAssertEqual(inset.left, 20.0)
     }
     
     func testInsetComposing() {

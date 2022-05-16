@@ -27,7 +27,7 @@ public extension MabpleWrapper where Base == Data {
     ///
     /// - Parameter encoding: encoding.
     /// - Returns: String by encoding Data using the given encoding (if applicable).
-    func string(encoding: String.Encoding) -> String? {
+    func string(encoding: String.Encoding = .utf8) -> String? {
         String(data: base, encoding: encoding)
     }
     
