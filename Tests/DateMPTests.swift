@@ -402,18 +402,82 @@ class DateMPTests: XCTestCase {
         XCTAssertNotNil(date.mp.beginning(of: .weekOfMonth))
         XCTAssertNotNil(beginningOfWeek)
         XCTAssertEqual(date.mp.beginning(of: .weekOfMonth).mp.day, beginningOfWeek?.mp.day)
+        
+        var components = DateComponents()
+        components.year = 2022
+        components.month = 5
+        components.day = 1
+        let beginningOfMonth = Calendar.current.date(from: components)!
+        XCTAssertEqual(date.mp.beginning(of: .month).mp.day, beginningOfMonth.mp.day)
 
-//        let beginningOfMonth = Date(year: 2016, month: 8, day: 1, hour: 5)
-//        XCTAssertNotNil(date.mp.beginning(of: .month))
-//        XCTAssertNotNil(beginningOfMonth)
-//        XCTAssertEqual(date.mp.beginning(of: .month)?.day, beginningOfMonth?.mp.day)
-//
-//        let beginningOfYear = Date(year: 2016, month: 1, day: 1, hour: 5)
-//        XCTAssertNotNil(date.mp.beginning(of: .year))
-//        XCTAssertNotNil(beginningOfYear)
-//        XCTAssertEqual(date.mp.beginning(of: .year).mp.day, beginningOfYear?.mp.day)
-//
-//        XCTAssertNil(date.mp.beginning(of: .quarter))
+        components.year = 2022
+        components.month = 1
+        components.hour = 5
+        let beginningOfYear = Calendar.current.date(from: components)!
+        XCTAssertEqual(date.mp.beginning(of: .year).mp.day, beginningOfYear.mp.day)
+
+        
+        let beginningOfQuarter = Calendar.current.date(from: components)!
+        XCTAssertEqual(date.mp.beginning(of: .quarter).mp.day, beginningOfQuarter.mp.day)
         #endif
     }
+    
+    func testEnd() {
+        let date = Date(timeIntervalSince1970: 512) // January 1, 1970 at 2:08:32 AM GMT+2
+        XCTAssertEqual(date.mp.end(of: .second).mp.second, 32)
+        XCTAssertEqual(date.mp.end(of: .hour).mp.minute, 59)
+        XCTAssertEqual(date.mp.end(of: .minute).mp.second, 59)
+
+        XCTAssertEqual(date.mp.end(of: .day).mp.hour, 23)
+        XCTAssertEqual(date.mp.end(of: .day).mp.minute, 59)
+        XCTAssertEqual(date.mp.end(of: .day).mp.second, 59)
+
+        #if !os(Linux)
+        let endOfWeek = date.mp.beginning(of: .weekOfYear)
+            .mp.adding(.day, value: 7)
+            .mp.adding(.second, value: -1)
+        XCTAssertEqual(date.mp.end(of: .weekOfYear), endOfWeek)
+        #endif
+
+        XCTAssertEqual(date.mp.end(of: .month).mp.day, 31)
+        XCTAssertEqual(date.mp.end(of: .month).mp.hour, 23)
+        XCTAssertEqual(date.mp.end(of: .month).mp.minute, 59)
+        XCTAssertEqual(date.mp.end(of: .month).mp.second, 59)
+
+        XCTAssertEqual(date.mp.end(of: .year).mp.month, 12)
+        XCTAssertEqual(date.mp.end(of: .year).mp.day, 31)
+        XCTAssertEqual(date.mp.end(of: .year).mp.hour, 23)
+        XCTAssertEqual(date.mp.end(of: .year).mp.minute, 59)
+        XCTAssertEqual(date.mp.end(of: .year).mp.second, 59)
+
+        XCTAssertEqual(date.mp.end(of: .quarter).mp.year, 1970)
+      }
+    
+    func testIsInCurrent() {
+        let date = Date()
+        let oldDate = Date(timeIntervalSince1970: 512) // 1970-01-01T00:08:32.000Z
+        XCTAssert(date.mp.isInCurrent(.second))
+        XCTAssertFalse(oldDate.mp.isInCurrent(.second))
+        
+        XCTAssert(date.mp.isInCurrent(.minute))
+        XCTAssertFalse(oldDate.mp.isInCurrent(.minute))
+        
+        XCTAssert(date.mp.isInCurrent(.hour))
+        XCTAssertFalse(oldDate.mp.isInCurrent(.hour))
+        
+        XCTAssert(date.mp.isInCurrent(.day))
+        XCTAssertFalse(oldDate.mp.isInCurrent(.day))
+        
+        XCTAssert(date.mp.isInCurrent(.weekOfMonth))
+        XCTAssertFalse(oldDate.mp.isInCurrent(.weekOfMonth))
+        
+        XCTAssert(date.mp.isInCurrent(.month))
+        XCTAssertFalse(oldDate.mp.isInCurrent(.month))
+        
+        XCTAssert(date.mp.isInCurrent(.year))
+        XCTAssertFalse(oldDate.mp.isInCurrent(.year))
+        
+        XCTAssert(date.mp.isInCurrent(.era))
+    }
+
 }

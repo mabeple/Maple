@@ -415,69 +415,78 @@ public extension MabpleWrapper where Base == Date {
     }
     #endif
 
-//    /// Date at the end of calendar component.
-//    ///
-//    ///     let date = Date() // "Jan 12, 2017, 7:27 PM"
-//    ///     let date2 = date.end(of: .day) // "Jan 12, 2017, 11:59 PM"
-//    ///     let date3 = date.end(of: .month) // "Jan 31, 2017, 11:59 PM"
-//    ///     let date4 = date.end(of: .year) // "Dec 31, 2017, 11:59 PM"
-//    ///
-//    /// - Parameter component: calendar component to get date at the end of.
-//    /// - Returns: date at the end of calendar component (if applicable).
-//    func end(of component: Calendar.Component) -> Date? {
-//        switch component {
-//        case .second:
-//            var date = adding(.second, value: 1)
-//            date = calendar.date(from:
-//                calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date))!
-//            date.mp.add(.second, value: -1)
-//            return date
-//
-//        case .minute:
-//            var date = adding(.minute, value: 1)
-//            let after = calendar.date(from:
-//                calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date))!
-//            date = after.mp.adding(.second, value: -1)
-//            return date
-//
-//        case .hour:
-//            var date = adding(.hour, value: 1)
-//            let after = calendar.date(from:
-//                calendar.dateComponents([.year, .month, .day, .hour], from: date))!
-//            date = after.mp.adding(.second, value: -1)
-//            return date
-//
-//        case .day:
-//            var date = adding(.day, value: 1)
-//            date = calendar.startOfDay(for: date)
-//            date.mp.add(.second, value: -1)
-//            return date
-//
-//        case .weekOfYear, .weekOfMonth:
-//            var date = self
-//            let beginningOfWeek = calendar.date(from:
-//                calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: date))!
-//            date = beginningOfWeek.adding(.day, value: 7).adding(.second, value: -1)
-//            return date
-//
-//        case .month:
-//            var date = adding(.month, value: 1)
-//            let after = calendar.date(from:
-//                calendar.dateComponents([.year, .month], from: date))!
-//            date = after.adding(.second, value: -1)
-//            return date
-//
-//        case .year:
-//            var date = adding(.year, value: 1)
-//            let after = calendar.date(from:
-//                calendar.dateComponents([.year], from: date))!
-//            date = after.adding(.second, value: -1)
-//            return date
-//
-//        default:
-//            return nil
-//        }
-//    }
+    /// Date at the end of calendar component.
+    ///
+    ///     let date = Date() // "Jan 12, 2017, 7:27 PM"
+    ///     let date2 = date.end(of: .day) // "Jan 12, 2017, 11:59 PM"
+    ///     let date3 = date.end(of: .month) // "Jan 31, 2017, 11:59 PM"
+    ///     let date4 = date.end(of: .year) // "Dec 31, 2017, 11:59 PM"
+    ///
+    /// - Parameter component: calendar component to get date at the end of.
+    /// - Returns: date at the end of calendar component (if applicable).
+    func end(of component: Calendar.Component) -> Date {
+        switch component {
+        case .second:
+            var date = adding(.second, value: 1)
+            let after = calendar.date(from:
+                calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date))!
+            date = after.mp.adding(.second, value: -1)
+            return date
 
+        case .minute:
+            var date = adding(.minute, value: 1)
+            let after = calendar.date(from:
+                calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date))!
+            date = after.mp.adding(.second, value: -1)
+            return date
+
+        case .hour:
+            var date = adding(.hour, value: 1)
+            let after = calendar.date(from:
+                calendar.dateComponents([.year, .month, .day, .hour], from: date))!
+            date = after.mp.adding(.second, value: -1)
+            return date
+
+        case .day:
+            var date = adding(.day, value: 1)
+            let after = calendar.startOfDay(for: date)
+            date = after.mp.adding(.second, value: -1)
+            return date
+
+        case .weekOfYear, .weekOfMonth:
+            let beginningOfWeek = calendar.date(from:
+                calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: base))!
+            let date = beginningOfWeek.mp.adding(.day, value: 7).mp.adding(.second, value: -1)
+            return date
+
+        case .month:
+            var date = adding(.month, value: 1)
+            let after = calendar.date(from:
+                calendar.dateComponents([.year, .month], from: date))!
+            date = after.mp.adding(.second, value: -1)
+            return date
+
+        case .year:
+            var date = adding(.year, value: 1)
+            let after = calendar.date(from:
+                calendar.dateComponents([.year], from: date))!
+            date = after.mp.adding(.second, value: -1)
+            return date
+
+        default:
+            return base
+        }
+    }
+
+    /// Check if date is in current given calendar component.
+    ///
+    ///     Date().isInCurrent(.day) -> true
+    ///     Date().isInCurrent(.year) -> true
+    ///
+    /// - Parameter component: calendar component to check.
+    /// - Returns: true if date is in current given calendar component.
+    func isInCurrent(_ component: Calendar.Component) -> Bool {
+        calendar.isDate(base, equalTo: Date(), toGranularity: component)
+    }
 }
 #endif
