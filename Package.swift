@@ -13,7 +13,18 @@ let package = Package(
         .library(name: "Maple", targets: ["Maple"])
     ],
     targets: [
-        .target(name: "Maple", path: "Sources"),
-        .testTarget(name: "MapleTests", dependencies: ["Maple"]),
-    ]
+        .target(
+            name: "Maple",
+            path: "Sources",
+            exclude: ["Info.plist", "Maple.h"]
+        ),
+        .testTarget(
+            name: "MapleTests",
+            dependencies: ["Maple"],
+            path: "Tests",
+            exclude: ["Info.plist"],
+            resources: [.process("ResourcesTests")]
+        ),
+    ],
+    swiftLanguageVersions: [.v5]
 )
