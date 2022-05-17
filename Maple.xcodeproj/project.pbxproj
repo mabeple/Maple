@@ -128,6 +128,7 @@
 		01CEC2FD2481FFCE00CF21B9 /* UITableViewMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewMPTests.swift; sourceTree = "<group>"; };
 		01CEC300248202E000CF21B9 /* UITableViewHeaderFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UITableViewHeaderFooterView.xib; sourceTree = "<group>"; };
 		01CEC302248204E100CF21B9 /* UITableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UITableViewCell.xib; sourceTree = "<group>"; };
+		01DCC287283398A800EABDE3 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		01FA2FA3263A8D2F002B932D /* Data+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Maple.swift"; sourceTree = "<group>"; };
 		01FA2FA6263A9003002B932D /* DataMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMPTests.swift; sourceTree = "<group>"; };
 		01FA2FA9263A9605002B932D /* UIScrollView+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Maple.swift"; sourceTree = "<group>"; };
@@ -295,6 +296,7 @@
 		01CC65B4280AB131005FC548 /* Deployment */ = {
 			isa = PBXGroup;
 			children = (
+				01DCC287283398A800EABDE3 /* Package.swift */,
 				0107D37727BA092400D52DCB /* Maple.podspec */,
 				01CC65B6280AB2F1005FC548 /* Fastfile */,
 				01CC65B7280AB312005FC548 /* README.md */,
