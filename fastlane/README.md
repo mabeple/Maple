@@ -18,7 +18,7 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 ### ios pod_repo_push
 
 ```sh
-[bundle exec] fastlane ios pod_repo_push
+[bundle exec] fastlane ios pod_repo_push version:1.0
 ```
 
 Maple 用来自动化升级维护库
