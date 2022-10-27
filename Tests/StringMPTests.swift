@@ -159,19 +159,19 @@ class StringMPTests: XCTestCase {
         XCTAssertEqual(str.mp.isWhitespace, true)
     }
     
-//    func testCopyToPasteboard() {
-//        let str = "Hello world!"
-//        #if os(iOS)
-//        str.mp.copyToPasteboard()
-//        let strFromPasteboard = UIPasteboard.general.string
-//        XCTAssertEqual(strFromPasteboard, str)
-//
-//        #elseif os(macOS)
-//        str.mp.copyToPasteboard()
-//        let strFromPasteboard = NSPasteboard.general.string(forType: .string)
-//        XCTAssertEqual(strFromPasteboard, str)
-//        #endif
-//    }
+    func testCopyToPasteboard() {
+        let str = "Hello world!"
+        #if os(iOS)
+        str.mp.copyToPasteboard()
+        let strFromPasteboard = UIPasteboard.general.string
+        XCTAssertEqual(strFromPasteboard, str)
+
+        #elseif os(macOS)
+        str.mp.copyToPasteboard()
+        let strFromPasteboard = NSPasteboard.general.string(forType: .string)
+        XCTAssertEqual(strFromPasteboard, str)
+        #endif
+    }
     
     func testRandom() {
         let str1 = String.random(ofLength: 10)
