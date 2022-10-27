@@ -21,6 +21,12 @@ class StringMPTests: XCTestCase {
         XCTAssertEqual(helloWorld.mp.base64Encoded, "SGVsbG8gV29ybGQh")
     }
     
+    func testCharacters() {
+        let str = "Swift"
+        let chars = [Character("S"), Character("w"), Character("i"), Character("f"), Character("t")]
+        XCTAssertEqual(str.mp.characters, chars)
+    }
+    
     func testContainEmoji() {
         XCTAssert("Hello 😂".mp.containEmoji)
         XCTAssertFalse("Hello ;)".mp.containEmoji)
@@ -153,18 +159,30 @@ class StringMPTests: XCTestCase {
         XCTAssertEqual(str.mp.isWhitespace, true)
     }
     
-    func testCopyToPasteboard() {
-        let str = "Hello world!"
-        #if os(iOS)
-        str.mp.copyToPasteboard()
-        let strFromPasteboard = UIPasteboard.general.string
-        XCTAssertEqual(strFromPasteboard, str)
-
-        #elseif os(macOS)
-        str.mp.copyToPasteboard()
-        let strFromPasteboard = NSPasteboard.general.string(forType: .string)
-        XCTAssertEqual(strFromPasteboard, str)
-        #endif
+//    func testCopyToPasteboard() {
+//        let str = "Hello world!"
+//        #if os(iOS)
+//        str.mp.copyToPasteboard()
+//        let strFromPasteboard = UIPasteboard.general.string
+//        XCTAssertEqual(strFromPasteboard, str)
+//
+//        #elseif os(macOS)
+//        str.mp.copyToPasteboard()
+//        let strFromPasteboard = NSPasteboard.general.string(forType: .string)
+//        XCTAssertEqual(strFromPasteboard, str)
+//        #endif
+//    }
+    
+    func testRandom() {
+        let str1 = String.random(ofLength: 10)
+        XCTAssertEqual(str1.count, 10)
+        
+        let str2 = String.random(ofLength: 10)
+        XCTAssertEqual(str2.count, 10)
+        
+        XCTAssertNotEqual(str1, str2)
+        
+        XCTAssertEqual(String.random(ofLength: 0), "")
     }
     
     func testFloat() {

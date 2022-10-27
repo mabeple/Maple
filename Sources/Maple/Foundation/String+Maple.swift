@@ -84,6 +84,10 @@ public extension MabpleWrapper where Base == String {
         return false
     }
     
+    /// SwifterSwift: Array of characters of a string.
+    var characters: [Character] {
+        Array(base)
+    }
     
     #if canImport(Foundation)
     /// Check if string is a valid URL.
@@ -182,12 +186,12 @@ public extension MabpleWrapper where Base == String {
     var bool: Bool? {
         let selfLowercased = base.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         switch selfLowercased {
-        case "true", "1":
-        return true
-        case "false", "0":
-        return false
+        case "true", "yes", "1":
+            return true
+        case "false", "no", "0":
+            return false
         default:
-        return nil
+            return nil
         }
     }
     #endif
@@ -418,6 +422,27 @@ public extension MabpleWrapper where Base == String {
         return String(base.dropFirst(prefix.count))
     }
 }
+
+
+#if canImport(Foundation)
+extension String {
+    /// Random string of given length.
+    ///
+    ///        String.random(ofLength: 18) -> "u7MMZYvGo9obcOcPj8"
+    ///
+    /// - Parameter length: number of characters in string.
+    /// - Returns: random string of given length.
+    static func random(ofLength length: Int) -> String {
+        guard length > 0 else { return "" }
+        let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        var randomString = ""
+        for _ in 1...length {
+            randomString.append(base.randomElement()!)
+        }
+        return randomString
+    }
+}
+#endif
 
 // MARK: - NSString extensions
 #if canImport(Foundation)

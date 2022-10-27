@@ -122,20 +122,40 @@ public extension EdgeInsets {
         self.init(top: inset, left: inset, bottom: inset, right: inset)
     }
     
-    /// Creates an `EdgeInsets` with the horizontal value equally and applied to right and left.
+    /// Creates an `EdgeInsets` with the top value equally and applied to top.
+    /// And the top value equally and applied to top.
     ///
     ///
-    /// - Parameter horizontal: Inset to be applied to right and left.
-    init(horizontal: CGFloat) {
-        self.init(horizontal: horizontal, vertical: 0)
+    /// - Parameter top: Inset to be applied to top.
+    init(top: CGFloat) {
+        self.init(top: top, left: 0, bottom: 0, right: 0)
     }
     
-    /// Creates an `EdgeInsets` with the vertical value equally and applied to top and bottom.
+    /// Creates an `EdgeInsets` with the left value equally and applied to left.
+    /// And the left value equally and applied to left.
     ///
     ///
-    /// - Parameter vertical: Inset to be applied to top and bottom.
-    init(vertical: CGFloat) {
-        self.init(horizontal: 0, vertical: vertical)
+    /// - Parameter left: Inset to be applied to left.
+    init(left: CGFloat) {
+        self.init(top: 0, left: left, bottom: 0, right: 0)
+    }
+    
+    /// Creates an `EdgeInsets` with the bottom value equally and applied to bottom.
+    /// And the bottom value equally and applied to bottom.
+    ///
+    ///
+    /// - Parameter bottom: Inset to be applied to bottom.
+    init(bottom: CGFloat) {
+        self.init(top: 0, left: 0, bottom: bottom, right: 0)
+    }
+    
+    /// Creates an `EdgeInsets` with the right value equally and applied to right.
+    /// And the right value equally and applied to right.
+    ///
+    ///
+    /// - Parameter right: Inset to be applied to right
+    init(right: CGFloat) {
+        self.init(top: 0, left: 0, bottom: 0, right: right)
     }
     
     /// Creates an `EdgeInsets` with the horizontal value equally and applied to right and left.
@@ -144,7 +164,7 @@ public extension EdgeInsets {
     ///
     /// - Parameter horizontal: Inset to be applied to right and left.
     /// - Parameter vertical: Inset to be applied to top and bottom.
-    init(horizontal: CGFloat, vertical: CGFloat) {
+    init(horizontal: CGFloat = 0, vertical: CGFloat = 0) {
         self.init(top: vertical, left: horizontal, bottom: vertical, right: horizontal)
     }
 }

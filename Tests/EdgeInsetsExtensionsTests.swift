@@ -121,12 +121,45 @@ class EdgeInsetsExtensionsTests: XCTestCase {
         XCTAssertEqual(negativeInsetByVertical.top, 7.5)
         XCTAssertEqual(negativeInsetByVertical.bottom, 7.5)
     }
+    
     func testInitInset() {
         let inset = EdgeInsets(inset: 5.0)
         XCTAssertEqual(inset.top, 5.0)
         XCTAssertEqual(inset.bottom, 5.0)
         XCTAssertEqual(inset.right, 5.0)
         XCTAssertEqual(inset.left, 5.0)
+    }
+    
+    func testInitTop() {
+        let inset = EdgeInsets(top: 5.0)
+        XCTAssertEqual(inset.top, 5.0)
+        XCTAssertEqual(inset.bottom, 0)
+        XCTAssertEqual(inset.right, 0)
+        XCTAssertEqual(inset.left, 0)
+    }
+    
+    func testInitLeft() {
+        let inset = EdgeInsets(left: 5.0)
+        XCTAssertEqual(inset.top, 0)
+        XCTAssertEqual(inset.bottom, 0)
+        XCTAssertEqual(inset.right, 0)
+        XCTAssertEqual(inset.left, 5.0)
+    }
+    
+    func testInitBottom() {
+        let inset = EdgeInsets(bottom: 5.0)
+        XCTAssertEqual(inset.top, 0)
+        XCTAssertEqual(inset.bottom, 5.0)
+        XCTAssertEqual(inset.right, 0)
+        XCTAssertEqual(inset.left, 0)
+    }
+    
+    func testInitRight() {
+        let inset = EdgeInsets(right: 5.0)
+        XCTAssertEqual(inset.top, 0)
+        XCTAssertEqual(inset.bottom, 0)
+        XCTAssertEqual(inset.right, 5.0)
+        XCTAssertEqual(inset.left, 0)
     }
     
     func testInitVerticalHorizontal() {
