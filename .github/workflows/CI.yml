@@ -30,4 +30,4 @@ jobs:
         env:
           DESTINATION: platform=${{ matrix.destination }}
           SWIFT_VERSION: ${{ matrix.swift-version }}
-        run: bundle exec fastlane test
+        run: bundle exec fastlane tests
