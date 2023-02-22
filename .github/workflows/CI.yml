@@ -12,12 +12,12 @@ on:
 
 jobs:
   run-test:
-    runs-on: macos-latest
+    runs-on: macos-12
     strategy:
       matrix:
         destination: [
           'macOS', 
-          'iOS Simulator,name=iPhone 12', 
+          'iOS Simulator,name=iPhone 13', 
         ]
         swift-version: [5.0]
     steps:
