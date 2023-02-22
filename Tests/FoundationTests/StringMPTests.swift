@@ -264,6 +264,11 @@ class StringMPTests: XCTestCase {
         XCTAssertEqual(inputStr.mp.removingPrefix("Hello, "), "World!")
     }
     
+    func testRemovingSuffix() {
+        let inputStr = "Hello, World!"
+        XCTAssertEqual(inputStr.mp.removingSuffix(", World!"), "Hello")
+    }
+    
     func testNSString() {
         XCTAssertEqual("Hello".mp.nsString, NSString(string: "Hello"))
     }

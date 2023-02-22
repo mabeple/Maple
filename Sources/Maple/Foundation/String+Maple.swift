@@ -84,7 +84,7 @@ public extension MabpleWrapper where Base == String {
         return false
     }
     
-    /// SwifterSwift: Array of characters of a string.
+    /// Array of characters of a string.
     var characters: [Character] {
         Array(base)
     }
@@ -420,6 +420,17 @@ public extension MabpleWrapper where Base == String {
     func removingPrefix(_ prefix: String) -> String {
         guard base.hasPrefix(prefix) else { return base }
         return String(base.dropFirst(prefix.count))
+    }
+    
+    /// Removes given suffix from the string.
+    ///
+    ///   "Hello, World!".removingSuffix(", World!") -> "Hello"
+    ///
+    /// - Parameter suffix: Suffix to remove from the string.
+    /// - Returns: The string after suffix removing.
+    func removingSuffix(_ suffix: String) -> String {
+        guard base.hasSuffix(suffix) else { return base }
+        return String(base.dropLast(suffix.count))
     }
 }
 
