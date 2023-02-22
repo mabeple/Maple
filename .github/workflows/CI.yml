@@ -3,13 +3,16 @@ name: build
 on:
   push:
     branches:
-      - 'main'
+      - 'master'
     tags:
       - '*'
+    pull_request:
+      branches: 
+        - master
 
 jobs:
   run-test:
-    runs-on: macos-12
+    runs-on: macos-latest
     strategy:
       matrix:
         destination: [
@@ -27,4 +30,4 @@ jobs:
         env:
           DESTINATION: platform=${{ matrix.destination }}
           SWIFT_VERSION: ${{ matrix.swift-version }}
-        run: bundle exec fastlane test
+        run: fastlane test
