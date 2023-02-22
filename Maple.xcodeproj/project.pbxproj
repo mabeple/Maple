@@ -58,6 +58,7 @@
 		01AD2D2829A5C010005C99C3 /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AD2D2629A5C010005C99C3 /* DictionaryExtensions.swift */; };
 		01AD2D2A29A5C0D8005C99C3 /* DictionaryExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AD2D2929A5C0D8005C99C3 /* DictionaryExtensionsTests.swift */; };
 		01AD2D2B29A5C0D8005C99C3 /* DictionaryExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AD2D2929A5C0D8005C99C3 /* DictionaryExtensionsTests.swift */; };
+		01AD2D2C29A619FD005C99C3 /* TestImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 01C91CF3290A22C300A53401 /* TestImage.png */; };
 		01C91CF7290A22C300A53401 /* TestImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 01C91CF3290A22C300A53401 /* TestImage.png */; };
 		01C91CF8290A22C300A53401 /* UICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C91CF4290A22C300A53401 /* UICollectionViewCell.xib */; };
 		01C91CF9290A22C300A53401 /* UITableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C91CF5290A22C300A53401 /* UITableViewCell.xib */; };
@@ -565,6 +566,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01AD2D2C29A619FD005C99C3 /* TestImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
