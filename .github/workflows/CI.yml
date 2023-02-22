@@ -12,7 +12,7 @@ on:
 
 jobs:
   run-test:
-    runs-on: macos-12
+    runs-on: macOS-12
     strategy:
       matrix:
         destination: [
@@ -30,7 +30,5 @@ jobs:
         env:
           DESTINATION: platform=${{ matrix.destination }}
           SWIFT_VERSION: ${{ matrix.swift-version }}
-        run: |
-          echo $DESTINATION
-          echo $SWIFT_VERSION
+        run:
           bundle exec fastlane test_ci
