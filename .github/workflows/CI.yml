@@ -12,7 +12,7 @@ on:
 
 jobs:
   run-test:
-    runs-on: macos-12
+    runs-on: macos-latest
     strategy:
       matrix:
         destination: [
