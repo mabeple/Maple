@@ -18,7 +18,7 @@ default_platform(:ios)
 platform :ios do
   desc "Runs all the tests"
   lane :tests do
-    test(scheme:"Maple-iOS", destination: "platform=iOS Simulator,name=iPhone 12", swift_version: "5.0")
+    test(scheme:"Maple-iOS", destination: "platform=iOS Simulator,name=iPhone 13", swift_version: "5.0")
     test(scheme:"Maple-macOS", destination: "platform=macOS", swift_version: "5.0")
   end
 
