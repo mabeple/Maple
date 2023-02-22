@@ -24,6 +24,7 @@ platform :ios do
 
   desc "Runs all the test ci"
   lane :test_ci do
+    puts ENV["DESTINATION"]
     if ENV["DESTINATION"].include? "macOS" then
       test(scheme: "Maple-macOS", destination: ENV["DESTINATION"], swift_version: ENV["SWIFT_VERSION"])
     else
