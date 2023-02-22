@@ -22,6 +22,11 @@ platform :ios do
     test(scheme:"Maple-macOS", destination: "platform=macOS", swift_version: "5.0")
   end
 
+  desc "Runs all the test ci"
+  lane :test_ci do
+    test(scheme:ENV["SCHEME"], destination: ENV["DESTINATION"], swift_version: ENV["SWIFT_VERSION"])
+  end
+
   desc 'Maple 单元测试'
   lane :test do |options|
     scan(
