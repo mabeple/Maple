@@ -15,18 +15,11 @@ jobs:
     runs-on: macos-12
     strategy:
       matrix:
-        scheme: [
-          'Maple-iOS',
-          'Maple-macOS'
-        ]
         destination: [
           'iOS Simulator,name=iPhone 13', 
           'macOS'
         ]
         swift-version: [5.0]
-        exclude:
-          - scheme: 'Maple-iOS'
-          - scheme: 'Maple-macOS'
     steps:
       - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
@@ -35,7 +28,6 @@ jobs:
           bundler-cache: true
       - name: Run tests
         env:
-          SCHEME: ${{ matrix.scheme }}
           DESTINATION: platform=${{ matrix.destination }}
           SWIFT_VERSION: ${{ matrix.swift-version }}
         run: bundle exec fastlane test_ci
