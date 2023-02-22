@@ -16,6 +16,22 @@
 default_platform(:ios)
 
 platform :ios do
+  desc "Runs all the tests"
+  lane :tests do
+    test(scheme:"Maple-iOS", destination: "platform=iOS Simulator,name=iPhone 12", swift_version: "5.0")
+    test(scheme:"Maple-macOS", destination: "platform=macOS", swift_version: "5.0")
+  end
+
+  desc 'Maple 单元测试'
+  lane :test do |options|
+    scan(
+      scheme: options[:scheme], 
+      clean: true, 
+      xcargs: "SWIFT_VERSION=#{options[:swift_version]}",
+      destination: options[:destination]
+    )
+  end
+
   desc 'Maple 用来自动化升级维护库'
   lane :pod_repo_push do |options|
     version = options[:version]

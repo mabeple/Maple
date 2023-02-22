@@ -15,10 +15,26 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
+### ios tests
+
+```sh
+[bundle exec] fastlane ios tests
+```
+
+Runs all the tests
+
+### ios test
+
+```sh
+[bundle exec] fastlane ios test
+```
+
+Maple 单元测试
+
 ### ios pod_repo_push
 
 ```sh
-[bundle exec] fastlane ios pod_repo_push version:1.0
+[bundle exec] fastlane ios pod_repo_push
 ```
 
 Maple 用来自动化升级维护库
