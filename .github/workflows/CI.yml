@@ -40,12 +40,12 @@ jobs:
           echo "tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT   
 
       - name: Pod Repo Push
-        if: startsWith(github.ref, 'refs/tags/') && matrix.destination != macOS
+        if: startsWith(github.ref, 'refs/tags/') && matrix.destination != 'macOS'
         env:
           VERSION: ${{ steps.vars.outputs.tag }}
         run:
           bundle exec fastlane pod_repo_push_ci
 
       - name: Release Github
-        if: startsWith(github.ref, 'refs/tags/') && matrix.destination != macOS
+        if: startsWith(github.ref, 'refs/tags/') && matrix.destination != 'macOS'
         uses: softprops/action-gh-release@v1
