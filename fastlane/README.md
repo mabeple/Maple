@@ -39,14 +39,6 @@ Runs all the test ci
 
 Maple 单元测试
 
-### ios pod_repo_push_ci
-
-```sh
-[bundle exec] fastlane ios pod_repo_push_ci
-```
-
-Maple ci 用来自动化升级维护库 
-
 ### ios pod_repo_push
 
 ```sh

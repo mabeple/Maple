@@ -44,7 +44,7 @@ platform :ios do
   desc 'Maple 用来自动化升级维护库'
   lane :pod_repo_push do |options|
     version = options[:version]
-    raise "The version is missed. Use `fastlane release version:{version_number}`.`" if target_version.nil?
+    raise "The version is missed. Use `fastlane release version:{version_number}`.`" if version.nil?
 
     ensure_git_status_clean
     ensure_git_branch
