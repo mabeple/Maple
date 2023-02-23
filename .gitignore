@@ -51,3 +51,8 @@ fastlane/test_output
 
 # Env file
 .env
+
+
+# Ruby
+.bundle/
+vendor/
