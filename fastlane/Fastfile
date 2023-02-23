@@ -41,14 +41,10 @@ platform :ios do
     )
   end
 
-  desc "Maple ci 用来自动化升级维护库 "
-  lane :pod_repo_push_ci do
-    pod_repo_push(version: ENV["VERSION"])
-  end
-
   desc 'Maple 用来自动化升级维护库'
   lane :pod_repo_push do |options|
     version = options[:version]
+    raise "The version is missed. Use `fastlane release version:{version_number}`.`" if target_version.nil?
 
     ensure_git_status_clean
     ensure_git_branch
@@ -68,10 +64,19 @@ platform :ios do
     # commit
     push_to_git_remote
 
+    pod_push(path: "Maple.podspec", allow_warnings: true)
+
     # 打标签，并提交至远程
     add_git_tag(tag: version)
     push_git_tags
 
-    pod_push(path: "Maple.podspec", allow_warnings: true)
+    set_github_release(
+      repository_name: "Mabeple/Maple",
+      api_token: ENV["GITHUB_TOKEN"],
+      name: "Release #{version}",
+      tag_name: version,
+      description: (File.read("changelog") rescue "#{version}"),
+      commitish: "master",
+    )
   end
 end
