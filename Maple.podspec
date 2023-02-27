@@ -45,9 +45,14 @@ Pod::Spec.new do |s|
   s.subspec 'UIKit' do |sp|
     sp.source_files  = 'Sources/Maple/General/*.swift', 'Sources/Maple/UIKit/*.swift'
   end
-
+  
   # AppKit Extensions
   s.subspec 'AppKit' do |sp|
     sp.source_files  = 'Sources/Maple/General/*.swift', 'Sources/Maple/AppKit/*.swift'
+  end
+  
+  # SwiftStdlib Extensions
+  s.subspec 'SwiftStdlib' do |sp|
+    sp.source_files  = 'Sources/Maple/SwiftStdlib/*.swift'
   end
 end
