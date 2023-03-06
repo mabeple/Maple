@@ -110,6 +110,9 @@ class ColorExtensionsTests: XCTestCase {
         
         color = MPCrossPlatformColor.black
         XCTAssertEqual(color?.mp.hexString, "#000000")
+        
+        color = MPCrossPlatformColor(hex: 0x00009A)
+        XCTAssertEqual(color?.mp.hexString, "#00009A")
     }
     
     func testShortHexString() {

@@ -79,7 +79,7 @@ public extension MabpleWrapper where Base == MPCrossPlatformColor {
         let components: [Int] = {
             let comps = base.cgColor.components!
             let components = comps.count == 4 ? comps : [comps[0], comps[0], comps[0], comps[1]]
-            return components.map { Int($0 * 255.0) }
+            return components.map { lroundf(Float($0 * 255)) }
         }()
         return String(format: "#%02X%02X%02X", components[0], components[1], components[2])
     }
