@@ -245,7 +245,14 @@ public extension MabpleWrapper where Base == UIImage {
         UIGraphicsEndImageContext()
         return image
     }
-
+    
+    /// PNG data of the image.
+    ///
+    /// - Returns: PNG data of the image.
+    func pngData() -> Data? {
+        base.pngData()
+    }
+    
     /// Base 64 encoded PNG data of the image.
     ///
     /// - returns: Base 64 encoded PNG data of the image as a String.
@@ -259,6 +266,16 @@ public extension MabpleWrapper where Base == UIImage {
     /// - returns: Base 64 encoded JPEG data of the image as a String.
     func jpegBase64String(compressionQuality: CGFloat) -> String? {
         base.jpegData(compressionQuality: compressionQuality)?.base64EncodedString()
+    }
+    
+    /// UIImage with color uses .alwaysOriginal rendering mode.
+    ///
+    /// - Parameters:
+    ///   - color: Color of image.
+    /// - Returns: UIImage with color.
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    func withAlwaysOriginalTintColor(_ color: UIColor) -> UIImage {
+        base.withTintColor(color, renderingMode: .alwaysOriginal)
     }
 }
 
