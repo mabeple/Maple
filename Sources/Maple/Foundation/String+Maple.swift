@@ -305,6 +305,7 @@ public extension MabpleWrapper where Base == String {
     }
     #endif
     
+    
     #if canImport(Foundation)
     /// Double value from string (if applicable).
     ///
@@ -318,6 +319,7 @@ public extension MabpleWrapper where Base == String {
     }
     #endif
     
+    
     #if canImport(CoreGraphics) && canImport(Foundation)
     /// CGFloat value from string (if applicable).
     ///
@@ -330,6 +332,7 @@ public extension MabpleWrapper where Base == String {
         return formatter.number(from: base) as? CGFloat
     }
     #endif
+    
     
     #if canImport(Foundation)
     /// Array of strings separated by new lines.
@@ -375,6 +378,26 @@ public extension MabpleWrapper where Base == String {
         return base.range(of: string) != nil
     }
     #endif
+    
+    
+    /// Converts string format to CamelCase.
+    ///
+    ///        var str = "sOme vaRiabLe Name"
+    ///        str.camelize()
+    ///        print(str) // prints "someVariableName"
+    ///
+    func camelize() -> String {
+        let source = base.lowercased()
+        let first = source[..<source.index(after: source.startIndex)]
+        if source.contains(" ") {
+            let connected = source.capitalized.replacingOccurrences(of: " ", with: "")
+            let camel = connected.replacingOccurrences(of: "\n", with: "")
+            let rest = String(camel.dropFirst())
+            return first + rest
+        }
+        let rest = String(source.dropFirst())
+        return first + rest
+    }
     
     
     #if canImport(Foundation)

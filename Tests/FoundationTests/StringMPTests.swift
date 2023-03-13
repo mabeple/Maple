@@ -245,6 +245,16 @@ class StringMPTests: XCTestCase {
         XCTAssert("Hello Tests".mp.contains("hello", caseSensitive: false))
     }
     
+    func testCamelize() {
+        var str = "Hello test"
+        let str1 = str.mp.camelize()
+        XCTAssertEqual(str1, "helloTest")
+
+        str = "helloWorld"
+        let str2 = str.mp.camelize()
+        XCTAssertEqual(str2, "helloworld")
+    }
+    
     func testCount() {
         XCTAssertEqual("Hello This Tests".mp.count(of: "T"), 2)
         XCTAssertEqual("Hello This Tests".mp.count(of: "t"), 1)
