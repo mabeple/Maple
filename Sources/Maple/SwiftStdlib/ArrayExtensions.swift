@@ -37,7 +37,7 @@ public extension Array where Element: Equatable {
         return self
     }
 
-    /// SwifterSwift: Remove all duplicate elements from Array.
+    /// Remove all duplicate elements from Array.
     ///
     ///        [1, 2, 2, 3, 4, 5].removeDuplicates() -> [1, 2, 3, 4, 5]
     ///        ["h", "e", "l", "l", "o"]. removeDuplicates() -> ["h", "e", "l", "o"]

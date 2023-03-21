@@ -126,7 +126,7 @@ public extension MabpleWrapper where Base == Date {
         calendar.component(.second, from: base)
     }
     
-    /// SwifterSwift: Nanoseconds.
+    /// Nanoseconds.
     ///
     ///     Date().nanosecond -> 981379985
     ///

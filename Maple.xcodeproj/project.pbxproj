@@ -68,6 +68,10 @@
 		01CEC2FA2481F62100CF21B9 /* NSViewMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CEC2F92481F62100CF21B9 /* NSViewMPTests.swift */; };
 		01CEC2FC2481FF0D00CF21B9 /* UITableView+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CEC2FB2481FF0D00CF21B9 /* UITableView+Maple.swift */; };
 		01CEC2FE2481FFCE00CF21B9 /* UITableViewMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CEC2FD2481FFCE00CF21B9 /* UITableViewMPTests.swift */; };
+		01DD61E129C942F500792AE6 /* URL+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DD61E029C942F500792AE6 /* URL+Maple.swift */; };
+		01DD61E229C942F500792AE6 /* URL+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DD61E029C942F500792AE6 /* URL+Maple.swift */; };
+		01DD61E629C946E000792AE6 /* URLMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DD61E329C946BC00792AE6 /* URLMPTests.swift */; };
+		01DD61E729C946E000792AE6 /* URLMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DD61E329C946BC00792AE6 /* URLMPTests.swift */; };
 		01FA2FA4263A8D2F002B932D /* Data+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA2FA3263A8D2F002B932D /* Data+Maple.swift */; };
 		01FA2FA5263A8D2F002B932D /* Data+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA2FA3263A8D2F002B932D /* Data+Maple.swift */; };
 		01FA2FA7263A9003002B932D /* DataMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA2FA6263A9003002B932D /* DataMPTests.swift */; };
@@ -147,6 +151,8 @@
 		01CEC2FB2481FF0D00CF21B9 /* UITableView+Maple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Maple.swift"; sourceTree = "<group>"; };
 		01CEC2FD2481FFCE00CF21B9 /* UITableViewMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewMPTests.swift; sourceTree = "<group>"; };
 		01DCC287283398A800EABDE3 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		01DD61E029C942F500792AE6 /* URL+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Maple.swift"; sourceTree = "<group>"; };
+		01DD61E329C946BC00792AE6 /* URLMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMPTests.swift; sourceTree = "<group>"; };
 		01FA2FA3263A8D2F002B932D /* Data+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Maple.swift"; sourceTree = "<group>"; };
 		01FA2FA6263A9003002B932D /* DataMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMPTests.swift; sourceTree = "<group>"; };
 		01FA2FA9263A9605002B932D /* UIScrollView+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Maple.swift"; sourceTree = "<group>"; };
@@ -196,6 +202,7 @@
 				013DDEA4248240160095E201 /* String+Maple.swift */,
 				013DDE9E248206F40095E201 /* Date+Maple.swift */,
 				01FA2FA3263A8D2F002B932D /* Data+Maple.swift */,
+				01DD61E029C942F500792AE6 /* URL+Maple.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -342,6 +349,7 @@
 				013DDEA12482075F0095E201 /* DateMPTests.swift */,
 				013DDEA7248240DC0095E201 /* StringMPTests.swift */,
 				01FA2FA6263A9003002B932D /* DataMPTests.swift */,
+				01DD61E329C946BC00792AE6 /* URLMPTests.swift */,
 			);
 			path = FoundationTests;
 			sourceTree = "<group>";
@@ -586,6 +594,7 @@
 				01FA2FAA263A9605002B932D /* UIScrollView+Maple.swift in Sources */,
 				011A0051248740F900D18027 /* UICollectionView+Maple.swift in Sources */,
 				01AD2D1229A5BBB1005C99C3 /* OptionalExtensions.swift in Sources */,
+				01DD61E129C942F500792AE6 /* URL+Maple.swift in Sources */,
 				013DDEAC248248050095E201 /* NibLoadable.swift in Sources */,
 				0174DF7C2480F5A100258824 /* UIView+Maple.swift in Sources */,
 				0174DF552480EF1300258824 /* Bundle+Maple.swift in Sources */,
@@ -613,6 +622,7 @@
 				01CEC2E92481F54200CF21B9 /* NSView+Maple.swift in Sources */,
 				013DDEB824824A600095E201 /* EdgeInsetsExtensions.swift in Sources */,
 				01AD2D2029A5BD67005C99C3 /* ArrayExtensions.swift in Sources */,
+				01DD61E229C942F500792AE6 /* URL+Maple.swift in Sources */,
 				013DDEAD248248050095E201 /* NibLoadable.swift in Sources */,
 				013DDEA6248240160095E201 /* String+Maple.swift in Sources */,
 				013DDEA0248206F40095E201 /* Date+Maple.swift in Sources */,
@@ -640,6 +650,7 @@
 				01CEC2FE2481FFCE00CF21B9 /* UITableViewMPTests.swift in Sources */,
 				013DDEC0248254A60095E201 /* ColorExtensionsTests.swift in Sources */,
 				01FA2FAD263A985C002B932D /* UIScrollViewMPTests.swift in Sources */,
+				01DD61E629C946E000792AE6 /* URLMPTests.swift in Sources */,
 				01FA2FB1263A9A9A002B932D /* UISwitchMPTests.swift in Sources */,
 				012C4BD725622AD700A1A5AE /* UIImageMPTests.swift in Sources */,
 			);
@@ -659,6 +670,7 @@
 				013DDEC52482653B0095E201 /* NSImageMPTests.swift in Sources */,
 				01FA2FA8263A9003002B932D /* DataMPTests.swift in Sources */,
 				01AD2D1D29A5BCC9005C99C3 /* OptionalExtensionsTests.swift in Sources */,
+				01DD61E729C946E000792AE6 /* URLMPTests.swift in Sources */,
 				011A004F24873C6400D18027 /* BundleMPTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
