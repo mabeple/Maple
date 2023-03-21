@@ -6,8 +6,8 @@
 //  Copyright © 2023 cy. All rights reserved.
 //
 
-@testable import Maple
 import XCTest
+@testable import Maple
 
 #if canImport(Foundation)
 import Foundation

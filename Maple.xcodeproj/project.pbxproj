@@ -72,6 +72,10 @@
 		01DD61E229C942F500792AE6 /* URL+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DD61E029C942F500792AE6 /* URL+Maple.swift */; };
 		01DD61E629C946E000792AE6 /* URLMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DD61E329C946BC00792AE6 /* URLMPTests.swift */; };
 		01DD61E729C946E000792AE6 /* URLMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DD61E329C946BC00792AE6 /* URLMPTests.swift */; };
+		01DD61EE29C948AE00792AE6 /* DispatchQueue+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DD61ED29C948AE00792AE6 /* DispatchQueue+Maple.swift */; };
+		01DD61EF29C948AE00792AE6 /* DispatchQueue+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DD61ED29C948AE00792AE6 /* DispatchQueue+Maple.swift */; };
+		01DD61F229C94E5200792AE6 /* DispatchMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DD61F129C94E5200792AE6 /* DispatchMPTests.swift */; };
+		01DD61F329C94E5200792AE6 /* DispatchMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DD61F129C94E5200792AE6 /* DispatchMPTests.swift */; };
 		01FA2FA4263A8D2F002B932D /* Data+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA2FA3263A8D2F002B932D /* Data+Maple.swift */; };
 		01FA2FA5263A8D2F002B932D /* Data+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA2FA3263A8D2F002B932D /* Data+Maple.swift */; };
 		01FA2FA7263A9003002B932D /* DataMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA2FA6263A9003002B932D /* DataMPTests.swift */; };
@@ -153,6 +157,8 @@
 		01DCC287283398A800EABDE3 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		01DD61E029C942F500792AE6 /* URL+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Maple.swift"; sourceTree = "<group>"; };
 		01DD61E329C946BC00792AE6 /* URLMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMPTests.swift; sourceTree = "<group>"; };
+		01DD61ED29C948AE00792AE6 /* DispatchQueue+Maple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Maple.swift"; sourceTree = "<group>"; };
+		01DD61F129C94E5200792AE6 /* DispatchMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchMPTests.swift; sourceTree = "<group>"; };
 		01FA2FA3263A8D2F002B932D /* Data+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Maple.swift"; sourceTree = "<group>"; };
 		01FA2FA6263A9003002B932D /* DataMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMPTests.swift; sourceTree = "<group>"; };
 		01FA2FA9263A9605002B932D /* UIScrollView+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Maple.swift"; sourceTree = "<group>"; };
@@ -227,6 +233,7 @@
 		013DDEC924826AC80095E201 /* Maple */ = {
 			isa = PBXGroup;
 			children = (
+				01DD61EC29C948AE00792AE6 /* Dispatch */,
 				013DDECA248270BB0095E201 /* General */,
 				013DDEB524824A4B0095E201 /* Shared */,
 				013DDEAA248247EA0095E201 /* Protocol */,
@@ -282,6 +289,7 @@
 			children = (
 				0174DF5F2480EF5F00258824 /* Info.plist */,
 				01AD2D1429A5BC14005C99C3 /* UIKitTests */,
+				01DD61F029C94E3900792AE6 /* DispatchTests */,
 				01AD2D1529A5BC47005C99C3 /* AppKitTests */,
 				01AD2D1629A5BC6B005C99C3 /* FoundationTests */,
 				01AD2D1729A5BC83005C99C3 /* SharedTests */,
@@ -402,6 +410,22 @@
 				01CEC2E82481F54200CF21B9 /* NSView+Maple.swift */,
 			);
 			path = AppKit;
+			sourceTree = "<group>";
+		};
+		01DD61EC29C948AE00792AE6 /* Dispatch */ = {
+			isa = PBXGroup;
+			children = (
+				01DD61ED29C948AE00792AE6 /* DispatchQueue+Maple.swift */,
+			);
+			path = Dispatch;
+			sourceTree = "<group>";
+		};
+		01DD61F029C94E3900792AE6 /* DispatchTests */ = {
+			isa = PBXGroup;
+			children = (
+				01DD61F129C94E5200792AE6 /* DispatchMPTests.swift */,
+			);
+			path = DispatchTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -601,6 +625,7 @@
 				0174DFCF2480FDA900258824 /* UITextField+Maple.swift in Sources */,
 				013DDEB724824A600095E201 /* EdgeInsetsExtensions.swift in Sources */,
 				012C4C042562671200A1A5AE /* UIImageView+Maple.swift in Sources */,
+				01DD61EE29C948AE00792AE6 /* DispatchQueue+Maple.swift in Sources */,
 				01AD2D2729A5C010005C99C3 /* DictionaryExtensions.swift in Sources */,
 				01FA2FAF263A999B002B932D /* UISwitch+Maple.swift in Sources */,
 				01CEC2FC2481FF0D00CF21B9 /* UITableView+Maple.swift in Sources */,
@@ -622,6 +647,7 @@
 				01CEC2E92481F54200CF21B9 /* NSView+Maple.swift in Sources */,
 				013DDEB824824A600095E201 /* EdgeInsetsExtensions.swift in Sources */,
 				01AD2D2029A5BD67005C99C3 /* ArrayExtensions.swift in Sources */,
+				01DD61EF29C948AE00792AE6 /* DispatchQueue+Maple.swift in Sources */,
 				01DD61E229C942F500792AE6 /* URL+Maple.swift in Sources */,
 				013DDEAD248248050095E201 /* NibLoadable.swift in Sources */,
 				013DDEA6248240160095E201 /* String+Maple.swift in Sources */,
@@ -634,6 +660,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01DD61F229C94E5200792AE6 /* DispatchMPTests.swift in Sources */,
 				011A004E24873C6400D18027 /* BundleMPTests.swift in Sources */,
 				01AD2D1C29A5BCC8005C99C3 /* OptionalExtensionsTests.swift in Sources */,
 				012C4BFE256262C400A1A5AE /* UIAlertActionMPTests.swift in Sources */,
@@ -662,6 +689,7 @@
 			files = (
 				013DDEC1248254A60095E201 /* ColorExtensionsTests.swift in Sources */,
 				01AD2D2529A5BDD8005C99C3 /* ArrayExtensionsTests.swift in Sources */,
+				01DD61F329C94E5200792AE6 /* DispatchMPTests.swift in Sources */,
 				013DDEBB24824E240095E201 /* EdgeInsetsExtensionsTests.swift in Sources */,
 				013DDEA32482075F0095E201 /* DateMPTests.swift in Sources */,
 				01AD2D2B29A5C0D8005C99C3 /* DictionaryExtensionsTests.swift in Sources */,
