@@ -173,18 +173,6 @@ class StringMPTests: XCTestCase {
         #endif
     }
     
-    func testRandom() {
-        let str1 = String.random(ofLength: 10)
-        XCTAssertEqual(str1.count, 10)
-        
-        let str2 = String.random(ofLength: 10)
-        XCTAssertEqual(str2.count, 10)
-        
-        XCTAssertNotEqual(str1, str2)
-        
-        XCTAssertEqual(String.random(ofLength: 0), "")
-    }
-    
     func testFloat() {
         XCTAssertNotNil("8".mp.float())
         XCTAssertEqual("8".mp.float(), 8)
@@ -277,6 +265,18 @@ class StringMPTests: XCTestCase {
     func testRemovingSuffix() {
         let inputStr = "Hello, World!"
         XCTAssertEqual(inputStr.mp.removingSuffix(", World!"), "Hello")
+    }
+    
+    func testRandom() {
+        let str1 = String.random(ofLength: 10)
+        XCTAssertEqual(str1.count, 10)
+
+        let str2 = String.random(ofLength: 10)
+        XCTAssertEqual(str2.count, 10)
+
+        XCTAssertNotEqual(str1, str2)
+
+        XCTAssertEqual(String.random(ofLength: 0), "")
     }
     
     func testNSString() {

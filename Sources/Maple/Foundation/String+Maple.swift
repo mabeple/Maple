@@ -459,7 +459,7 @@ public extension MabpleWrapper where Base == String {
 
 
 #if canImport(Foundation)
-extension String {
+public extension String {
     /// Random string of given length.
     ///
     ///        String.random(ofLength: 18) -> "u7MMZYvGo9obcOcPj8"
