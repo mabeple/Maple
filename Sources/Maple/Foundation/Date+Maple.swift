@@ -488,5 +488,23 @@ public extension MabpleWrapper where Base == Date {
     func isInCurrent(_ component: Calendar.Component) -> Bool {
         calendar.isDate(base, equalTo: Date(), toGranularity: component)
     }
+    
+    /// Compares the specified components between the base date and the given end date.
+    /// - Parameters:
+    ///   - components: The set of calendar components to compare.
+    ///   - end: The end date for the comparison.
+    /// - Returns: A `DateComponents` object representing the difference between the base date and the end date in the specified components.
+    func compare(_ components: Set<Calendar.Component>, to end: Date) -> DateComponents {
+        calendar.dateComponents(components, from: base, to: end)
+    }
+
+    /// Calculates the difference in the specified calendar component between the base date and the given end date.
+    /// - Parameters:
+    ///   - component: The calendar component to calculate the difference in.
+    ///   - end: The end date for the calculation.
+    /// - Returns: The difference in the specified calendar component between the base date and the end date, or `nil` if the calculation fails.
+    func differ(_ component: Calendar.Component, to end: Date) -> Int? {
+        calendar.dateComponents([component], from: base, to: end).value(for: component)
+    }
 }
 #endif

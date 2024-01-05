@@ -479,5 +479,20 @@ class DateMPTests: XCTestCase {
         
         XCTAssert(date.mp.isInCurrent(.era))
     }
-
+    
+    func testCompareComponents() {
+        let baseDate = Date()
+        let endDate = baseDate.addingTimeInterval(3600)
+        let components: Set<Calendar.Component> = [.hour]
+        let result = baseDate.mp.compare(components, to: endDate)
+        XCTAssertEqual(result.hour, 1, "Hour difference should be 1")
+    }
+    
+    func testDifferComponent() {
+        let baseDate = Date()
+        let endDate = baseDate.addingTimeInterval(86400)
+        let component: Calendar.Component = .day
+        let result = baseDate.mp.differ(component, to: endDate)
+        XCTAssertEqual(result, 1, "Day difference should be 1")
+    }
 }
