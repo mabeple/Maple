@@ -244,6 +244,10 @@ public extension MabpleWrapper where Base == Date {
 public extension MabpleWrapper where Base == Date {
     
     /// Date by adding multiples of calendar component.
+    /// Quarter is specially
+    /// https://developer.apple.com/documentation/foundation/calendar/component/quarter
+    /// Important
+    /// The quarter unit is largely unimplemented, and is not recommended for use.
     ///
     ///     let date = Date() // "Jan 12, 2017, 7:07 PM"
     ///     let date2 = date.adding(.minute, value: -10) // "Jan 12, 2017, 6:57 PM"
@@ -256,7 +260,10 @@ public extension MabpleWrapper where Base == Date {
     ///   - value: multiples of components to add.
     /// - Returns: original date + multiples of component added.
     func adding(_ component: Calendar.Component, value: Int) -> Date {
-        calendar.date(byAdding: component, value: value, to: base)!
+        guard component == .quarter else {
+           return calendar.date(byAdding: component, value: value, to: base)!
+        }
+        return calendar.date(byAdding: .month, value: value * 3, to: base)!
     }
     
     /// Date by changing value of calendar component.
@@ -368,7 +375,7 @@ public extension MabpleWrapper where Base == Date {
     /// - Returns: true if the date is within a number of components of another date.
     func isWithin(_ value: UInt, _ component: Calendar.Component, of date: Date) -> Bool {
         let components = calendar.dateComponents([component], from: base, to: date)
-        let componentValue = components.value(for: component)!
+        guard let componentValue = components.value(for: component) else { return false }
         return abs(componentValue) <= value
     }
     
@@ -494,17 +501,27 @@ public extension MabpleWrapper where Base == Date {
     ///   - components: The set of calendar components to compare.
     ///   - end: The end date for the comparison.
     /// - Returns: A `DateComponents` object representing the difference between the base date and the end date in the specified components.
-    func compare(_ components: Set<Calendar.Component>, to end: Date) -> DateComponents {
-        calendar.dateComponents(components, from: base, to: end)
+    func compare(_ components: Set<Calendar.Component>, to date: Date) -> DateComponents {
+        calendar.dateComponents(components, from: base, to: date)
     }
 
     /// Calculates the difference in the specified calendar component between the base date and the given end date.
+    /// Quarter is specially
+    /// https://developer.apple.com/documentation/foundation/calendar/component/quarter
+    /// Important
+    /// The quarter unit is largely unimplemented, and is not recommended for use.
     /// - Parameters:
     ///   - component: The calendar component to calculate the difference in.
     ///   - end: The end date for the calculation.
     /// - Returns: The difference in the specified calendar component between the base date and the end date, or `nil` if the calculation fails.
-    func differ(_ component: Calendar.Component, to end: Date) -> Int? {
-        calendar.dateComponents([component], from: base, to: end).value(for: component)
+    func differ(_ component: Calendar.Component, to date: Date) -> Int? {
+        guard component == .quarter else {
+            return compare([component], to: date)
+                .value(for: component)
+        }
+        
+        let months = calendar.dateComponents([.month], from: base, to: date).month ?? 0
+        return months / 3
     }
 }
 #endif

@@ -282,6 +282,11 @@ class DateMPTests: XCTestCase {
         let date8 = date.mp.adding(.year, value: 4)
         XCTAssertEqual(date8.mp.year, date.mp.year + 4)
         XCTAssertEqual(date8.mp.adding(.year, value: -4), date)
+        
+        XCTAssertEqual(date.mp.adding(.quarter, value: 0), date)
+        let date9 = date.mp.adding(.quarter, value: 2)
+        XCTAssertEqual(date9.mp.quarter, date.mp.quarter + 2)
+        XCTAssertEqual(date9.mp.adding(.quarter, value: -2), date)
     }
     
     func testDateString() {
@@ -481,18 +486,72 @@ class DateMPTests: XCTestCase {
     }
     
     func testCompareComponents() {
-        let baseDate = Date()
-        let endDate = baseDate.addingTimeInterval(3600)
-        let components: Set<Calendar.Component> = [.hour]
-        let result = baseDate.mp.compare(components, to: endDate)
-        XCTAssertEqual(result.hour, 1, "Hour difference should be 1")
+        let base = Date()
+        let end1 = base.mp.adding(.second, value: 1)
+        let result1 = base.mp.compare([.second], to: end1).second
+        XCTAssertEqual(result1, 1)
+        
+        let end2 = base.mp.adding(.minute, value: 1)
+        let result2 = base.mp.compare([.minute], to: end2).minute
+        XCTAssertEqual(result2, 1)
+        
+        let end3 = base.mp.adding(.hour, value: 1)
+        let result3 = base.mp.compare([.hour], to: end3).hour
+        XCTAssertEqual(result3, 1)
+        
+        let end4 = base.mp.adding(.day, value: 1)
+        let result4 = base.mp.compare([.day], to: end4).day
+        XCTAssertEqual(result4, 1)
+        
+        let end5 = base.mp.adding(.month, value: 1)
+        let result5 = base.mp.compare([.month], to: end5).month
+        XCTAssertEqual(result5, 1)
+        
+        let end6 = base.mp.adding(.quarter, value: 1)
+        let result6 = base.mp.compare([.month], to: end6).month
+        XCTAssertEqual(result6, 3)
+        
+        let end7 = base.mp.adding(.year, value: 1)
+        let result7 = base.mp.compare([.year], to: end7).year
+        XCTAssertEqual(result7, 1)
+        
+        let end8 = base.mp.adding(.weekOfYear, value: 1)
+        let result8 = base.mp.compare([.weekOfYear], to: end8).weekOfYear
+        XCTAssertEqual(result8, 1)
     }
     
     func testDifferComponent() {
-        let baseDate = Date()
-        let endDate = baseDate.addingTimeInterval(86400)
-        let component: Calendar.Component = .day
-        let result = baseDate.mp.differ(component, to: endDate)
-        XCTAssertEqual(result, 1, "Day difference should be 1")
+        let base = Date()
+        let end1 = base.mp.adding(.second, value: 1)
+        let result1 = base.mp.differ(.second, to: end1)
+        XCTAssertEqual(result1, 1)
+        
+        let end2 = base.mp.adding(.minute, value: 1)
+        let result2 = base.mp.differ(.minute, to: end2)
+        XCTAssertEqual(result2, 1)
+        
+        let end3 = base.mp.adding(.hour, value: 1)
+        let result3 = base.mp.differ(.hour, to: end3)
+        XCTAssertEqual(result3, 1)
+        
+        let end4 = base.mp.adding(.day, value: 1)
+        let result4 = base.mp.differ(.day, to: end4)
+        XCTAssertEqual(result4, 1)
+        
+        let end5 = base.mp.adding(.month, value: 1)
+        let result5 = base.mp.differ(.month, to: end5)
+        XCTAssertEqual(result5, 1)
+        
+        let end6 = base.mp.adding(.quarter, value: 1)
+        let result6 = base.mp.differ(.quarter, to: end6)
+        XCTAssertEqual(result6, 1)
+        
+        let end7 = base.mp.adding(.year, value: 1)
+        let result7 = base.mp.differ(.year, to: end7)
+        XCTAssertEqual(result7, 1)
+        
+        let end8 = base.mp.adding(.weekOfYear, value: 1)
+        let result8 = base.mp.differ(.weekOfYear, to: end8)
+        XCTAssertEqual(result8, 1)
     }
 }
