@@ -3,7 +3,7 @@
 [![build](https://github.com/mabeple/Maple/actions/workflows/CI.yml/badge.svg)](https://github.com/mabeple/Maple/actions/workflows/CI.yml)[![codecov](https://codecov.io/gh/Mabeple/Maple/branch/master/graph/badge.svg)](https://codecov.io/gh/Mabeple/Maple)
 
 ## Requirements
-- iOS 10.0+ / macOS 10.10+
+- iOS 13.0+ / macOS 10.15+
 - Swift 5.0+
 
 ## Installation
