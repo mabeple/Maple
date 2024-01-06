@@ -10,8 +10,8 @@ Pod::Spec.new do |s|
   s.license = { type: 'MIT', file: 'LICENSE' }
   s.authors = { 'Mabeple' => 'cymapu@gmail.com' }
  
-  s.ios.deployment_target = '10.0'
-  s.osx.deployment_target = '10.10'
+  s.ios.deployment_target = '13.0'
+  s.osx.deployment_target = '10.13'
 
   s.swift_version = '5.1'
   s.requires_arc = true

@@ -19,17 +19,16 @@ public extension MabpleWrapper where Base: UIScrollView {
     ///
     /// - Returns: Snapshot as UIImage for rendered ScrollView.
     var snapshot: UIImage? {
+        let size = base.contentSize
+        guard size != .zero else { return nil }
+        
         // Original Source: https://gist.github.com/thestoics/1204051
-        UIGraphicsBeginImageContextWithOptions(base.contentSize, false, 0)
-        defer {
-            UIGraphicsEndImageContext()
+        return UIGraphicsImageRenderer(size: size).image { context in
+            let previousFrame = base.frame
+            base.frame = CGRect(origin: base.frame.origin, size: size)
+            base.layer.render(in: context.cgContext)
+            base.frame = previousFrame
         }
-        guard let context = UIGraphicsGetCurrentContext() else { return nil }
-        let previousFrame = base.frame
-        base.frame = CGRect(origin: base.frame.origin, size: base.contentSize)
-        base.layer.render(in: context)
-        base.frame = previousFrame
-        return UIGraphicsGetImageFromCurrentImageContext()
     }
     
     /// The currently visible region of the scroll view.

@@ -6,8 +6,8 @@ import PackageDescription
 let package = Package(
     name: "Maple",
     platforms: [
-        .iOS(.v10),
-        .macOS(.v10_10)
+        .iOS(.v12),
+        .macOS(.v10_13)
     ],
     products: [
         .library(name: "Maple", targets: ["Maple"])

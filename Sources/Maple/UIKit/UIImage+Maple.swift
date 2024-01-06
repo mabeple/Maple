@@ -288,11 +288,9 @@ public extension UIImage {
     ///   - color: image fill color.
     ///   - size: image size.
     convenience init(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
+        #if os(watchOS)
         UIGraphicsBeginImageContextWithOptions(size, false, 1)
-
-        defer {
-            UIGraphicsEndImageContext()
-        }
+        defer { UIGraphicsEndImageContext() }
 
         color.setFill()
         UIRectFill(CGRect(origin: .zero, size: size))
@@ -303,6 +301,18 @@ public extension UIImage {
         }
 
         self.init(cgImage: aCgImage)
+        #else
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = 1
+        guard let image = UIGraphicsImageRenderer(size: size, format: format).image(actions: { context in
+            color.setFill()
+            context.fill(context.format.bounds)
+        }).cgImage else {
+            self.init()
+            return
+        }
+        self.init(cgImage: image)
+        #endif
     }
     
     /// Create a new image from a base 64 string.

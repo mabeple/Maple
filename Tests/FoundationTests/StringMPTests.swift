@@ -125,7 +125,15 @@ class StringMPTests: XCTestCase {
     }
     
     func testUrl() {
+        #if os(Linux)
         XCTAssertNil("hello world".mp.url)
+        #else
+        if #available(iOS 17.0, *) {
+            XCTAssertEqual("hello world".mp.url, URL(string: "hello%20world"))
+        } else {
+            XCTAssertNil("hello world".mp.url)
+        }
+        #endif
 
         let google = "https://www.google.com"
         XCTAssertEqual(google.mp.url, URL(string: google))

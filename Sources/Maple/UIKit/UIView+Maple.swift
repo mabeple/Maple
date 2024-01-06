@@ -38,13 +38,11 @@ public extension MabpleWrapper where Base: UIView {
     
     /// Take screenshot of view (if applicable).
     var screenshot: UIImage? {
-        UIGraphicsBeginImageContextWithOptions(base.layer.frame.size, false, 0)
-        defer {
-            UIGraphicsEndImageContext()
+        let size = base.layer.frame.size
+        guard size != .zero else { return nil }
+        return UIGraphicsImageRenderer(size: base.layer.frame.size).image { context in
+            base.layer.render(in: context.cgContext)
         }
-        guard let context = UIGraphicsGetCurrentContext() else { return nil }
-        base.layer.render(in: context)
-        return UIGraphicsGetImageFromCurrentImageContext()
     }
 }
 
