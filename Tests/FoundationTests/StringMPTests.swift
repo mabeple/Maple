@@ -128,7 +128,7 @@ class StringMPTests: XCTestCase {
         #if os(Linux)
         XCTAssertNil("hello world".mp.url)
         #else
-        if #available(iOS 17.0, *) {
+        if #available(iOS 17.0, macOS 14.0, *) {
             XCTAssertEqual("hello world".mp.url, URL(string: "hello%20world"))
         } else {
             XCTAssertNil("hello world".mp.url)
