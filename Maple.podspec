@@ -58,7 +58,7 @@ Pod::Spec.new do |s|
     sp.source_files  = 'Sources/Maple/SwiftStdlib/*.swift'
   end
   
-  # SwiftStdlib Extensions
+  # CoreGraphics Extensions
   s.subspec 'CoreGraphics' do |sp|
     sp.source_files  = 'Sources/Maple/General/*.swift', 'Sources/Maple/CoreGraphics/*.swift'
   end
