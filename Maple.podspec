@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
       sp.dependency 'Maple/Foundation'
       sp.dependency 'Maple/UIKit'
       sp.dependency 'Maple/SwiftStdlib'
+      sp.dependency 'Maple/CoreGraphics'
   end
   
   # Protocol
@@ -55,5 +56,10 @@ Pod::Spec.new do |s|
   # SwiftStdlib Extensions
   s.subspec 'SwiftStdlib' do |sp|
     sp.source_files  = 'Sources/Maple/SwiftStdlib/*.swift'
+  end
+  
+  # SwiftStdlib Extensions
+  s.subspec 'CoreGraphics' do |sp|
+    sp.source_files  = 'Sources/Maple/General/*.swift', 'Sources/Maple/CoreGraphics/*.swift'
   end
 end
