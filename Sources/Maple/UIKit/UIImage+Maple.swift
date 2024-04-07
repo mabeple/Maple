@@ -42,13 +42,13 @@ public extension MabpleWrapper where Base == UIImage {
     func averageColor() -> UIColor? {
         // https://stackoverflow.com/questions/26330924
         guard let ciImage = base.ciImage ?? CIImage(image: base) else { return nil }
-        
+
         // CIAreaAverage returns a single-pixel image that contains the average color for a given region of an image.
         let parameters = [kCIInputImageKey: ciImage, kCIInputExtentKey: CIVector(cgRect: ciImage.extent)]
         guard let outputImage = CIFilter(name: "CIAreaAverage", parameters: parameters)?.outputImage else {
             return nil
         }
-        
+
         // After getting the single-pixel image from the filter extract pixel's RGBA8 data
         var bitmap = [UInt8](repeating: 0, count: 4)
         let workingColorSpace: Any = base.cgImage?.colorSpace ?? NSNull()
@@ -59,7 +59,7 @@ public extension MabpleWrapper where Base == UIImage {
                        bounds: CGRect(x: 0, y: 0, width: 1, height: 1),
                        format: .RGBA8,
                        colorSpace: nil)
-        
+
         // Convert pixel data to UIColor
         return UIColor(red: CGFloat(bitmap[0]) / 255.0,
                        green: CGFloat(bitmap[1]) / 255.0,

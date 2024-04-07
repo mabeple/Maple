@@ -16,13 +16,37 @@ class UIImageMPTests: XCTestCase {
     
     func testAverageColor() {
         let size = CGSize(width: 10, height: 5)
-
-        // simple fill test
-        XCTAssertEqual(UIColor.blue, UIImage(color: .blue, size: size).mp.averageColor()!, accuracy: 0.01)
-        XCTAssertEqual(UIColor.orange, UIImage(color: .orange, size: size).mp.averageColor()!, accuracy: 0.01)
-
+        let blueColor = UIColor.blue
+        let blueImage = UIImage(color: .blue, size: size)
+        let blueAverageColor = blueImage.mp.averageColor()
+        XCTAssertNotNil(blueAverageColor)
+        guard let blueComponents = blueAverageColor?.cgColor.components,
+              let blueColorComponents = blueColor.cgColor.components else {
+            XCTFail("Failed to retrieve color components")
+            return
+        }
+        XCTAssertEqual(blueComponents[0], blueColorComponents[0], accuracy: 0.01)
+        XCTAssertEqual(blueComponents[1], blueColorComponents[1], accuracy: 0.01)
+        XCTAssertEqual(blueComponents[2], blueColorComponents[2], accuracy: 0.01)
+        XCTAssertEqual(blueComponents[3], blueColorComponents[3], accuracy: 0.01)
+        
+        let orangeColor = UIColor.orange
+        let orangeImage = UIImage(color: .orange, size: size)
+        let orangeAverageColor = orangeImage.mp.averageColor()
+        XCTAssertNotNil(orangeAverageColor)
+        guard let orangeComponents = orangeAverageColor?.cgColor.components,
+              let orangeColorComponents = orangeColor.cgColor.components else {
+            XCTFail("Failed to retrieve color components")
+            return
+        }
+        XCTAssertEqual(orangeComponents[0], orangeColorComponents[0], accuracy: 0.01)
+        XCTAssertEqual(orangeComponents[1], orangeColorComponents[1], accuracy: 0.01)
+        XCTAssertEqual(orangeComponents[2], orangeColorComponents[2], accuracy: 0.01)
+        XCTAssertEqual(orangeComponents[3], orangeColorComponents[3], accuracy: 0.01)
+        
         // more interesting - red + green = yellow
         let renderer = UIGraphicsImageRenderer(size: size)
+        let yellowColor = UIColor(red: 0.5, green: 0.5, blue: 0, alpha: 1)
         let yellow = renderer.image {
             var rect = CGRect(x: 0, y: 0, width: size.width / 2, height: size.height)
             for color in [UIColor.red, UIColor.green] {
@@ -33,7 +57,19 @@ class UIImageMPTests: XCTestCase {
                 rect.origin.x += rect.size.width
             }
         }
-        XCTAssertEqual(UIColor(red: 0.5, green: 0.5, blue: 0, alpha: 1), yellow.mp.averageColor()!)
+        
+        let yellowAverageColor = yellow.mp.averageColor()
+        XCTAssertNotNil(yellowAverageColor)
+        guard let yellowComponents = yellowAverageColor?.cgColor.components,
+              let yellowColorComponents = yellowColor.cgColor.components else {
+            XCTFail("Failed to retrieve color components")
+            return
+        }
+        
+        XCTAssertEqual(yellowComponents[0], yellowColorComponents[0], accuracy: 0.01)
+        XCTAssertEqual(yellowComponents[1], yellowColorComponents[1], accuracy: 0.01)
+        XCTAssertEqual(yellowComponents[2], yellowColorComponents[2], accuracy: 0.01)
+        XCTAssertEqual(yellowComponents[3], yellowColorComponents[3], accuracy: 0.01)
     }
     
     func testBytesSize() {
