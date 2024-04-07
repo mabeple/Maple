@@ -10,6 +10,25 @@
 import XCTest
 
 final class ArrayExtensionsTests: XCTestCase {
+    
+    struct Person: Equatable {
+        var name: String
+        var age: Int?
+        var location: Location?
+        var isStudent: Bool
+
+        init(name: String, age: Int?, location: Location? = nil, isStudent: Bool = false) {
+            self.name = name
+            self.age = age
+            self.location = location
+            self.isStudent = isStudent
+        }
+    }
+    
+    struct Location: Equatable {
+        let city: String
+    }
+    
     func testRemoveAll() {
         var arr = [0, 1, 2, 0, 3, 4, 5, 0, 0]
         arr.removeAll(0)
@@ -34,5 +53,37 @@ final class ArrayExtensionsTests: XCTestCase {
         var array = [1, 1, 2, 2, 3, 3, 3, 4, 5]
         array.removeDuplicates()
         XCTAssertEqual(array, [1, 2, 3, 4, 5])
+    }
+
+    func testWithoutDuplicates() {
+        XCTAssertEqual([1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates(), [1, 2, 3, 4, 5])
+        XCTAssertEqual(["h", "e", "l", "l", "o"].withoutDuplicates(), ["h", "e", "l", "o"])
+    }
+
+    func testWithoutDuplicatesUsingKeyPath() {
+        let array = [
+            Person(name: "Wade", age: 20, location: Location(city: "London")),
+            Person(name: "James", age: 32),
+            Person(name: "James", age: 36),
+            Person(name: "Rose", age: 29),
+            Person(name: "James", age: 72, location: Location(city: "Moscow")),
+            Person(name: "Rose", age: 56),
+            Person(name: "Wade", age: 22, location: Location(city: "Prague"))
+        ]
+        let arrayWithoutDuplicatesHashable = array.withoutDuplicates(keyPath: \.name)
+        let arrayWithoutDuplicatesHashablePrepared = [
+            Person(name: "Wade", age: 20, location: Location(city: "London")),
+            Person(name: "James", age: 32),
+            Person(name: "Rose", age: 29)
+        ]
+        XCTAssertEqual(arrayWithoutDuplicatesHashable, arrayWithoutDuplicatesHashablePrepared)
+        let arrayWithoutDuplicatesNHashable = array.withoutDuplicates(keyPath: \.location)
+        let arrayWithoutDuplicatesNHashablePrepared = [
+            Person(name: "Wade", age: 20, location: Location(city: "London")),
+            Person(name: "James", age: 32),
+            Person(name: "James", age: 72, location: Location(city: "Moscow")),
+            Person(name: "Wade", age: 22, location: Location(city: "Prague"))
+        ]
+        XCTAssertEqual(arrayWithoutDuplicatesNHashable, arrayWithoutDuplicatesNHashablePrepared)
     }
 }
