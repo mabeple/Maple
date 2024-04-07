@@ -82,6 +82,10 @@
 		01E5F5AD2BC241480005D730 /* DirectionalEdgeInsetsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5F5AB2BC241480005D730 /* DirectionalEdgeInsetsExtensions.swift */; };
 		01E5F5AF2BC246870005D730 /* DirectionalEdgeInsetsExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5F5AE2BC246870005D730 /* DirectionalEdgeInsetsExtensionsTests.swift */; };
 		01E5F5B02BC246870005D730 /* DirectionalEdgeInsetsExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5F5AE2BC246870005D730 /* DirectionalEdgeInsetsExtensionsTests.swift */; };
+		01E5F5B22BC24C3C0005D730 /* CaseIterableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5F5B12BC24C3C0005D730 /* CaseIterableExtensions.swift */; };
+		01E5F5B32BC24C3C0005D730 /* CaseIterableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5F5B12BC24C3C0005D730 /* CaseIterableExtensions.swift */; };
+		01E5F5B52BC24DD00005D730 /* CaseIterableExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5F5B42BC24DD00005D730 /* CaseIterableExtensionsTests.swift */; };
+		01E5F5B62BC24DD00005D730 /* CaseIterableExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5F5B42BC24DD00005D730 /* CaseIterableExtensionsTests.swift */; };
 		01FA2FA4263A8D2F002B932D /* Data+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA2FA3263A8D2F002B932D /* Data+Maple.swift */; };
 		01FA2FA5263A8D2F002B932D /* Data+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA2FA3263A8D2F002B932D /* Data+Maple.swift */; };
 		01FA2FA7263A9003002B932D /* DataMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA2FA6263A9003002B932D /* DataMPTests.swift */; };
@@ -169,6 +173,8 @@
 		01DD61F129C94E5200792AE6 /* DispatchMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchMPTests.swift; sourceTree = "<group>"; };
 		01E5F5AB2BC241480005D730 /* DirectionalEdgeInsetsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalEdgeInsetsExtensions.swift; sourceTree = "<group>"; };
 		01E5F5AE2BC246870005D730 /* DirectionalEdgeInsetsExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalEdgeInsetsExtensionsTests.swift; sourceTree = "<group>"; };
+		01E5F5B12BC24C3C0005D730 /* CaseIterableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseIterableExtensions.swift; sourceTree = "<group>"; };
+		01E5F5B42BC24DD00005D730 /* CaseIterableExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseIterableExtensionsTests.swift; sourceTree = "<group>"; };
 		01FA2FA3263A8D2F002B932D /* Data+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Maple.swift"; sourceTree = "<group>"; };
 		01FA2FA6263A9003002B932D /* DataMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMPTests.swift; sourceTree = "<group>"; };
 		01FA2FA9263A9605002B932D /* UIScrollView+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Maple.swift"; sourceTree = "<group>"; };
@@ -333,6 +339,7 @@
 				01AD2D1129A5BBB1005C99C3 /* OptionalExtensions.swift */,
 				01AD2D1E29A5BD67005C99C3 /* ArrayExtensions.swift */,
 				01AD2D2629A5C010005C99C3 /* DictionaryExtensions.swift */,
+				01E5F5B12BC24C3C0005D730 /* CaseIterableExtensions.swift */,
 			);
 			path = SwiftStdlib;
 			sourceTree = "<group>";
@@ -381,6 +388,7 @@
 				013DDEB924824E240095E201 /* EdgeInsetsExtensionsTests.swift */,
 				013DDEBF248254A60095E201 /* ColorExtensionsTests.swift */,
 				01E5F5AE2BC246870005D730 /* DirectionalEdgeInsetsExtensionsTests.swift */,
+				01E5F5B42BC24DD00005D730 /* CaseIterableExtensionsTests.swift */,
 			);
 			path = SharedTests;
 			sourceTree = "<group>";
@@ -633,6 +641,7 @@
 				01FA2FAA263A9605002B932D /* UIScrollView+Maple.swift in Sources */,
 				011A0051248740F900D18027 /* UICollectionView+Maple.swift in Sources */,
 				01AD2D1229A5BBB1005C99C3 /* OptionalExtensions.swift in Sources */,
+				01E5F5B22BC24C3C0005D730 /* CaseIterableExtensions.swift in Sources */,
 				01DD61E129C942F500792AE6 /* URL+Maple.swift in Sources */,
 				013DDEAC248248050095E201 /* NibLoadable.swift in Sources */,
 				0174DF7C2480F5A100258824 /* UIView+Maple.swift in Sources */,
@@ -655,6 +664,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0174DF522480EDC800258824 /* Maple.swift in Sources */,
+				01E5F5B32BC24C3C0005D730 /* CaseIterableExtensions.swift in Sources */,
 				01FA2FA5263A8D2F002B932D /* Data+Maple.swift in Sources */,
 				01AD2D2829A5C010005C99C3 /* DictionaryExtensions.swift in Sources */,
 				013DDEC3248264FF0095E201 /* NSImage+Maple.swift in Sources */,
@@ -684,6 +694,7 @@
 				012C4BFE256262C400A1A5AE /* UIAlertActionMPTests.swift in Sources */,
 				013DDEBA24824E240095E201 /* EdgeInsetsExtensionsTests.swift in Sources */,
 				0174DFD12481034F00258824 /* UITextFieldMPTests.swift in Sources */,
+				01E5F5B52BC24DD00005D730 /* CaseIterableExtensionsTests.swift in Sources */,
 				01AD2D2A29A5C0D8005C99C3 /* DictionaryExtensionsTests.swift in Sources */,
 				013DDEA8248240DC0095E201 /* StringMPTests.swift in Sources */,
 				01E5F5AF2BC246870005D730 /* DirectionalEdgeInsetsExtensionsTests.swift in Sources */,
@@ -712,6 +723,7 @@
 				013DDEBB24824E240095E201 /* EdgeInsetsExtensionsTests.swift in Sources */,
 				013DDEA32482075F0095E201 /* DateMPTests.swift in Sources */,
 				01AD2D2B29A5C0D8005C99C3 /* DictionaryExtensionsTests.swift in Sources */,
+				01E5F5B62BC24DD00005D730 /* CaseIterableExtensionsTests.swift in Sources */,
 				013DDEA9248240DC0095E201 /* StringMPTests.swift in Sources */,
 				01CEC2FA2481F62100CF21B9 /* NSViewMPTests.swift in Sources */,
 				013DDEC52482653B0095E201 /* NSImageMPTests.swift in Sources */,
