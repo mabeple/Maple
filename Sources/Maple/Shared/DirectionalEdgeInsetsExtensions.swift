@@ -6,12 +6,40 @@
 //  Copyright © 2024 cy. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS) || os(watchOS)
 import UIKit
+public typealias DirectionalEdgeInsets = NSDirectionalEdgeInsets
+#elseif os(macOS)
+import AppKit
+public typealias DirectionalEdgeInsets = NSDirectionalEdgeInsets
+
+public extension NSDirectionalEdgeInsets {
+    /// An edge insets struct whose top, left, bottom, and right fields are all set to 0.
+    static let zero = DirectionalEdgeInsets()
+}
+
+extension NSDirectionalEdgeInsets: Equatable {
+    /// Returns a Boolean value indicating whether two values are equal.
+    ///
+    /// Equality is the inverse of inequality. For any values `a` and `b`,
+    /// `a == b` implies that `a != b` is `false`.
+    ///
+    /// - Parameters:
+    ///   - lhs: A value to compare.
+    ///   - rhs: Another value to compare.
+    public static func == (lhs: NSDirectionalEdgeInsets, rhs: NSDirectionalEdgeInsets) -> Bool {
+        return lhs.top == rhs.top &&
+            lhs.leading == rhs.leading &&
+            lhs.bottom == rhs.bottom &&
+            lhs.trailing == rhs.trailing
+    }
+}
+#endif
 
 extension NSDirectionalEdgeInsets: MabpleCompatibleValue { }
 
 // MARK: - Properties
-public extension MabpleWrapper where Base == NSDirectionalEdgeInsets {
+public extension MabpleWrapper where Base == DirectionalEdgeInsets {
     /// Return the vertical insets. The vertical insets is composed by top + bottom.
     ///
     var vertical: CGFloat {
@@ -26,7 +54,7 @@ public extension MabpleWrapper where Base == NSDirectionalEdgeInsets {
 }
 
 // MARK: - Methods
-public extension MabpleWrapper where Base == NSDirectionalEdgeInsets {
+public extension MabpleWrapper where Base == DirectionalEdgeInsets {
     /// Creates an `EdgeInsets` based on current value and top offset.
     ///
     /// - Parameters:
@@ -83,7 +111,7 @@ public extension MabpleWrapper where Base == NSDirectionalEdgeInsets {
 }
 
 // MARK: - Initializers
-public extension NSDirectionalEdgeInsets {
+public extension DirectionalEdgeInsets {
     /// Creates an `NSDirectionalEdgeInsets` with the inset value applied to all (top, bottom, trailing, leading)
     ///
     /// - Parameter inset: Inset to be applied in all the edges.
@@ -139,7 +167,7 @@ public extension NSDirectionalEdgeInsets {
 }
 
 // MARK: - Operators
-public extension NSDirectionalEdgeInsets {
+public extension DirectionalEdgeInsets {
     
     /// Add all the properties of two `NSDirectionalEdgeInsets` to create their addition.
     ///
@@ -147,7 +175,7 @@ public extension NSDirectionalEdgeInsets {
     ///   - lhs: The left-hand expression
     ///   - rhs: The right-hand expression
     /// - Returns: A new `EdgeInsets` instance where the values of `lhs` and `rhs` are added together.
-    static func + (_ lhs: NSDirectionalEdgeInsets, _ rhs: NSDirectionalEdgeInsets) -> NSDirectionalEdgeInsets {
+    static func + (_ lhs: DirectionalEdgeInsets, _ rhs: DirectionalEdgeInsets) -> DirectionalEdgeInsets {
         return .init(top: lhs.top + rhs.top,
                      leading: lhs.leading + rhs.leading,
                      bottom: lhs.bottom + rhs.bottom,
@@ -159,7 +187,7 @@ public extension NSDirectionalEdgeInsets {
     /// - Parameters:
     ///   - lhs: The left-hand expression to be mutated
     ///   - rhs: The right-hand expression
-    static func += (_ lhs: inout NSDirectionalEdgeInsets, _ rhs: NSDirectionalEdgeInsets) {
+    static func += (_ lhs: inout DirectionalEdgeInsets, _ rhs: DirectionalEdgeInsets) {
         lhs.top += rhs.top
         lhs.leading += rhs.leading
         lhs.bottom += rhs.bottom

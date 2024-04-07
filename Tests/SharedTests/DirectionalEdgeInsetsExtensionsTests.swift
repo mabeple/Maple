@@ -8,21 +8,20 @@
 
 import XCTest
 @testable import Maple
-
 class DirectionalEdgeInsetsExtensionsTests: XCTestCase {
     
     func testHorizontal() {
-        let inset = NSDirectionalEdgeInsets(top: 30.0, leading: 5.0, bottom: 5.0, trailing: 10.0)
+        let inset = DirectionalEdgeInsets(top: 30.0, leading: 5.0, bottom: 5.0, trailing: 10.0)
         XCTAssertEqual(inset.mp.horizontal, 15.0)
     }
     
     func testVertical() {
-        let inset = NSDirectionalEdgeInsets(top: 10.0, leading: 10.0, bottom: 5.0, trailing: 10.0)
+        let inset = DirectionalEdgeInsets(top: 10.0, leading: 10.0, bottom: 5.0, trailing: 10.0)
         XCTAssertEqual(inset.mp.vertical, 15.0)
     }
     
     func testInsetByTop() {
-        let inset = NSDirectionalEdgeInsets(top: 10.0, leading: 10.0, bottom: 10.0, trailing: 10.0)
+        let inset = DirectionalEdgeInsets(top: 10.0, leading: 10.0, bottom: 10.0, trailing: 10.0)
         let insetByTop = inset.mp.insetBy(top: 5.0)
         XCTAssertNotEqual(inset, insetByTop)
         XCTAssertEqual(insetByTop.top, 15.0)
@@ -39,7 +38,7 @@ class DirectionalEdgeInsetsExtensionsTests: XCTestCase {
     }
     
     func testInsetByleading() {
-        let inset = NSDirectionalEdgeInsets(top: 10.0, leading: 10.0, bottom: 10.0, trailing: 10.0)
+        let inset = DirectionalEdgeInsets(top: 10.0, leading: 10.0, bottom: 10.0, trailing: 10.0)
         let insetByLeading = inset.mp.insetBy(leading: 5.0)
         XCTAssertNotEqual(inset, insetByLeading)
         XCTAssertEqual(insetByLeading.top, 10.0)
@@ -56,7 +55,7 @@ class DirectionalEdgeInsetsExtensionsTests: XCTestCase {
     }
     
     func testInsetByBottom() {
-        let inset = NSDirectionalEdgeInsets(top: 10.0, leading: 10.0, bottom: 10.0, trailing: 10.0)
+        let inset = DirectionalEdgeInsets(top: 10.0, leading: 10.0, bottom: 10.0, trailing: 10.0)
         let insetByBottom = inset.mp.insetBy(bottom: 5.0)
         XCTAssertNotEqual(inset, insetByBottom)
         XCTAssertEqual(insetByBottom.top, 10.0)
@@ -73,7 +72,7 @@ class DirectionalEdgeInsetsExtensionsTests: XCTestCase {
     }
     
     func testInsetBytrailing() {
-        let inset = NSDirectionalEdgeInsets(top: 10.0, leading: 10.0, bottom: 10.0, trailing: 10.0)
+        let inset = DirectionalEdgeInsets(top: 10.0, leading: 10.0, bottom: 10.0, trailing: 10.0)
         let insetByTrailing = inset.mp.insetBy(trailing: 5.0)
         XCTAssertNotEqual(inset, insetByTrailing)
         XCTAssertEqual(insetByTrailing.top, 10.0)
@@ -90,7 +89,7 @@ class DirectionalEdgeInsetsExtensionsTests: XCTestCase {
     }
     
     func testInsetByHorizontal() {
-        let inset = NSDirectionalEdgeInsets(top: 10.0, leading: 10.0, bottom: 10.0, trailing: 10.0)
+        let inset = DirectionalEdgeInsets(top: 10.0, leading: 10.0, bottom: 10.0, trailing: 10.0)
         let insetByHorizontal = inset.mp.insetBy(horizontal: 5.0)
         XCTAssertNotEqual(inset, insetByHorizontal)
         XCTAssertEqual(insetByHorizontal.leading, 12.5)
@@ -107,7 +106,7 @@ class DirectionalEdgeInsetsExtensionsTests: XCTestCase {
     }
     
     func testInsetByVertical() {
-        let inset = NSDirectionalEdgeInsets(top: 10.0, leading: 10.0, bottom: 10.0, trailing: 10.0)
+        let inset = DirectionalEdgeInsets(top: 10.0, leading: 10.0, bottom: 10.0, trailing: 10.0)
         let insetByVertical = inset.mp.insetBy(vertical: 5.0)
         XCTAssertNotEqual(inset, insetByVertical)
         XCTAssertEqual(insetByVertical.leading, 10.0)
@@ -124,7 +123,7 @@ class DirectionalEdgeInsetsExtensionsTests: XCTestCase {
     }
     
     func testInitInset() {
-        let inset = NSDirectionalEdgeInsets(inset: 5.0)
+        let inset = DirectionalEdgeInsets(inset: 5.0)
         XCTAssertEqual(inset.top, 5.0)
         XCTAssertEqual(inset.bottom, 5.0)
         XCTAssertEqual(inset.trailing, 5.0)
@@ -132,7 +131,7 @@ class DirectionalEdgeInsetsExtensionsTests: XCTestCase {
     }
     
     func testInitTop() {
-        let inset = NSDirectionalEdgeInsets(top: 5.0)
+        let inset = DirectionalEdgeInsets(top: 5.0)
         XCTAssertEqual(inset.top, 5.0)
         XCTAssertEqual(inset.bottom, 0)
         XCTAssertEqual(inset.trailing, 0)
@@ -140,7 +139,7 @@ class DirectionalEdgeInsetsExtensionsTests: XCTestCase {
     }
     
     func testInitLeading() {
-        let inset = NSDirectionalEdgeInsets(leading: 5.0)
+        let inset = DirectionalEdgeInsets(leading: 5.0)
         XCTAssertEqual(inset.top, 0)
         XCTAssertEqual(inset.bottom, 0)
         XCTAssertEqual(inset.trailing, 0)
@@ -148,7 +147,7 @@ class DirectionalEdgeInsetsExtensionsTests: XCTestCase {
     }
     
     func testInitBottom() {
-        let inset = NSDirectionalEdgeInsets(bottom: 5.0)
+        let inset = DirectionalEdgeInsets(bottom: 5.0)
         XCTAssertEqual(inset.top, 0)
         XCTAssertEqual(inset.bottom, 5.0)
         XCTAssertEqual(inset.trailing, 0)
@@ -156,7 +155,7 @@ class DirectionalEdgeInsetsExtensionsTests: XCTestCase {
     }
     
     func testInitTrailing() {
-        let inset = NSDirectionalEdgeInsets(trailing: 5.0)
+        let inset = DirectionalEdgeInsets(trailing: 5.0)
         XCTAssertEqual(inset.top, 0)
         XCTAssertEqual(inset.bottom, 0)
         XCTAssertEqual(inset.trailing, 5.0)
@@ -164,7 +163,7 @@ class DirectionalEdgeInsetsExtensionsTests: XCTestCase {
     }
     
     func testInitVerticalHorizontal() {
-        let inset = NSDirectionalEdgeInsets(horizontal: 20.0, vertical: 10.0)
+        let inset = DirectionalEdgeInsets(horizontal: 20.0, vertical: 10.0)
         XCTAssertEqual(inset.top, 10.0)
         XCTAssertEqual(inset.bottom, 10.0)
         XCTAssertEqual(inset.trailing, 20.0)
@@ -172,7 +171,7 @@ class DirectionalEdgeInsetsExtensionsTests: XCTestCase {
     }
     
     func testInsetComposing() {
-        let inset = NSDirectionalEdgeInsets(top: 10.0, leading: 10.0, bottom: 10.0, trailing: 10.0)
+        let inset = DirectionalEdgeInsets(top: 10.0, leading: 10.0, bottom: 10.0, trailing: 10.0)
         let composedInset = inset.mp.insetBy(bottom: 5.0).mp.insetBy(horizontal: 5.0)
         XCTAssertNotEqual(inset, composedInset)
         XCTAssertEqual(composedInset.leading, 12.5)
@@ -189,26 +188,32 @@ class DirectionalEdgeInsetsExtensionsTests: XCTestCase {
     }
     
     func testAddition() {
-        let insets1 = NSDirectionalEdgeInsets(top: 1, leading: 2, bottom: 3, trailing: 4)
-        let insets2 = NSDirectionalEdgeInsets(top: 5, leading: 6, bottom: 7, trailing: 8)
-        let expected = NSDirectionalEdgeInsets(top: 6, leading: 8, bottom: 10, trailing: 12)
+        XCTAssertEqual(DirectionalEdgeInsets.zero + DirectionalEdgeInsets.zero, DirectionalEdgeInsets.zero)
+        
+        let insets1 = DirectionalEdgeInsets(top: 1, leading: 2, bottom: 3, trailing: 4)
+        let insets2 = DirectionalEdgeInsets(top: 5, leading: 6, bottom: 7, trailing: 8)
+        let expected = DirectionalEdgeInsets(top: 6, leading: 8, bottom: 10, trailing: 12)
         XCTAssertEqual(insets1 + insets2, expected)
 
-        let negativeInsets1 = NSDirectionalEdgeInsets(top: -1, leading: -2, bottom: -3, trailing: -4)
-        let negativeInsets2 = NSDirectionalEdgeInsets(top: -5, leading: -6, bottom: -7, trailing: -8)
-        let negativeExpected = NSDirectionalEdgeInsets(top: -6, leading: -8, bottom: -10, trailing: -12)
+        let negativeInsets1 = DirectionalEdgeInsets(top: -1, leading: -2, bottom: -3, trailing: -4)
+        let negativeInsets2 = DirectionalEdgeInsets(top: -5, leading: -6, bottom: -7, trailing: -8)
+        let negativeExpected = DirectionalEdgeInsets(top: -6, leading: -8, bottom: -10, trailing: -12)
         XCTAssertEqual(negativeInsets1 + negativeInsets2, negativeExpected)
     }
 
     func testInPlaceAddition() {
-        var insets = NSDirectionalEdgeInsets(top: 1, leading: 2, bottom: 3, trailing: 4)
-        insets += NSDirectionalEdgeInsets(top: 5, leading: 6, bottom: 7, trailing: 8)
-        let expected = NSDirectionalEdgeInsets(top: 6, leading: 8, bottom: 10, trailing: 12)
+        var zero = DirectionalEdgeInsets.zero
+        zero += DirectionalEdgeInsets.zero
+        XCTAssertEqual(zero, DirectionalEdgeInsets.zero)
+        
+        var insets = DirectionalEdgeInsets(top: 1, leading: 2, bottom: 3, trailing: 4)
+        insets += DirectionalEdgeInsets(top: 5, leading: 6, bottom: 7, trailing: 8)
+        let expected = DirectionalEdgeInsets(top: 6, leading: 8, bottom: 10, trailing: 12)
         XCTAssertEqual(insets, expected)
 
-        var negativeInsets = NSDirectionalEdgeInsets(top: -1, leading: -2, bottom: -3, trailing: -4)
-        negativeInsets += NSDirectionalEdgeInsets(top: -5, leading: -6, bottom: -7, trailing: -8)
-        let negativeExpected = NSDirectionalEdgeInsets(top: -6, leading: -8, bottom: -10, trailing: -12)
+        var negativeInsets = DirectionalEdgeInsets(top: -1, leading: -2, bottom: -3, trailing: -4)
+        negativeInsets += DirectionalEdgeInsets(top: -5, leading: -6, bottom: -7, trailing: -8)
+        let negativeExpected = DirectionalEdgeInsets(top: -6, leading: -8, bottom: -10, trailing: -12)
         XCTAssertEqual(negativeInsets, negativeExpected)
     }
 }
