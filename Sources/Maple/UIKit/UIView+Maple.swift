@@ -20,7 +20,7 @@ public extension MabpleWrapper where Base: UIView {
         }
         set {
             base.layer.masksToBounds = true
-            base.layer.cornerRadius = abs(CGFloat(Int(newValue * 100)) / 100)
+            base.layer.cornerRadius = Swift.abs(CGFloat(Int(newValue * 100)) / 100)
         }
     }
     

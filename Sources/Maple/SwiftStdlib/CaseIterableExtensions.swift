@@ -6,7 +6,9 @@
 //  Copyright © 2024 cy. All rights reserved.
 //
 
+#if canImport(Foundation)
 import Foundation
+#endif
 
 extension CaseIterable where Self: Equatable, AllCases: BidirectionalCollection {
     

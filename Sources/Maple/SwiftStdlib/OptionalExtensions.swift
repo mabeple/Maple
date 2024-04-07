@@ -6,6 +6,10 @@
 //  Copyright © 2023 cy. All rights reserved.
 //
 
+#if canImport(Foundation)
+import Foundation
+#endif
+
 // MARK: - Methods
 public extension Optional {
     /// Get self of default value (if self is nil).

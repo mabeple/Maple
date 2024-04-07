@@ -86,6 +86,10 @@
 		01E5F5B32BC24C3C0005D730 /* CaseIterableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5F5B12BC24C3C0005D730 /* CaseIterableExtensions.swift */; };
 		01E5F5B52BC24DD00005D730 /* CaseIterableExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5F5B42BC24DD00005D730 /* CaseIterableExtensionsTests.swift */; };
 		01E5F5B62BC24DD00005D730 /* CaseIterableExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5F5B42BC24DD00005D730 /* CaseIterableExtensionsTests.swift */; };
+		01E5F5B92BC26C4A0005D730 /* CGFloat+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5F5B82BC26C4A0005D730 /* CGFloat+Maple.swift */; };
+		01E5F5BA2BC26C4A0005D730 /* CGFloat+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5F5B82BC26C4A0005D730 /* CGFloat+Maple.swift */; };
+		01E5F5BD2BC26D0A0005D730 /* CGFloatMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5F5BC2BC26D090005D730 /* CGFloatMPTests.swift */; };
+		01E5F5BE2BC26D0A0005D730 /* CGFloatMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5F5BC2BC26D090005D730 /* CGFloatMPTests.swift */; };
 		01FA2FA4263A8D2F002B932D /* Data+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA2FA3263A8D2F002B932D /* Data+Maple.swift */; };
 		01FA2FA5263A8D2F002B932D /* Data+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA2FA3263A8D2F002B932D /* Data+Maple.swift */; };
 		01FA2FA7263A9003002B932D /* DataMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA2FA6263A9003002B932D /* DataMPTests.swift */; };
@@ -175,6 +179,8 @@
 		01E5F5AE2BC246870005D730 /* DirectionalEdgeInsetsExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalEdgeInsetsExtensionsTests.swift; sourceTree = "<group>"; };
 		01E5F5B12BC24C3C0005D730 /* CaseIterableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseIterableExtensions.swift; sourceTree = "<group>"; };
 		01E5F5B42BC24DD00005D730 /* CaseIterableExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseIterableExtensionsTests.swift; sourceTree = "<group>"; };
+		01E5F5B82BC26C4A0005D730 /* CGFloat+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Maple.swift"; sourceTree = "<group>"; };
+		01E5F5BC2BC26D090005D730 /* CGFloatMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatMPTests.swift; sourceTree = "<group>"; };
 		01FA2FA3263A8D2F002B932D /* Data+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Maple.swift"; sourceTree = "<group>"; };
 		01FA2FA6263A9003002B932D /* DataMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMPTests.swift; sourceTree = "<group>"; };
 		01FA2FA9263A9605002B932D /* UIScrollView+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Maple.swift"; sourceTree = "<group>"; };
@@ -250,11 +256,12 @@
 		013DDEC924826AC80095E201 /* Maple */ = {
 			isa = PBXGroup;
 			children = (
-				01DD61EC29C948AE00792AE6 /* Dispatch */,
 				013DDECA248270BB0095E201 /* General */,
 				013DDEB524824A4B0095E201 /* Shared */,
 				013DDEAA248247EA0095E201 /* Protocol */,
+				01DD61EC29C948AE00792AE6 /* Dispatch */,
 				013DDE9D248206DD0095E201 /* Foundation */,
+				01E5F5B72BC26BFD0005D730 /* CoreGraphics */,
 				01CEC2E72481F53100CF21B9 /* AppKit */,
 				0174DF7D2480F5A800258824 /* UIKit */,
 				01AD2D1029A5BB85005C99C3 /* SwiftStdlib */,
@@ -307,6 +314,7 @@
 				0174DF5F2480EF5F00258824 /* Info.plist */,
 				01AD2D1429A5BC14005C99C3 /* UIKitTests */,
 				01DD61F029C94E3900792AE6 /* DispatchTests */,
+				01E5F5BB2BC26CD90005D730 /* CoreGraphicTests */,
 				01AD2D1529A5BC47005C99C3 /* AppKitTests */,
 				01AD2D1629A5BC6B005C99C3 /* FoundationTests */,
 				01AD2D1729A5BC83005C99C3 /* SharedTests */,
@@ -448,6 +456,22 @@
 				01DD61F129C94E5200792AE6 /* DispatchMPTests.swift */,
 			);
 			path = DispatchTests;
+			sourceTree = "<group>";
+		};
+		01E5F5B72BC26BFD0005D730 /* CoreGraphics */ = {
+			isa = PBXGroup;
+			children = (
+				01E5F5B82BC26C4A0005D730 /* CGFloat+Maple.swift */,
+			);
+			path = CoreGraphics;
+			sourceTree = "<group>";
+		};
+		01E5F5BB2BC26CD90005D730 /* CoreGraphicTests */ = {
+			isa = PBXGroup;
+			children = (
+				01E5F5BC2BC26D090005D730 /* CGFloatMPTests.swift */,
+			);
+			path = CoreGraphicTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -641,6 +665,7 @@
 				01FA2FAA263A9605002B932D /* UIScrollView+Maple.swift in Sources */,
 				011A0051248740F900D18027 /* UICollectionView+Maple.swift in Sources */,
 				01AD2D1229A5BBB1005C99C3 /* OptionalExtensions.swift in Sources */,
+				01E5F5B92BC26C4A0005D730 /* CGFloat+Maple.swift in Sources */,
 				01E5F5B22BC24C3C0005D730 /* CaseIterableExtensions.swift in Sources */,
 				01DD61E129C942F500792AE6 /* URL+Maple.swift in Sources */,
 				013DDEAC248248050095E201 /* NibLoadable.swift in Sources */,
@@ -665,6 +690,7 @@
 			files = (
 				0174DF522480EDC800258824 /* Maple.swift in Sources */,
 				01E5F5B32BC24C3C0005D730 /* CaseIterableExtensions.swift in Sources */,
+				01E5F5BA2BC26C4A0005D730 /* CGFloat+Maple.swift in Sources */,
 				01FA2FA5263A8D2F002B932D /* Data+Maple.swift in Sources */,
 				01AD2D2829A5C010005C99C3 /* DictionaryExtensions.swift in Sources */,
 				013DDEC3248264FF0095E201 /* NSImage+Maple.swift in Sources */,
@@ -710,6 +736,7 @@
 				01DD61E629C946E000792AE6 /* URLMPTests.swift in Sources */,
 				01FA2FB1263A9A9A002B932D /* UISwitchMPTests.swift in Sources */,
 				012C4BD725622AD700A1A5AE /* UIImageMPTests.swift in Sources */,
+				01E5F5BD2BC26D0A0005D730 /* CGFloatMPTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -732,6 +759,7 @@
 				01AD2D1D29A5BCC9005C99C3 /* OptionalExtensionsTests.swift in Sources */,
 				01DD61E729C946E000792AE6 /* URLMPTests.swift in Sources */,
 				011A004F24873C6400D18027 /* BundleMPTests.swift in Sources */,
+				01E5F5BE2BC26D0A0005D730 /* CGFloatMPTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

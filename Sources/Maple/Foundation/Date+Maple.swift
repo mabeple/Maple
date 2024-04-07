@@ -26,7 +26,7 @@ public extension MabpleWrapper where Base == Date {
         calendar.component(.era, from: base)
     }
     
-#if !os(Linux)
+    #if !os(Linux)
     /// Quarter.
     ///
     ///        Date().quarter -> 3 // date in third quarter of the year.
@@ -35,9 +35,9 @@ public extension MabpleWrapper where Base == Date {
         let month = Double(calendar.component(.month, from: base))
         let numberOfMonths = Double(calendar.monthSymbols.count)
         let numberOfMonthsInQuarter = numberOfMonths / 4
-        return Int(ceil(month/numberOfMonthsInQuarter))
+        return Int(Darwin.ceil(month/numberOfMonthsInQuarter))
     }
-#endif
+    #endif
     
     /// Week of year.
     ///
@@ -376,7 +376,7 @@ public extension MabpleWrapper where Base == Date {
     func isWithin(_ value: UInt, _ component: Calendar.Component, of date: Date) -> Bool {
         let components = calendar.dateComponents([component], from: base, to: date)
         guard let componentValue = components.value(for: component) else { return false }
-        return abs(componentValue) <= value
+        return Swift.abs(componentValue) <= value
     }
     
     #if !os(Linux)

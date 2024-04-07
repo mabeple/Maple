@@ -36,6 +36,7 @@ extension NSDirectionalEdgeInsets: Equatable {
 }
 #endif
 
+#if os(iOS) || os(tvOS) || os(watchOS) || os(macOS)
 extension NSDirectionalEdgeInsets: MabpleCompatibleValue { }
 
 // MARK: - Properties
@@ -194,3 +195,4 @@ public extension DirectionalEdgeInsets {
         lhs.trailing += rhs.trailing
     }
 }
+#endif
