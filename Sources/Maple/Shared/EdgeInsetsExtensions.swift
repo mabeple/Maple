@@ -47,24 +47,25 @@ public extension MabpleWrapper where Base == EdgeInsets {
     /// Return the vertical insets. The vertical insets is composed by top + bottom.
     ///
     var vertical: CGFloat {
-        // Source: https://github.com/MessageKit/MessageKit/blob/master/Sources/SwifterSwift/EdgeInsets%2BExtensions.swift
         return base.top + base.bottom
     }
     
     /// Return the horizontal insets. The horizontal insets is composed by  left + right.
     ///
     var horizontal: CGFloat {
-        // Source: https://github.com/MessageKit/MessageKit/blob/master/Sources/SwifterSwift/EdgeInsets%2BExtensions.swift
         return base.left + base.right
     }
-    
+}
+
+// MARK: - Methods
+public extension MabpleWrapper where Base == EdgeInsets {
     /// Creates an `EdgeInsets` based on current value and top offset.
     ///
     /// - Parameters:
     ///   - top: Offset to be applied in to the top edge.
     /// - Returns: EdgeInsets offset with given offset.
-    func insetBy(top: CGFloat) -> EdgeInsets {
-        return EdgeInsets(top: base.top + top, left: base.left, bottom: base.bottom, right: base.right)
+    func insetBy(top: CGFloat) -> Base {
+        return .init(top: base.top + top, left: base.left, bottom: base.bottom, right: base.right)
     }
     
     /// Creates an `EdgeInsets` based on current value and left offset.
@@ -72,8 +73,8 @@ public extension MabpleWrapper where Base == EdgeInsets {
     /// - Parameters:
     ///   - left: Offset to be applied in to the left edge.
     /// - Returns: EdgeInsets offset with given offset.
-    func insetBy(left: CGFloat) -> EdgeInsets {
-        return EdgeInsets(top: base.top, left: base.left + left, bottom: base.bottom, right: base.right)
+    func insetBy(left: CGFloat) -> Base {
+        return .init(top: base.top, left: base.left + left, bottom: base.bottom, right: base.right)
     }
     
     /// Creates an `EdgeInsets` based on current value and bottom offset.
@@ -81,8 +82,8 @@ public extension MabpleWrapper where Base == EdgeInsets {
     /// - Parameters:
     ///   - bottom: Offset to be applied in to the bottom edge.
     /// - Returns: EdgeInsets offset with given offset.
-    func insetBy(bottom: CGFloat) -> EdgeInsets {
-        return EdgeInsets(top: base.top, left: base.left, bottom: base.bottom + bottom, right: base.right)
+    func insetBy(bottom: CGFloat) -> Base {
+        return .init(top: base.top, left: base.left, bottom: base.bottom + bottom, right: base.right)
     }
     
     /// Creates an `EdgeInsets` based on current value and right offset.
@@ -90,8 +91,8 @@ public extension MabpleWrapper where Base == EdgeInsets {
     /// - Parameters:
     ///   - right: Offset to be applied in to the right edge.
     /// - Returns: EdgeInsets offset with given offset.
-    func insetBy(right: CGFloat) -> EdgeInsets {
-        return EdgeInsets(top: base.top, left: base.left, bottom: base.bottom, right: base.right + right)
+    func insetBy(right: CGFloat) -> Base {
+        return .init(top: base.top, left: base.left, bottom: base.bottom, right: base.right + right)
     }
     
     /// Creates an `EdgeInsets` based on current value and horizontal value equally divided and applied to right offset and left offset.
@@ -99,8 +100,8 @@ public extension MabpleWrapper where Base == EdgeInsets {
     /// - Parameters:
     ///   - horizontal: Offset to be applied to right and left.
     /// - Returns: EdgeInsets offset with given offset.
-    func insetBy(horizontal: CGFloat) -> EdgeInsets {
-        return EdgeInsets(top: base.top, left: base.left + horizontal / 2, bottom: base.bottom, right: base.right + horizontal / 2)
+    func insetBy(horizontal: CGFloat) -> Base {
+        return .init(top: base.top, left: base.left + horizontal / 2, bottom: base.bottom, right: base.right + horizontal / 2)
     }
     
     /// Creates an `EdgeInsets` based on current value and vertical value equally divided and applied to top and bottom.
@@ -108,12 +109,12 @@ public extension MabpleWrapper where Base == EdgeInsets {
     /// - Parameters:
     ///   - vertical: Offset to be applied to top and bottom.
     /// - Returns: EdgeInsets offset with given offset.
-    func insetBy(vertical: CGFloat) -> EdgeInsets {
-        return EdgeInsets(top: base.top + vertical / 2, left: base.left, bottom: base.bottom + vertical / 2, right: base.right)
+    func insetBy(vertical: CGFloat) -> Base {
+        return .init(top: base.top + vertical / 2, left: base.left, bottom: base.bottom + vertical / 2, right: base.right)
     }
 }
 
-// MARK: - Methods
+// MARK: - Initializers
 public extension EdgeInsets {
     /// Creates an `EdgeInsets` with the inset value applied to all (top, bottom, right, left)
     ///
