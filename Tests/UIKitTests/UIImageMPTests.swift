@@ -8,7 +8,33 @@
 
 import XCTest
 @testable import Maple
+
+#if canImport(UIKit) && !os(watchOS)
+import UIKit
+
 class UIImageMPTests: XCTestCase {
+    
+    func testAverageColor() {
+        let size = CGSize(width: 10, height: 5)
+
+        // simple fill test
+        XCTAssertEqual(UIColor.blue, UIImage(color: .blue, size: size).mp.averageColor()!, accuracy: 0.01)
+        XCTAssertEqual(UIColor.orange, UIImage(color: .orange, size: size).mp.averageColor()!, accuracy: 0.01)
+
+        // more interesting - red + green = yellow
+        let renderer = UIGraphicsImageRenderer(size: size)
+        let yellow = renderer.image {
+            var rect = CGRect(x: 0, y: 0, width: size.width / 2, height: size.height)
+            for color in [UIColor.red, UIColor.green] {
+                $0.cgContext.beginPath()
+                $0.cgContext.setFillColor(color.cgColor)
+                $0.cgContext.addRect(rect)
+                $0.cgContext.fillPath()
+                rect.origin.x += rect.size.width
+            }
+        }
+        XCTAssertEqual(UIColor(red: 0.5, green: 0.5, blue: 0, alpha: 1), yellow.mp.averageColor()!)
+    }
     
     func testBytesSize() {
         let bundle = Bundle(for: UIImageMPTests.self)
@@ -213,3 +239,4 @@ class UIImageMPTests: XCTestCase {
     }
     
 }
+#endif
