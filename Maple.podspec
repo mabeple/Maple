@@ -24,6 +24,7 @@ Pod::Spec.new do |s|
       sp.dependency 'Maple/Shared'
       sp.dependency 'Maple/Foundation'
       sp.dependency 'Maple/UIKit'
+      sp.dependency 'Maple/SwiftStdlib'
   end
   
   # Protocol
