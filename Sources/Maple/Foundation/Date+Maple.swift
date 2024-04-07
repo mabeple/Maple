@@ -15,7 +15,7 @@ public extension MabpleWrapper where Base == Date {
     
     /// User’s current calendar.
     var calendar: Calendar {
-        Calendar(identifier: Calendar.current.identifier) // Workaround to segfault on corelibs foundation https://bugs.swift.org/browse/SR-10147
+        Calendar.current
     }
     
     /// Era.
