@@ -95,5 +95,14 @@ final class URLMPTests: XCTestCase {
             XCTAssertEqual(url.mp.droppedScheme()?.absoluteString, expected, "input url: \(input)")
         }
     }
+    
+    #if os(iOS) || os(tvOS)
+    func testThumbnail() {
+        let videoUrl = Bundle(for: URLMPTests.self)
+            .url(forResource: "big_buck_bunny_720p_1mb", withExtension: "mp4")!
+        XCTAssertNotNil(videoUrl.mp.thumbnail())
+        XCTAssertNotNil(videoUrl.mp.thumbnail(fromTime: 1))
+    }
+    #endif
 }
 #endif

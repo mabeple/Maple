@@ -102,6 +102,7 @@
 		01E5F5CD2BC276CD0005D730 /* CGRect+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5F5CB2BC276CD0005D730 /* CGRect+Maple.swift */; };
 		01E5F5CF2BC277550005D730 /* CGRectMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5F5CE2BC277550005D730 /* CGRectMPTests.swift */; };
 		01E5F5D02BC277550005D730 /* CGRectMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5F5CE2BC277550005D730 /* CGRectMPTests.swift */; };
+		01E5F5D22BC27A230005D730 /* big_buck_bunny_720p_1mb.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 01E5F5D12BC27A230005D730 /* big_buck_bunny_720p_1mb.mp4 */; };
 		01FA2FA4263A8D2F002B932D /* Data+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA2FA3263A8D2F002B932D /* Data+Maple.swift */; };
 		01FA2FA5263A8D2F002B932D /* Data+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA2FA3263A8D2F002B932D /* Data+Maple.swift */; };
 		01FA2FA7263A9003002B932D /* DataMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA2FA6263A9003002B932D /* DataMPTests.swift */; };
@@ -199,6 +200,7 @@
 		01E5F5C82BC2764B0005D730 /* CGSizeMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeMPTests.swift; sourceTree = "<group>"; };
 		01E5F5CB2BC276CD0005D730 /* CGRect+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Maple.swift"; sourceTree = "<group>"; };
 		01E5F5CE2BC277550005D730 /* CGRectMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectMPTests.swift; sourceTree = "<group>"; };
+		01E5F5D12BC27A230005D730 /* big_buck_bunny_720p_1mb.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = big_buck_bunny_720p_1mb.mp4; sourceTree = "<group>"; };
 		01FA2FA3263A8D2F002B932D /* Data+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Maple.swift"; sourceTree = "<group>"; };
 		01FA2FA6263A9003002B932D /* DataMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMPTests.swift; sourceTree = "<group>"; };
 		01FA2FA9263A9605002B932D /* UIScrollView+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Maple.swift"; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 		01C91CF2290A22C300A53401 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				01E5F5D12BC27A230005D730 /* big_buck_bunny_720p_1mb.mp4 */,
 				01C91CF3290A22C300A53401 /* TestImage.png */,
 				01C91CF4290A22C300A53401 /* UICollectionViewCell.xib */,
 				01C91CF5290A22C300A53401 /* UITableViewCell.xib */,
@@ -661,6 +664,7 @@
 				01C91CF9290A22C300A53401 /* UITableViewCell.xib in Resources */,
 				01C91CF8290A22C300A53401 /* UICollectionViewCell.xib in Resources */,
 				01C91CF7290A22C300A53401 /* TestImage.png in Resources */,
+				01E5F5D22BC27A230005D730 /* big_buck_bunny_720p_1mb.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
