@@ -103,6 +103,10 @@
 		01E5F5CF2BC277550005D730 /* CGRectMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5F5CE2BC277550005D730 /* CGRectMPTests.swift */; };
 		01E5F5D02BC277550005D730 /* CGRectMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5F5CE2BC277550005D730 /* CGRectMPTests.swift */; };
 		01E5F5D22BC27A230005D730 /* big_buck_bunny_720p_1mb.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 01E5F5D12BC27A230005D730 /* big_buck_bunny_720p_1mb.mp4 */; };
+		01E5F5D42BC27AA20005D730 /* NSPredicate+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5F5D32BC27AA20005D730 /* NSPredicate+Maple.swift */; };
+		01E5F5D52BC27AA20005D730 /* NSPredicate+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5F5D32BC27AA20005D730 /* NSPredicate+Maple.swift */; };
+		01E5F5D72BC27B660005D730 /* NSPredicateMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5F5D62BC27B660005D730 /* NSPredicateMPTests.swift */; };
+		01E5F5D82BC27B660005D730 /* NSPredicateMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5F5D62BC27B660005D730 /* NSPredicateMPTests.swift */; };
 		01FA2FA4263A8D2F002B932D /* Data+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA2FA3263A8D2F002B932D /* Data+Maple.swift */; };
 		01FA2FA5263A8D2F002B932D /* Data+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA2FA3263A8D2F002B932D /* Data+Maple.swift */; };
 		01FA2FA7263A9003002B932D /* DataMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FA2FA6263A9003002B932D /* DataMPTests.swift */; };
@@ -201,6 +205,8 @@
 		01E5F5CB2BC276CD0005D730 /* CGRect+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Maple.swift"; sourceTree = "<group>"; };
 		01E5F5CE2BC277550005D730 /* CGRectMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectMPTests.swift; sourceTree = "<group>"; };
 		01E5F5D12BC27A230005D730 /* big_buck_bunny_720p_1mb.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = big_buck_bunny_720p_1mb.mp4; sourceTree = "<group>"; };
+		01E5F5D32BC27AA20005D730 /* NSPredicate+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPredicate+Maple.swift"; sourceTree = "<group>"; };
+		01E5F5D62BC27B660005D730 /* NSPredicateMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateMPTests.swift; sourceTree = "<group>"; };
 		01FA2FA3263A8D2F002B932D /* Data+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Maple.swift"; sourceTree = "<group>"; };
 		01FA2FA6263A9003002B932D /* DataMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMPTests.swift; sourceTree = "<group>"; };
 		01FA2FA9263A9605002B932D /* UIScrollView+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Maple.swift"; sourceTree = "<group>"; };
@@ -251,6 +257,7 @@
 				013DDE9E248206F40095E201 /* Date+Maple.swift */,
 				01FA2FA3263A8D2F002B932D /* Data+Maple.swift */,
 				01DD61E029C942F500792AE6 /* URL+Maple.swift */,
+				01E5F5D32BC27AA20005D730 /* NSPredicate+Maple.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -406,6 +413,7 @@
 				013DDEA7248240DC0095E201 /* StringMPTests.swift */,
 				01FA2FA6263A9003002B932D /* DataMPTests.swift */,
 				01DD61E329C946BC00792AE6 /* URLMPTests.swift */,
+				01E5F5D62BC27B660005D730 /* NSPredicateMPTests.swift */,
 			);
 			path = FoundationTests;
 			sourceTree = "<group>";
@@ -699,6 +707,7 @@
 				01E5F5B22BC24C3C0005D730 /* CaseIterableExtensions.swift in Sources */,
 				01DD61E129C942F500792AE6 /* URL+Maple.swift in Sources */,
 				013DDEAC248248050095E201 /* NibLoadable.swift in Sources */,
+				01E5F5D42BC27AA20005D730 /* NSPredicate+Maple.swift in Sources */,
 				0174DF7C2480F5A100258824 /* UIView+Maple.swift in Sources */,
 				01E5F5AC2BC241480005D730 /* DirectionalEdgeInsetsExtensions.swift in Sources */,
 				0174DF552480EF1300258824 /* Bundle+Maple.swift in Sources */,
@@ -739,6 +748,7 @@
 				013DDEA6248240160095E201 /* String+Maple.swift in Sources */,
 				013DDEA0248206F40095E201 /* Date+Maple.swift in Sources */,
 				013DDEBE248250240095E201 /* ColorExtensions.swift in Sources */,
+				01E5F5D52BC27AA20005D730 /* NSPredicate+Maple.swift in Sources */,
 				01E5F5CD2BC276CD0005D730 /* CGRect+Maple.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -768,6 +778,7 @@
 				01CEC2FE2481FFCE00CF21B9 /* UITableViewMPTests.swift in Sources */,
 				013DDEC0248254A60095E201 /* ColorExtensionsTests.swift in Sources */,
 				01FA2FAD263A985C002B932D /* UIScrollViewMPTests.swift in Sources */,
+				01E5F5D72BC27B660005D730 /* NSPredicateMPTests.swift in Sources */,
 				01DD61E629C946E000792AE6 /* URLMPTests.swift in Sources */,
 				01E5F5C92BC2764B0005D730 /* CGSizeMPTests.swift in Sources */,
 				01E5F5C32BC2736B0005D730 /* CGPointMPTests.swift in Sources */,
@@ -782,6 +793,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				013DDEC1248254A60095E201 /* ColorExtensionsTests.swift in Sources */,
+				01E5F5D82BC27B660005D730 /* NSPredicateMPTests.swift in Sources */,
 				01AD2D2529A5BDD8005C99C3 /* ArrayExtensionsTests.swift in Sources */,
 				01DD61F329C94E5200792AE6 /* DispatchMPTests.swift in Sources */,
 				013DDEBB24824E240095E201 /* EdgeInsetsExtensionsTests.swift in Sources */,
