@@ -11,7 +11,9 @@ import UIKit
 
 // MARK: - Properties
 public extension MabpleWrapper where Base: UIApplication {
-    
-
+    var safeAreaInsets: UIEdgeInsets {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return .zero }
+        return windowScene.windows.first?.safeAreaInsets ?? .zero
+    }
 }
 #endif
