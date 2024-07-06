@@ -432,7 +432,6 @@
 				013DDEB924824E240095E201 /* EdgeInsetsExtensionsTests.swift */,
 				013DDEBF248254A60095E201 /* ColorExtensionsTests.swift */,
 				01E5F5AE2BC246870005D730 /* DirectionalEdgeInsetsExtensionsTests.swift */,
-				01E5F5B42BC24DD00005D730 /* CaseIterableExtensionsTests.swift */,
 			);
 			path = SharedTests;
 			sourceTree = "<group>";
@@ -443,6 +442,7 @@
 				01AD2D1929A5BCBF005C99C3 /* OptionalExtensionsTests.swift */,
 				01AD2D2129A5BDBC005C99C3 /* ArrayExtensionsTests.swift */,
 				01AD2D2929A5C0D8005C99C3 /* DictionaryExtensionsTests.swift */,
+				01E5F5B42BC24DD00005D730 /* CaseIterableExtensionsTests.swift */,
 			);
 			path = SwiftStdlib;
 			sourceTree = "<group>";
