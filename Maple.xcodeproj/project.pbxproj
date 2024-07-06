@@ -48,6 +48,9 @@
 		0174DFCD2480FD6C00258824 /* UIViewMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0174DF7E2480F61600258824 /* UIViewMPTests.swift */; };
 		0174DFCF2480FDA900258824 /* UITextField+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0174DFCE2480FDA900258824 /* UITextField+Maple.swift */; };
 		0174DFD12481034F00258824 /* UITextFieldMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0174DFD02481034F00258824 /* UITextFieldMPTests.swift */; };
+		018F4A042C396FC1004B0418 /* UIApplication+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F4A032C396FC1004B0418 /* UIApplication+Maple.swift */; };
+		018F4A062C3970EE004B0418 /* UITextView+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F4A052C3970EE004B0418 /* UITextView+Maple.swift */; };
+		018F4A082C397186004B0418 /* UITextViewMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F4A072C397186004B0418 /* UITextViewMPTests.swift */; };
 		01AD2D1229A5BBB1005C99C3 /* OptionalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AD2D1129A5BBB1005C99C3 /* OptionalExtensions.swift */; };
 		01AD2D1329A5BBB1005C99C3 /* OptionalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AD2D1129A5BBB1005C99C3 /* OptionalExtensions.swift */; };
 		01AD2D1C29A5BCC8005C99C3 /* OptionalExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AD2D1929A5BCBF005C99C3 /* OptionalExtensionsTests.swift */; };
@@ -174,6 +177,9 @@
 		0174DFC22480FCC700258824 /* Maple-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Maple-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0174DFCE2480FDA900258824 /* UITextField+Maple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Maple.swift"; sourceTree = "<group>"; };
 		0174DFD02481034F00258824 /* UITextFieldMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldMPTests.swift; sourceTree = "<group>"; };
+		018F4A032C396FC1004B0418 /* UIApplication+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Maple.swift"; sourceTree = "<group>"; };
+		018F4A052C3970EE004B0418 /* UITextView+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Maple.swift"; sourceTree = "<group>"; };
+		018F4A072C397186004B0418 /* UITextViewMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewMPTests.swift; sourceTree = "<group>"; };
 		01AD2D1129A5BBB1005C99C3 /* OptionalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalExtensions.swift; sourceTree = "<group>"; };
 		01AD2D1929A5BCBF005C99C3 /* OptionalExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalExtensionsTests.swift; sourceTree = "<group>"; };
 		01AD2D1E29A5BD67005C99C3 /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
@@ -362,6 +368,7 @@
 			children = (
 				01CEC2FB2481FF0D00CF21B9 /* UITableView+Maple.swift */,
 				0174DFCE2480FDA900258824 /* UITextField+Maple.swift */,
+				018F4A052C3970EE004B0418 /* UITextView+Maple.swift */,
 				0174DF7B2480F5A100258824 /* UIView+Maple.swift */,
 				011A0050248740F900D18027 /* UICollectionView+Maple.swift */,
 				012C4BE125622D6D00A1A5AE /* UIImage+Maple.swift */,
@@ -371,6 +378,7 @@
 				01FA2FA9263A9605002B932D /* UIScrollView+Maple.swift */,
 				01FA2FAE263A999B002B932D /* UISwitch+Maple.swift */,
 				0136CD932B490514009C1CB7 /* UIStackView+Maple.swift */,
+				018F4A032C396FC1004B0418 /* UIApplication+Maple.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -400,6 +408,7 @@
 				01FA2FB0263A9A9A002B932D /* UISwitchMPTests.swift */,
 				0136CD952B49061F009C1CB7 /* UIStackViewMPTests.swift */,
 				01E5F5DC2BC28CAB0005D730 /* UIBarButtonItemMPTests.swift */,
+				018F4A072C397186004B0418 /* UITextViewMPTests.swift */,
 			);
 			path = UIKitTests;
 			sourceTree = "<group>";
@@ -699,6 +708,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				018F4A042C396FC1004B0418 /* UIApplication+Maple.swift in Sources */,
+				018F4A062C3970EE004B0418 /* UITextView+Maple.swift in Sources */,
 				012C4BE225622D6D00A1A5AE /* UIImage+Maple.swift in Sources */,
 				01FA2FA4263A8D2F002B932D /* Data+Maple.swift in Sources */,
 				0136CD942B490514009C1CB7 /* UIStackView+Maple.swift in Sources */,
@@ -783,6 +794,7 @@
 				01FA2FA7263A9003002B932D /* DataMPTests.swift in Sources */,
 				0174DFCD2480FD6C00258824 /* UIViewMPTests.swift in Sources */,
 				01AD2D2429A5BDD8005C99C3 /* ArrayExtensionsTests.swift in Sources */,
+				018F4A082C397186004B0418 /* UITextViewMPTests.swift in Sources */,
 				012C4C0A2562689900A1A5AE /* UIImageViewMPTests.swift in Sources */,
 				013DDEA22482075F0095E201 /* DateMPTests.swift in Sources */,
 				01CEC2FE2481FFCE00CF21B9 /* UITableViewMPTests.swift in Sources */,
