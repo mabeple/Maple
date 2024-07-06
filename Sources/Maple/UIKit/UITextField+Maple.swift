@@ -87,5 +87,27 @@ public extension MabpleWrapper where Base: UITextField {
         base.leftView?.frame.size = CGSize(width: image.size.width + padding, height: image.size.height)
         base.leftViewMode = .always
     }
+    
+    /// Add padding to the right of the textfield rect.
+    ///
+    /// - Parameter padding: amount of padding to apply to the right of the textfield rect.
+    func addPaddingRight(_ padding: CGFloat) {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: padding, height: base.frame.height))
+        base.rightView = paddingView
+        base.rightViewMode = .always
+    }
+    
+    /// Add padding to the right of the textfield rect.
+    ///
+    /// - Parameters:
+    ///   - image: right image
+    ///   - padding: amount of padding between icon and the right of textfield
+    func addPaddingRightIcon(_ image: UIImage, padding: CGFloat) {
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .center
+        base.rightView = imageView
+        base.rightView?.frame.size = CGSize(width: image.size.width + padding, height: image.size.height)
+        base.rightViewMode = .always
+    }
 }
 #endif

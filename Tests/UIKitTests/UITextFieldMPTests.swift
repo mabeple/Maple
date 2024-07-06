@@ -95,7 +95,7 @@ class UITextFieldMPTests: XCTestCase {
         XCTAssertEqual(textfield.leftView?.frame.width, 40)
     }
     
-    func testAddPaddingImageIcon() {
+    func testAddPaddingLeftIcon() {
         let textfield = UITextField()
         textfield.frame = CGRect(x: 0, y: 0, width: 100, height: 44)
 
@@ -103,5 +103,22 @@ class UITextFieldMPTests: XCTestCase {
         let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
         textfield.mp.addPaddingLeftIcon(image, padding: 5)
         XCTAssertEqual(textfield.leftView?.frame.width, image.size.width + 5)
+    }
+    
+    func testAddPaddingRight() {
+        let textfield = UITextField()
+        textfield.frame = CGRect(x: 0, y: 0, width: 100, height: 30)
+        textfield.mp.addPaddingRight(40)
+        XCTAssertEqual(textfield.rightView?.frame.width, 40)
+    }
+    
+    func testAddPaddingRightIcon() {
+        let textfield = UITextField()
+        textfield.frame = CGRect(x: 0, y: 0, width: 100, height: 44)
+
+        let bundle = Bundle.init(for: UITextFieldMPTests.self)
+        let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
+        textfield.mp.addPaddingRightIcon(image, padding: 5)
+        XCTAssertEqual(textfield.rightView?.frame.width, image.size.width + 5)
     }
 }
