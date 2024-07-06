@@ -39,6 +39,7 @@
 		013DDEC1248254A60095E201 /* ColorExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013DDEBF248254A60095E201 /* ColorExtensionsTests.swift */; };
 		013DDEC3248264FF0095E201 /* NSImage+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013DDEC2248264FF0095E201 /* NSImage+Maple.swift */; };
 		013DDEC52482653B0095E201 /* NSImageMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013DDEC42482653B0095E201 /* NSImageMPTests.swift */; };
+		01497E122BEA2F7C006F6174 /* Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01497E112BEA2F7C006F6174 /* Runtime.swift */; };
 		0174DF512480EDC800258824 /* Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0174DF502480EDC800258824 /* Maple.swift */; };
 		0174DF522480EDC800258824 /* Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0174DF502480EDC800258824 /* Maple.swift */; };
 		0174DF552480EF1300258824 /* Bundle+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0174DF542480EF1300258824 /* Bundle+Maple.swift */; };
@@ -165,6 +166,7 @@
 		013DDEBF248254A60095E201 /* ColorExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensionsTests.swift; sourceTree = "<group>"; };
 		013DDEC2248264FF0095E201 /* NSImage+Maple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Maple.swift"; sourceTree = "<group>"; };
 		013DDEC42482653B0095E201 /* NSImageMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImageMPTests.swift; sourceTree = "<group>"; };
+		01497E112BEA2F7C006F6174 /* Runtime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runtime.swift; sourceTree = "<group>"; };
 		0174DF0F2480EC1800258824 /* Maple.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Maple.h; sourceTree = "<group>"; };
 		0174DF102480EC1800258824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0174DF1C2480EC7D00258824 /* Maple.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Maple.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -295,6 +297,7 @@
 		013DDEC924826AC80095E201 /* Maple */ = {
 			isa = PBXGroup;
 			children = (
+				01497E102BEA2F6A006F6174 /* Runtime */,
 				013DDECA248270BB0095E201 /* General */,
 				013DDEB524824A4B0095E201 /* Shared */,
 				013DDEAA248247EA0095E201 /* Protocol */,
@@ -314,6 +317,14 @@
 				0174DF502480EDC800258824 /* Maple.swift */,
 			);
 			path = General;
+			sourceTree = "<group>";
+		};
+		01497E102BEA2F6A006F6174 /* Runtime */ = {
+			isa = PBXGroup;
+			children = (
+				01497E112BEA2F7C006F6174 /* Runtime.swift */,
+			);
+			path = Runtime;
 			sourceTree = "<group>";
 		};
 		0174DF022480EC1800258824 = {
@@ -722,6 +733,7 @@
 				01FA2FAA263A9605002B932D /* UIScrollView+Maple.swift in Sources */,
 				011A0051248740F900D18027 /* UICollectionView+Maple.swift in Sources */,
 				01AD2D1229A5BBB1005C99C3 /* OptionalExtensions.swift in Sources */,
+				01497E122BEA2F7C006F6174 /* Runtime.swift in Sources */,
 				01E5F5B92BC26C4A0005D730 /* CGFloat+Maple.swift in Sources */,
 				01E5F5B22BC24C3C0005D730 /* CaseIterableExtensions.swift in Sources */,
 				01DD61E129C942F500792AE6 /* URL+Maple.swift in Sources */,
