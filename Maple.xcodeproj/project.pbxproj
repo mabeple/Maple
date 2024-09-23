@@ -74,6 +74,10 @@
 		01CEC2FA2481F62100CF21B9 /* NSViewMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CEC2F92481F62100CF21B9 /* NSViewMPTests.swift */; };
 		01CEC2FC2481FF0D00CF21B9 /* UITableView+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CEC2FB2481FF0D00CF21B9 /* UITableView+Maple.swift */; };
 		01CEC2FE2481FFCE00CF21B9 /* UITableViewMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CEC2FD2481FFCE00CF21B9 /* UITableViewMPTests.swift */; };
+		01D91D222CA161A80051DD9C /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D91D212CA161A80051DD9C /* CollectionExtensions.swift */; };
+		01D91D232CA161A80051DD9C /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D91D212CA161A80051DD9C /* CollectionExtensions.swift */; };
+		01D91D252CA163180051DD9C /* CollectionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D91D242CA163180051DD9C /* CollectionExtensionsTests.swift */; };
+		01D91D262CA163180051DD9C /* CollectionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D91D242CA163180051DD9C /* CollectionExtensionsTests.swift */; };
 		01DD61E129C942F500792AE6 /* URL+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DD61E029C942F500792AE6 /* URL+Maple.swift */; };
 		01DD61E229C942F500792AE6 /* URL+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DD61E029C942F500792AE6 /* URL+Maple.swift */; };
 		01DD61E629C946E000792AE6 /* URLMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DD61E329C946BC00792AE6 /* URLMPTests.swift */; };
@@ -199,6 +203,8 @@
 		01CEC2F92481F62100CF21B9 /* NSViewMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewMPTests.swift; sourceTree = "<group>"; };
 		01CEC2FB2481FF0D00CF21B9 /* UITableView+Maple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Maple.swift"; sourceTree = "<group>"; };
 		01CEC2FD2481FFCE00CF21B9 /* UITableViewMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewMPTests.swift; sourceTree = "<group>"; };
+		01D91D212CA161A80051DD9C /* CollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
+		01D91D242CA163180051DD9C /* CollectionExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtensionsTests.swift; sourceTree = "<group>"; };
 		01DCC287283398A800EABDE3 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		01DD61E029C942F500792AE6 /* URL+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Maple.swift"; sourceTree = "<group>"; };
 		01DD61E329C946BC00792AE6 /* URLMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMPTests.swift; sourceTree = "<group>"; };
@@ -399,6 +405,7 @@
 			children = (
 				01AD2D1129A5BBB1005C99C3 /* OptionalExtensions.swift */,
 				01AD2D1E29A5BD67005C99C3 /* ArrayExtensions.swift */,
+				01D91D212CA161A80051DD9C /* CollectionExtensions.swift */,
 				01AD2D2629A5C010005C99C3 /* DictionaryExtensions.swift */,
 				01E5F5B12BC24C3C0005D730 /* CaseIterableExtensions.swift */,
 			);
@@ -463,6 +470,7 @@
 				01AD2D2129A5BDBC005C99C3 /* ArrayExtensionsTests.swift */,
 				01AD2D2929A5C0D8005C99C3 /* DictionaryExtensionsTests.swift */,
 				01E5F5B42BC24DD00005D730 /* CaseIterableExtensionsTests.swift */,
+				01D91D242CA163180051DD9C /* CollectionExtensionsTests.swift */,
 			);
 			path = SwiftStdlib;
 			sourceTree = "<group>";
@@ -734,6 +742,7 @@
 				011A0051248740F900D18027 /* UICollectionView+Maple.swift in Sources */,
 				01AD2D1229A5BBB1005C99C3 /* OptionalExtensions.swift in Sources */,
 				01497E122BEA2F7C006F6174 /* Runtime.swift in Sources */,
+				01D91D222CA161A80051DD9C /* CollectionExtensions.swift in Sources */,
 				01E5F5B92BC26C4A0005D730 /* CGFloat+Maple.swift in Sources */,
 				01E5F5B22BC24C3C0005D730 /* CaseIterableExtensions.swift in Sources */,
 				01DD61E129C942F500792AE6 /* URL+Maple.swift in Sources */,
@@ -761,6 +770,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0174DF522480EDC800258824 /* Maple.swift in Sources */,
+				01D91D232CA161A80051DD9C /* CollectionExtensions.swift in Sources */,
 				01E5F5B32BC24C3C0005D730 /* CaseIterableExtensions.swift in Sources */,
 				01E5F5BA2BC26C4A0005D730 /* CGFloat+Maple.swift in Sources */,
 				01FA2FA5263A8D2F002B932D /* Data+Maple.swift in Sources */,
@@ -808,6 +818,7 @@
 				01AD2D2429A5BDD8005C99C3 /* ArrayExtensionsTests.swift in Sources */,
 				018F4A082C397186004B0418 /* UITextViewMPTests.swift in Sources */,
 				012C4C0A2562689900A1A5AE /* UIImageViewMPTests.swift in Sources */,
+				01D91D262CA163180051DD9C /* CollectionExtensionsTests.swift in Sources */,
 				013DDEA22482075F0095E201 /* DateMPTests.swift in Sources */,
 				01CEC2FE2481FFCE00CF21B9 /* UITableViewMPTests.swift in Sources */,
 				013DDEC0248254A60095E201 /* ColorExtensionsTests.swift in Sources */,
@@ -844,6 +855,7 @@
 				013DDEC52482653B0095E201 /* NSImageMPTests.swift in Sources */,
 				01E5F5B02BC246870005D730 /* DirectionalEdgeInsetsExtensionsTests.swift in Sources */,
 				01FA2FA8263A9003002B932D /* DataMPTests.swift in Sources */,
+				01D91D252CA163180051DD9C /* CollectionExtensionsTests.swift in Sources */,
 				01AD2D1D29A5BCC9005C99C3 /* OptionalExtensionsTests.swift in Sources */,
 				01DD61E729C946E000792AE6 /* URLMPTests.swift in Sources */,
 				011A004F24873C6400D18027 /* BundleMPTests.swift in Sources */,
