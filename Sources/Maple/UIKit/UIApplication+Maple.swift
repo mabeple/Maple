@@ -9,6 +9,7 @@
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
+
 // MARK: - Properties
 public extension MabpleWrapper where Base: UIApplication {
     var safeAreaInsets: UIEdgeInsets {
@@ -29,7 +30,12 @@ public extension MabpleWrapper where Base: UIApplication {
         /// Application is installed from the App Store.
         case appStore
     }
-
+    
+    // Environment allCases
+    var allEnvironments: [Environment] {
+        Environment.allCases
+    }
+    
     /// Current inferred app environment.
     var environment: Environment {
         #if DEBUG
