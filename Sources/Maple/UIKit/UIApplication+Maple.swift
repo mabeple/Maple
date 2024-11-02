@@ -15,5 +15,48 @@ public extension MabpleWrapper where Base: UIApplication {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return .zero }
         return windowScene.windows.first?.safeAreaInsets ?? .zero
     }
+    
+    /// Application running environment.
+    ///
+    /// - debug: Application is running in debug mode.
+    /// - testFlight: Application is installed from Test Flight.
+    /// - appStore: Application is installed from the App Store.
+    enum Environment: CaseIterable {
+        /// Application is running in debug mode.
+        case debug
+        /// Application is installed from Test Flight.
+        case testFlight
+        /// Application is installed from the App Store.
+        case appStore
+    }
+
+    /// Current inferred app environment.
+    var environment: Environment {
+        #if DEBUG
+        return .debug
+
+        #elseif targetEnvironment(simulator)
+        return .debug
+
+        #else
+        if Bundle.main.path(forResource: "embedded", ofType: "mobileprovision") != nil {
+            return .testFlight
+        }
+
+        guard let appStoreReceiptUrl = Bundle.main.appStoreReceiptURL else {
+            return .debug
+        }
+
+        if appStoreReceiptUrl.lastPathComponent.lowercased() == "sandboxreceipt" {
+            return .testFlight
+        }
+
+        if appStoreReceiptUrl.path.lowercased().contains("simulator") {
+            return .debug
+        }
+
+        return .appStore
+        #endif
+    }
 }
 #endif

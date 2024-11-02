@@ -76,11 +76,12 @@ public extension MabpleWrapper where Base == MPCrossPlatformColor {
     
     /// Hexadecimal value string (read-only).
     var hexString: String {
-        let components = base.cgColor.components!
-        let hexString = components[0..<3]
-            .map { String(format: "%02lX", lroundf(Float($0 * 255))) }
-            .reduce("#", +)
-        return hexString
+        let components: [Int] = {
+            let comps = base.cgColor.components!.map { Int($0 * 255.0) }
+            guard comps.count != 4 else { return comps }
+            return [comps[0], comps[0], comps[0], comps[1]]
+        }()
+        return String(format: "#%02X%02X%02X", components[0], components[1], components[2])
     }
     
     /// Short hexadecimal value string (read-only, if applicable).
