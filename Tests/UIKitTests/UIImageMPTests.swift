@@ -155,7 +155,7 @@ class UIImageMPTests: XCTestCase {
         
         let scaledImage = image.mp.scaled(toHeight: 300)
         XCTAssertNotNil(scaledImage)
-        XCTAssertEqual(scaledImage!.size.height, 300, accuracy: 0.1)
+        XCTAssertEqual(scaledImage.size.height, 300, accuracy: 0.1)
     }
     
     func testScaledToWidth() {
@@ -164,7 +164,7 @@ class UIImageMPTests: XCTestCase {
         
         let scaledImage = image.mp.scaled(toWidth: 300)
         XCTAssertNotNil(scaledImage)
-        XCTAssertEqual(scaledImage!.size.width, 300, accuracy: 0.1)
+        XCTAssertEqual(scaledImage.size.width, 300, accuracy: 0.1)
     }
     
     func testRotatedByRadians() {
@@ -173,12 +173,12 @@ class UIImageMPTests: XCTestCase {
         
         let halfRotatedImage = image.mp.rotated(by: .pi / 2)
         XCTAssertNotNil(halfRotatedImage)
-        XCTAssertEqual(halfRotatedImage!.size, CGSize(width: image.size.height, height: image.size.width))
+        XCTAssertEqual(halfRotatedImage.size, CGSize(width: image.size.height, height: image.size.width))
         
         let rotatedImage = image.mp.rotated(by: .pi)
         XCTAssertNotNil(rotatedImage)
-        XCTAssertEqual(rotatedImage!.size, image.size)
-        XCTAssertNotEqual(image.jpegData(compressionQuality: 1), rotatedImage!.jpegData(compressionQuality: 1))
+        XCTAssertEqual(rotatedImage.size, image.size)
+        XCTAssertNotEqual(image.jpegData(compressionQuality: 1), rotatedImage.jpegData(compressionQuality: 1))
     }
     
     func testFilled() {
