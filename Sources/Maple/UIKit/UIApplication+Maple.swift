@@ -9,12 +9,21 @@
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
+extension UIApplication: MabpleCompatible { }
 
 // MARK: - Properties
 public extension MabpleWrapper where Base: UIApplication {
+    
+    /// Get the inner margin of the safe area of the device
     var safeAreaInsets: UIEdgeInsets {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return .zero }
         return windowScene.windows.first?.safeAreaInsets ?? .zero
+    }
+    
+    /// Get the size of the device status bar (CGRect)
+    var statusBarFrame: CGRect {
+        guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return .zero }
+        return scene.statusBarManager?.statusBarFrame ?? .zero
     }
     
     /// Application running environment.
