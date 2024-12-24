@@ -100,52 +100,36 @@ public extension MabpleWrapper where Base == UIImage {
     ///
     /// - Parameters:
     ///   - toHeight: new height.
-    ///   - opaque: flag indicating whether the bitmap is opaque.
-    /// - Returns: optional scaled UIImage (if applicable).
-    func scaled(toHeight: CGFloat, opaque: Bool = false) -> UIImage? {
+    /// - Returns: scaled UIImage.
+    func scaled(toHeight: CGFloat) -> UIImage {
         let scale = toHeight / base.size.height
         let newWidth = base.size.width * scale
         let size = CGSize(width: newWidth, height: toHeight)
         let rect = CGRect(origin: .zero, size: size)
 
-        #if os(watchOS)
-        UIGraphicsBeginImageContextWithOptions(size, opaque, base.scale)
-        defer { UIGraphicsEndImageContext() }
-        draw(in: rect)
-        return UIGraphicsGetImageFromCurrentImageContext()
-        #else
         let format = UIGraphicsImageRendererFormat()
         format.scale = base.scale
         return UIGraphicsImageRenderer(size: size, format: format).image { _ in
             base.draw(in: rect)
         }
-        #endif
     }
     
     /// UIImage scaled to width with respect to aspect ratio.
     ///
     /// - Parameters:
     ///   - toWidth: new width.
-    ///   - opaque: flag indicating whether the bitmap is opaque.
-    /// - Returns: optional scaled UIImage (if applicable).
-    func scaled(toWidth: CGFloat, opaque: Bool = false) -> UIImage? {
+    /// - Returns: scaled UIImage.
+    func scaled(toWidth: CGFloat) -> UIImage {
         let scale = toWidth / base.size.width
         let newHeight = base.size.height * scale
         let size = CGSize(width: toWidth, height: newHeight)
         let rect = CGRect(origin: .zero, size: size)
 
-        #if os(watchOS)
-        UIGraphicsBeginImageContextWithOptions(size, opaque, base.scale)
-        defer { UIGraphicsEndImageContext() }
-        draw(in: rect)
-        return UIGraphicsGetImageFromCurrentImageContext()
-        #else
         let format = UIGraphicsImageRendererFormat()
         format.scale = base.scale
         return UIGraphicsImageRenderer(size: size, format: format).image { _ in
             base.draw(in: rect)
         }
-        #endif
     }
     
     /// Creates a copy of the receiver rotated by the given angle (in radians).
@@ -155,7 +139,7 @@ public extension MabpleWrapper where Base == UIImage {
     ///
     /// - Parameter radians: The angle, in radians, by which to rotate the image.
     /// - Returns: A new image rotated by the given angle.
-    func rotated(by radians: CGFloat) -> UIImage? {
+    func rotated(by radians: CGFloat) -> UIImage {
         let destRect = CGRect(origin: .zero, size: base.size)
             .applying(CGAffineTransform(rotationAngle: radians))
         let roundedDestRect = CGRect(x: destRect.origin.x.rounded(),
@@ -171,20 +155,11 @@ public extension MabpleWrapper where Base == UIImage {
                                                  y: -base.size.height / 2),
                                  size: base.size))
         }
-
-        #if os(watchOS)
-        UIGraphicsBeginImageContextWithOptions(roundedDestRect.size, false, base.scale)
-        defer { UIGraphicsEndImageContext() }
-        guard let contextRef = UIGraphicsGetCurrentContext() else { return nil }
-        actions(contextRef)
-        return UIGraphicsGetImageFromCurrentImageContext()
-        #else
         let format = UIGraphicsImageRendererFormat()
         format.scale = base.scale
         return UIGraphicsImageRenderer(size: roundedDestRect.size, format: format).image {
             actions($0.cgContext)
         }
-        #endif
     }
     
     /// UIImage filled with color
@@ -192,23 +167,6 @@ public extension MabpleWrapper where Base == UIImage {
     /// - Parameter color: color to fill image with.
     /// - Returns: UIImage filled with given color.
     func filled(withColor color: UIColor) -> UIImage {
-        #if os(watchOS)
-        UIGraphicsBeginImageContextWithOptions(base.size, false, base.scale)
-        defer { UIGraphicsEndImageContext() }
-        color.setFill()
-        guard let context = UIGraphicsGetCurrentContext() else { return self }
-        
-        context.translateBy(x: 0, y: base.size.height)
-        context.scaleBy(x: 1.0, y: -1.0)
-        context.setBlendMode(CGBlendMode.normal)
-        
-        let rect = CGRect(x: 0, y: 0, width: base.size.width, height: base.size.height)
-        guard let mask = cgImage else { return self }
-        context.clip(to: rect, mask: mask)
-        context.fill(rect)
-        
-        return UIGraphicsGetImageFromCurrentImageContext()!
-        #else
         let format = UIGraphicsImageRendererFormat()
         format.scale = base.scale
         let renderer = UIGraphicsImageRenderer(size: base.size, format: format)
@@ -216,7 +174,6 @@ public extension MabpleWrapper where Base == UIImage {
             color.setFill()
             context.fill(CGRect(origin: .zero, size: base.size))
         }
-        #endif
     }
     
     /// UIImage tinted with color
@@ -227,16 +184,6 @@ public extension MabpleWrapper where Base == UIImage {
     /// - Returns: UIImage tinted with given color.
     func tint(_ color: UIColor, blendMode: CGBlendMode, alpha: CGFloat = 1.0) -> UIImage {
         let drawRect = CGRect(origin: .zero, size: base.size)
-
-        #if os(watchOS)
-        UIGraphicsBeginImageContextWithOptions(base.size, false, base.scale)
-        defer { UIGraphicsEndImageContext() }
-        let context = UIGraphicsGetCurrentContext()
-        color.setFill()
-        context?.fill(drawRect)
-        draw(in: drawRect, blendMode: blendMode, alpha: alpha)
-        return UIGraphicsGetImageFromCurrentImageContext()!
-        #else
         let format = UIGraphicsImageRendererFormat()
         format.scale = base.scale
         return UIGraphicsImageRenderer(size: base.size, format: format).image { context in
@@ -244,7 +191,6 @@ public extension MabpleWrapper where Base == UIImage {
             context.fill(drawRect)
             base.draw(in: drawRect, blendMode: blendMode, alpha: alpha)
         }
-        #endif
     }
 
     /// UImage with background color
@@ -253,16 +199,6 @@ public extension MabpleWrapper where Base == UIImage {
     ///   - backgroundColor: Color to use as background color
     /// - Returns: UIImage with a background color that is visible where alpha < 1
     func withBackgroundColor(_ backgroundColor: UIColor) -> UIImage {
-        #if os(watchOS)
-        UIGraphicsBeginImageContextWithOptions(base.size, false, base.scale)
-        defer { UIGraphicsEndImageContext() }
-        
-        backgroundColor.setFill()
-        UIRectFill(CGRect(origin: .zero, size: base.size))
-        draw(at: .zero)
-        
-        return UIGraphicsGetImageFromCurrentImageContext()!
-        #else
         let format = UIGraphicsImageRendererFormat()
         format.scale = base.scale
         return UIGraphicsImageRenderer(size: base.size, format: format).image { context in
@@ -270,7 +206,6 @@ public extension MabpleWrapper where Base == UIImage {
             context.fill(context.format.bounds)
             base.draw(at: .zero)
         }
-        #endif
     }
 
     /// UIImage with rounded corners
@@ -292,19 +227,11 @@ public extension MabpleWrapper where Base == UIImage {
             UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).addClip()
             base.draw(in: rect)
         }
-
-        #if os(watchOS)
-        UIGraphicsBeginImageContextWithOptions(base.size, false, base.scale)
-        defer { UIGraphicsEndImageContext() }
-        actions()
-        return UIGraphicsGetImageFromCurrentImageContext()
-        #else
         let format = UIGraphicsImageRendererFormat()
         format.scale = base.scale
         return UIGraphicsImageRenderer(size: base.size, format: format).image { _ in
             actions()
         }
-        #endif
     }
     
     /// PNG data of the image.
@@ -349,20 +276,6 @@ public extension UIImage {
     ///   - color: image fill color.
     ///   - size: image size.
     convenience init(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
-        #if os(watchOS)
-        UIGraphicsBeginImageContextWithOptions(size, false, 1)
-        defer { UIGraphicsEndImageContext() }
-
-        color.setFill()
-        UIRectFill(CGRect(origin: .zero, size: size))
-
-        guard let aCgImage = UIGraphicsGetImageFromCurrentImageContext()?.cgImage else {
-            self.init()
-            return
-        }
-
-        self.init(cgImage: aCgImage)
-        #else
         let format = UIGraphicsImageRendererFormat()
         format.scale = 1
         guard let image = UIGraphicsImageRenderer(size: size, format: format).image(actions: { context in
@@ -373,7 +286,6 @@ public extension UIImage {
             return
         }
         self.init(cgImage: image)
-        #endif
     }
     
     /// Create a new image from a base 64 string.
