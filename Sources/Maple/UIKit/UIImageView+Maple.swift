@@ -10,7 +10,8 @@
 import UIKit
 
 // MARK: - Methods
-public extension MabpleWrapper where Base: UIImageView {
+@MainActor
+public extension MapleWrapper where Base: UIImageView {
     
     /// Make image view blurry
     ///

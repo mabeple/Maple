@@ -9,11 +9,11 @@
 #if canImport(CoreGraphics)
 import CoreGraphics
 
-extension CGSize: MabpleCompatibleValue { }
+extension CGSize: MapleCompatibleValue { }
 
 // MARK: - Methods
 
-public extension MabpleWrapper where Base == CGSize {
+public extension MapleWrapper where Base == CGSize {
     /// Returns the aspect ratio.
     var aspectRatio: CGFloat {
         guard base.height != 0 else { return 0 }
@@ -33,7 +33,7 @@ public extension MabpleWrapper where Base == CGSize {
 
 // MARK: - Methods
 
-public extension MabpleWrapper where Base == CGSize {
+public extension MapleWrapper where Base == CGSize {
     /// Aspect fit CGSize.
     ///
     ///     let rect = CGSize(width: 120, height: 80)

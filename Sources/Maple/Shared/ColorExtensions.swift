@@ -22,10 +22,10 @@ public typealias MPCrossPlatformColor = NSColor
 import CoreImage
 #endif
 
-extension MPCrossPlatformColor: MabpleCompatibleValue { }
+extension MPCrossPlatformColor: MapleCompatibleValue { }
 
 // MARK: - Properties
-public extension MabpleWrapper where Base == MPCrossPlatformColor {
+public extension MapleWrapper where Base == MPCrossPlatformColor {
     
     /// RGB components for a Color (between 0 and 255).
     ///

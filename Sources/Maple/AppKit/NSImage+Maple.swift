@@ -8,10 +8,10 @@
 
 #if canImport(AppKit) && !targetEnvironment(macCatalyst)
 import AppKit
-extension NSImage: MabpleCompatible { }
+extension NSImage: MapleCompatible { }
 
 // MARK: - Methods
-public extension MabpleWrapper where Base == NSImage {
+public extension MapleWrapper where Base == NSImage {
     
     // NSImage scaled to maximum size with respect to aspect ratio
     ///

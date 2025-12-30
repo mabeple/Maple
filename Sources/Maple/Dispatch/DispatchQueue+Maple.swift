@@ -39,8 +39,8 @@ public extension DispatchQueue {
 }
 
 // MARK: - Methods
-extension DispatchQueue: MabpleCompatible { }
-public extension MabpleWrapper where Base: DispatchQueue {
+extension DispatchQueue: MapleCompatible { }
+public extension MapleWrapper where Base: DispatchQueue {
     /// Runs passed closure asynchronous after certain time interval.
     ///
     /// - Parameters:

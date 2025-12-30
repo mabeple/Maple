@@ -8,10 +8,10 @@
 
 #if canImport(Foundation)
 import Foundation
-extension Data: MabpleCompatibleValue { }
+extension Data: MapleCompatibleValue { }
 
 // MARK: - Properties
-public extension MabpleWrapper where Base == Data {
+public extension MapleWrapper where Base == Data {
     
     /// Return data as an array of bytes.
     var bytes: [UInt8] {
@@ -21,7 +21,7 @@ public extension MabpleWrapper where Base == Data {
 }
 
 // MARK: - Methods
-public extension MabpleWrapper where Base == Data {
+public extension MapleWrapper where Base == Data {
     
     /// String by encoding Data using the given encoding (if applicable).
     ///

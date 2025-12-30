@@ -9,11 +9,11 @@
 #if canImport(Foundation)
 import Foundation
 
-extension Calendar: MabpleCompatibleValue { }
+extension Calendar: MapleCompatibleValue { }
 
 // MARK: - Methods
 
-public extension MabpleWrapper where Base == Calendar {
+public extension MapleWrapper where Base == Calendar {
     /// Return the number of days in the month for a specified 'Date'.
     ///
     ///        let date = Date() // "Jan 12, 2017, 7:07 PM"

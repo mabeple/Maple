@@ -10,6 +10,21 @@
 import Foundation
 #endif
 
+// MARK: - Properties
+public extension Optional {
+    /// Check if optional is nil.
+    ///
+    ///        let foo: String? = nil
+    ///        foo.isNil -> true
+    ///
+    ///        let bar: String? = "bar"
+    ///        bar.isNil -> false
+    ///
+    var isNil: Bool {
+        return self == nil
+    }
+}
+
 // MARK: - Methods
 public extension Optional {
     /// Get self of default value (if self is nil).

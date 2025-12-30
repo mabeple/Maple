@@ -37,10 +37,10 @@ extension NSDirectionalEdgeInsets: Equatable {
 #endif
 
 #if os(iOS) || os(tvOS) || os(watchOS) || os(macOS)
-extension NSDirectionalEdgeInsets: MabpleCompatibleValue { }
+extension NSDirectionalEdgeInsets: MapleCompatibleValue { }
 
 // MARK: - Properties
-public extension MabpleWrapper where Base == DirectionalEdgeInsets {
+public extension MapleWrapper where Base == DirectionalEdgeInsets {
     /// Return the vertical insets. The vertical insets is composed by top + bottom.
     ///
     var vertical: CGFloat {
@@ -55,7 +55,7 @@ public extension MabpleWrapper where Base == DirectionalEdgeInsets {
 }
 
 // MARK: - Methods
-public extension MabpleWrapper where Base == DirectionalEdgeInsets {
+public extension MapleWrapper where Base == DirectionalEdgeInsets {
     /// Creates an `EdgeInsets` based on current value and top offset.
     ///
     /// - Parameters:

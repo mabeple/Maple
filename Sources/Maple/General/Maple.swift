@@ -6,27 +6,27 @@
 //  Copyright © 2020 cy. All rights reserved.
 //
 
-public struct MabpleWrapper<Base> {
+public struct MapleWrapper<Base>: @unchecked Sendable {
     public let base: Base
     public init(_ base: Base) {
         self.base = base
     }
 }
 
-public protocol MabpleCompatible: AnyObject { }
+public protocol MapleCompatible: AnyObject { }
 
-public protocol MabpleCompatibleValue { }
-
-extension MabpleCompatible {
-    public var mp: MabpleWrapper<Self> {
-        get { MabpleWrapper(self) }
+extension MapleCompatible {
+    public var mp: MapleWrapper<Self> {
+        get { MapleWrapper(self) }
         set { }
     }
 }
 
-extension MabpleCompatibleValue {
-    public var mp: MabpleWrapper<Self> {
-        get { MabpleWrapper(self) }
+public protocol MapleCompatibleValue { }
+
+extension MapleCompatibleValue {
+    public var mp: MapleWrapper<Self> {
+        get { MapleWrapper(self) }
         set { }
     }
 }

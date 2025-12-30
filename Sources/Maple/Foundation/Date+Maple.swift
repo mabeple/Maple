@@ -8,10 +8,10 @@
 
 #if canImport(Foundation)
 import Foundation
-extension Date: MabpleCompatibleValue { }
+extension Date: MapleCompatibleValue { }
 
 // MARK: - Properties
-public extension MabpleWrapper where Base == Date {
+public extension MapleWrapper where Base == Date {
     
     /// User’s current calendar.
     var calendar: Calendar {
@@ -241,7 +241,7 @@ public extension MabpleWrapper where Base == Date {
 }
 
 // MARK: - Methods
-public extension MabpleWrapper where Base == Date {
+public extension MapleWrapper where Base == Date {
     
     /// Date by adding multiples of calendar component.
     /// Quarter is specially

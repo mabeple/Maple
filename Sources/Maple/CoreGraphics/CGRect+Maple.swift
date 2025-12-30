@@ -9,11 +9,11 @@
 #if canImport(CoreGraphics)
 import CoreGraphics
 
-extension CGRect: MabpleCompatibleValue { }
+extension CGRect: MapleCompatibleValue { }
 
 // MARK: - Methods
 
-public extension MabpleWrapper where Base == CGRect {
+public extension MapleWrapper where Base == CGRect {
     /// Return center of rect.
     var center: CGPoint {
         CGPoint(x: base.midX, y: base.midY)

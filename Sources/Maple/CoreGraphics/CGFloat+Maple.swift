@@ -13,11 +13,11 @@ import CoreGraphics
 import Foundation
 #endif
 
-extension CGFloat: MabpleCompatibleValue { }
+extension CGFloat: MapleCompatibleValue { }
 
 // MARK: - Properties
 
-public extension MabpleWrapper where Base == CGFloat {
+public extension MapleWrapper where Base == CGFloat {
     /// Absolute of CGFloat value.
     var abs: CGFloat {
         return Swift.abs(base)

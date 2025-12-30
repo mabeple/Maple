@@ -9,11 +9,11 @@
 #if canImport(Foundation)
 import Foundation
 
-extension NSPredicate: MabpleCompatible { }
+extension NSPredicate: MapleCompatible { }
 
 // MARK: - Properties
 
-public extension MabpleWrapper where Base: NSPredicate {
+public extension MapleWrapper where Base: NSPredicate {
     /// Returns a new predicate formed by NOT-ing the predicate.
     var not: NSCompoundPredicate {
         return NSCompoundPredicate(notPredicateWithSubpredicate: base)
@@ -22,7 +22,7 @@ public extension MabpleWrapper where Base: NSPredicate {
 
 // MARK: - Methods
 
-public extension MabpleWrapper where Base: NSPredicate {
+public extension MapleWrapper where Base: NSPredicate {
     /// Returns a new predicate formed by AND-ing the argument to the predicate.
     ///
     /// - Parameter predicate: NSPredicate.

@@ -8,10 +8,11 @@
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
-extension UIImage: MabpleCompatible { }
+extension UIImage: MapleCompatible { }
 
 // MARK: - Properties
-public extension MabpleWrapper where Base == UIImage {
+@MainActor
+public extension MapleWrapper where Base == UIImage {
     
     /// Size in bytes of UIImage
     var bytesSize: Int {
@@ -35,7 +36,8 @@ public extension MabpleWrapper where Base == UIImage {
 }
 
 // MARK: - Methods
-public extension MabpleWrapper where Base == UIImage {
+@MainActor
+public extension MapleWrapper where Base == UIImage {
     
     #if canImport(CoreImage)
     /// Average color for this image.

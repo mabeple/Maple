@@ -10,7 +10,8 @@
 import UIKit
 
 // MARK: - Methods
-public extension MabpleWrapper where Base: UISwitch {
+@MainActor
+public extension MapleWrapper where Base: UISwitch {
     /// Toggle a UISwitch.
     ///
     /// - Parameter animated: set true to animate the change (default is true).

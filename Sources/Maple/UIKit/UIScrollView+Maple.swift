@@ -10,7 +10,8 @@
 import UIKit
 
 // MARK: - Properties
-public extension MabpleWrapper where Base: UIScrollView {
+@MainActor
+public extension MapleWrapper where Base: UIScrollView {
     
     /// Takes a snapshot of an entire ScrollView.
     ///
@@ -42,7 +43,8 @@ public extension MabpleWrapper where Base: UIScrollView {
 }
 
 // MARK: - Methods
-public extension MabpleWrapper where Base: UIScrollView {
+@MainActor
+public extension MapleWrapper where Base: UIScrollView {
     
     /// Scroll to the top-most content offset.
     /// - Parameter animated: `true` to animate the transition at a constant velocity to the new offset, `false` to make the transition immediate.

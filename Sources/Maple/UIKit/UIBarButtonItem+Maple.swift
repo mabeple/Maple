@@ -9,11 +9,11 @@
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-extension UIBarButtonItem: MabpleCompatible { }
+extension UIBarButtonItem: MapleCompatible { }
 
 // MARK: - Methods
-
-public extension MabpleWrapper where Base: UIBarButtonItem {
+@MainActor
+public extension MapleWrapper where Base: UIBarButtonItem {
     /// Add Target to UIBarButtonItem.
     ///
     /// - Parameters:
@@ -26,7 +26,7 @@ public extension MabpleWrapper where Base: UIBarButtonItem {
 }
 
 // MARK: - Extensions
-
+@MainActor
 public extension UIBarButtonItem {
     /// Creates a flexible space UIBarButtonItem.
     static var flexibleSpace: UIBarButtonItem {

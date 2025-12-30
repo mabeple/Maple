@@ -9,11 +9,11 @@
 #if canImport(CoreGraphics)
 import CoreGraphics
 
-extension CGPoint: MabpleCompatibleValue { }
+extension CGPoint: MapleCompatibleValue { }
 
 // MARK: - Methods
 
-public extension MabpleWrapper where Base == CGPoint {
+public extension MapleWrapper where Base == CGPoint {
     /// Distance from another CGPoint.
     ///
     ///     let point1 = CGPoint(x: 10, y: 10)

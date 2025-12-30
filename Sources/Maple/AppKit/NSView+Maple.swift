@@ -8,10 +8,10 @@
 
 #if canImport(AppKit) && !targetEnvironment(macCatalyst)
 import AppKit
-extension NSView: MabpleCompatible { }
+extension NSView: MapleCompatible { }
 
 // MARK: - Properties
-public extension MabpleWrapper where Base: NSView {
+public extension MapleWrapper where Base: NSView {
     
     /// Corner radius of view; also inspectable from Storyboard.
     var cornerRadius: CGFloat {
@@ -42,7 +42,7 @@ public extension MabpleWrapper where Base: NSView {
 }
 
 // MARK: - Methods
-public extension MabpleWrapper where Base: NSView {
+public extension MapleWrapper where Base: NSView {
     
     /// Add shadow to view.
     /// - Parameters:

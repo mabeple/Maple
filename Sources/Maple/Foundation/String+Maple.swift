@@ -16,10 +16,10 @@ import UIKit
 #if canImport(AppKit)
 import AppKit
 #endif
-extension String: MabpleCompatibleValue { }
+extension String: MapleCompatibleValue { }
 
 // MARK: - Properties
-public extension MabpleWrapper where Base == String {
+public extension MapleWrapper where Base == String {
     
     #if canImport(Foundation)
     /// String decoded from base64 (if applicable).
@@ -274,7 +274,7 @@ public extension MabpleWrapper where Base == String {
 }
 
 // MARK: - Methods
-public extension MabpleWrapper where Base == String {
+public extension MapleWrapper where Base == String {
     
     #if os(iOS) || os(macOS)
     /// Copy string to global pasteboard.
@@ -480,7 +480,7 @@ public extension String {
 
 // MARK: - NSString extensions
 #if canImport(Foundation)
-public extension MabpleWrapper where Base == String {
+public extension MapleWrapper where Base == String {
     
     /// NSString from a string.
     var nsString: NSString {
@@ -538,15 +538,20 @@ public extension MabpleWrapper where Base == String {
 import CryptoKit
 import Foundation
 
-public extension MabpleWrapper where Base == String {
+public extension MapleWrapper where Base == String {
     
     /// Crypto md5
     @available(iOS 13.0, OSX 10.15, watchOS 6.0, tvOS 13.0, *)
     func md5() -> String {
         let hash = Insecure.MD5.hash(data: Data(base.utf8))
-        return hash
-            .map { String(format: "%02hhx", $0) }
-            .joined()
+        return hash.map { String(format: "%02hhx", $0) }.joined()
+    }
+    
+    /// Crypto sha256
+    @available(iOS 13.0, OSX 10.15, watchOS 6.0, tvOS 13.0, *)
+    func sha256() -> String {
+        let hash = SHA256.hash(data: Data(base.utf8))
+        return hash.map { String(format: "%02hhx", $0) }.joined()
     }
 }
 #endif

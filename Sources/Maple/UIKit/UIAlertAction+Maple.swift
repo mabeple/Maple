@@ -8,10 +8,11 @@
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
-extension UIAlertAction: MabpleCompatible { }
+extension UIAlertAction: MapleCompatible { }
 
 // MARK: - Properties
-public extension MabpleWrapper where Base == UIAlertAction {
+@MainActor
+public extension MapleWrapper where Base == UIAlertAction {
     
     /// TitleTextColor
     var titleTextColor: UIColor? {

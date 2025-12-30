@@ -10,7 +10,8 @@
 import UIKit
 
 // MARK: - Properties
-public extension MabpleWrapper where Base: UICollectionView {
+@MainActor
+public extension MapleWrapper where Base: UICollectionView {
     
     /// Index path of last item in collectionView.
     var indexPathForLastItem: IndexPath? {
@@ -25,7 +26,8 @@ public extension MabpleWrapper where Base: UICollectionView {
 }
 
 // MARK: - Methods
-public extension MabpleWrapper where Base: UICollectionView {
+@MainActor
+public extension MapleWrapper where Base: UICollectionView {
     
     
     /// Number of all items in all sections of collectionView.

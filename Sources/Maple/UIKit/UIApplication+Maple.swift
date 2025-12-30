@@ -9,10 +9,11 @@
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-extension UIApplication: MabpleCompatible { }
+extension UIApplication: MapleCompatible { }
 
 // MARK: - Properties
-public extension MabpleWrapper where Base: UIApplication {
+@MainActor
+public extension MapleWrapper where Base: UIApplication {
     
     /// Get the inner margin of the safe area of the device
     var safeAreaInsets: UIEdgeInsets {

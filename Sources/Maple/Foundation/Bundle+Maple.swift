@@ -8,10 +8,10 @@
 
 #if canImport(Foundation)
 import Foundation
-extension Bundle: MabpleCompatible { }
+extension Bundle: MapleCompatible { }
 
 // MARK: - Properties
-public extension MabpleWrapper where Base: Bundle {
+public extension MapleWrapper where Base: Bundle {
     
     /// Application name (if applicable).
     var displayName: String? {
@@ -40,7 +40,7 @@ public extension MabpleWrapper where Base: Bundle {
 }
 
 // MARK: - Methods
-public extension MabpleWrapper where Base: Bundle {
+public extension MapleWrapper where Base: Bundle {
     
     private func info<T>(for key: String) -> T? {
         (base.localizedInfoDictionary?[key] as? T)

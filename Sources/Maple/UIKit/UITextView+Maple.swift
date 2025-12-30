@@ -10,8 +10,8 @@
 import UIKit
 
 // MARK: - Methods
-
-public extension MabpleWrapper where Base: UITextView {
+@MainActor
+public extension MapleWrapper where Base: UITextView {
     /// Clear text.
     func clear() {
         base.text = ""

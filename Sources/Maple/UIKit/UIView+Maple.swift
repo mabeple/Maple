@@ -8,10 +8,11 @@
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
-extension UIView: MabpleCompatible { }
+extension UIView: MapleCompatible { }
 
 // MARK: - Properties
-public extension MabpleWrapper where Base: UIView {
+@MainActor
+public extension MapleWrapper where Base: UIView {
     
     /// Corner radius of view;
     var cornerRadius: CGFloat {
@@ -47,7 +48,8 @@ public extension MabpleWrapper where Base: UIView {
 }
 
 // MARK: - Methods
-public extension MabpleWrapper where Base: UIView {
+@MainActor
+public extension MapleWrapper where Base: UIView {
     
     /// Recursively find the first responder.
     func firstResponder() -> UIView? {

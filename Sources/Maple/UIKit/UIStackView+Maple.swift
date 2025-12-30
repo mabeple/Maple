@@ -9,7 +9,8 @@
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-public extension MabpleWrapper where Base: UIStackView {
+@MainActor
+public extension MapleWrapper where Base: UIStackView {
     /// Adds array of views to the end of the arrangedSubviews array.
     ///
     /// - Parameter views: views array.
@@ -23,6 +24,7 @@ public extension MabpleWrapper where Base: UIStackView {
     }
 }
 
+@MainActor
 public extension UIStackView {
     /// Initialize an UIStackView with an array of UIView and common parameters.
     ///
