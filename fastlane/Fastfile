@@ -18,16 +18,16 @@ default_platform(:ios)
 platform :ios do
   desc "Runs all the tests"
   lane :tests do
-    test(scheme: "Maple-iOS", destination: "platform=iOS Simulator,name=iPhone 13", swift_version: "5.0")
-    test(scheme: "Maple-macOS", destination: "platform=macOS", swift_version: "5.0")
+    test(scheme: "Maple-iOS", destination: "platform=iOS Simulator,name=iPhone 13")
+    test(scheme: "Maple-macOS", destination: "platform=macOS")
   end
 
   desc "Runs all the test ci"
   lane :test_ci do
     if ENV["DESTINATION"].include? "macOS" then
-      test(scheme: "Maple-macOS", destination: ENV["DESTINATION"], swift_version: ENV["SWIFT_VERSION"])
+      test(scheme: "Maple-macOS", destination: ENV["DESTINATION"])
     else
-      test(scheme: "Maple-iOS", destination: ENV["DESTINATION"], swift_version: ENV["SWIFT_VERSION"])
+      test(scheme: "Maple-iOS", destination: ENV["DESTINATION"])
     end
   end
 
@@ -35,8 +35,7 @@ platform :ios do
   lane :test do |options|
     scan(
       scheme: options[:scheme], 
-      clean: true, 
-      xcargs: "SWIFT_VERSION=#{options[:swift_version]}",
+      clean: true,
       destination: options[:destination]
     )
   end
