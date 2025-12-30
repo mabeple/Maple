@@ -11,6 +11,8 @@ import XCTest
 
 #if canImport(UIKit) && os(iOS)
 import UIKit
+
+@MainActor
 class UISwitchMPTests: XCTestCase {
     
     func testToggle() {

@@ -11,6 +11,7 @@ import XCTest
 
 final private class TestCell: UICollectionViewCell {}
 
+@MainActor
 class UICollectionViewMPTests: XCTestCase {
     
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())

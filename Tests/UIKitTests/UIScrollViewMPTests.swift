@@ -11,6 +11,8 @@ import XCTest
 
 #if canImport(UIKit)
 import UIKit
+
+@MainActor
 class UIScrollViewMPTests: XCTestCase {
     
     let scroll = UIScrollView(frame: CGRect(origin: .zero, size: CGSize(width: 100, height: 100)))

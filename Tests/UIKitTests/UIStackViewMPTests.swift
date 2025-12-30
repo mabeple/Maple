@@ -12,6 +12,7 @@ import XCTest
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
+@MainActor
 final class UIStackViewMPTests: XCTestCase {
     
     func testAddArrangedSubviews() {

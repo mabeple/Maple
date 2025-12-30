@@ -11,6 +11,7 @@ import XCTest
 
 #if canImport(UIKit)
 import UIKit
+@MainActor
 class UIAlertActionMPTests: XCTestCase {
 
     func testTitleTextColor() {

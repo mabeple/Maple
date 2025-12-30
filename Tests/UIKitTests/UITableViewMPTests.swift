@@ -8,6 +8,8 @@
 
 import XCTest
 @testable import Maple
+
+@MainActor
 class UITableViewMPTests: XCTestCase {
 
     let tableView = UITableView()

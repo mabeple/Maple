@@ -11,7 +11,6 @@ import UIKit
 extension UIImage: MapleCompatible { }
 
 // MARK: - Properties
-@MainActor
 public extension MapleWrapper where Base == UIImage {
     
     /// Size in bytes of UIImage
@@ -36,7 +35,6 @@ public extension MapleWrapper where Base == UIImage {
 }
 
 // MARK: - Methods
-@MainActor
 public extension MapleWrapper where Base == UIImage {
     
     #if canImport(CoreImage)

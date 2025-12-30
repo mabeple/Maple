@@ -9,6 +9,7 @@
 import XCTest
 @testable import Maple
 
+@MainActor
 class UIViewMPTests: XCTestCase {
 
     func testCornerRadius() { 

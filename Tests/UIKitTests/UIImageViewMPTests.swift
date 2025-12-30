@@ -11,6 +11,8 @@ import XCTest
 
 #if canImport(UIKit)
 import UIKit
+
+@MainActor
 class UIImageViewMPTests: XCTestCase {
     
     func testBlur() {
