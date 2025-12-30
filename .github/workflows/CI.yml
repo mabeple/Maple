@@ -13,20 +13,22 @@ jobs:
     runs-on: macos-15
     strategy:
       matrix:
-        destination: [
-          'iOS Simulator,name=iPhone 15,OS=17.5', 
-          'macOS'
-        ]
-        swift-version: [5.0]
+        include:
+          - xcode: '26.2'
+            destination: 'macOS'
+            label: 'macOS'
+          - xcode: '26.2'
+            destination: 'iOS Simulator,name=iPhone 17,OS=26.2'
+            label: 'iOS 26.2'
     steps:
       - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.3'
-          bundler-cache: true
+      - name: Install Gems
+        run: bundle install
       - name: Run tests
         env:
           DESTINATION: platform=${{ matrix.destination }}
-          SWIFT_VERSION: ${{ matrix.swift-version }}
+          XCODE_VERSION: ${{ matrix.xcode }}
+          FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: '60'
+          FASTLANE_XCODEBUILD_SETTINGS_RETRIES: '4'
         run:
           bundle exec fastlane test_ci
