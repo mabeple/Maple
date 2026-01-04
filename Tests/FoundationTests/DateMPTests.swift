@@ -49,7 +49,7 @@ class DateMPTests: XCTestCase {
             XCTAssertEqual(Date().mp.calendar.identifier, Calendar(identifier: .persian).identifier)
         case .republicOfChina:
             XCTAssertEqual(Date().mp.calendar.identifier, Calendar(identifier: .republicOfChina).identifier)
-        @unknown default:
+        default:
             break
         }
     }

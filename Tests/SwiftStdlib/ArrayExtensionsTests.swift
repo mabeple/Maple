@@ -56,8 +56,8 @@ final class ArrayExtensionsTests: XCTestCase {
     }
 
     func testWithoutDuplicates() {
-        XCTAssertEqual([1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates(), [1, 2, 3, 4, 5])
-        XCTAssertEqual(["h", "e", "l", "l", "o"].withoutDuplicates(), ["h", "e", "l", "o"])
+        XCTAssertEqual([1, 1, 2, 2, 3, 3, 3, 4, 5].mp.withoutDuplicates(), [1, 2, 3, 4, 5])
+        XCTAssertEqual(["h", "e", "l", "l", "o"].mp.withoutDuplicates(), ["h", "e", "l", "o"])
     }
 
     func testWithoutDuplicatesUsingKeyPath() {
@@ -70,14 +70,14 @@ final class ArrayExtensionsTests: XCTestCase {
             Person(name: "Rose", age: 56),
             Person(name: "Wade", age: 22, location: Location(city: "Prague"))
         ]
-        let arrayWithoutDuplicatesHashable = array.withoutDuplicates(keyPath: \.name)
+        let arrayWithoutDuplicatesHashable = array.mp.withoutDuplicates(keyPath: \.name)
         let arrayWithoutDuplicatesHashablePrepared = [
             Person(name: "Wade", age: 20, location: Location(city: "London")),
             Person(name: "James", age: 32),
             Person(name: "Rose", age: 29)
         ]
         XCTAssertEqual(arrayWithoutDuplicatesHashable, arrayWithoutDuplicatesHashablePrepared)
-        let arrayWithoutDuplicatesNHashable = array.withoutDuplicates(keyPath: \.location)
+        let arrayWithoutDuplicatesNHashable = array.mp.withoutDuplicates(keyPath: \.location)
         let arrayWithoutDuplicatesNHashablePrepared = [
             Person(name: "Wade", age: 20, location: Location(city: "London")),
             Person(name: "James", age: 32),
