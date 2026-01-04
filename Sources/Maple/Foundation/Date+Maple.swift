@@ -513,11 +513,11 @@ public extension MapleWrapper where Base == Date {
     /// - Parameters:
     ///   - component: The calendar component to calculate the difference in.
     ///   - end: The end date for the calculation.
-    /// - Returns: The difference in the specified calendar component between the base date and the end date, or `nil` if the calculation fails.
-    func differ(_ component: Calendar.Component, to date: Date) -> Int? {
+    /// - Returns: The difference in the specified calendar component between the base date and the end date.
+    func differ(_ component: Calendar.Component, to date: Date) -> Int {
         guard component == .quarter else {
             return compare([component], to: date)
-                .value(for: component)
+                .value(for: component) ?? 0
         }
         
         let months = calendar.dateComponents([.month], from: base, to: date).month ?? 0
