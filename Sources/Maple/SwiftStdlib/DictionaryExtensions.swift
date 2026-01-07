@@ -10,18 +10,9 @@
 import Foundation
 #endif
 
-// MARK: - Methods
+extension Dictionary: MapleCompatibleValue { }
 
-public extension Dictionary {
-    /// Creates a Dictionary from a given sequence grouped by a given key path.
-    ///
-    /// - Parameters:
-    ///   - sequence: Sequence being grouped.
-    ///   - keypath: The key path to group by.
-    init<S: Sequence>(grouping sequence: S, by keyPath: KeyPath<S.Element, Key>) where Value == [S.Element] {
-        self.init(grouping: sequence, by: { $0[keyPath: keyPath] })
-    }
-
+public extension MapleWrapper {
     /// Check if key exists in dictionary.
     ///
     ///        let dict: [String: Any] = ["testKey": "testValue", "testArrayKey": [1, 2, 3, 4, 5]]
@@ -30,45 +21,25 @@ public extension Dictionary {
     ///
     /// - Parameter key: key to search for.
     /// - Returns: true if key exists in dictionary.
-    func has(key: Key) -> Bool {
-        return index(forKey: key) != nil
+    func has<Key: Hashable, Value>(key: Key) -> Bool where Base == [Key: Value] {
+        return base.index(forKey: key) != nil
     }
-
-    /// Remove all keys contained in the keys parameter from the dictionary.
-    ///
-    ///        var dict : [String: String] = ["key1" : "value1", "key2" : "value2", "key3" : "value3"]
-    ///        dict.removeAll(keys: ["key1", "key2"])
-    ///        dict.keys.contains("key3") -> true
-    ///        dict.keys.contains("key1") -> false
-    ///        dict.keys.contains("key2") -> false
-    ///
-    /// - Parameter keys: keys to be removed.
-    mutating func removeAll<S: Sequence>(keys: S) where S.Element == Key {
-        keys.forEach { removeValue(forKey: $0) }
-    }
-
-    /// Remove a value for a random key from the dictionary.
-    @discardableResult
-    mutating func removeValueForRandomKey() -> Value? {
-        guard let randomKey = keys.randomElement() else { return nil }
-        return removeValue(forKey: randomKey)
-    }
-
+    
     #if canImport(Foundation)
     /// JSON Data from dictionary.
     ///
     /// - Parameter prettify: set true to prettify data (default is false).
     /// - Returns: optional JSON Data (if applicable).
-    func jsonData(prettify: Bool = false) -> Data? {
-        guard JSONSerialization.isValidJSONObject(self) else {
+    func jsonData<Key: Hashable, Value>(prettify: Bool = false) -> Data? where Base == [Key: Value] {
+        guard JSONSerialization.isValidJSONObject(base) else {
             return nil
         }
         let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization
             .WritingOptions()
-        return try? JSONSerialization.data(withJSONObject: self, options: options)
+        return try? JSONSerialization.data(withJSONObject: base, options: options)
     }
     #endif
-
+    
     #if canImport(Foundation)
     /// JSON String from dictionary.
     ///
@@ -93,30 +64,15 @@ public extension Dictionary {
     ///
     /// - Parameter prettify: set true to prettify string (default is false).
     /// - Returns: optional JSON String (if applicable).
-    func jsonString(prettify: Bool = false) -> String? {
-        guard JSONSerialization.isValidJSONObject(self) else { return nil }
+    func jsonString<Key: Hashable, Value>(prettify: Bool = false) -> String? where Base == [Key: Value] {
+        guard JSONSerialization.isValidJSONObject(base) else { return nil }
         let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization
             .WritingOptions()
-        guard let jsonData = try? JSONSerialization.data(withJSONObject: self, options: options) else { return nil }
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: base, options: options) else { return nil }
         return String(data: jsonData, encoding: .utf8)
     }
     #endif
-
-    /// Returns a dictionary containing the results of mapping the given closure over the sequence’s elements.
-    /// - Parameter transform: A mapping closure. `transform` accepts an element of this sequence as its parameter and returns a transformed value of the same or of a different type.
-    /// - Returns: A dictionary containing the transformed elements of this sequence.
-    func mapKeysAndValues<K, V>(_ transform: ((key: Key, value: Value)) throws -> (K, V)) rethrows -> [K: V] {
-        return [K: V](uniqueKeysWithValues: try map(transform))
-    }
-
-    /// Returns a dictionary containing the non-`nil` results of calling the given transformation with each element of this sequence.
-    /// - Parameter transform: A closure that accepts an element of this sequence as its argument and returns an optional value.
-    /// - Returns: A dictionary of the non-`nil` results of calling `transform` with each element of the sequence.
-    /// - Complexity: *O(m + n)*, where _m_ is the length of this sequence and _n_ is the length of the result.
-    func compactMapKeysAndValues<K, V>(_ transform: ((key: Key, value: Value)) throws -> (K, V)?) rethrows -> [K: V] {
-        return [K: V](uniqueKeysWithValues: try compactMap(transform))
-    }
-
+    
     /// Creates a new dictionary using specified keys.
     ///
     ///        var dict =  ["key1": 1, "key2": 2, "key3": 3, "key4": 4]
@@ -128,16 +84,12 @@ public extension Dictionary {
     /// - Parameter keys: An array of keys that will be the entries in the resulting dictionary.
     ///
     /// - Returns: A new dictionary that contains the specified keys only. If none of the keys exist, an empty dictionary will be returned.
-    func pick(keys: [Key]) -> [Key: Value] {
-        keys.reduce(into: [Key: Value]()) { result, item in
-            result[item] = self[item]
+    func pick<Key: Hashable, Value>(keys: [Key]) -> [Key: Value] where Base == [Key: Value] {
+        keys.reduce(into: [:]) { result, item in
+            result[item] = base[item]
         }
     }
-}
-
-// MARK: - Methods (Value: Equatable)
-
-public extension Dictionary where Value: Equatable {
+    
     /// Returns an array of all keys that have the given value in dictionary.
     ///
     ///        let dict = ["key1": "value1", "key2": "value1", "key3": "value2"]
@@ -147,27 +99,71 @@ public extension Dictionary where Value: Equatable {
     ///
     /// - Parameter value: Value for which keys are to be fetched.
     /// - Returns: An array containing keys that have the given value.
-    func keys(forValue value: Value) -> [Key] {
-        return keys.filter { self[$0] == value }
+    func keys<Key: Hashable, Value: Equatable>(forValue value: Value) -> [Key] where Base == [Key: Value] {
+        return base.keys.filter { base[$0] == value }
     }
-}
-
-// MARK: - Methods (ExpressibleByStringLiteral)
-
-public extension Dictionary where Key: StringProtocol {
+    
+    /// Returns a dictionary containing the results of mapping the given closure over the sequence’s elements.
+    /// - Parameter transform: A mapping closure. `transform` accepts an element of this sequence as its parameter and returns a transformed value of the same or of a different type.
+    /// - Returns: A dictionary containing the transformed elements of this sequence.
+    func mapKeysAndValues<K, V, Key: Hashable, Value>(_ transform: ((key: Key, value: Value)) throws -> (K, V)) rethrows -> [K: V] where Base == [Key: Value] {
+        return [K: V](uniqueKeysWithValues: try base.map(transform))
+    }
+    
+    /// Returns a dictionary containing the non-`nil` results of calling the given transformation with each element of this sequence.
+    /// - Parameter transform: A closure that accepts an element of this sequence as its argument and returns an optional value.
+    /// - Returns: A dictionary of the non-`nil` results of calling `transform` with each element of the sequence.
+    /// - Complexity: *O(m + n)*, where _m_ is the length of this sequence and _n_ is the length of the result.
+    func compactMapKeysAndValues<K, V, Key: Hashable, Value>(_ transform: ((key: Key, value: Value)) throws -> (K, V)?) rethrows -> [K: V] where Base == [Key: Value] {
+        return [K: V](uniqueKeysWithValues: try base.compactMap(transform))
+    }
+    
     /// Lowercase all keys in dictionary.
     ///
     ///        var dict = ["tEstKeY": "value"]
     ///        dict.lowercaseAllKeys()
     ///        print(dict) // prints "["testkey": "value"]"
     ///
-    mutating func lowercaseAllKeys() {
-        // http://stackoverflow.com/questions/33180028/extend-dictionary-where-key-is-of-type-string
-        for key in keys {
-            if let lowercaseKey = String(describing: key).lowercased() as? Key {
-                self[lowercaseKey] = removeValue(forKey: key)
+    func lowercaseAllKeys<Key: StringProtocol, Value>() -> [Key: Value] where Base == [Key: Value] {
+        base.reduce(into: [:]) { result, element in
+            let (key, value) = element
+            if let lowercasedKey = String(key).lowercased() as? Key {
+                result[lowercasedKey] = value
             }
         }
+    }
+}
+
+// MARK: - Methods
+
+public extension Dictionary {
+    /// Creates a Dictionary from a given sequence grouped by a given key path.
+    ///
+    /// - Parameters:
+    ///   - sequence: Sequence being grouped.
+    ///   - keypath: The key path to group by.
+    init<S: Sequence>(grouping sequence: S, by keyPath: KeyPath<S.Element, Key>) where Value == [S.Element] {
+        self.init(grouping: sequence, by: { $0[keyPath: keyPath] })
+    }
+
+    /// Remove all keys contained in the keys parameter from the dictionary.
+    ///
+    ///        var dict : [String: String] = ["key1" : "value1", "key2" : "value2", "key3" : "value3"]
+    ///        dict.removeAll(keys: ["key1", "key2"])
+    ///        dict.keys.contains("key3") -> true
+    ///        dict.keys.contains("key1") -> false
+    ///        dict.keys.contains("key2") -> false
+    ///
+    /// - Parameter keys: keys to be removed.
+    mutating func removeAll<S: Sequence>(keys: S) where S.Element == Key {
+        keys.forEach { removeValue(forKey: $0) }
+    }
+
+    /// Remove a value for a random key from the dictionary.
+    @discardableResult
+    mutating func removeValueForRandomKey() -> Value? {
+        guard let randomKey = keys.randomElement() else { return nil }
+        return removeValue(forKey: randomKey)
     }
 }
 

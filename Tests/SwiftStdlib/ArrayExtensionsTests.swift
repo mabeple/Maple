@@ -51,7 +51,7 @@ final class ArrayExtensionsTests: XCTestCase {
 
     func testRemoveDuplicates() {
         var array = [1, 1, 2, 2, 3, 3, 3, 4, 5]
-        array.removeDuplicates()
+        array.withoutDuplicates()
         XCTAssertEqual(array, [1, 2, 3, 4, 5])
     }
 

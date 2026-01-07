@@ -10,6 +10,8 @@
 import Foundation
 #endif
 
+
+
 public extension CaseIterable where Self: Equatable, AllCases: BidirectionalCollection {
     
     // Method to return the previous case in the enumeration.

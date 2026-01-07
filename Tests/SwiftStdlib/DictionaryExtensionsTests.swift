@@ -13,8 +13,8 @@ final class DictionaryExtensionsTests: XCTestCase {
     var testDict: [String: Any] = ["testKey": "testValue", "testArrayKey": [1, 2, 3, 4, 5]]
 
     func testHasKey() {
-        XCTAssert(testDict.has(key: "testKey"))
-        XCTAssertFalse(testDict.has(key: "anotherKey"))
+        XCTAssert(testDict.mp.has(key: "testKey"))
+        XCTAssertFalse(testDict.mp.has(key: "anotherKey"))
     }
 
     func testRemoveAll() {
@@ -45,38 +45,38 @@ final class DictionaryExtensionsTests: XCTestCase {
         let prettyJsonString = "{\n  \"key\" : \"value\"\n}"
         let prettyJsonData = prettyJsonString.data(using: .utf8)
 
-        XCTAssertEqual(dict.jsonData(), jsonData)
-        XCTAssertEqual(dict.jsonData(prettify: true), prettyJsonData)
+        XCTAssertEqual(dict.mp.jsonData(), jsonData)
+        XCTAssertEqual(dict.mp.jsonData(prettify: true), prettyJsonData)
 
-        XCTAssertNil(["key": NSObject()].jsonData())
-        XCTAssertNil([1: 2].jsonData())
+        XCTAssertNil(["key": NSObject()].mp.jsonData())
+        XCTAssertNil([1: 2].mp.jsonData())
     }
 
     func testJsonString() {
-        XCTAssertNotNil(testDict.jsonString())
-        XCTAssertEqual(testDict.jsonString()?.contains("\"testArrayKey\":[1,2,3,4,5]"), true)
-        XCTAssertEqual(testDict.jsonString()?.contains("\"testKey\":\"testValue\""), true)
+        XCTAssertNotNil(testDict.mp.jsonString())
+        XCTAssertEqual(testDict.mp.jsonString()?.contains("\"testArrayKey\":[1,2,3,4,5]"), true)
+        XCTAssertEqual(testDict.mp.jsonString()?.contains("\"testKey\":\"testValue\""), true)
 
         XCTAssertEqual(
-            testDict.jsonString(prettify: true)?.contains("[\n    1,\n    2,\n    3,\n    4,\n    5\n  ]"),
+            testDict.mp.jsonString(prettify: true)?.contains("[\n    1,\n    2,\n    3,\n    4,\n    5\n  ]"),
             true)
 
-        XCTAssertNil(["key": NSObject()].jsonString())
-        XCTAssertNil([1: 2].jsonString())
+        XCTAssertNil(["key": NSObject()].mp.jsonString())
+        XCTAssertNil([1: 2].mp.jsonString())
     }
 
     func testKeysForValue() {
         let dict = ["key1": "value1", "key2": "value1", "key3": "value2"]
-        let result = dict.keys(forValue: "value1")
+        let result = dict.mp.keys(forValue: "value1")
         XCTAssert(result.contains("key1"))
         XCTAssert(result.contains("key2"))
         XCTAssertFalse(result.contains("key3"))
     }
 
     func testLowercaseAllKeys() {
-        var dict = ["tEstKeY": "value"]
-        dict.lowercaseAllKeys()
-        XCTAssertEqual(dict, ["testkey": "value"])
+        let dict = ["tEstKeY": "value"]
+        let new = dict.mp.lowercaseAllKeys()
+        XCTAssertEqual(new, ["testkey": "value"])
     }
 
     func testSubscriptKeypath() {
@@ -124,7 +124,7 @@ final class DictionaryExtensionsTests: XCTestCase {
     func testMapKeysAndValues() {
         let intToString = [0: "0", 1: "1", 2: "2", 3: "3", 4: "4", 5: "5", 6: "6", 7: "7", 8: "8", 9: "9"]
 
-        let stringToInt: [String: Int] = intToString.mapKeysAndValues { key, value in
+        let stringToInt: [String: Int] = intToString.mp.mapKeysAndValues { key, value in
             return (String(describing: key), Int(value)!)
         }
 
@@ -144,7 +144,7 @@ final class DictionaryExtensionsTests: XCTestCase {
             2: "two",
             3: "three"
         ]
-        let words: [String: IntWord] = strings.compactMapKeysAndValues { key, value in
+        let words: [String: IntWord] = strings.mp.compactMapKeysAndValues { key, value in
             guard let word = IntWord(rawValue: value) else { return nil }
             return (String(describing: key), word)
         }
@@ -175,8 +175,8 @@ final class DictionaryExtensionsTests: XCTestCase {
                     "Bryant": 500,
                     "John": 600,
                     "Jack": 1000]
-        let picked = dict.pick(keys: ["James", "Wade", "Jack"])
-        let empty1 = dict.pick(keys: ["Pippen", "Rodman"])
+        let picked = dict.mp.pick(keys: ["James", "Wade", "Jack"])
+        let empty1 = dict.mp.pick(keys: ["Pippen", "Rodman"])
         XCTAssertEqual(picked, ["James": 100, "Wade": 200, "Jack": 1000])
         XCTAssertTrue(empty1.isEmpty)
 
@@ -186,11 +186,11 @@ final class DictionaryExtensionsTests: XCTestCase {
                                   "John": nil,
                                   "Jack": 1000]
 
-        let pickedWithOptionals = optionalValuesDict.pick(keys: ["James", "Bryant", "John"])
+        let pickedWithOptionals = optionalValuesDict.mp.pick(keys: ["James", "Bryant", "John"])
         XCTAssertEqual(pickedWithOptionals, ["James": Optional(100), "Bryant": Optional(500), "John": nil])
 
         let emptyDict = [String: Int]()
-        let empty3 = emptyDict.pick(keys: ["James", "Bryant", "John"])
+        let empty3 = emptyDict.mp.pick(keys: ["James", "Bryant", "John"])
         XCTAssertTrue(empty3.isEmpty)
     }
     
