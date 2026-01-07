@@ -13,7 +13,7 @@ import Foundation
 extension Array: MapleCompatibleValue { }
 
 // MARK: - Methods
-public extension MapleWrapper where Base == Array<Base.Element>, Base.Element: Equatable {
+public extension MapleWrapper {
     /// Return array with all duplicate elements removed.
     ///
     ///     [1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates() -> [1, 2, 3, 4, 5])
@@ -21,9 +21,9 @@ public extension MapleWrapper where Base == Array<Base.Element>, Base.Element: E
     ///
     /// - Returns: an array of unique elements.
     ///
-    func withoutDuplicates() -> [Base.Element] {
+    func withoutDuplicates<T: Equatable>() -> [T] where Base == [T] {
         // Thanks to https://github.com/sairamkotha for improving the method
-        return base.reduce(into: [Base.Element]()) {
+        return base.reduce(into: []) {
             if !$0.contains($1) {
                 $0.append($1)
             }
@@ -34,8 +34,8 @@ public extension MapleWrapper where Base == Array<Base.Element>, Base.Element: E
     ///
     /// - Parameter path: Key path to compare, the value must be Equatable.
     /// - Returns: an array of unique elements.
-    func withoutDuplicates<E: Equatable>(keyPath path: KeyPath<Base.Element, E>) -> [Base.Element] {
-        return base.reduce(into: [Base.Element]()) { result, element in
+    func withoutDuplicates<T, E: Equatable>(keyPath path: KeyPath<T, E>) -> [T] where Base == [T] {
+        return base.reduce(into: []) { result, element in
             if !result.contains(where: { $0[keyPath: path] == element[keyPath: path] }) {
                 result.append(element)
             }
@@ -46,7 +46,7 @@ public extension MapleWrapper where Base == Array<Base.Element>, Base.Element: E
     ///
     /// - Parameter path: Key path to compare, the value must be Hashable.
     /// - Returns: an array of unique elements.
-    func withoutDuplicates<E: Hashable>(keyPath path: KeyPath<Base.Element, E>) -> [Base.Element] {
+    func withoutDuplicates<T, E: Hashable>(keyPath path: KeyPath<T, E>) -> [T] where Base == [T] {
         var set = Set<E>()
         return base.filter { set.insert($0[keyPath: path]).inserted }
     }
