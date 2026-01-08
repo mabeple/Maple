@@ -10,7 +10,7 @@ import Foundation
 
 extension Int: MapleCompatibleValue {}
 extension Double: MapleCompatibleValue {}
-extension Float: MapleCompatibleValue {}
+
 extension Decimal: MapleCompatibleValue {}
 
 // MARK: - Methods
