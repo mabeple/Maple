@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Int: MapleCompatibleValue {}
+
 extension Double: MapleCompatibleValue {}
 
 extension Decimal: MapleCompatibleValue {}

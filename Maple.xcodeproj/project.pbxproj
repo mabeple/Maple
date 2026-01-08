@@ -61,6 +61,18 @@
 		0181E3922F0F4870005DDE4B /* FloatingPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0181E3902F0F4870005DDE4B /* FloatingPointExtensions.swift */; };
 		0181E3942F0F496C005DDE4B /* FloatingPointExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0181E3932F0F496C005DDE4B /* FloatingPointExtensionsTests.swift */; };
 		0181E3952F0F496C005DDE4B /* FloatingPointExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0181E3932F0F496C005DDE4B /* FloatingPointExtensionsTests.swift */; };
+		0181E3972F0F4AB5005DDE4B /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0181E3962F0F4AB5005DDE4B /* IntExtensions.swift */; };
+		0181E3982F0F4AB5005DDE4B /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0181E3962F0F4AB5005DDE4B /* IntExtensions.swift */; };
+		0181E39A2F0F4C7C005DDE4B /* SignedIntegerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0181E3992F0F4C7C005DDE4B /* SignedIntegerExtensions.swift */; };
+		0181E39B2F0F4C7C005DDE4B /* SignedIntegerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0181E3992F0F4C7C005DDE4B /* SignedIntegerExtensions.swift */; };
+		0181E39D2F0F4D9A005DDE4B /* IntExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0181E39C2F0F4D9A005DDE4B /* IntExtensionsTests.swift */; };
+		0181E39E2F0F4D9A005DDE4B /* IntExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0181E39C2F0F4D9A005DDE4B /* IntExtensionsTests.swift */; };
+		0181E3A02F0F4DA8005DDE4B /* SignedIntegerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0181E39F2F0F4DA8005DDE4B /* SignedIntegerExtensionsTests.swift */; };
+		0181E3A12F0F4DA8005DDE4B /* SignedIntegerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0181E39F2F0F4DA8005DDE4B /* SignedIntegerExtensionsTests.swift */; };
+		0181E3A32F0F50BA005DDE4B /* SignedNumericExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0181E3A22F0F50BA005DDE4B /* SignedNumericExtensions.swift */; };
+		0181E3A42F0F50BA005DDE4B /* SignedNumericExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0181E3A22F0F50BA005DDE4B /* SignedNumericExtensions.swift */; };
+		0181E3A62F0F5147005DDE4B /* SignedNumericExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0181E3A52F0F5147005DDE4B /* SignedNumericExtensionsTests.swift */; };
+		0181E3A72F0F5147005DDE4B /* SignedNumericExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0181E3A52F0F5147005DDE4B /* SignedNumericExtensionsTests.swift */; };
 		018F4A042C396FC1004B0418 /* UIApplication+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F4A032C396FC1004B0418 /* UIApplication+Maple.swift */; };
 		018F4A062C3970EE004B0418 /* UITextView+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F4A052C3970EE004B0418 /* UITextView+Maple.swift */; };
 		018F4A082C397186004B0418 /* UITextViewMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F4A072C397186004B0418 /* UITextViewMPTests.swift */; };
@@ -205,6 +217,12 @@
 		0181E38B2F0F478B005DDE4B /* FloatExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatExtensionsTests.swift; sourceTree = "<group>"; };
 		0181E3902F0F4870005DDE4B /* FloatingPointExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPointExtensions.swift; sourceTree = "<group>"; };
 		0181E3932F0F496C005DDE4B /* FloatingPointExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPointExtensionsTests.swift; sourceTree = "<group>"; };
+		0181E3962F0F4AB5005DDE4B /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
+		0181E3992F0F4C7C005DDE4B /* SignedIntegerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedIntegerExtensions.swift; sourceTree = "<group>"; };
+		0181E39C2F0F4D9A005DDE4B /* IntExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensionsTests.swift; sourceTree = "<group>"; };
+		0181E39F2F0F4DA8005DDE4B /* SignedIntegerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedIntegerExtensionsTests.swift; sourceTree = "<group>"; };
+		0181E3A22F0F50BA005DDE4B /* SignedNumericExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedNumericExtensions.swift; sourceTree = "<group>"; };
+		0181E3A52F0F5147005DDE4B /* SignedNumericExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedNumericExtensionsTests.swift; sourceTree = "<group>"; };
 		018F4A032C396FC1004B0418 /* UIApplication+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Maple.swift"; sourceTree = "<group>"; };
 		018F4A052C3970EE004B0418 /* UITextView+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Maple.swift"; sourceTree = "<group>"; };
 		018F4A072C397186004B0418 /* UITextViewMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewMPTests.swift; sourceTree = "<group>"; };
@@ -436,6 +454,9 @@
 				01D91D272CA164770051DD9C /* ComparableExtensions.swift */,
 				0181E3882F0F46FF005DDE4B /* FloatExtensions.swift */,
 				0181E3902F0F4870005DDE4B /* FloatingPointExtensions.swift */,
+				0181E3962F0F4AB5005DDE4B /* IntExtensions.swift */,
+				0181E3992F0F4C7C005DDE4B /* SignedIntegerExtensions.swift */,
+				0181E3A22F0F50BA005DDE4B /* SignedNumericExtensions.swift */,
 			);
 			path = SwiftStdlib;
 			sourceTree = "<group>";
@@ -503,6 +524,9 @@
 				01D91D2A2CA164AC0051DD9C /* ComparableExtensionsTests.swift */,
 				0181E38B2F0F478B005DDE4B /* FloatExtensionsTests.swift */,
 				0181E3932F0F496C005DDE4B /* FloatingPointExtensionsTests.swift */,
+				0181E39C2F0F4D9A005DDE4B /* IntExtensionsTests.swift */,
+				0181E39F2F0F4DA8005DDE4B /* SignedIntegerExtensionsTests.swift */,
+				0181E3A52F0F5147005DDE4B /* SignedNumericExtensionsTests.swift */,
 			);
 			path = SwiftStdlib;
 			sourceTree = "<group>";
@@ -768,6 +792,7 @@
 				01E5F5CC2BC276CD0005D730 /* CGRect+Maple.swift in Sources */,
 				01AD2D1F29A5BD67005C99C3 /* ArrayExtensions.swift in Sources */,
 				0174DF512480EDC800258824 /* Maple.swift in Sources */,
+				0181E3A42F0F50BA005DDE4B /* SignedNumericExtensions.swift in Sources */,
 				012C4BF82562620100A1A5AE /* UIAlertAction+Maple.swift in Sources */,
 				013DDEBD248250240095E201 /* ColorExtensions.swift in Sources */,
 				01FA2FAA263A9605002B932D /* UIScrollView+Maple.swift in Sources */,
@@ -784,6 +809,7 @@
 				0181E3892F0F46FF005DDE4B /* FloatExtensions.swift in Sources */,
 				01E5F5D42BC27AA20005D730 /* NSPredicate+Maple.swift in Sources */,
 				0174DF7C2480F5A100258824 /* UIView+Maple.swift in Sources */,
+				0181E3982F0F4AB5005DDE4B /* IntExtensions.swift in Sources */,
 				01E5F5AC2BC241480005D730 /* DirectionalEdgeInsetsExtensions.swift in Sources */,
 				01D91D282CA164770051DD9C /* ComparableExtensions.swift in Sources */,
 				0174DF552480EF1300258824 /* Bundle+Maple.swift in Sources */,
@@ -798,6 +824,7 @@
 				01CEC2FC2481FF0D00CF21B9 /* UITableView+Maple.swift in Sources */,
 				013DDEA5248240160095E201 /* String+Maple.swift in Sources */,
 				013DDE9F248206F40095E201 /* Date+Maple.swift in Sources */,
+				0181E39A2F0F4C7C005DDE4B /* SignedIntegerExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,6 +835,7 @@
 				0174DF522480EDC800258824 /* Maple.swift in Sources */,
 				01D91D232CA161A80051DD9C /* CollectionExtensions.swift in Sources */,
 				0181E3922F0F4870005DDE4B /* FloatingPointExtensions.swift in Sources */,
+				0181E3A32F0F50BA005DDE4B /* SignedNumericExtensions.swift in Sources */,
 				01E5F5B32BC24C3C0005D730 /* CaseIterableExtensions.swift in Sources */,
 				0181E38A2F0F46FF005DDE4B /* FloatExtensions.swift in Sources */,
 				01E5F5BA2BC26C4A0005D730 /* CGFloat+Maple.swift in Sources */,
@@ -815,8 +843,10 @@
 				01AD2D2829A5C010005C99C3 /* DictionaryExtensions.swift in Sources */,
 				013DDEC3248264FF0095E201 /* NSImage+Maple.swift in Sources */,
 				01E5F5AD2BC241480005D730 /* DirectionalEdgeInsetsExtensions.swift in Sources */,
+				0181E39B2F0F4C7C005DDE4B /* SignedIntegerExtensions.swift in Sources */,
 				01AD2D1329A5BBB1005C99C3 /* OptionalExtensions.swift in Sources */,
 				0174DF562480EF1300258824 /* Bundle+Maple.swift in Sources */,
+				0181E3972F0F4AB5005DDE4B /* IntExtensions.swift in Sources */,
 				01CEC2E92481F54200CF21B9 /* NSView+Maple.swift in Sources */,
 				013DDEB824824A600095E201 /* EdgeInsetsExtensions.swift in Sources */,
 				01AD2D2029A5BD67005C99C3 /* ArrayExtensions.swift in Sources */,
@@ -843,6 +873,7 @@
 				01DD61F229C94E5200792AE6 /* DispatchMPTests.swift in Sources */,
 				0136CD972B490660009C1CB7 /* UIStackViewMPTests.swift in Sources */,
 				0181E38C2F0F478B005DDE4B /* FloatExtensionsTests.swift in Sources */,
+				0181E3A62F0F5147005DDE4B /* SignedNumericExtensionsTests.swift in Sources */,
 				011A004E24873C6400D18027 /* BundleMPTests.swift in Sources */,
 				01AD2D1C29A5BCC8005C99C3 /* OptionalExtensionsTests.swift in Sources */,
 				012C4BFE256262C400A1A5AE /* UIAlertActionMPTests.swift in Sources */,
@@ -855,12 +886,14 @@
 				011A00532487482100D18027 /* UICollectionViewMPTests.swift in Sources */,
 				01E5F5CF2BC277550005D730 /* CGRectMPTests.swift in Sources */,
 				01FA2FA7263A9003002B932D /* DataMPTests.swift in Sources */,
+				0181E3A12F0F4DA8005DDE4B /* SignedIntegerExtensionsTests.swift in Sources */,
 				0174DFCD2480FD6C00258824 /* UIViewMPTests.swift in Sources */,
 				01AD2D2429A5BDD8005C99C3 /* ArrayExtensionsTests.swift in Sources */,
 				018F4A082C397186004B0418 /* UITextViewMPTests.swift in Sources */,
 				012C4C0A2562689900A1A5AE /* UIImageViewMPTests.swift in Sources */,
 				0181E3942F0F496C005DDE4B /* FloatingPointExtensionsTests.swift in Sources */,
 				01D91D262CA163180051DD9C /* CollectionExtensionsTests.swift in Sources */,
+				0181E39E2F0F4D9A005DDE4B /* IntExtensionsTests.swift in Sources */,
 				01D91D2B2CA164AC0051DD9C /* ComparableExtensionsTests.swift in Sources */,
 				013DDEA22482075F0095E201 /* DateMPTests.swift in Sources */,
 				01CEC2FE2481FFCE00CF21B9 /* UITableViewMPTests.swift in Sources */,
@@ -882,13 +915,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0181E3A72F0F5147005DDE4B /* SignedNumericExtensionsTests.swift in Sources */,
 				013DDEC1248254A60095E201 /* ColorExtensionsTests.swift in Sources */,
 				01E5F5D82BC27B660005D730 /* NSPredicateMPTests.swift in Sources */,
 				01AD2D2529A5BDD8005C99C3 /* ArrayExtensionsTests.swift in Sources */,
+				0181E39D2F0F4D9A005DDE4B /* IntExtensionsTests.swift in Sources */,
 				01DD61F329C94E5200792AE6 /* DispatchMPTests.swift in Sources */,
 				013DDEBB24824E240095E201 /* EdgeInsetsExtensionsTests.swift in Sources */,
 				013DDEA32482075F0095E201 /* DateMPTests.swift in Sources */,
 				01AD2D2B29A5C0D8005C99C3 /* DictionaryExtensionsTests.swift in Sources */,
+				0181E3A02F0F4DA8005DDE4B /* SignedIntegerExtensionsTests.swift in Sources */,
 				01E5F5B62BC24DD00005D730 /* CaseIterableExtensionsTests.swift in Sources */,
 				0181E3952F0F496C005DDE4B /* FloatingPointExtensionsTests.swift in Sources */,
 				01E5F5C42BC2736B0005D730 /* CGPointMPTests.swift in Sources */,
