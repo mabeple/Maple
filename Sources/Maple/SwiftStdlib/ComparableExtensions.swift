@@ -6,12 +6,6 @@
 //  Copyright © 2024 cy. All rights reserved.
 //
 
-import Foundation
-
-
-extension Double: MapleCompatibleValue {}
-
-extension Decimal: MapleCompatibleValue {}
 
 // MARK: - Methods
 
