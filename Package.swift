@@ -1,30 +1,35 @@
-// swift-tools-version: 5.6
+// swift-tools-version: 6.2
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
+let swiftSettings: [SwiftSetting] = [
+    .enableExperimentalFeature("StrictConcurrency=complete")
+]
+
 let package = Package(
     name: "Maple",
     platforms: [
-        .iOS(.v13),
-        .macOS(.v10_15)
+        .iOS(.v26),
+        .macOS(.v26)
     ],
     products: [
-        .library(name: "Maple", targets: ["Maple"])
+        .library(name: "Maple", targets: ["Maple"]),
+    ],
+    dependencies: [
+        .package(url: "https://github.com/swiftlang/swift-docc-plugin", from: "1.4.5"),
     ],
     targets: [
         .target(
             name: "Maple",
             path: "Sources",
-            exclude: ["Info.plist", "Maple.h"]
+            swiftSettings: swiftSettings
         ),
         .testTarget(
             name: "MapleTests",
             dependencies: ["Maple"],
             path: "Tests",
-            exclude: ["Info.plist"],
-            resources: [.process("ResourcesTests")]
+            swiftSettings: swiftSettings
         ),
-    ],
-    swiftLanguageVersions: [.v5]
+    ]
 )
