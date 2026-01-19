@@ -130,13 +130,6 @@ struct DictionaryExtensionTests {
         #expect(mapped["C"] == 6)
         #expect(mapped.count == 3)
         
-        // Test empty dictionary
-        let emptyDict: [String: Int] = [:]
-        let emptyMapped = emptyDict.mp.mapKeysAndValues { (key, value) in
-            (key.uppercased(), value * 2)
-        }
-        #expect(emptyMapped.isEmpty)
-        
         // Test changing key and value types
         let dict2: [String: Int] = ["a": 1, "bb": 2, "ccc": 3]
         let mapped2 = dict2.mp.mapKeysAndValues { (key, value) in

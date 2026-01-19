@@ -5,8 +5,6 @@
 //  Created by cy on 2023/2/22.
 //
 
-import Foundation
-
 extension Array: MapleCompatibleValue { }
 
 // MARK: - Methods

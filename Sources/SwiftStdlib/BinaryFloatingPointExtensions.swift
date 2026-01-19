@@ -5,7 +5,13 @@
 //  Created by cy on 2026/1/8.
 //
 
-import Foundation
+#if os(macOS) || os(iOS)
+import Darwin
+#elseif canImport(Android)
+import Android
+#elseif os(Linux)
+import Glibc
+#endif
 
 // MARK: - Methods
 

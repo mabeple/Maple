@@ -5,10 +5,6 @@
 //  Created by cy on 2026/1/19.
 //
 
-#if canImport(Foundation)
-import Foundation
-#endif
-
 extension Set: MapleCompatibleValue { }
 
 // MARK: - Methods

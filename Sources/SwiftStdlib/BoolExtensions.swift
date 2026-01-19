@@ -5,8 +5,6 @@
 //  Created by cy on 2026/1/8.
 //
 
-import Foundation
-
 extension Bool: MapleCompatibleValue {}
 
 public extension MapleWrapper where Base == Bool {
