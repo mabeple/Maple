@@ -237,32 +237,22 @@ public extension MPCrossPlatformColor {
         self.init(red: red, green: green, blue: blue, transparency: trans)
     }
     
-    #if canImport(AppKit) && !targetEnvironment(macCatalyst)
-    /// Create an NSColor with different colors for light and dark mode.
+    /// Create a dynamic color that adapts to light and dark mode.
     ///
     /// - Parameters:
-    ///     - light: Color to use in light/unspecified mode.
-    ///     - dark: Color to use in dark mode.
-    @available(OSX 10.15, *)
+    ///   - light: Color to use in light/unspecified mode.
+    ///   - dark: Color to use in dark mode.
     convenience init(light: MPCrossPlatformColor, dark: MPCrossPlatformColor) {
-        self.init(name: nil, dynamicProvider: { $0.name == .darkAqua ? dark : light })
-    }
-    #endif
-    
-    #if canImport(UIKit) && !os(watchOS)
-    /// Create a UIColor with different colors for light and dark mode.
-    ///
-    /// - Parameters:
-    ///     - light: Color to use in light/unspecified mode.
-    ///     - dark: Color to use in dark mode.
-    convenience init(light: UIColor, dark: UIColor) {
-        if #available(iOS 13.0, tvOS 13.0, *) {
-            self.init(dynamicProvider: { $0.userInterfaceStyle == .dark ? dark : light })
-        } else {
-            self.init(cgColor: light.cgColor)
+        #if canImport(UIKit)
+        self.init { traitCollection in
+            return traitCollection.userInterfaceStyle == .dark ? dark : light
         }
+        #elseif canImport(AppKit) && !targetEnvironment(macCatalyst)
+        self.init(name: nil) { appearance in
+            return appearance.name == .darkAqua ? dark : light
+        }
+        #endif
     }
-    #endif
     
     /// Random color.
     static var random: MPCrossPlatformColor {

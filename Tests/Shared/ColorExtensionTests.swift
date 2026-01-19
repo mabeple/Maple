@@ -140,7 +140,9 @@ struct ColorExtensionTests {
         // Test with color that cannot be shortened
         let customColor = MPCrossPlatformColor(red: 0.5, green: 0.3, blue: 0.7, alpha: 1.0)
         let customShortHex = customColor.mp.shortHexString
-        // May or may not be nil depending on color values
+        // For colors that cannot be shortened, shortHexString returns nil
+        // The hex representation would be something like #8033B3, which cannot be shortened
+        #expect(customShortHex == nil)
     }
     
     // MARK: - Property: shortHexOrHexString
@@ -342,38 +344,14 @@ struct ColorExtensionTests {
     
     // MARK: - Initializer: init(light:dark:)
     
-    #if canImport(AppKit) && !targetEnvironment(macCatalyst)
     @Test("init(light:dark:) should create color with light and dark variants")
     func testInitWithLightDark() {
-        if #available(OSX 10.15, *) {
-            let lightColor = MPCrossPlatformColor.red
-            let darkColor = MPCrossPlatformColor.blue
-            let dynamicColor = MPCrossPlatformColor(light: lightColor, dark: darkColor)
-            // The color should be valid
-            #expect(dynamicColor.mp.alpha >= 0.0 && dynamicColor.mp.alpha <= 1.0)
-        }
-    }
-    #endif
-    
-    #if canImport(UIKit) && !os(watchOS)
-    @Test("init(light:dark:) should create color with light and dark variants")
-    func testInitWithLightDarkUIKit() {
-        let lightColor = UIColor.red
-        let darkColor = UIColor.blue
-        let dynamicColor = UIColor(light: lightColor, dark: darkColor)
+        let lightColor = MPCrossPlatformColor.red
+        let darkColor = MPCrossPlatformColor.blue
+        let dynamicColor = MPCrossPlatformColor(light: lightColor, dark: darkColor)
         // The color should be valid
         #expect(dynamicColor.mp.alpha >= 0.0 && dynamicColor.mp.alpha <= 1.0)
-        
-        // Test iOS 13.0+ path (dynamicProvider)
-        if #available(iOS 13.0, tvOS 13.0, *) {
-            // Already tested above
-        } else {
-            // Test iOS < 13.0 path (cgColor fallback)
-            let fallbackColor = UIColor(light: lightColor, dark: darkColor)
-            #expect(fallbackColor.mp.alpha >= 0.0 && fallbackColor.mp.alpha <= 1.0)
-        }
     }
-    #endif
     
     // MARK: - Static Property: random
     
