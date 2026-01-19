@@ -88,6 +88,10 @@
 		018F4A042C396FC1004B0418 /* UIApplication+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F4A032C396FC1004B0418 /* UIApplication+Maple.swift */; };
 		018F4A062C3970EE004B0418 /* UITextView+Maple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F4A052C3970EE004B0418 /* UITextView+Maple.swift */; };
 		018F4A082C397186004B0418 /* UITextViewMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F4A072C397186004B0418 /* UITextViewMPTests.swift */; };
+		018F79A72F1DD349003D878D /* BinaryFloatingPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F79A62F1DD349003D878D /* BinaryFloatingPointExtensions.swift */; };
+		018F79A82F1DD349003D878D /* BinaryFloatingPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F79A62F1DD349003D878D /* BinaryFloatingPointExtensions.swift */; };
+		018F79AA2F1DD371003D878D /* BinaryFloatingPointExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F79A92F1DD371003D878D /* BinaryFloatingPointExtensionsTests.swift */; };
+		018F79AB2F1DD371003D878D /* BinaryFloatingPointExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F79A92F1DD371003D878D /* BinaryFloatingPointExtensionsTests.swift */; };
 		01AD2D1229A5BBB1005C99C3 /* OptionalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AD2D1129A5BBB1005C99C3 /* OptionalExtensions.swift */; };
 		01AD2D1329A5BBB1005C99C3 /* OptionalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AD2D1129A5BBB1005C99C3 /* OptionalExtensions.swift */; };
 		01AD2D1C29A5BCC8005C99C3 /* OptionalExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AD2D1929A5BCBF005C99C3 /* OptionalExtensionsTests.swift */; };
@@ -244,6 +248,8 @@
 		018F4A032C396FC1004B0418 /* UIApplication+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Maple.swift"; sourceTree = "<group>"; };
 		018F4A052C3970EE004B0418 /* UITextView+Maple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Maple.swift"; sourceTree = "<group>"; };
 		018F4A072C397186004B0418 /* UITextViewMPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewMPTests.swift; sourceTree = "<group>"; };
+		018F79A62F1DD349003D878D /* BinaryFloatingPointExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryFloatingPointExtensions.swift; sourceTree = "<group>"; };
+		018F79A92F1DD371003D878D /* BinaryFloatingPointExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryFloatingPointExtensionsTests.swift; sourceTree = "<group>"; };
 		01AD2D1129A5BBB1005C99C3 /* OptionalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalExtensions.swift; sourceTree = "<group>"; };
 		01AD2D1929A5BCBF005C99C3 /* OptionalExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalExtensionsTests.swift; sourceTree = "<group>"; };
 		01AD2D1E29A5BD67005C99C3 /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
@@ -473,6 +479,7 @@
 				0181E3AE2F0F565F005DDE4B /* DecimalExtensions.swift */,
 				0181E3882F0F46FF005DDE4B /* FloatExtensions.swift */,
 				0181E3902F0F4870005DDE4B /* FloatingPointExtensions.swift */,
+				018F79A62F1DD349003D878D /* BinaryFloatingPointExtensions.swift */,
 				0181E3962F0F4AB5005DDE4B /* IntExtensions.swift */,
 				0181E3992F0F4C7C005DDE4B /* SignedIntegerExtensions.swift */,
 				0181E3A22F0F50BA005DDE4B /* SignedNumericExtensions.swift */,
@@ -537,6 +544,7 @@
 		01AD2D1829A5BC93005C99C3 /* SwiftStdlib */ = {
 			isa = PBXGroup;
 			children = (
+				018F79A92F1DD371003D878D /* BinaryFloatingPointExtensionsTests.swift */,
 				0181E3B12F0F5BB9005DDE4B /* BoolExtensionsTests.swift */,
 				0181E3B22F0F5BB9005DDE4B /* DecimalExtensionsTests.swift */,
 				0181E3B32F0F5BB9005DDE4B /* DoubleExtensionsTests.swift */,
@@ -850,6 +858,7 @@
 				01FA2FAF263A999B002B932D /* UISwitch+Maple.swift in Sources */,
 				01CEC2FC2481FF0D00CF21B9 /* UITableView+Maple.swift in Sources */,
 				013DDEA5248240160095E201 /* String+Maple.swift in Sources */,
+				018F79A72F1DD349003D878D /* BinaryFloatingPointExtensions.swift in Sources */,
 				013DDE9F248206F40095E201 /* Date+Maple.swift in Sources */,
 				0181E39A2F0F4C7C005DDE4B /* SignedIntegerExtensions.swift in Sources */,
 			);
@@ -871,6 +880,7 @@
 				013DDEC3248264FF0095E201 /* NSImage+Maple.swift in Sources */,
 				01E5F5AD2BC241480005D730 /* DirectionalEdgeInsetsExtensions.swift in Sources */,
 				0181E3AF2F0F565F005DDE4B /* DecimalExtensions.swift in Sources */,
+				018F79A82F1DD349003D878D /* BinaryFloatingPointExtensions.swift in Sources */,
 				0181E39B2F0F4C7C005DDE4B /* SignedIntegerExtensions.swift in Sources */,
 				01AD2D1329A5BBB1005C99C3 /* OptionalExtensions.swift in Sources */,
 				0174DF562480EF1300258824 /* Bundle+Maple.swift in Sources */,
@@ -901,6 +911,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01DD61F229C94E5200792AE6 /* DispatchMPTests.swift in Sources */,
+				018F79AB2F1DD371003D878D /* BinaryFloatingPointExtensionsTests.swift in Sources */,
 				0136CD972B490660009C1CB7 /* UIStackViewMPTests.swift in Sources */,
 				0181E38C2F0F478B005DDE4B /* FloatExtensionsTests.swift in Sources */,
 				0181E3A62F0F5147005DDE4B /* SignedNumericExtensionsTests.swift in Sources */,
@@ -961,6 +972,7 @@
 				01E5F5B62BC24DD00005D730 /* CaseIterableExtensionsTests.swift in Sources */,
 				0181E3952F0F496C005DDE4B /* FloatingPointExtensionsTests.swift in Sources */,
 				01E5F5C42BC2736B0005D730 /* CGPointMPTests.swift in Sources */,
+				018F79AA2F1DD371003D878D /* BinaryFloatingPointExtensionsTests.swift in Sources */,
 				01E5F5D02BC277550005D730 /* CGRectMPTests.swift in Sources */,
 				0181E38D2F0F478B005DDE4B /* FloatExtensionsTests.swift in Sources */,
 				01194EA12CD5FD190073CF8B /* CalendarMPTests.swift in Sources */,

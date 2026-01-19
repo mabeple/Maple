@@ -13,27 +13,27 @@ import Foundation
 // MARK: - Properties
 
 public extension MapleWrapper where Base: SignedInteger {
-    /// SwifterSwift: Absolute value of integer number.
+    /// Absolute value of integer number.
     var abs: Base {
         return Swift.abs(base)
     }
 
-    /// SwifterSwift: Check if integer is positive.
+    /// Check if integer is positive.
     var isPositive: Bool {
         return base > 0
     }
 
-    /// SwifterSwift: Check if integer is negative.
+    /// Check if integer is negative.
     var isNegative: Bool {
         return base < 0
     }
 
-    /// SwifterSwift: Check if integer is even.
+    /// Check if integer is even.
     var isEven: Bool {
         return (base % 2) == 0
     }
 
-    /// SwifterSwift: Check if integer is odd.
+    /// Check if integer is odd.
     var isOdd: Bool {
         return (base % 2) != 0
     }

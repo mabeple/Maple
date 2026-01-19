@@ -45,7 +45,7 @@ public extension MapleWrapper where Base == Double {
 
 precedencegroup PowerPrecedence { higherThan: MultiplicationPrecedence }
 infix operator **: PowerPrecedence
-/// SwifterSwift: Value of exponentiation.
+/// Value of exponentiation.
 ///
 /// - Parameters:
 ///   - lhs: base double.
