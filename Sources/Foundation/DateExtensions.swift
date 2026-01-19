@@ -10,6 +10,7 @@ import Foundation
 extension Date: MapleCompatibleValue { }
 
 // MARK: - Properties
+
 public extension MapleWrapper where Base == Date {
     
     /// User’s current calendar.
