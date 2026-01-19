@@ -3,7 +3,6 @@
 //  Maple
 //
 //  Created by cy on 2020/4/5.
-//  Copyright © 2020 cy. All rights reserved.
 //
 
 import Foundation
