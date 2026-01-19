@@ -86,4 +86,49 @@ final class ArrayExtensionsTests: XCTestCase {
         ]
         XCTAssertEqual(arrayWithoutDuplicatesNHashable, arrayWithoutDuplicatesNHashablePrepared)
     }
+    
+    // MARK: - Test toSet()
+    func testToSet() {
+        // Test with Int array containing duplicates
+        let array1 = [1, 2, 2, 3, 4, 5]
+        let set1 = array1.mp.toSet()
+        XCTAssertEqual(set1.count, 5)
+        XCTAssertTrue(set1.contains(1))
+        XCTAssertTrue(set1.contains(2))
+        XCTAssertTrue(set1.contains(3))
+        XCTAssertTrue(set1.contains(4))
+        XCTAssertTrue(set1.contains(5))
+        
+        // Test with String array containing duplicates
+        let array2 = ["h", "e", "l", "l", "o"]
+        let set2 = array2.mp.toSet()
+        XCTAssertEqual(set2.count, 4)
+        XCTAssertTrue(set2.contains("h"))
+        XCTAssertTrue(set2.contains("e"))
+        XCTAssertTrue(set2.contains("l"))
+        XCTAssertTrue(set2.contains("o"))
+        
+        // Test with empty array
+        let array3: [Int] = []
+        let set3 = array3.mp.toSet()
+        XCTAssertTrue(set3.isEmpty)
+        
+        // Test with single element
+        let array4 = [42]
+        let set4 = array4.mp.toSet()
+        XCTAssertEqual(set4.count, 1)
+        XCTAssertTrue(set4.contains(42))
+        
+        // Test with all unique elements
+        let array5 = [1, 2, 3, 4, 5]
+        let set5 = array5.mp.toSet()
+        XCTAssertEqual(set5.count, 5)
+        XCTAssertEqual(set5, Set([1, 2, 3, 4, 5]))
+        
+        // Test with all same elements
+        let array6 = [1, 1, 1, 1, 1]
+        let set6 = array6.mp.toSet()
+        XCTAssertEqual(set6.count, 1)
+        XCTAssertTrue(set6.contains(1))
+    }
 }

@@ -61,6 +61,16 @@ public extension MapleWrapper {
     func removeAll<Element: Equatable>(_ item: Element) -> [Element] where Base == [Element] {
         return base.filter { $0 != item }
     }
+    
+    /// Convert array to set (duplicates will be removed).
+    ///
+    ///        [1, 2, 2, 3, 4, 5].mp.toSet() -> Set([1, 2, 3, 4, 5])
+    ///        ["h", "e", "l", "l", "o"].mp.toSet() -> Set(["h", "e", "l", "o"])
+    ///
+    /// - Returns: A set containing all unique elements of the array.
+    func toSet<Element: Hashable>() -> Set<Element> where Base == [Element] {
+        return Set(base)
+    }
 }
 
 
