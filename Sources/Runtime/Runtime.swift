@@ -1,12 +1,11 @@
 //
 //  Runtime.swift
-//  Maple-iOS
+//  Maple
 //
 //  Created by cy on 2024/5/7.
-//  Copyright © 2024 cy. All rights reserved.
 //
 
-import Foundation
+import ObjectiveC
 
 /// Association policy for associated objects.
 ///
@@ -76,17 +75,8 @@ public enum AssociationPolicy {
 ///   - key: A unique pointer used as the association key.
 /// - Returns:
 ///   The associated value cast to type `T`, or `nil` if no association exists.
-///
-/// - Note:
-///   On Swift versions prior to 5.3, a compiler/runtime issue required
-///   an additional cast to `AnyObject`.
-///   This implementation preserves compatibility with older runtimes.
 public func getAssociatedObject<T>(_ object: Any, _ key: UnsafeRawPointer) -> T? {
-    if #available(iOS 14, macOS 11, watchOS 7, tvOS 14, *) { // swift 5.3 fixed this issue (https://github.com/apple/swift/issues/46456)
-        return objc_getAssociatedObject(object, key) as? T
-    } else {
-        return objc_getAssociatedObject(object, key) as AnyObject as? T
-    }
+    return objc_getAssociatedObject(object, key) as? T
 }
 
 /// Sets an associated object for a given key using the specified policy.
