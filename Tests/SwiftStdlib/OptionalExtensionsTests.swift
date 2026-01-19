@@ -14,6 +14,48 @@ private enum OptionalTestError: Error {
 }
 
 final class OptionalExtensionsTests: XCTestCase {
+    func testIsNilOrEmpty() {
+        // Test with String (Collection)
+        var str: String? = nil
+        XCTAssertTrue(str.mp.isNilOrEmpty())
+        
+        str = ""
+        XCTAssertTrue(str.mp.isNilOrEmpty())
+        
+        str = "swift"
+        XCTAssertFalse(str.mp.isNilOrEmpty())
+        
+        // Test with Array
+        var array: [Int]? = nil
+        XCTAssertTrue(array.mp.isNilOrEmpty())
+        
+        array = []
+        XCTAssertTrue(array.mp.isNilOrEmpty())
+        
+        array = [1, 2, 3]
+        XCTAssertFalse(array.mp.isNilOrEmpty())
+        
+        // Test with Set
+        var set: Set<String>? = nil
+        XCTAssertTrue(set.mp.isNilOrEmpty())
+        
+        set = []
+        XCTAssertTrue(set.mp.isNilOrEmpty())
+        
+        set = ["a", "b", "c"]
+        XCTAssertFalse(set.mp.isNilOrEmpty())
+        
+        // Test with Dictionary
+        var dict: [String: Int]? = nil
+        XCTAssertTrue(dict.mp.isNilOrEmpty())
+        
+        dict = [:]
+        XCTAssertTrue(dict.mp.isNilOrEmpty())
+        
+        dict = ["a": 1, "b": 2]
+        XCTAssertFalse(dict.mp.isNilOrEmpty())
+    }
+    
     func testUnwrappedOrDefault() {
         var str: String?
         XCTAssertEqual(str.mp.unwrapped(or: "swift"), "swift")

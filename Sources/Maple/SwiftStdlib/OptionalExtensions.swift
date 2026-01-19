@@ -15,16 +15,26 @@ extension Optional: MapleCompatibleValue { }
 // MARK: - Methods
 public extension MapleWrapper {
     
-    /// Check if optional is nil.
+    /// Check if optional collection is nil or empty.
     ///
     ///        let foo: String? = nil
-    ///        foo.mp.isNil -> true
+    ///        foo.mp.isNilOrEmpty() -> true
     ///
-    ///        let bar: String? = "bar"
-    ///        bar.mp.isNil -> false
+    ///        let bar: String? = ""
+    ///        bar.mp.isNilOrEmpty() -> true
     ///
-    func isNil<Wrapped>() -> Bool where Base == Optional<Wrapped> {
-        base == nil
+    ///        let baz: String? = "baz"
+    ///        baz.mp.isNilOrEmpty() -> false
+    ///
+    ///        let array: [Int]? = []
+    ///        array.mp.isNilOrEmpty() -> true
+    ///
+    ///        let numbers: [Int]? = [1, 2, 3]
+    ///        numbers.mp.isNilOrEmpty() -> false
+    ///
+    /// - Returns: `true` if the optional is `nil` or the collection is empty, `false` otherwise.
+    func isNilOrEmpty<Wrapped: Collection>() -> Bool where Base == Optional<Wrapped> {
+        base?.isEmpty ?? true
     }
     
     /// Get self of default value (if self is nil).
