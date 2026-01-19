@@ -19,6 +19,15 @@ import Glibc
 #endif
 
 extension Int: MapleCompatibleValue {}
+extension Int8: MapleCompatibleValue {}
+extension Int16: MapleCompatibleValue {}
+extension Int32: MapleCompatibleValue {}
+extension Int64: MapleCompatibleValue {}
+extension UInt: MapleCompatibleValue {}
+extension UInt8: MapleCompatibleValue {}
+extension UInt16: MapleCompatibleValue {}
+extension UInt32: MapleCompatibleValue {}
+extension UInt64: MapleCompatibleValue {}
 
 // MARK: - Properties
 
