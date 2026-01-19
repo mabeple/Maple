@@ -55,6 +55,15 @@ public extension MapleWrapper where Base: CaseIterable, Base: Equatable, Base.Al
         return all[next]
     }
     
+    /// Method to check if the current case is the first case in the enumeration.
+    ///
+    /// - Returns: true if the current case is the first case, false otherwise.
+    func isFirst() -> Bool {
+        let all = Base.allCases
+        let idx = all.firstIndex(of: base)!
+        return idx == all.startIndex
+    }
+    
     /// Method to check if the current case is the last case in the enumeration.
     ///
     /// - Returns: true if the current case is the last case, false otherwise.
