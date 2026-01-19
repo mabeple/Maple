@@ -10,8 +10,8 @@ let swiftSettings: [SwiftSetting] = [
 let package = Package(
     name: "Maple",
     platforms: [
-        .iOS(.v26),
-        .macOS(.v26)
+        .iOS(.v15),
+        .macOS(.v12)
     ],
     products: [
         .library(name: "Maple", targets: ["Maple"]),
