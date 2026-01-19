@@ -19,6 +19,7 @@ struct BundleExtensionTests {
         let bundle = Bundle.main
         let wrapper = bundle.mp
         #expect(wrapper.base === bundle)
+        #expect(type(of: wrapper) == MapleWrapper<Bundle>.self)
     }
     
     // MARK: - Property: displayName

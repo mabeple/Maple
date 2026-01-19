@@ -23,6 +23,7 @@ struct CGRectExtensionTests {
         #expect(wrapper.base.origin.y == 20)
         #expect(wrapper.base.size.width == 100)
         #expect(wrapper.base.size.height == 200)
+        #expect(type(of: wrapper) == MapleWrapper<CGRect>.self)
     }
     
     // MARK: - Property: center

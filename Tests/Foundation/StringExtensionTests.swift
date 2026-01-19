@@ -27,6 +27,7 @@ struct StringExtensionTests {
         let string = "Hello"
         let wrapper = string.mp
         #expect(wrapper.base == string)
+        #expect(type(of: wrapper) == MapleWrapper<String>.self)
     }
     
     // MARK: - Property: base64Decoded

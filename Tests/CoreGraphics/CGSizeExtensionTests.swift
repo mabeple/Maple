@@ -21,6 +21,7 @@ struct CGSizeExtensionTests {
         let wrapper = size.mp
         #expect(wrapper.base.width == 100)
         #expect(wrapper.base.height == 200)
+        #expect(type(of: wrapper) == MapleWrapper<CGSize>.self)
     }
     
     // MARK: - Property: aspectRatio

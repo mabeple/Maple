@@ -19,6 +19,7 @@ struct DataExtensionTests {
         let data = Data([0x01, 0x02, 0x03])
         let wrapper = data.mp
         #expect(wrapper.base == data)
+        #expect(type(of: wrapper) == MapleWrapper<Data>.self)
     }
     
     // MARK: - Property: bytes

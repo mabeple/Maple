@@ -21,6 +21,7 @@ struct CGPointExtensionTests {
         let wrapper = point.mp
         #expect(wrapper.base.x == 10)
         #expect(wrapper.base.y == 20)
+        #expect(type(of: wrapper) == MapleWrapper<CGPoint>.self)
     }
     
     // MARK: - Method: distance(from:)

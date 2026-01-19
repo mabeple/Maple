@@ -24,6 +24,7 @@ struct CGFloatExtensionTests {
         let value: CGFloat = 10.5
         let wrapper = value.mp
         #expect(wrapper.base == 10.5)
+        #expect(type(of: wrapper) == MapleWrapper<CGFloat>.self)
     }
     
     // MARK: - Property: abs

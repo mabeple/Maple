@@ -37,7 +37,7 @@ public extension MapleWrapper where Base == CGSize {
     ///
     ///     let rect = CGSize(width: 120, height: 80)
     ///     let parentRect  = CGSize(width: 100, height: 50)
-    ///     let newRect = rect.aspectFit(to: parentRect)
+    ///     let newRect = rect.mp.aspectFit(to: parentRect)
     ///     // newRect.width = 75 , newRect = 50
     ///
     /// - Parameter boundingSize: bounding size to fit self to.
@@ -51,7 +51,7 @@ public extension MapleWrapper where Base == CGSize {
     ///
     ///     let rect = CGSize(width: 20, height: 120)
     ///     let parentRect  = CGSize(width: 100, height: 60)
-    ///     let newRect = rect.aspectFit(to: parentRect)
+    ///     let newRect = rect.mp.aspectFit(to: parentRect)
     ///     // newRect.width = 100 , newRect = 60
     ///
     /// - Parameter boundingSize: bounding size to fill self to.

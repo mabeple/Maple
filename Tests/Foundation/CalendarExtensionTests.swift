@@ -19,6 +19,7 @@ struct CalendarExtensionTests {
         let calendar = Calendar.current
         let wrapper = calendar.mp
         #expect(wrapper.base.identifier == calendar.identifier)
+        #expect(type(of: wrapper) == MapleWrapper<Calendar>.self)
     }
     
     // MARK: - Method: numberOfDaysInMonth

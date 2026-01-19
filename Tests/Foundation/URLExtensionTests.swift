@@ -19,6 +19,7 @@ struct URLExtensionTests {
         let url = URL(string: "https://example.com")!
         let wrapper = url.mp
         #expect(wrapper.base == url)
+        #expect(type(of: wrapper) == MapleWrapper<URL>.self)
     }
     
     // MARK: - Property: queryParameters

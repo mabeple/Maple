@@ -17,7 +17,7 @@ public extension MapleWrapper where Base == CGPoint {
     ///
     ///     let point1 = CGPoint(x: 10, y: 10)
     ///     let point2 = CGPoint(x: 30, y: 30)
-    ///     let distance = point1.distance(from: point2)
+    ///     let distance = point1.mp.distance(from: point2)
     ///     // distance = 28.28
     ///
     /// - Parameter point: CGPoint to get distance from.
