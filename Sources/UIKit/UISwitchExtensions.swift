@@ -1,15 +1,15 @@
 //
-//  UISwitch+Maple.swift
-//  Maple-iOS
+//  UISwitchExtensions.swift
+//  Maple
 //
 //  Created by cy on 2021/4/29.
-//  Copyright © 2021 cy. All rights reserved.
 //
 
-#if canImport(UIKit) && os(iOS)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 // MARK: - Methods
+
 @MainActor
 public extension MapleWrapper where Base: UISwitch {
     /// Toggle a UISwitch.

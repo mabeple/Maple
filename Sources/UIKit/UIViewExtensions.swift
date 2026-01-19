@@ -1,16 +1,17 @@
 //
-//  UIView+Maple.swift
+//  UIViewExtensions.swift
 //  Maple
 //
 //  Created by cy on 2020/4/5.
-//  Copyright © 2020 cy. All rights reserved.
 //
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
+
 extension UIView: MapleCompatible { }
 
 // MARK: - Properties
+
 @MainActor
 public extension MapleWrapper where Base: UIView {
     

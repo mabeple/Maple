@@ -1,16 +1,17 @@
 //
-//  UIAlertAction+Maple.swift
+//  UIAlertActionExtensions.swift
 //  Maple
 //
 //  Created by cy on 2020/11/16.
-//  Copyright © 2020 cy. All rights reserved.
 //
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
+
 extension UIAlertAction: MapleCompatible { }
 
 // MARK: - Properties
+
 @MainActor
 public extension MapleWrapper where Base == UIAlertAction {
     

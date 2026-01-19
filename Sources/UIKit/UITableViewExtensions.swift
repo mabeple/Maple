@@ -1,14 +1,15 @@
 //
-//  UITableView+Maple.swift
+//  UITableViewExtensions.swift
 //  Maple
 //
 //  Created by cy on 2020/5/8.
 //
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 // MARK: - Properties
+
 @MainActor
 public extension MapleWrapper where Base: UITableView {
     
@@ -47,6 +48,7 @@ public extension MapleWrapper where Base: UITableView {
     /// - Returns: optional last indexPath for last row in section (if applicable).
     func indexPathForLastRow(inSection section: Int) -> IndexPath? {
         guard base.numberOfSections > 0, section >= 0 else { return nil }
+        guard section < base.numberOfSections else { return nil }
         guard base.numberOfRows(inSection: section) > 0  else {
             return IndexPath(row: 0, section: section)
         }

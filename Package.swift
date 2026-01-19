@@ -29,6 +29,9 @@ let package = Package(
             name: "MapleTests",
             dependencies: ["Maple"],
             path: "Tests",
+            resources: [
+                .process("Resources")
+            ],
             swiftSettings: swiftSettings
         ),
     ]

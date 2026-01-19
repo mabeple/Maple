@@ -3,7 +3,6 @@
 //  Maple
 //
 //  Created by cy on 2026/1/8.
-//  Copyright © 2026 cy. All rights reserved.
 //
 
 #if canImport(Foundation)

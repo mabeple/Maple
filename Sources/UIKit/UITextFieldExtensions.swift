@@ -1,15 +1,15 @@
 //
-//  UITextField+Maple.swift
+//  UITextFieldExtensions.swift
 //  Maple
 //
 //  Created by cy on 2020/5/6.
-//  Copyright © 2020 cy. All rights reserved.
 //
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 // MARK: - Properties
+
 @MainActor
 public extension MapleWrapper where Base: UITextField {
     
