@@ -3,10 +3,7 @@
 //  Maple
 //
 //  Created by cy on 2026/1/19.
-//  Copyright © 2026 cy. All rights reserved.
 //
-
-import Foundation
 
 // MARK: - Methods
 

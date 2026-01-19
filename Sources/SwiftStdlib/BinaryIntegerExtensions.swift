@@ -5,8 +5,6 @@
 //  Created by cy on 2026/1/19.
 //
 
-import Foundation
-
 // MARK: - Properties
 
 public extension MapleWrapper where Base: BinaryInteger {

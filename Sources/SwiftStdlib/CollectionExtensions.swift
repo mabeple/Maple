@@ -5,8 +5,6 @@
 //  Created by cy on 2024/9/23.
 //
 
-import Foundation
-
 // MARK: - Methods
 
 public extension Collection {

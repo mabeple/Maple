@@ -5,7 +5,6 @@
 //  Created by cy on 2024/9/23.
 //
 
-
 // MARK: - Methods
 
 public extension MapleWrapper where Base: Comparable {

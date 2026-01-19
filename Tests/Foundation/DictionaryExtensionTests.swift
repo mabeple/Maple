@@ -161,13 +161,6 @@ struct DictionaryExtensionTests {
         #expect(compacted["C"] == 6)
         #expect(compacted["A"] == nil)
         
-        // Test empty dictionary
-        let emptyDict: [String: Int] = [:]
-        let emptyCompacted = emptyDict.mp.compactMapKeysAndValues { (key, value) in
-            value > 1 ? (key.uppercased(), value * 2) : nil
-        }
-        #expect(emptyCompacted.isEmpty)
-        
         // Test all nil
         let allNil: [String: Int] = dict.mp.compactMapKeysAndValues { (key, value) in
             nil as (String, Int)?

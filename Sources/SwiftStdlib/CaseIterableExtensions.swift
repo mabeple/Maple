@@ -5,8 +5,6 @@
 //  Created by cy on 2024/4/7.
 //
 
-import Foundation
-
 // Make types conforming to CaseIterable & Equatable automatically have mp property
 // by providing mp through protocol extension
 extension CaseIterable where Self: Equatable, AllCases: BidirectionalCollection {
