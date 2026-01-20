@@ -23,30 +23,6 @@ struct UIApplicationExtensionTests {
         #expect(type(of: wrapper) == MapleWrapper<UIApplication>.self)
     }
     
-    // MARK: - Property: safeAreaInsets
-    
-    @Test("safeAreaInsets should return UIEdgeInsets")
-    @MainActor
-    func testSafeAreaInsets() {
-        let app = UIApplication.shared
-        let insets = app.mp.safeAreaInsets
-        
-        // Should return valid UIEdgeInsets (may be .zero in test environment)
-        #expect(type(of: insets) == UIEdgeInsets.self)
-    }
-    
-    // MARK: - Property: statusBarFrame
-    
-    @Test("statusBarFrame should return CGRect")
-    @MainActor
-    func testStatusBarFrame() {
-        let app = UIApplication.shared
-        let frame = app.mp.statusBarFrame
-        
-        // Should return valid CGRect (may be .zero in test environment)
-        #expect(type(of: frame) == CGRect.self)
-    }
-    
     // MARK: - Property: allEnvironments
     
     @Test("allEnvironments should return all environment cases")
@@ -67,7 +43,7 @@ struct UIApplicationExtensionTests {
     @MainActor
     func testEnvironment() {
         let app = UIApplication.shared
-        let environment = app.mp.environment
+        let environment = app.mp.inferredEnvironment
         
         // In test environment, should typically be .debug
         #expect([.debug, .testFlight, .appStore].contains(environment))
