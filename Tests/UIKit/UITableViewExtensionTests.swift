@@ -411,6 +411,28 @@ struct UITableViewExtensionTests {
         // Should not crash
         #expect(tableView.mp.isValidIndexPath(indexPath) == false)
     }
+    
+    @Test("dequeueReusableHeaderFooterView should work in delegate callback")
+    @MainActor
+    func testDequeueReusableHeaderFooterViewInDelegate() {
+        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 200, height: 200), style: .plain)
+        
+        tableView.mp.register(headerFooterViewClassWith: TestTableViewHeaderFooterView.self)
+        tableView.mp.register(cellWithClass: TestTableViewCell.self)
+        
+        let dataSource = TestTableViewDataSource(sections: 2, rowsPerSection: 3)
+        let delegate = TestTableViewDelegate()
+        
+        tableView.dataSource = dataSource
+        tableView.delegate = delegate
+        tableView.reloadData()
+        
+        // Trigger viewForHeaderInSection which uses dequeueReusableHeaderFooterView
+        let headerView = delegate.tableView(tableView, viewForHeaderInSection: 0)
+        
+        #expect(headerView != nil)
+        #expect(type(of: headerView!) == TestTableViewHeaderFooterView.self)
+    }
 }
 
 // MARK: - Test Helpers
@@ -433,13 +455,33 @@ class TestTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.mp.dequeueReusableCell(withClass: TestTableViewCell.self)
+        return tableView.mp.dequeueReusableCell(withClass: TestTableViewCell.self, for: indexPath)
     }
 }
 
 class TestTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+class TestTableViewDelegate: NSObject, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return tableView.mp.dequeueReusableHeaderFooterView(withClass: TestTableViewHeaderFooterView.self)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44.0
+    }
+}
+
+class TestTableViewHeaderFooterView: UITableViewHeaderFooterView {
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
     }
     
     required init?(coder: NSCoder) {
