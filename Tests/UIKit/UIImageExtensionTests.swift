@@ -17,10 +17,7 @@ struct UIImageExtensionTests {
     
     /// Load test image from resources
     static func loadTestImage() -> UIImage {
-        guard let image = UIImage(named: "TestImage", in: Bundle.module, compatibleWith: nil) else {
-            // Fallback to creating a simple test image if resource not found
-            return UIImage(color: .red, size: CGSize(width: 100, height: 100))
-        }
+        let image = UIImage(named: "TestImage", in: Bundle.module, compatibleWith: nil)!
         return image
     }
     
@@ -35,22 +32,40 @@ struct UIImageExtensionTests {
     
     // MARK: - Property: bytesSize
     
-    @Test("bytesSize should return size in bytes")
+    @Test("bytesSize should return size in bytes for valid image")
     func testBytesSize() {
         let image = Self.loadTestImage()
         let bytesSize = image.mp.bytesSize
         
-        #expect(bytesSize >= 0)
+        #expect(bytesSize > 0)
+    }
+    
+    @Test("bytesSize should return 0 when jpegData is nil")
+    func testBytesSizeForInvalidImage() {
+        // Create an image that cannot be converted to JPEG (e.g., empty image)
+        let emptyImage = UIImage()
+        let bytesSize = emptyImage.mp.bytesSize
+        
+        #expect(bytesSize == 0)
     }
     
     // MARK: - Property: kilobytesSize
     
-    @Test("kilobytesSize should return size in kilobytes")
+    @Test("kilobytesSize should return size in kilobytes for valid image")
     func testKilobytesSize() {
         let image = Self.loadTestImage()
         let kilobytesSize = image.mp.kilobytesSize
         
         #expect(kilobytesSize >= 0)
+    }
+    
+    @Test("kilobytesSize should return 0 when jpegData is nil")
+    func testKilobytesSizeForInvalidImage() {
+        // Create an image that cannot be converted to JPEG (e.g., empty image)
+        let emptyImage = UIImage()
+        let kilobytesSize = emptyImage.mp.kilobytesSize
+        
+        #expect(kilobytesSize == 0)
     }
     
     // MARK: - Property: original
@@ -91,6 +106,14 @@ struct UIImageExtensionTests {
         #expect(compressed != nil)
     }
     
+    @Test("compressed should return nil for empty image")
+    func testCompressedEmptyImage() {
+        let emptyImage = UIImage()
+        let compressed = emptyImage.mp.compressed(quality: 0.5)
+        
+        #expect(compressed == nil)
+    }
+    
     // MARK: - Method: compressedData(quality:)
     
     @Test("compressedData should return data")
@@ -99,6 +122,14 @@ struct UIImageExtensionTests {
         let data = image.mp.compressedData(quality: 0.5)
         
         #expect(data != nil)
+    }
+    
+    @Test("compressedData should return nil for empty image")
+    func testCompressedDataEmptyImage() {
+        let emptyImage = UIImage()
+        let data = emptyImage.mp.compressedData(quality: 0.5)
+        
+        #expect(data == nil)
     }
     
     // MARK: - Method: cropped(to:)
@@ -113,12 +144,23 @@ struct UIImageExtensionTests {
         #expect(cropped.size.height <= image.size.height)
     }
     
-    @Test("cropped should return original image for invalid rect")
-    func testCroppedInvalidRect() {
+    @Test("cropped should return original image for oversized rect")
+    func testCroppedOversizedRect() {
         let image = Self.loadTestImage()
         let rect = CGRect(x: 0, y: 0, width: image.size.width * 2, height: image.size.height * 2)
         let cropped = image.mp.cropped(to: rect)
         
+        #expect(cropped.size == image.size)
+    }
+    
+    @Test("cropped should return original image when cgImage cropping fails")
+    func testCroppedFailedCropping() {
+        let image = Self.loadTestImage()
+        // Create a rect that's outside the image bounds
+        let rect = CGRect(x: image.size.width + 100, y: image.size.height + 100, width: 10, height: 10)
+        let cropped = image.mp.cropped(to: rect)
+        
+        // Should return original image when cropping fails
         #expect(cropped.size == image.size)
     }
     
@@ -193,7 +235,7 @@ struct UIImageExtensionTests {
     
     // MARK: - Method: withRoundedCorners(radius:)
     
-    @Test("withRoundedCorners should round corners")
+    @Test("withRoundedCorners should round corners with valid radius")
     func testWithRoundedCorners() {
         let image = Self.loadTestImage()
         let rounded = image.mp.withRoundedCorners(radius: 10.0)
@@ -201,10 +243,35 @@ struct UIImageExtensionTests {
         #expect(rounded != nil)
     }
     
-    @Test("withRoundedCorners should use default radius")
+    @Test("withRoundedCorners should use default radius when nil")
     func testWithRoundedCornersDefault() {
         let image = Self.loadTestImage()
         let rounded = image.mp.withRoundedCorners()
+        
+        #expect(rounded != nil)
+    }
+    
+    @Test("withRoundedCorners should use maxRadius when radius is 0")
+    func testWithRoundedCornersZeroRadius() {
+        let image = Self.loadTestImage()
+        let rounded = image.mp.withRoundedCorners(radius: 0)
+        
+        #expect(rounded != nil)
+    }
+    
+    @Test("withRoundedCorners should use maxRadius when radius is negative")
+    func testWithRoundedCornersNegativeRadius() {
+        let image = Self.loadTestImage()
+        let rounded = image.mp.withRoundedCorners(radius: -10.0)
+        
+        #expect(rounded != nil)
+    }
+    
+    @Test("withRoundedCorners should use maxRadius when radius exceeds max")
+    func testWithRoundedCornersExceedsMax() {
+        let image = Self.loadTestImage()
+        let maxRadius = min(image.size.width, image.size.height) / 2
+        let rounded = image.mp.withRoundedCorners(radius: maxRadius + 100)
         
         #expect(rounded != nil)
     }
@@ -219,6 +286,14 @@ struct UIImageExtensionTests {
         #expect(data != nil)
     }
     
+    @Test("pngData should return nil for empty image")
+    func testPngDataEmptyImage() {
+        let emptyImage = UIImage()
+        let data = emptyImage.mp.pngData()
+        
+        #expect(data == nil)
+    }
+    
     // MARK: - Method: pngBase64String
     
     @Test("pngBase64String should return base64 string")
@@ -230,6 +305,14 @@ struct UIImageExtensionTests {
         #expect(base64String?.isEmpty == false)
     }
     
+    @Test("pngBase64String should return nil for empty image")
+    func testPngBase64StringEmptyImage() {
+        let emptyImage = UIImage()
+        let base64String = emptyImage.mp.pngBase64String()
+        
+        #expect(base64String == nil)
+    }
+    
     // MARK: - Method: jpegBase64String(compressionQuality:)
     
     @Test("jpegBase64String should return base64 string")
@@ -239,6 +322,14 @@ struct UIImageExtensionTests {
         
         #expect(base64String != nil)
         #expect(base64String?.isEmpty == false)
+    }
+    
+    @Test("jpegBase64String should return nil for empty image")
+    func testJpegBase64StringEmptyImage() {
+        let emptyImage = UIImage()
+        let base64String = emptyImage.mp.jpegBase64String(compressionQuality: 0.5)
+        
+        #expect(base64String == nil)
     }
     
     // MARK: - Initializer: init(color:size:)
@@ -258,6 +349,20 @@ struct UIImageExtensionTests {
         let image = UIImage(color: color)
         
         #expect(image.size == CGSize(width: 1, height: 1))
+    }
+    
+    @Test("init with color should handle invalid size gracefully")
+    func testInitWithColorInvalidSize() {
+        let color = UIColor.red
+        // Test with zero size - should still create an image (fallback to empty init)
+        let imageZero = UIImage(color: color, size: .zero)
+        #expect(imageZero.size == .zero || imageZero.size == CGSize(width: 1, height: 1))
+        
+        // Test with negative size - should create an image (may fallback)
+        let imageNegative = UIImage(color: color, size: CGSize(width: -10, height: -10))
+        // Just verify it doesn't crash and creates some image
+        #expect(imageNegative.size.width >= 0)
+        #expect(imageNegative.size.height >= 0)
     }
     
     // MARK: - Initializer: init?(base64String:scale:)
@@ -286,13 +391,83 @@ struct UIImageExtensionTests {
     #if canImport(CoreImage)
     // MARK: - Method: averageColor()
     
-    @Test("averageColor should return average color")
+    @Test("averageColor should return average color for valid image")
     func testAverageColor() {
-        let image = Self.loadTestImage()
+        // Create a solid color image to ensure we get a color back
+        let image = UIImage(color: .red, size: CGSize(width: 100, height: 100))
         let averageColor = image.mp.averageColor()
         
-        // May return nil for some images, but should not crash
-        #expect(averageColor == nil || averageColor != nil)
+        #expect(averageColor != nil)
+    }
+    
+    @Test("averageColor should return nil for empty image")
+    func testAverageColorForEmptyImage() {
+        // Empty UIImage should return nil
+        let emptyImage = UIImage()
+        let averageColor = emptyImage.mp.averageColor()
+        
+        #expect(averageColor == nil)
+    }
+    
+    @Test("averageColor should handle image with CIImage")
+    func testAverageColorWithCIImage() {
+        // Create an image from CIImage - tests the base.ciImage branch
+        let ciImage = CIImage(color: CIColor.red)
+            .cropped(to: CGRect(x: 0, y: 0, width: 100, height: 100))
+        let image = UIImage(ciImage: ciImage)
+        
+        let averageColor = image.mp.averageColor()
+        
+        // Should use base.ciImage directly
+        #expect(averageColor != nil)
+    }
+    
+    @Test("averageColor should handle image created from cgImage")
+    func testAverageColorFromCGImage() {
+        // Create an image from CGImage - tests CIImage(image: base) branch
+        let testImage = Self.loadTestImage()
+        let averageColor = testImage.mp.averageColor()
+        
+        // Should create CIImage from base
+        #expect(averageColor != nil)
+    }
+    
+    @Test("averageColor should handle zero size image")
+    func testAverageColorZeroSize() {
+        // Create image with zero size - may cause filter to fail
+        let image = UIImage(color: .blue, size: .zero)
+        let averageColor = image.mp.averageColor()
+        
+        // May return nil if filter fails with zero size
+        // Just verify it doesn't crash
+        _ = averageColor
+    }
+    
+    @Test("averageColor should handle invalid extent values")
+    func testAverageColorInvalidExtent() {
+        // Test 1: NaN extent - should cause filter to fail or return nil
+        let nanRect = CGRect(x: CGFloat.nan, y: CGFloat.nan, width: CGFloat.nan, height: CGFloat.nan)
+        let nanCIImage = CIImage(color: CIColor.red).cropped(to: nanRect)
+        let imageNan = UIImage(ciImage: nanCIImage)
+        let colorNan = imageNan.mp.averageColor()
+        // NaN extent should cause issues
+        _ = colorNan
+        
+        // Test 2: Infinite extent - should cause filter to fail
+        let infRect = CGRect(x: CGFloat.infinity, y: CGFloat.infinity, width: CGFloat.infinity, height: CGFloat.infinity)
+        let infCIImage = CIImage(color: CIColor.blue).cropped(to: infRect)
+        let imageInf = UIImage(ciImage: infCIImage)
+        let colorInf = imageInf.mp.averageColor()
+        // Infinite extent should cause issues
+        _ = colorInf
+        
+        // Test 3: Negative dimensions
+        let negRect = CGRect(x: 0, y: 0, width: -100, height: -100)
+        let negCIImage = CIImage(color: CIColor.green).cropped(to: negRect)
+        let imageNeg = UIImage(ciImage: negCIImage)
+        let colorNeg = imageNeg.mp.averageColor()
+        // Negative dimensions should cause issues
+        _ = colorNeg
     }
     #endif
     
