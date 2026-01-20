@@ -34,12 +34,8 @@ public extension MapleWrapper where Base: UITextView {
     func wrapToContent() {
         base.isScrollEnabled = false
         base.contentInset = .zero
-        if #available(iOS 13.0, *) {
-            base.verticalScrollIndicatorInsets = .zero
-            base.horizontalScrollIndicatorInsets = .zero
-        } else {
-            base.scrollIndicatorInsets = .zero
-        }
+        base.verticalScrollIndicatorInsets = .zero
+        base.horizontalScrollIndicatorInsets = .zero
         base.contentOffset = .zero
         base.textContainerInset = .zero
         base.textContainer.lineFragmentPadding = 0
