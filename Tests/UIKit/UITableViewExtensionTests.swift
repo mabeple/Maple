@@ -334,6 +334,83 @@ struct UITableViewExtensionTests {
         let headerFooterView = tableView.mp.dequeueReusableHeaderFooterView(withClass: UITableViewHeaderFooterView.self)
         #expect(type(of: headerFooterView) == UITableViewHeaderFooterView.self)
     }
+    
+    @Test("register nibWithCellClass with bundleClass should work")
+    @MainActor
+    func testRegisterNibWithCellClassWithBundle() {
+        let tableView = UITableView(frame: .zero, style: .plain)
+        
+        // Test with bundleClass parameter (covers if let bundleName branch)
+        tableView.mp.register(nibWithCellClass: TestTableViewCell.self, at: TestTableViewCell.self)
+        
+        // Should not crash
+        _ = tableView
+    }
+    
+    @Test("register nibWithCellClass without bundleClass should work")
+    @MainActor
+    func testRegisterNibWithCellClassWithoutBundle() {
+        let tableView = UITableView(frame: .zero, style: .plain)
+        
+        // Test without bundleClass parameter (covers bundle = nil case)
+        // This will try to load from main bundle
+        tableView.mp.register(nibWithCellClass: TestTableViewCell.self, at: nil)
+        
+        // Should not crash
+        _ = tableView
+    }
+    
+    @Test("register nibWithHeaderFooterViewClass with bundleClass should work")
+    @MainActor
+    func testRegisterNibWithHeaderFooterViewClassWithBundle() {
+        let tableView = UITableView(frame: .zero, style: .plain)
+        
+        // Test with bundleClass parameter (covers if let bundleName branch)
+        tableView.mp.register(nibWithHeaderFooterViewClass: UITableViewHeaderFooterView.self, at: UITableViewHeaderFooterView.self)
+        
+        // Should not crash
+        _ = tableView
+    }
+    
+    @Test("register nibWithHeaderFooterViewClass without bundleClass should work")
+    @MainActor
+    func testRegisterNibWithHeaderFooterViewClassWithoutBundle() {
+        let tableView = UITableView(frame: .zero, style: .plain)
+        
+        // Test without bundleClass parameter (covers bundle = nil case)
+        // This will try to load from main bundle
+        tableView.mp.register(nibWithHeaderFooterViewClass: UITableViewHeaderFooterView.self, at: nil)
+        
+        // Should not crash
+        _ = tableView
+    }
+    
+    @Test("register headerFooterViewClassWith should work")
+    @MainActor
+    func testRegisterHeaderFooterViewClass() {
+        let tableView = UITableView(frame: .zero, style: .plain)
+        
+        tableView.mp.register(headerFooterViewClassWith: UITableViewHeaderFooterView.self)
+        
+        let headerFooterView = tableView.mp.dequeueReusableHeaderFooterView(withClass: UITableViewHeaderFooterView.self)
+        #expect(type(of: headerFooterView) == UITableViewHeaderFooterView.self)
+    }
+    
+    @Test("safeScrollToRow should handle invalid section")
+    @MainActor
+    func testSafeScrollToRowInvalidSection() {
+        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 200, height: 200), style: .plain)
+        let dataSource = TestTableViewDataSource(sections: 1, rowsPerSection: 3)
+        tableView.dataSource = dataSource
+        tableView.reloadData()
+        
+        // Test with section beyond bounds
+        let indexPath = IndexPath(row: 0, section: 10)
+        tableView.mp.safeScrollToRow(at: indexPath, at: .middle, animated: false)
+        
+        // Should not crash
+        #expect(tableView.mp.isValidIndexPath(indexPath) == false)
+    }
 }
 
 // MARK: - Test Helpers
