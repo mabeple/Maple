@@ -358,8 +358,8 @@ struct SwiftUIColorExtensionTests {
     
     // MARK: - Cross-Platform Conversion
     
-    @Test("swiftUIColor should convert platform color to SwiftUI Color")
-    func testSwiftUIColorConversion() {
+    @Test("color should convert platform color to SwiftUI Color")
+    func testColorConversion() {
         #if canImport(UIKit)
         // 使用自定义颜色而不是系统颜色
         let uiColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
@@ -368,10 +368,10 @@ struct SwiftUIColorExtensionTests {
         #expect(abs(components.red - 255) <= 2)
         #expect(abs(components.green - 0) <= 2)
         #expect(abs(components.blue - 0) <= 2)
-        #elseif canImport(AppKit)
+        #elseif canImport(AppKit) && !targetEnvironment(macCatalyst)
         // 使用自定义颜色而不是系统颜色
         let nsColor = NSColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
-        let swiftUIColor = nsColor.mp.swiftUIColor
+        let swiftUIColor = nsColor.mp.color
         let components = swiftUIColor.mp.rgbComponents
         #expect(abs(components.red - 255) <= 2)
         #expect(abs(components.green - 0) <= 2)
