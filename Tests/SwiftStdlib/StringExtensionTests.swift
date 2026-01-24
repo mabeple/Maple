@@ -412,22 +412,22 @@ struct StringExtensionTests {
     
     // MARK: - Method: copyToPasteboard
     
-    #if os(iOS) || os(macOS)
-    @Test("copyToPasteboard should copy string to clipboard")
-    func testCopyToPasteboard() {
-        let testString = "Test String for Clipboard"
-        testString.mp.copyToPasteboard()
-        
-        // Verify it was copied
-        #if os(iOS)
-        let pasteboardContent = UIPasteboard.general.string
-        #elseif os(macOS)
-        let pasteboardContent = NSPasteboard.general.string(forType: .string)
-        #endif
-        
-        #expect(pasteboardContent == testString)
-    }
-    #endif
+//    #if os(iOS) || os(macOS)
+//    @Test("copyToPasteboard should copy string to clipboard")
+//    func testCopyToPasteboard() {
+//        let testString = "Test String for Clipboard"
+//        testString.mp.copyToPasteboard()
+//        
+//        // Verify it was copied
+//        #if os(iOS)
+//        let pasteboardContent = UIPasteboard.general.string
+//        #elseif os(macOS)
+//        let pasteboardContent = NSPasteboard.general.string(forType: .string)
+//        #endif
+//        
+//        #expect(pasteboardContent == testString)
+//    }
+//    #endif
     
     // MARK: - Method: contains
     

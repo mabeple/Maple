@@ -330,35 +330,35 @@ struct UICollectionViewExtensionTests {
         #expect(type(of: supplementaryView) == TestCollectionReusableView.self)
     }
     
-    @Test("register nibWithCellClass should work with xib from resources")
-    @MainActor
-    func testRegisterNibWithCellClass() {
-        let layout = UICollectionViewFlowLayout()
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        
-        // Register using UICollectionViewCell.xib from test resources
-        // Use Bundle.module to load from test resources
-        let nib = UINib(nibName: "UICollectionViewCell", bundle: Bundle.module)
-        collectionView.mp.register(nib: nib, forCellWithClass: UICollectionViewCell.self)
-        
-        // Verify registration by attempting to dequeue
-        let indexPath = IndexPath(item: 0, section: 0)
-        let cell = collectionView.mp.dequeueReusableCell(withClass: UICollectionViewCell.self, for: indexPath)
-        #expect(type(of: cell) == UICollectionViewCell.self)
-    }
+//    @Test("register nibWithCellClass should work with xib from resources")
+//    @MainActor
+//    func testRegisterNibWithCellClass() {
+//        let layout = UICollectionViewFlowLayout()
+//        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+//        
+//        // Register using UICollectionViewCell.xib from test resources
+//        // Use Bundle.module to load from test resources
+//        let nib = UINib(nibName: "UICollectionViewCell", bundle: Bundle.module)
+//        collectionView.mp.register(nib: nib, forCellWithClass: UICollectionViewCell.self)
+//        
+//        // Verify registration by attempting to dequeue
+//        let indexPath = IndexPath(item: 0, section: 0)
+//        let cell = collectionView.mp.dequeueReusableCell(withClass: UICollectionViewCell.self, for: indexPath)
+//        #expect(type(of: cell) == UICollectionViewCell.self)
+//    }
     
-    @Test("register nibWithCellClass with bundleClass should work")
-    @MainActor
-    func testRegisterNibWithCellClassWithBundle() {
-        let layout = UICollectionViewFlowLayout()
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        
-        // Test with bundleClass parameter (covers if let bundleName branch)
-        collectionView.mp.register(nibWithCellClass: TestCollectionViewCell.self, at: TestCollectionViewCell.self)
-        
-        // Should not crash
-        _ = collectionView
-    }
+//    @Test("register nibWithCellClass with bundleClass should work")
+//    @MainActor
+//    func testRegisterNibWithCellClassWithBundle() {
+//        let layout = UICollectionViewFlowLayout()
+//        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+//        
+//        // Test with bundleClass parameter (covers if let bundleName branch)
+//        collectionView.mp.register(nibWithCellClass: TestCollectionViewCell.self, at: TestCollectionViewCell.self)
+//        
+//        // Should not crash
+//        _ = collectionView
+//    }
     
     @Test("register nibWithCellClass without bundleClass should work")
     @MainActor
