@@ -21,16 +21,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
-      - name: CocoaPods
-        run: |
-          sudo gem install cocoapods
-          pod --version
-          pod lib lint Maple.podspec --allow-warnings --verbose
           
       - name: Run Tests with Coverage
         run: make coverage
       
+      - name: Validate CocoaPods podspec
+        run: |
+          sudo gem install cocoapods
+          pod --version
+          pod lib lint Maple.podspec --allow-warnings --verbose
+
       - name: Convert coverage data to JSON
         run: |
           xcrun llvm-cov export -format=lcov \
