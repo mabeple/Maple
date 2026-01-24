@@ -27,14 +27,14 @@ jobs:
       
       - name: Convert coverage data to JSON
         run: |
-          xcrun llvm-cov export -format=json \
+          xcrun llvm-cov export -format=lcov \
             .build/debug/MaplePackageTests.xctest \
             -instr-profile .build/debug/MaplePackageTests.profdata \
-            > .build/debug/codecov/Maple.json
+            > .build/debug/codecov/Maple.lcov
       
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
         with:
-          files: .build/debug/codecov/Maple.json
+          files: .build/debug/codecov/Maple.lcov
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: false
