@@ -9,28 +9,15 @@ on:
       - master
 
 jobs:
-  run:
-    runs-on: macos-26
-    strategy:
-      matrix:
-        include:
-          - xcode: '26.2'
-            destination: 'macOS'
-            label: 'macOS'
-          - xcode: '26.2'
-            destination: 'iOS Simulator,name=iPhone 17,OS=26.2'
-            label: 'iOS 26.2'
+  test:
+    name: Test
+    runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.3'
-          bundler-cache: true
-      - name: Run tests
-        env:
-          DESTINATION: platform=${{ matrix.destination }}
-          XCODE_VERSION: ${{ matrix.xcode }}
-          FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: '60'
-          FASTLANE_XCODEBUILD_SETTINGS_RETRIES: '4'
-        run:
-          bundle exec fastlane test_ci
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Run Tests
+        run: make test
+      
+      - name: Generate Coverage
+        run: make coverage
