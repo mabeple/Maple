@@ -26,7 +26,7 @@ jobs:
         run: |
           sudo gem install cocoapods
           pod --version
-          pod lib lint Maple.podspec --allow-warnings
+          pod lib lint Maple.podspec --allow-warnings --verbose
           
       - name: Run Tests with Coverage
         run: make coverage
@@ -44,3 +44,4 @@ jobs:
           files: .build/debug/codecov/Maple.lcov
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: false
+          verbose: true
