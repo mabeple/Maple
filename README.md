@@ -1,6 +1,6 @@
 # Maple
 
-[![build](https://github.com/mabeple/Maple/actions/workflows/CI.yml/badge.svg)](https://github.com/mabeple/Maple/actions/workflows/CI.yml)
+[![CI](https://github.com/mabeple/Maple/actions/workflows/CI.yml/badge.svg)](https://github.com/mabeple/Maple/actions/workflows/CI.yml)
 [![codecov](https://codecov.io/gh/Mabeple/Maple/branch/master/graph/badge.svg)](https://codecov.io/gh/Mabeple/Maple)
 [![Swift](https://img.shields.io/badge/Swift-6.0-orange.svg)](https://swift.org)
 [![Platform](https://img.shields.io/badge/platform-iOS%20%7C%20macOS-lightgrey.svg)](https://github.com/Mabeple/Maple)
@@ -131,4 +131,5 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 Maple is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
+
 
