@@ -23,11 +23,10 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Run Tests with Coverage
-        run: make coverage
-        
+        run: make coverage        
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
         with:
-          files: .build/debug/codecov/Maple.profdata
+          files: .build/debug/codecov/Maple.json
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: false
