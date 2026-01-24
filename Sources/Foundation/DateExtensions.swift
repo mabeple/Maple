@@ -499,7 +499,7 @@ public extension MapleWrapper where Base == Date {
     /// Compares the specified components between the base date and the given end date.
     /// - Parameters:
     ///   - components: The set of calendar components to compare.
-    ///   - end: The end date for the comparison.
+    ///   - date: The end date for the comparison.
     /// - Returns: A `DateComponents` object representing the difference between the base date and the end date in the specified components.
     func compare(_ components: Set<Calendar.Component>, to date: Date) -> DateComponents {
         calendar.dateComponents(components, from: base, to: date)

@@ -60,7 +60,7 @@ public func ± <T: FloatingPoint>(lhs: T, rhs: T) -> (T, T) {
 prefix operator ±
 /// Tuple of plus-minus operation.
 ///
-/// - Parameter int: number.
+/// - Parameter number: number.
 /// - Returns: tuple of plus-minus operation (± 2.5 -> (2.5, -2.5)).
 public prefix func ± <T: FloatingPoint>(number: T) -> (T, T) {
     // http://nshipster.com/swift-operators/
