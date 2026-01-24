@@ -482,5 +482,97 @@ struct UIImageExtensionTests {
         
         #expect(tinted.renderingMode == .alwaysOriginal)
     }
+    
+    // MARK: - Method: fixOrientation()
+    
+    @Test("fixOrientation should handle all orientations correctly")
+    func testFixOrientation() {
+        let image = Self.loadTestImage()
+        guard let cgImage = image.cgImage else {
+            return
+        }
+        
+        // Test .up orientation
+        let upImage = UIImage(cgImage: cgImage, scale: 1.0, orientation: .up)
+        let fixedUp = upImage.mp.fixOrientation()
+        #expect(fixedUp.imageOrientation == .up)
+        #expect(fixedUp.size == upImage.size)
+        #expect(fixedUp.scale == 1.0)
+        #expect(fixedUp === upImage, ".up should return same instance")
+        
+        // Test .down orientation
+        let downImage = UIImage(cgImage: cgImage, scale: 1.0, orientation: .down)
+        let fixedDown = downImage.mp.fixOrientation()
+        #expect(fixedDown.imageOrientation == .up)
+        #expect(fixedDown.size == downImage.size)
+        #expect(fixedDown.scale == 1.0)
+        #expect(fixedDown.size.width > 0)
+        #expect(fixedDown.size.height > 0)
+        
+        // Test .left orientation
+        let leftImage = UIImage(cgImage: cgImage, scale: 1.0, orientation: .left)
+        let fixedLeft = leftImage.mp.fixOrientation()
+        #expect(fixedLeft.imageOrientation == .up)
+        #expect(fixedLeft.cgImage?.width == cgImage.width)
+        #expect(fixedLeft.cgImage?.height == cgImage.height)
+        #expect(fixedLeft.scale == 1.0)
+        #expect(fixedLeft.size.width > 0)
+        #expect(fixedLeft.size.height > 0)
+        
+        // Test .right orientation
+        let rightImage = UIImage(cgImage: cgImage, scale: 1.0, orientation: .right)
+        let fixedRight = rightImage.mp.fixOrientation()
+        #expect(fixedRight.imageOrientation == .up)
+        #expect(fixedRight.cgImage?.width == cgImage.width)
+        #expect(fixedRight.cgImage?.height == cgImage.height)
+        #expect(fixedRight.scale == 1.0)
+        #expect(fixedRight.size.width > 0)
+        #expect(fixedRight.size.height > 0)
+        
+        // Test .upMirrored orientation
+        let upMirroredImage = UIImage(cgImage: cgImage, scale: 1.0, orientation: .upMirrored)
+        let fixedUpMirrored = upMirroredImage.mp.fixOrientation()
+        #expect(fixedUpMirrored.imageOrientation == .up)
+        #expect(fixedUpMirrored.size == upMirroredImage.size)
+        #expect(fixedUpMirrored.scale == 1.0)
+        #expect(fixedUpMirrored.size.width > 0)
+        #expect(fixedUpMirrored.size.height > 0)
+        
+        // Test .downMirrored orientation
+        let downMirroredImage = UIImage(cgImage: cgImage, scale: 1.0, orientation: .downMirrored)
+        let fixedDownMirrored = downMirroredImage.mp.fixOrientation()
+        #expect(fixedDownMirrored.imageOrientation == .up)
+        #expect(fixedDownMirrored.size == downMirroredImage.size)
+        #expect(fixedDownMirrored.scale == 1.0)
+        #expect(fixedDownMirrored.size.width > 0)
+        #expect(fixedDownMirrored.size.height > 0)
+        
+        // Test .leftMirrored orientation
+        let leftMirroredImage = UIImage(cgImage: cgImage, scale: 1.0, orientation: .leftMirrored)
+        let fixedLeftMirrored = leftMirroredImage.mp.fixOrientation()
+        #expect(fixedLeftMirrored.imageOrientation == .up)
+        #expect(fixedLeftMirrored.cgImage?.width == cgImage.width)
+        #expect(fixedLeftMirrored.cgImage?.height == cgImage.height)
+        #expect(fixedLeftMirrored.scale == 1.0)
+        #expect(fixedLeftMirrored.size.width > 0)
+        #expect(fixedLeftMirrored.size.height > 0)
+        
+        // Test .rightMirrored orientation with scale = 2.0
+        let rightMirroredImage = UIImage(cgImage: cgImage, scale: 2.0, orientation: .rightMirrored)
+        let fixedRightMirrored = rightMirroredImage.mp.fixOrientation()
+        #expect(fixedRightMirrored.imageOrientation == .up)
+        #expect(fixedRightMirrored.cgImage?.width == cgImage.width)
+        #expect(fixedRightMirrored.cgImage?.height == cgImage.height)
+        #expect(fixedRightMirrored.scale == 2.0)
+        #expect(fixedRightMirrored.size.width > 0)
+        #expect(fixedRightMirrored.size.height > 0)
+        
+        // Test nil cgImage case
+        let ciImage = CIImage(color: CIColor.red)
+        let imageWithoutCGImage = UIImage(ciImage: ciImage)
+        let fixedNil = imageWithoutCGImage.mp.fixOrientation()
+        #expect(fixedNil.cgImage == nil)
+        #expect(fixedNil === imageWithoutCGImage)
+    }
 }
 #endif

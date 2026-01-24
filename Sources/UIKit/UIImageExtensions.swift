@@ -262,9 +262,82 @@ public extension MapleWrapper where Base == UIImage {
     /// - Parameters:
     ///   - color: Color of image.
     /// - Returns: UIImage with color.
-    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     func withAlwaysOriginalTintColor(_ color: UIColor) -> UIImage {
         base.withTintColor(color, renderingMode: .alwaysOriginal)
+    }
+    
+    /// Fix image orientation to `.up`.
+    ///
+    /// Corrects the image orientation by redrawing it with the proper transform.
+    /// This is useful when dealing with images from camera or photo library that may have
+    /// incorrect EXIF orientation data.
+    ///
+    ///     let fixedImage = image.mp.fixOrientation()
+    ///
+    /// - Returns: A new image with `.up` orientation, or original image if already `.up` or fix fails.
+    func fixOrientation() -> UIImage {
+        guard base.imageOrientation != .up else { return base }
+        guard let cgImage = base.cgImage else { return base }
+        
+        let isLandscape =
+        base.imageOrientation == .left ||
+        base.imageOrientation == .right ||
+        base.imageOrientation == .leftMirrored ||
+        base.imageOrientation == .rightMirrored
+        
+        let ctxWidth = isLandscape ? Int(base.size.height * base.scale) : Int(base.size.width * base.scale)
+        let ctxHeight = isLandscape ? Int(base.size.width * base.scale) : Int(base.size.height * base.scale)
+        
+        guard let context = CGContext(
+            data: nil,
+            width: ctxWidth,
+            height: ctxHeight,
+            bitsPerComponent: cgImage.bitsPerComponent,
+            bytesPerRow: 0,
+            space: cgImage.colorSpace ?? CGColorSpaceCreateDeviceRGB(),
+            bitmapInfo: cgImage.bitmapInfo.rawValue
+        ) else {
+            return base
+        }
+        
+        var transform = CGAffineTransform.identity
+        
+        switch base.imageOrientation {
+        case .down, .downMirrored:
+            transform = transform.translatedBy(x: base.size.width, y: base.size.height)
+            transform = transform.rotated(by: .pi)
+        case .left, .leftMirrored:
+            transform = transform.translatedBy(x: base.size.height, y: 0)
+            transform = transform.rotated(by: .pi / 2)
+        case .right, .rightMirrored:
+            transform = transform.translatedBy(x: 0, y: base.size.width)
+            transform = transform.rotated(by: -.pi / 2)
+        default:
+            break
+        }
+        
+        switch base.imageOrientation {
+        case .upMirrored, .downMirrored:
+            transform = transform.translatedBy(x: base.size.width, y: 0)
+            transform = transform.scaledBy(x: -1, y: 1)
+        case .leftMirrored, .rightMirrored:
+            transform = transform.translatedBy(x: base.size.height, y: 0)
+            transform = transform.scaledBy(x: -1, y: 1)
+        default:
+            break
+        }
+        
+        context.scaleBy(x: base.scale, y: base.scale)
+        context.concatenate(transform)
+        
+        let drawRect = isLandscape
+        ? CGRect(x: 0, y: 0, width: base.size.height, height: base.size.width)
+        : CGRect(x: 0, y: 0, width: base.size.width, height: base.size.height)
+        
+        context.draw(cgImage, in: drawRect)
+        
+        guard let newImage = context.makeImage() else { return base }
+        return UIImage(cgImage: newImage, scale: base.scale, orientation: .up)
     }
 }
 
