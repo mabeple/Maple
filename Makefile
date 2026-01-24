@@ -14,7 +14,7 @@ help:
 # Generate static documentation for hosting
 docs:
 	@echo "📚 Generating documentation..."
-	@swift package --disable-sandbox generate-documentation --target Maple --output-path ./docs --transform-for-static-hosting
+	@swift package --disable-sandbox generate-documentation --target Maple --output-path ./docs --transform-for-static-hosting --hosting-base-path Maple
 	@echo "✅ Documentation generated at ./docs"
 
 # Generate and preview documentation
