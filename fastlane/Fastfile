@@ -84,8 +84,7 @@ platform :ios do
     UI.message("📦 Publishing to CocoaPods Trunk...")
     pod_push(
       path: PODSPEC_PATH,
-      allow_warnings: true,
-      repo: "trunk"
+      allow_warnings: true
     )
     UI.success("✅ Published to CocoaPods Trunk")
     
