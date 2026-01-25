@@ -1,54 +1,105 @@
 # This file contains the fastlane.tools configuration
 # You can find the documentation at https://docs.fastlane.tools
-#
-# For a list of all available actions, check out
-#
-#     https://docs.fastlane.tools/actions
-#
-# For a list of all available plugins, check out
-#
-#     https://docs.fastlane.tools/plugins/available-plugins
-#
-
-# Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
 
 default_platform(:ios)
 
 platform :ios do
-  desc 'Maple is used to automate the upgrade and maintenance of libraries.'
-  lane :pod_repo_push do |options|
-    target_version = options[:version]
-    raise "The version is missed. Use `fastlane pod_repo_push version:{version_number}`.`" if target_version.nil?
+  # Common configuration
+  PODSPEC_PATH = "Maple.podspec"
+  REPOSITORY_NAME = "Mabeple/Maple"
+  BRANCH = "master"
 
+  # Validate version format
+  def validate_version(version)
+    raise "Version cannot be nil or empty" if version.nil? || version.empty?
+    raise "Invalid version format. Use semantic versioning (e.g., 1.3.6)" unless version.match?(/^\d+\.\d+\.\d+/)
+    version
+  end
+
+  # Ensure Git is ready (clean status and correct branch)
+  def ensure_git_ready
     ensure_git_status_clean
-    ensure_git_branch(branch: "master")
+    ensure_git_branch(branch: BRANCH)
+  end
+
+  # Read CHANGELOG file
+  def read_changelog(version)
+    changelog_path = "CHANGELOG.md"
+    if File.exist?(changelog_path)
+      File.read(changelog_path)
+    else
+      "Release version #{version}"
+    end
+  rescue => e
+    UI.important("Failed to read CHANGELOG.md: #{e.message}")
+    "Release version #{version}"
+  end
+
+  desc 'Validate CocoaPods podspec'
+  lane :pod_lib_lint do
+    ensure_git_ready
+    pod_lib_lint(
+      path: PODSPEC_PATH,
+      allow_warnings: true,
+      verbose: true
+    )
+    UI.success("✅ Podspec validation passed")
+  end
+
+  desc 'Release to CocoaPods Trunk'
+  lane :pod_repo_push do |options|
+    target_version = validate_version(options[:version])
     
-    version_bump_podspec(path: "Maple.podspec", version_number: target_version)
-
-    pod_lib_lint(allow_warnings: true)
-
+    UI.header("🚀 Starting release process for version #{target_version}")
+    
+    # Ensure Git is ready
+    ensure_git_ready
+    
+    # Update podspec version
+    UI.message("📝 Updating podspec version to #{target_version}")
+    version_bump_podspec(path: PODSPEC_PATH, version_number: target_version)
+    
+    # Validate podspec
+    UI.message("🔍 Validating podspec...")
+    pod_lib_lint(path: PODSPEC_PATH, allow_warnings: true)
+    UI.success("✅ Podspec validation passed")
+    
+    # Commit changes
+    UI.message("📤 Committing changes...")
     git_add(path: ".")
-    git_commit(message: "bump version to #{target_version}")
-    
+    git_commit(message: "Bump version to #{target_version}")
     push_to_git_remote
-
+    
+    # Create and push tag
+    UI.message("🏷️  Creating tag v#{target_version}...")
     add_git_tag(tag: target_version)
     push_git_tags
-
-    pod_push(path: "Maple.podspec", allow_warnings: true, repo: "trunk")
-
+    
+    # Publish to CocoaPods Trunk
+    UI.message("📦 Publishing to CocoaPods Trunk...")
+    pod_push(
+      path: PODSPEC_PATH,
+      allow_warnings: true,
+      repo: "trunk"
+    )
+    UI.success("✅ Published to CocoaPods Trunk")
+    
+    # Create GitHub Release
     if ENV["GITHUB_TOKEN"]
+      UI.message("📝 Creating GitHub Release...")
       set_github_release(
-        repository_name: "Mabeple/Maple",
+        repository_name: REPOSITORY_NAME,
         api_token: ENV["GITHUB_TOKEN"],
         name: "Release #{target_version}",
         tag_name: target_version,
-        description: (File.read("CHANGELOG.md") rescue "#{target_version}"),
-        commitish: "master",
+        description: read_changelog(target_version),
+        commitish: BRANCH
       )
+      UI.success("✅ GitHub Release created")
     else
-      UI.important("GITHUB_TOKEN not set, skipping GitHub Release creation")
+      UI.important("⚠️  GITHUB_TOKEN not set, skipping GitHub Release creation")
     end
+    
+    UI.success("🎉 Release #{target_version} completed successfully!")
   end
 end
