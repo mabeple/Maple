@@ -15,29 +15,13 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios tests
+### ios pod_lib_lint
 
 ```sh
-[bundle exec] fastlane ios tests
+[bundle exec] fastlane ios pod_lib_lint
 ```
 
-Runs all the tests
-
-### ios test_ci
-
-```sh
-[bundle exec] fastlane ios test_ci
-```
-
-Runs all the test ci
-
-### ios test
-
-```sh
-[bundle exec] fastlane ios test
-```
-
-Maple 单元测试
+Validate CocoaPods podspec
 
 ### ios pod_repo_push
 
@@ -45,7 +29,7 @@ Maple 单元测试
 [bundle exec] fastlane ios pod_repo_push
 ```
 
-Maple 用来自动化升级维护库
+Release to CocoaPods Trunk
 
 ----
 
