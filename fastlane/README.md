@@ -15,10 +15,10 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios pod_lib_lint
+### ios pod_repo_validate
 
 ```sh
-[bundle exec] fastlane ios pod_lib_lint
+[bundle exec] fastlane ios pod_repo_validate
 ```
 
 Validate CocoaPods podspec

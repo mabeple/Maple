@@ -36,11 +36,11 @@ platform :ios do
   end
 
   desc 'Validate CocoaPods podspec'
-  lane :pod_lib_lint do
+  lane :pod_repo_validate do
     pod_lib_lint(
-      path: PODSPEC_PATH,
+      podspec: PODSPEC_PATH,
       allow_warnings: true,
-      verbose: true
+      verbose: false
     )
     UI.success("✅ Podspec validation passed")
   end
@@ -57,7 +57,10 @@ platform :ios do
     
     # Validate podspec
     UI.message("🔍 Validating podspec...")
-    pod_lib_lint(path: PODSPEC_PATH, allow_warnings: true)
+    pod_lib_lint(
+      podspec: PODSPEC_PATH,
+      allow_warnings: true
+    )
     UI.success("✅ Podspec validation passed")
     
     # Commit changes
@@ -74,7 +77,7 @@ platform :ios do
     # Publish to CocoaPods Trunk
     UI.message("📦 Publishing to CocoaPods Trunk...")
     pod_push(
-      path: PODSPEC_PATH,
+      podspec: PODSPEC_PATH,
       allow_warnings: true,
       repo: "trunk"
     )
