@@ -66,8 +66,14 @@ platform :ios do
     # Commit changes
     UI.message("📤 Committing changes...")
     git_add(path: ".")
-    git_commit(message: "Bump version to #{target_version}")
-    push_to_git_remote
+    git_commit(
+    path: ".",
+    message: "Bump version to #{target_version}"
+    )
+    push_to_git_remote(
+      remote: "origin",
+      branch: BRANCH
+    )
     
     # Create and push tag
     UI.message("🏷️  Creating tag v#{target_version}...")
