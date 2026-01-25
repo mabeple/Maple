@@ -16,66 +16,39 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Runs all the tests"
-  lane :tests do
-    test(scheme: "Maple-iOS", destination: "platform=iOS Simulator,name=iPhone 13")
-    test(scheme: "Maple-macOS", destination: "platform=macOS")
-  end
-
-  desc "Runs all the test ci"
-  lane :test_ci do
-    if ENV["DESTINATION"].include? "macOS" then
-      test(scheme: "Maple-macOS", destination: ENV["DESTINATION"])
-    else
-      test(scheme: "Maple-iOS", destination: ENV["DESTINATION"])
-    end
-  end
-
-  desc 'Maple 单元测试'
-  lane :test do |options|
-    scan(
-      scheme: options[:scheme], 
-      clean: true,
-      destination: options[:destination]
-    )
-  end
-
-  desc 'Maple 用来自动化升级维护库'
+  desc 'Maple is used to automate the upgrade and maintenance of libraries.'
   lane :pod_repo_push do |options|
     target_version = options[:version]
     raise "The version is missed. Use `fastlane pod_repo_push version:{version_number}`.`" if target_version.nil?
 
     ensure_git_status_clean
-    ensure_git_branch
+    ensure_git_branch(branch: "master")
     
-    # 修改版本
-    increment_version_number(version_number: target_version)
-
-    # 修改 podspec 中版本
     version_bump_podspec(path: "Maple.podspec", version_number: target_version)
 
-    # 验证podspec
     pod_lib_lint(allow_warnings: true)
 
-    # 提交本地仓库代码至远程仓库
     git_add(path: ".")
-    git_commit(path: ".", message: "bump version to #{target_version}")
-    # commit
+    git_commit(message: "bump version to #{target_version}")
+    
     push_to_git_remote
 
-    # 打标签，并提交至远程
     add_git_tag(tag: target_version)
     push_git_tags
 
-    pod_push(path: "Maple.podspec", allow_warnings: true)
+    pod_push(path: "Maple.podspec", allow_warnings: true, repo: "trunk")
 
-    set_github_release(
-      repository_name: "Mabeple/Maple",
-      api_token: ENV["GITHUB_TOKEN"],
-      name: "Release #{target_version}",
-      tag_name: target_version,
-      description: (File.read("changelog") rescue "#{target_version}"),
-      commitish: "master",
-    )
+    if ENV["GITHUB_TOKEN"]
+      set_github_release(
+        repository_name: "Mabeple/Maple",
+        api_token: ENV["GITHUB_TOKEN"],
+        name: "Release #{target_version}",
+        tag_name: target_version,
+        description: (File.read("CHANGELOG.md") rescue "#{target_version}"),
+        commitish: "master",
+      )
+    else
+      UI.important("GITHUB_TOKEN not set, skipping GitHub Release creation")
+    end
   end
 end
