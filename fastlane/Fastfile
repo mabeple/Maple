@@ -53,7 +53,10 @@ platform :ios do
     
     # Update podspec version
     UI.message("📝 Updating podspec version to #{target_version}")
-    version_bump_podspec(path: PODSPEC_PATH, version_number: target_version)
+    version_bump_podspec(
+      path: PODSPEC_PATH, 
+      version_number: target_version,
+    )
     
     # Validate podspec
     UI.message("🔍 Validating podspec...")
@@ -70,7 +73,7 @@ platform :ios do
     path: ".",
     message: "Bump version to #{target_version}"
     )
-    push_to_git_remote()
+    push_to_git_remote
     
     # Create and push tag
     UI.message("🏷️  Creating tag v#{target_version}...")
@@ -80,7 +83,7 @@ platform :ios do
     # Publish to CocoaPods Trunk
     UI.message("📦 Publishing to CocoaPods Trunk...")
     pod_push(
-      podspec: PODSPEC_PATH,
+      path: PODSPEC_PATH,
       allow_warnings: true,
       repo: "trunk"
     )
