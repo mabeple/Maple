@@ -50,7 +50,7 @@ release:
 		exit 1; \
 	fi
 	@echo "🚀 Releasing version $(VERSION) to CocoaPods Trunk..."
-	@bundle exec fastlane ios pod_repo_push version:$(VERSION)
+	@fastlane ios pod_repo_push version:$(VERSION)
 	@echo "✅ Release $(VERSION) completed"
 
 # Clean build artifacts and documentation
