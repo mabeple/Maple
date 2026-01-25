@@ -1,4 +1,4 @@
-.PHONY: help docs preview test coverage clean
+.PHONY: help docs preview test coverage clean lint release
 
 # Default target
 help:
@@ -8,6 +8,8 @@ help:
 	@echo "  make preview       - Start documentation preview server"
 	@echo "  make test          - Run all tests (macOS)"
 	@echo "  make coverage      - Generate code coverage report"
+	@echo "  make lint          - Validate CocoaPods podspec"
+	@echo "  make release VERSION=X - Release to CocoaPods (e.g., VERSION=1.3.6)"
 	@echo "  make clean         - Clean build artifacts"
 	@echo ""
 
@@ -33,6 +35,23 @@ coverage:
 	@echo "🧪 Running tests with code coverage..."
 	@swift test --enable-code-coverage
 	@echo "✅ Coverage report generated"
+
+# Validate CocoaPods podspec
+lint:
+	@echo "🔍 Validating CocoaPods podspec..."
+	@bundle exec fastlane ios pod_repo_validate
+	@echo "✅ Podspec validation completed"
+
+# Release to CocoaPods Trunk
+# Usage: make release VERSION=1.3.6
+release:
+	@if [ -z "$(VERSION)" ]; then \
+		echo "❌ Error: VERSION is required. Usage: make release VERSION=1.3.6"; \
+		exit 1; \
+	fi
+	@echo "🚀 Releasing version $(VERSION) to CocoaPods Trunk..."
+	@bundle exec fastlane ios pod_repo_push version:$(VERSION)
+	@echo "✅ Release $(VERSION) completed"
 
 # Clean build artifacts and documentation
 clean:
