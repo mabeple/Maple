@@ -70,10 +70,7 @@ platform :ios do
     path: ".",
     message: "Bump version to #{target_version}"
     )
-    push_to_git_remote(
-      remote: "origin",
-      branch: BRANCH
-    )
+    push_to_git_remote()
     
     # Create and push tag
     UI.message("🏷️  Creating tag v#{target_version}...")
