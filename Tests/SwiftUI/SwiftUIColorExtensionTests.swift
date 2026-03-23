@@ -321,6 +321,56 @@ struct SwiftUIColorExtensionTests {
         #expect(components.blue < 200.0 / 255.0)
     }
     
+    @Test("luminance should be higher for light colors")
+    func testLuminance() {
+        let darkColor = Color(red: 20, green: 20, blue: 20)
+        let lightColor = Color(red: 240, green: 240, blue: 240)
+        
+        #expect(lightColor.mp.luminance > darkColor.mp.luminance)
+        #expect(lightColor.mp.luminance >= 0.0)
+        #expect(darkColor.mp.luminance >= 0.0)
+    }
+    
+    @Test("isLight should detect bright colors")
+    func testIsLight() {
+        let darkColor = Color(red: 20, green: 20, blue: 20)
+        let lightColor = Color(red: 240, green: 240, blue: 240)
+        
+        #expect(lightColor.mp.isLight)
+        #expect(!darkColor.mp.isLight)
+    }
+    
+    @Test("contrastingColor should return dark for light backgrounds")
+    func testContrastingColor() {
+        let darkContrast = Color(red: 240, green: 240, blue: 240).mp.contrastingColor()
+        let lightContrast = Color(red: 20, green: 20, blue: 20).mp.contrastingColor()
+        
+        #expect(abs(darkContrast.mp.rgbComponents.red - 0) <= 2)
+        #expect(abs(darkContrast.mp.rgbComponents.green - 0) <= 2)
+        #expect(abs(darkContrast.mp.rgbComponents.blue - 0) <= 2)
+        
+        #expect(abs(lightContrast.mp.rgbComponents.red - 255) <= 2)
+        #expect(abs(lightContrast.mp.rgbComponents.green - 255) <= 2)
+        #expect(abs(lightContrast.mp.rgbComponents.blue - 255) <= 2)
+    }
+    
+    @Test("withAlpha should replace the alpha channel")
+    func testWithAlpha() {
+        let translucent = Color(red: 255, green: 100, blue: 50).mp.withAlpha(0.3)
+        #expect(abs(translucent.mp.alpha - 0.3) < 0.01)
+    }
+    
+    @Test("blended should interpolate colors")
+    func testBlended() {
+        let baseColor = Color(red: 255, green: 0, blue: 0)
+        let blended = baseColor.mp.blended(with: Color(red: 0, green: 0, blue: 255), amount: 0.5)
+        let components = blended.mp.rgbComponents
+        
+        #expect(abs(components.red - 127) <= 2)
+        #expect(abs(components.green - 0) <= 2)
+        #expect(abs(components.blue - 127) <= 2)
+    }
+    
     // MARK: - Random Color
     
     @Test("random should generate random colors")

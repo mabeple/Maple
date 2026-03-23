@@ -6,6 +6,7 @@
 //
 
 #if canImport(SwiftUI)
+import Foundation
 import SwiftUI
 
 #if canImport(UIKit)
@@ -80,6 +81,27 @@ public extension MapleWrapper where Base == SwiftUI.Color {
         platformColor.mp.alpha
     }
     
+    /// Relative luminance of the color using the WCAG formula.
+    var luminance: CGFloat {
+        let components = cgFloatComponents
+        let convert: (CGFloat) -> CGFloat = { component in
+            if component <= 0.03928 {
+                return component / 12.92
+            }
+            return CGFloat(pow((Double(component) + 0.055) / 1.055, 2.4))
+        }
+        
+        let red = convert(components.red)
+        let green = convert(components.green)
+        let blue = convert(components.blue)
+        return (0.2126 * red) + (0.7152 * green) + (0.0722 * blue)
+    }
+    
+    /// Whether the color reads as light against a dark foreground.
+    var isLight: Bool {
+        luminance >= 0.6
+    }
+    
     #if !os(watchOS)
     /// CoreImage.CIColor (read-only).
     var coreImageColor: CoreImage.CIColor? {
@@ -112,6 +134,46 @@ public extension MapleWrapper where Base == SwiftUI.Color {
     /// - Returns: A darkened color
     func darken(by percentage: CGFloat = 0.2) -> SwiftUI.Color {
         SwiftUI.Color(platformColor.mp.darken(by: percentage))
+    }
+    
+    /// Returns a foreground color that contrasts with the receiver.
+    ///
+    /// - Parameters:
+    ///   - light: The color returned for dark backgrounds.
+    ///   - dark: The color returned for light backgrounds.
+    /// - Returns: Either `light` or `dark` depending on the receiver's luminance.
+    func contrastingColor(light: Color = .white, dark: Color = .black) -> SwiftUI.Color {
+        isLight ? dark : light
+    }
+    
+    /// Returns the same color with a new alpha value.
+    ///
+    /// - Parameter alpha: The alpha value to apply.
+    /// - Returns: A color with the provided alpha.
+    func withAlpha(_ alpha: CGFloat) -> SwiftUI.Color {
+        let clampedAlpha = min(max(alpha, 0), 1)
+        return SwiftUI.Color(platformColor.withAlphaComponent(clampedAlpha))
+    }
+    
+    /// Blends the color with another color by the given amount.
+    ///
+    /// - Parameters:
+    ///   - color: The color to blend with.
+    ///   - amount: The blend amount between `0` and `1`.
+    /// - Returns: The blended color.
+    func blended(with color: Color, amount: CGFloat) -> SwiftUI.Color {
+        let clampedAmount = min(max(amount, 0), 1)
+        let targetColor = MPCrossPlatformColor(color)
+        let source = platformColor.mp.cgFloatComponents
+        let target = targetColor.mp.cgFloatComponents
+        let blendedAlpha = alpha + ((targetColor.mp.alpha - alpha) * clampedAmount)
+        let blendedColor = MPCrossPlatformColor(
+            red: source.red + ((target.red - source.red) * clampedAmount),
+            green: source.green + ((target.green - source.green) * clampedAmount),
+            blue: source.blue + ((target.blue - source.blue) * clampedAmount),
+            alpha: blendedAlpha
+        )
+        return SwiftUI.Color(blendedColor)
     }
 }
 
